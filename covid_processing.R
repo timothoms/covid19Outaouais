@@ -3,6 +3,7 @@ library("lubridate")
 library("rvest")
 library("parallel")
 library("runner")
+
 links <- list(
     local_sit_defunct = "https://cisss-outaouais.gouv.qc.ca/language/en/18907-2/",
     local_sit_en = "https://cisss-outaouais.gouv.qc.ca/language/en/covid19-en/",
@@ -15,6 +16,7 @@ links <- list(
     can_visual = "https://health-infobase.canada.ca/covid-19/",
     can_data = "https://www.canada.ca/en/public-health/services/diseases/coronavirus-disease-covid-19/epidemiological-economic-research-data.html"
 )
+
 ParseHTMLtables <- function(path) {
     ids <- files <- dir(path)
     ids <- str_replace(ids, ".snapshot", "")
@@ -59,13 +61,13 @@ areas <- c(
 unique(lapply(cases, names))
 unique(lapply(areas, names))
 unique(lapply(rls, names))
-
 covid <- list(cases = cases, rls = rls, areas = areas)
-### duplicates
+
+### duplicate tables
 # lapply(covid, function(set) {
 #     paste(length(unique(set)), "/", length(set))
 # })
-# unique(lapply(rls[lapply(rls, ncol) == 3], names))
+
 FormatTable <- function(table_id, tables) {
     tab <- tables[[table_id]]
     names(tab) <- str_to_lower(names(tab))
@@ -78,7 +80,6 @@ FormatTable <- function(table_id, tables) {
 }
 covid <- lapply(covid, function(set) lapply(names(set), FormatTable, tables = set))
 lapply(covid, function(set) unique(lapply(set, names)))
-
 # covid$areas[unlist(lapply(covid$areas, function(df) sum(df$key == ""))) == 1] # areas[50] ## Thurso
 covid <- lapply(covid, function(set) do.call(rbind, set))
 covid <- lapply(covid, function(df) df[order(df$time), ])
@@ -89,12 +90,6 @@ covid <- lapply(covid_tables, function(table_name) {
     return(df)
 })
 ### consistent labels
-# mrcs <- list(
-#     "MRC de Papineau" = c("Chénéville", "Fassett", "Lac-Des-Plages", "Lac-Simon", "Montebello", "Montpellier", "Papineauville", "Ripon", "Saint-André-Avellin", "Saint-Émile-de-Suffolk", "Thurso"),
-#     "MRC des Collines-de-l'Outaouais" = c("Cantley", "Chelsea", "L'Ange-Gardien", "La Pêche", "Lochaber-Partie-Ouest", "Val-des-Monts"),
-#     "MRC du Pontiac" = c("Fort-Coulonge", "L'Île-du-Grand-Calumet", "Mansfield-et-Pontefract", "Pontiac", "Shawville"),
-#     "MRC de la Vallée-de-la-Gatineau" = c("Blue Sea", "Bouchette", "Déléage", "Maniwaki", "Sainte-Thérèse-de-la-Gatineau")
-# )
 covid <- lapply(covid, function(df) {
     df$key <- str_replace(df$key, fixed("**"), "")
     df$key <- str_replace(df$key, fixed("*"), "")
@@ -104,19 +99,19 @@ covid <- lapply(covid, function(df) {
     df$key[df$key %in% c("Active cases", "Total of active cases in Outaouais")] <- "Active cases"
     df$key[df$key %in% c("Cumulative cases", "Total number of cases in Outaouais", "Total") & df$table == "cases"] <- "Cumulative cases"
     df$key[df$key %in% c("Cumulative cases", "Total number of cases in Outaouais", "Total") & df$table != "cases"] <- "Total cases"
-    ### rls
     df$key[df$key %in% c("Collines-de-l'Outaouais", "RLS des Collines-de-l'Outaouais") & df$table == "rls"] <- "RLS des Collines-de-l'Outaouais"
     df$key[df$key %in% c("Papineau", "RLS de Papineau") & df$table == "rls"] <- "RLS de Papineau"
     df$key[df$key %in% c("Pontiac", "RLS du Pontiac") & df$table == "rls"] <- "RLS du Pontiac"
     df$key[df$key %in% c("Gatineau", "RLS de Gatineau", "Ville de Gatineau") & df$table == "rls"] <- "RLS de Gatineau"
     df$key[df$key %in% c("Vallée-de-la-Gatineau", "RLS de la Vallée-de-la-Gatineau") & df$table == "rls"] <- "RLS de la Vallée-de-la-Gatineau"
-    ### areas
     df$key[df$key %in% c("To be determined", "To be determined0", "À déterminer")] <- "To be determined"
     df$key <- str_replace(df$key, fixed("Municipality of "), "")
     df$key <- str_replace(df$key, fixed("Municipalité de "), "")
     df$key[df$key %in% c("Lac-des-Plages", "Lac-Des-Plages") & df$table == "areas"] <- "Lac-des-Plages"
-    df$key[df$key %in% c("Gatineau", "Ville de Gatineau") & df$table == "areas"] <- "Ville de Gatineau"
+    df$key[df$key %in% c("Gatineau", "Ville de Gatineau") & df$table == "areas"] <- "Gatineau"
     df$key[df$key %in% c("Pontiac", "MRC du Pontiac") & df$table == "areas"] <- "MRC du Pontiac"
+    df$key[df$key %in% c("Val-des-Bois", "Val-des-bois") & df$table == "areas"] <- "Val-des-Bois"
+    df$key[df$key %in% c("L'Isle-aux-Allumettes", "L'Îsles-aux-Allumettes") & df$table == "areas"] <- "L'Isle-aux-Allumettes"
     df$key[df$key == ""] <- "Thurso"
     df <- df[df$key != df$value, ]
     return(df)
@@ -133,6 +128,13 @@ to_add$key <- paste(to_add$key, "(active)")
 to_add$active <- NULL
 covid <- rbind(covid, to_add)
 
+### checks on labels
+load("data/municipalities.RData")
+unique(municipalities$municipality)[!unique(municipalities$municipality) %in% unique(covid$key)]
+unique(covid$key)[!unique(covid$key) %in% unique(municipalities$municipality)]
+unique(covid$key)[str_detect(unique(covid$key), "MRC")]
+unique(municipalities$mrc)[!unique(municipalities$mrc) %in% unique(covid$key)]
+
 ### cleaning
 covid$time <- as_datetime(covid$time, tz = "America/Montreal")
 covid$value <- str_replace(covid$value, fixed("**"), "")
@@ -145,15 +147,36 @@ covid$value[covid$value %in% c("5 et moins", "5 or moins", "5 or less", "5 ou mo
 covid$value <- as.integer(covid$value)
 covid <- covid %>% arrange(time, key, table)
 
-### fix extreme values that are likely due to input error
-ggplot(data = covid[covid$key %in% c("Deaths", "Active cases", "Total cases (active)"), ]) +
-    geom_line(aes(x = time, y = value, color = key)) + theme_classic()
+### checks & fix extreme values that are likely due to input error
+### (still need a simple and consistent approach to error detection, perhaps from the time series methodological literature)
+VisualCheck <- function(keys, tab, exclude = NULL) {
+    keys <- keys[!keys %in% exclude]
+    ggplot(data = covid[covid$key %in% keys & covid$table == tab, ]) +
+        geom_line(mapping = aes(x = time, y = value, group = key, color = key)) +
+        theme_classic() + labs(x = "", y = "") +
+        theme(legend.position = "bottom")
+}
+# VisualCheck(keys = tapply(covid$key, covid$table, unique)[["cases"]], tab = "cases")
 covid <- covid[!(covid$key == "Healed/resolved cases" & covid$time > "2020-10-31" & covid$time < "2020-11-03" & covid$value == 281), ]
-covid$value[covid$time > "2020-05-09" & covid$time < "2020-05-11" & covid$key == "Total cases" & covid$value == 3334] <- 334
+VisualCheck(keys = c("Healed/resolved cases", "Cumulative cases"), tab = "cases")
+VisualCheck(keys = tapply(covid$key, covid$table, unique)[["cases"]], tab = "cases", exclude = c("Healed/resolved cases", "Cumulative cases"))
+# VisualCheck(keys = tapply(covid$key, covid$table, unique)[["rls"]], tab = "rls")
 covid$value[covid$time > "2020-05-23" & covid$time < "2020-05-25" & covid$key == "Total cases" & covid$value == 4729] <- 479
-ggplot(data = covid[covid$key %in% c("Healed/resolved cases", "Cumulative cases", "Total cases", "Average screening test per day"), ]) +
-    geom_line(aes(x = time, y = value, colour = key)) + theme_classic() + theme(legend.position="bottom")
-### need a simple and consistent approach to error detection, from the time series methodological literature
+covid$value[covid$time > "2020-06-24" & covid$time < "2020-06-25" & covid$key == "RLS de Gatineau" & covid$value == 47] <- 497
+covid <- covid[!(covid$time > "2020-12-15" & covid$time < "2020-12-16" & covid$key == "RLS de Gatineau" & covid$value == 32172), ]
+VisualCheck(keys = c("Total cases", "RLS de Gatineau"), tab = "rls")
+VisualCheck(keys = c("Deaths", "To be determined", "To be determined (active)"), tab = "rls")
+VisualCheck(keys = c("Active cases", "Total cases (active)", "Healed/resolved cases"), tab = "rls")
+VisualCheck(keys = c("RLS de Gatineau", "RLS de Gatineau (active)"), tab = "rls")
+VisualCheck(keys = c("RLS de Papineau", "RLS de Papineau (active)"), tab = "rls")
+covid <- covid[!(covid$time > "2021-01-06" & covid$time < "2021-01-07" & covid$key == "RLS du Pontiac" & covid$value == 0), ]
+VisualCheck(keys = c("RLS du Pontiac", "RLS du Pontiac (active)"), tab = "rls") ### FIX 1!
+VisualCheck(keys = c("RLS des Collines-de-l'Outaouais", "RLS des Collines-de-l'Outaouais (active)"), tab = "rls")
+VisualCheck(keys = c("RLS de la Vallée-de-la-Gatineau", "RLS de la Vallée-de-la-Gatineau (active)"), tab = "rls")
+# VisualCheck(keys = tapply(covid$key, covid$table, unique)[["areas"]], tab = "areas")
+covid$value[covid$time > "2020-05-09" & covid$time < "2020-05-11" & covid$key == "Total cases" & covid$value == 3334] <- 334
+VisualCheck(keys = c("Total cases", "Gatineau"), tab = "areas")
+VisualCheck(keys = tapply(covid$key, covid$table, unique)[["areas"]], tab = "areas", exclude = c("Total cases", "Gatineau", "To be determined"))
 
 ### saving data
 save(covid, file = "data/covid_local.RData")
@@ -161,59 +184,3 @@ write_csv(covid, file = "data/covid_local.csv")
 file_connection <-file("data/data_update_time.txt")
 writeLines(as.character(now()), file_connection)
 close(file_connection)
-
-### deduplication by date
-
-## FROM HERE >>>
-
-# data <- data %>% dplyr::arrange(key, time)
-# ## based on afternoon download
-# data$flag <- ifelse(duplicated(data[, c("key", "value", "table", "date")]) | duplicated(data[, c("key", "value", "table", "date")], fromLast = TRUE), 1, 0)
-# data$morning <- hour(data$time) < 12
-# data <- data[!(data$flag == 1 & data$morning), ]
-# data$morning <- NULL
-# ## based on last download of the day
-# data$flag <- ifelse(duplicated(data[, c("key", "value", "table", "date")]) | duplicated(data[, c("key", "value", "table", "date")], fromLast = TRUE), 1, 0)
-# data <- data %>% dplyr::arrange(key, time) %>% group_by(key, date) %>% mutate(latest = max(time) == time)
-# data <- data[!(data$flag == 1 & !data$latest), ]
-# data$latest <- NULL
-# ## based on which table the key-value came from
-# data$flag <- ifelse(duplicated(data[, c("key", "value", "date")]) | duplicated(data[, c("key", "value", "date")], fromLast = TRUE), 1, 0)
-# data <- data[!(data$flag == 1 & data$table == "areas"), ]
-# data$table[data$flag == 1] <- paste(data$table[data$flag == 1], "; areas", sep = "")
-# ## final check on duplicate values
-# data$flag <- ifelse(duplicated(data[, c("key", "value", "date")]) | duplicated(data[, c("key", "value", "date")], fromLast = TRUE), 1, 0)
-# sum(data$flag)
-# ## now check on duplicate key-time-table obs
-# data$flag <- ifelse(duplicated(data[, c("key", "table", "date")]) | duplicated(data[, c("key", "table", "date")], fromLast = TRUE), 1, 0)
-# data$morning <- hour(data$time) < 12
-# data <- data[!(data$flag == 1 & data$morning), ]
-# data$morning <- NULL
-# data$flag <- ifelse(duplicated(data[, c("key", "table", "date")]) | duplicated(data[, c("key", "table", "date")], fromLast = TRUE), 1, 0)
-# data <- data %>% dplyr::arrange(key, time) %>% group_by(key, date) %>% mutate(latest = max(time) == time)
-# data <- data[!(data$flag == 1 & !data$latest), ]
-# data$latest <- NULL
-# ## now check on duplicate key-time obs
-# data$flag <- ifelse(duplicated(data[, c("key", "date")]) | duplicated(data[, c("key", "date")], fromLast = TRUE), 1, 0)
-# sum(data$flag)
-#
-# ### still need to take care of duplicate key-dates for cumulative cases
-#
-# # check <- data[data$flag == 1, ]
-# # print(check[order(check$key, check$time), ], n = Inf)
-# data$flag <- NULL
-#
-# ### calculate daily increases
-# table(data$key)
-# keys_to_calc_avg <- c("Active cases", "Cumulative cases", "Healed/resolved cases", "Deaths", "Chelsea", "La Pêche", "MRC de la Vallée-de-la-Gatineau", "MRC de Papineau", "MRC des Collines-de-l'Outaouais", "MRC du Pontiac", "RLS de Gatineau", "RLS de la Vallée-de-la-Gatineau", "RLS de Papineau", "RLS des Collines-de-l'Outaouais", "RLS du Pontiac")
-# # data <- data %>% dplyr::arrange(key, date) %>% dplyr::group_by(key) %>% dplyr::mutate(moving3 = zoo::rollmean(value, k = 3, fill = NA, align = "right"), moving7 = zoo::rollmean(value, k = 7, fill = NA, align = "right")) %>% dplyr::ungroup()
-# data <- data %>% dplyr::arrange(key, date) %>% dplyr::group_by(key) %>% dplyr::mutate(moving3 = zoo::rollmean(value, k = 3, fill = NA, align = "right"), moving7 = zoo::rollmean(value, k = 7, fill = NA, align = "right")) %>% dplyr::ungroup()
-# # mean_run(x = data$value, k = 7, lag = 0, idx = as_date(data$date))
-#
-# print(data[data$key %in% c("Cumulative cases") & data$table %in% c("cases", "rls", "cases; areas", "rls; areas"), ], n = Inf)
-# print(data[data$key %in% c("Active cases") & data$table %in% c("cases", "rls", "cases; areas", "rls; areas"), ], n = Inf)
-# print(data[data$key %in% c("Average screening test per day"), ], n = Inf)
-# ggplot(data = data[data$key %in% keys_to_calc_avg[4:5], ]) + geom_line(mapping = aes(x = time, y = value, group = key, color = key)) + theme_bw() + ggtitle("Outaouais") + theme(legend.position = "top")
-# ggplot(data = data[data$key %in% c("Average screening test per day", "Active cases"), ]) + geom_line(mapping = aes(x = time, y = value, group = key, color = key)) + theme_bw() + ggtitle("Outaouais") + theme(legend.position = "top")
-
-
