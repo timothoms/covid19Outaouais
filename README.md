@@ -5,8 +5,9 @@ Oskar Timo Thoms
 
 -   [Caveats](#caveats)
 -   [Outaouais Region](#outaouais-region)
--   [By RLS](#by-rls)
--   [By Municipalities](#by-municipalities)
+-   [By Réseaux locaux de services
+    (RLS)](#by-réseaux-locaux-de-services-rls)
+-   [By municipalities](#by-municipalities)
 
 It is difficult to find covid19 trend data at the local level for the
 Outaouais. The [Quebec
@@ -30,7 +31,7 @@ and processing is made available, but not the software for the daily
 automation. (This is currently done with Macscheduler and AppleScript.)
 Note several important caveats when consulting the trend data.
 
-## Caveats
+# Caveats
 
 1.  There is no guarantee of data accuracy. I am aggregating what CISSS
     Outaouais has been reporting over time. While I do try to correct
@@ -69,20 +70,20 @@ Note several important caveats when consulting the trend data.
     precisely reflect the actual situation at those levels, but refer to
     1-5 cases.
 
-Last download: 2021-03-12 11:00:02.
+Last download: 2021-03-12 17:15:02.
 
-Last data update: 2021-03-12 13:41:58.
+Last data revision: 2021-03-12 17:02:41.
 
-Figures updated: 2021-03-12 14:36:53.
-
-## Outaouais Region
+# Outaouais Region
 
 <img src="README_files/figure-gfm/cases-1.png" width="100%" height="100%" /><img src="README_files/figure-gfm/cases-2.png" width="100%" height="100%" />
 
-## By RLS
+# By Réseaux locaux de services (RLS)
 
 <img src="README_files/figure-gfm/rls-1.png" width="100%" height="100%" /><img src="README_files/figure-gfm/rls-2.png" width="100%" height="100%" /><img src="README_files/figure-gfm/rls-3.png" width="100%" height="100%" /><img src="README_files/figure-gfm/rls-4.png" width="100%" height="100%" /><img src="README_files/figure-gfm/rls-5.png" width="100%" height="100%" /><img src="README_files/figure-gfm/rls-6.png" width="100%" height="100%" /><img src="README_files/figure-gfm/rls-7.png" width="100%" height="100%" />
 
-## By Municipalities
+# By municipalities
 
-TBA
+<img src="README_files/figure-gfm/areas-1.png" width="100%" height="100%" /><img src="README_files/figure-gfm/areas-2.png" width="100%" height="100%" /><img src="README_files/figure-gfm/areas-3.png" width="100%" height="100%" /><img src="README_files/figure-gfm/areas-4.png" width="100%" height="100%" /><img src="README_files/figure-gfm/areas-5.png" width="100%" height="100%" /><img src="README_files/figure-gfm/areas-6.png" width="100%" height="100%" /><img src="README_files/figure-gfm/areas-7.png" width="100%" height="100%" /><img src="README_files/figure-gfm/areas-8.png" width="100%" height="100%" />
+
+Page last revised: 2021-03-12 17:21:35.
