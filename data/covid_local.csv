@@ -91,7 +91,7 @@ time,key,value,table
 2020-05-02T22:42:16Z,Saint-Sixte,5,areas
 2020-05-02T22:42:16Z,To be determined,22,areas
 2020-05-02T22:42:16Z,To be determined,8,rls
-2020-05-02T22:42:16Z,Total cases,288,areas
+2020-05-02T22:42:16Z,Total,288,areas
 2020-05-02T22:42:16Z,Total cases,293,rls
 2020-05-02T22:42:16Z,Val-des-Monts,5,areas
 2020-05-03T23:07:00Z,Active cases,133,rls
@@ -117,7 +117,7 @@ time,key,value,table
 2020-05-03T23:07:00Z,Saint-Sixte,5,areas
 2020-05-03T23:07:00Z,To be determined,31,areas
 2020-05-03T23:07:00Z,To be determined,8,rls
-2020-05-03T23:07:00Z,Total cases,302,areas
+2020-05-03T23:07:00Z,Total,302,areas
 2020-05-03T23:07:00Z,Total cases,293,rls
 2020-05-03T23:07:00Z,Val-des-Monts,5,areas
 2020-05-05T02:01:38Z,Active cases,133,rls
@@ -143,7 +143,7 @@ time,key,value,table
 2020-05-05T02:01:38Z,Saint-Sixte,5,areas
 2020-05-05T02:01:38Z,To be determined,31,areas
 2020-05-05T02:01:38Z,To be determined,9,rls
-2020-05-05T02:01:38Z,Total cases,302,areas
+2020-05-05T02:01:38Z,Total,302,areas
 2020-05-05T02:01:38Z,Total cases,304,rls
 2020-05-05T02:01:38Z,Val-des-Monts,5,areas
 2020-05-06T03:46:56Z,Active cases,139,rls
@@ -170,7 +170,7 @@ time,key,value,table
 2020-05-06T03:46:56Z,Thurso,5,areas
 2020-05-06T03:46:56Z,To be determined,7,areas
 2020-05-06T03:46:56Z,To be determined,7,rls
-2020-05-06T03:46:56Z,Total cases,312,areas
+2020-05-06T03:46:56Z,Total,312,areas
 2020-05-06T03:46:56Z,Total cases,312,rls
 2020-05-06T03:46:56Z,Val-des-Monts,7,areas
 2020-05-07T06:41:47Z,Active cases,145,rls
@@ -197,7 +197,7 @@ time,key,value,table
 2020-05-07T06:41:47Z,Thurso,5,areas
 2020-05-07T06:41:47Z,To be determined,13,areas
 2020-05-07T06:41:47Z,To be determined,10,rls
-2020-05-07T06:41:47Z,Total cases,318,areas
+2020-05-07T06:41:47Z,Total,318,areas
 2020-05-07T06:41:47Z,Total cases,318,rls
 2020-05-07T06:41:47Z,Val-des-Monts,7,areas
 2020-05-08T01:24:49Z,Active cases,145,rls
@@ -224,7 +224,7 @@ time,key,value,table
 2020-05-08T01:24:49Z,Thurso,5,areas
 2020-05-08T01:24:49Z,To be determined,17,areas
 2020-05-08T01:24:49Z,To be determined,10,rls
-2020-05-08T01:24:49Z,Total cases,322,areas
+2020-05-08T01:24:49Z,Total,322,areas
 2020-05-08T01:24:49Z,Total cases,322,rls
 2020-05-08T01:24:49Z,Val-des-Monts,7,areas
 2020-05-09T00:37:14Z,Active cases,149,rls
@@ -251,7 +251,7 @@ time,key,value,table
 2020-05-09T00:37:14Z,Thurso,5,areas
 2020-05-09T00:37:14Z,To be determined,7,areas
 2020-05-09T00:37:14Z,To be determined,7,rls
-2020-05-09T00:37:14Z,Total cases,326,areas
+2020-05-09T00:37:14Z,Total,326,areas
 2020-05-09T00:37:14Z,Total cases,326,rls
 2020-05-09T00:37:14Z,Val-des-Monts,8,areas
 2020-05-10T00:34:36Z,Active cases,125,rls
@@ -278,7 +278,7 @@ time,key,value,table
 2020-05-10T00:34:36Z,Thurso,5,areas
 2020-05-10T00:34:36Z,To be determined,15,areas
 2020-05-10T00:34:36Z,To be determined,9,rls
-2020-05-10T00:34:36Z,Total cases,334,areas
+2020-05-10T00:34:36Z,Total,334,areas
 2020-05-10T00:34:36Z,Total cases,334,rls
 2020-05-10T00:34:36Z,Val-des-Monts,8,areas
 2020-05-11T02:21:20Z,Active cases,128,rls
@@ -305,7 +305,7 @@ time,key,value,table
 2020-05-11T02:21:20Z,Thurso,5,areas
 2020-05-11T02:21:20Z,To be determined,15,areas
 2020-05-11T02:21:20Z,To be determined,9,rls
-2020-05-11T02:21:20Z,Total cases,334,areas
+2020-05-11T02:21:20Z,Total,334,areas
 2020-05-11T02:21:20Z,Total cases,337,rls
 2020-05-11T02:21:20Z,Val-des-Monts,8,areas
 2020-05-11T23:37:46Z,Active cases,128,rls
@@ -333,7 +333,7 @@ time,key,value,table
 2020-05-11T23:37:46Z,Thurso,5,areas
 2020-05-11T23:37:46Z,To be determined,27,areas
 2020-05-11T23:37:46Z,To be determined,1,rls
-2020-05-11T23:37:46Z,Total cases,346,areas
+2020-05-11T23:37:46Z,Total,346,areas
 2020-05-11T23:37:46Z,Total cases,347,rls
 2020-05-11T23:37:46Z,Val-des-Monts,8,areas
 2020-05-13T04:46:49Z,Active cases,135,rls
@@ -361,7 +361,7 @@ time,key,value,table
 2020-05-13T04:46:49Z,Thurso,5,areas
 2020-05-13T04:46:49Z,To be determined,1,areas
 2020-05-13T04:46:49Z,To be determined,1,rls
-2020-05-13T04:46:49Z,Total cases,354,areas
+2020-05-13T04:46:49Z,Total,354,areas
 2020-05-13T04:46:49Z,Total cases,354,rls
 2020-05-13T04:46:49Z,Val-des-Monts,7,areas
 2020-05-14T01:17:36Z,Active cases,140,rls
@@ -389,7 +389,7 @@ time,key,value,table
 2020-05-14T01:17:36Z,Thurso,5,areas
 2020-05-14T01:17:36Z,To be determined,1,areas
 2020-05-14T01:17:36Z,To be determined,1,rls
-2020-05-14T01:17:36Z,Total cases,354,areas
+2020-05-14T01:17:36Z,Total,354,areas
 2020-05-14T01:17:36Z,Total cases,360,rls
 2020-05-14T01:17:36Z,Val-des-Monts,7,areas
 2020-05-15T04:13:57Z,Active cases,150,rls
@@ -418,7 +418,7 @@ time,key,value,table
 2020-05-15T04:13:57Z,Thurso,5,areas
 2020-05-15T04:13:57Z,To be determined,1,areas
 2020-05-15T04:13:57Z,To be determined,1,rls
-2020-05-15T04:13:57Z,Total cases,366,areas
+2020-05-15T04:13:57Z,Total,366,areas
 2020-05-15T04:13:57Z,Total cases,366,rls
 2020-05-15T04:13:57Z,Val-des-Monts,7,areas
 2020-05-16T00:03:20Z,Active cases,121,rls
@@ -447,7 +447,7 @@ time,key,value,table
 2020-05-16T00:03:20Z,Thurso,5,areas
 2020-05-16T00:03:20Z,To be determined,2,areas
 2020-05-16T00:03:20Z,To be determined,1,rls
-2020-05-16T00:03:20Z,Total cases,367,areas
+2020-05-16T00:03:20Z,Total,367,areas
 2020-05-16T00:03:20Z,Total cases,367,rls
 2020-05-16T00:03:20Z,Val-des-Monts,7,areas
 2020-05-17T22:18:56Z,Active cases,142,rls
@@ -476,7 +476,7 @@ time,key,value,table
 2020-05-17T22:18:56Z,Thurso,5,areas
 2020-05-17T22:18:56Z,To be determined,28,areas
 2020-05-17T22:18:56Z,To be determined,0,rls
-2020-05-17T22:18:56Z,Total cases,395,areas
+2020-05-17T22:18:56Z,Total,395,areas
 2020-05-17T22:18:56Z,Total cases,395,rls
 2020-05-17T22:18:56Z,Val-des-Monts,7,areas
 2020-05-18T22:46:31Z,Active cases,135,rls
@@ -505,7 +505,7 @@ time,key,value,table
 2020-05-18T22:46:31Z,Thurso,5,areas
 2020-05-18T22:46:31Z,To be determined,37,areas
 2020-05-18T22:46:31Z,To be determined,0,rls
-2020-05-18T22:46:31Z,Total cases,404,areas
+2020-05-18T22:46:31Z,Total,404,areas
 2020-05-18T22:46:31Z,Total cases,404,rls
 2020-05-18T22:46:31Z,Val-des-Monts,7,areas
 2020-05-20T00:59:20Z,Active cases,157,rls
@@ -534,7 +534,7 @@ time,key,value,table
 2020-05-20T00:59:20Z,Thurso,5,areas
 2020-05-20T00:59:20Z,To be determined,0,areas
 2020-05-20T00:59:20Z,To be determined,0,rls
-2020-05-20T00:59:20Z,Total cases,426,areas
+2020-05-20T00:59:20Z,Total,426,areas
 2020-05-20T00:59:20Z,Total cases,426,rls
 2020-05-20T00:59:20Z,Val-des-Monts,7,areas
 2020-05-21T19:48:29Z,Active cases,161,rls
@@ -563,7 +563,7 @@ time,key,value,table
 2020-05-21T19:48:29Z,Thurso,5,areas
 2020-05-21T19:48:29Z,To be determined,6,areas
 2020-05-21T19:48:29Z,To be determined,0,rls
-2020-05-21T19:48:29Z,Total cases,432,areas
+2020-05-21T19:48:29Z,Total,432,areas
 2020-05-21T19:48:29Z,Total cases,432,rls
 2020-05-21T19:48:29Z,Val-des-Monts,7,areas
 2020-05-22T02:41:38Z,Active cases,177,rls
@@ -592,7 +592,7 @@ time,key,value,table
 2020-05-22T02:41:38Z,Thurso,5,areas
 2020-05-22T02:41:38Z,To be determined,0,areas
 2020-05-22T02:41:38Z,To be determined,0,rls
-2020-05-22T02:41:38Z,Total cases,450,areas
+2020-05-22T02:41:38Z,Total,450,areas
 2020-05-22T02:41:38Z,Total cases,450,rls
 2020-05-22T02:41:38Z,Val-des-Monts,8,areas
 2020-05-22T22:10:44Z,Active cases,177,rls
@@ -621,7 +621,7 @@ time,key,value,table
 2020-05-22T22:10:44Z,Thurso,5,areas
 2020-05-22T22:10:44Z,To be determined,0,areas
 2020-05-22T22:10:44Z,To be determined,0,rls
-2020-05-22T22:10:44Z,Total cases,450,areas
+2020-05-22T22:10:44Z,Total,450,areas
 2020-05-22T22:10:44Z,Total cases,450,rls
 2020-05-22T22:10:44Z,Val-des-Monts,8,areas
 2020-05-23T09:40:09Z,Active cases,190,rls
@@ -650,7 +650,7 @@ time,key,value,table
 2020-05-23T09:40:09Z,Thurso,5,areas
 2020-05-23T09:40:09Z,To be determined,22,areas
 2020-05-23T09:40:09Z,To be determined,0,rls
-2020-05-23T09:40:09Z,Total cases,472,areas
+2020-05-23T09:40:09Z,Total,472,areas
 2020-05-23T09:40:09Z,Total cases,472,rls
 2020-05-23T09:40:09Z,Val-des-Monts,8,areas
 2020-05-23T23:27:24Z,Active cases,196,rls
@@ -679,7 +679,7 @@ time,key,value,table
 2020-05-23T23:27:24Z,Thurso,5,areas
 2020-05-23T23:27:24Z,To be determined,29,areas
 2020-05-23T23:27:24Z,To be determined,0,rls
-2020-05-23T23:27:24Z,Total cases,479,areas
+2020-05-23T23:27:24Z,Total,479,areas
 2020-05-23T23:27:24Z,Total cases,479,rls
 2020-05-23T23:27:24Z,Val-des-Monts,8,areas
 2020-05-24T23:37:43Z,Active cases,199,rls
@@ -708,7 +708,7 @@ time,key,value,table
 2020-05-24T23:37:43Z,Thurso,5,areas
 2020-05-24T23:37:43Z,To be determined,33,areas
 2020-05-24T23:37:43Z,To be determined,0,rls
-2020-05-24T23:37:43Z,Total cases,483,areas
+2020-05-24T23:37:43Z,Total,483,areas
 2020-05-24T23:37:43Z,Total cases,483,rls
 2020-05-24T23:37:43Z,Val-des-Monts,8,areas
 2020-05-26T05:46:59Z,Active cases,209,rls
@@ -737,7 +737,7 @@ time,key,value,table
 2020-05-26T05:46:59Z,Thurso,5,areas
 2020-05-26T05:46:59Z,To be determined,44,areas
 2020-05-26T05:46:59Z,To be determined,0,rls
-2020-05-26T05:46:59Z,Total cases,494,areas
+2020-05-26T05:46:59Z,Total,494,areas
 2020-05-26T05:46:59Z,Total cases,494,rls
 2020-05-26T05:46:59Z,Val-des-Monts,8,areas
 2020-05-27T00:11:17Z,Active cases,220,rls
@@ -766,7 +766,7 @@ time,key,value,table
 2020-05-27T00:11:17Z,Thurso,5,areas
 2020-05-27T00:11:17Z,To be determined,0,areas
 2020-05-27T00:11:17Z,To be determined,0,rls
-2020-05-27T00:11:17Z,Total cases,505,areas
+2020-05-27T00:11:17Z,Total,505,areas
 2020-05-27T00:11:17Z,Total cases,505,rls
 2020-05-27T00:11:17Z,Val-des-Monts,8,areas
 2020-05-27T23:45:43Z,Active cases,231,rls
@@ -795,7 +795,7 @@ time,key,value,table
 2020-05-27T23:45:43Z,Thurso,5,areas
 2020-05-27T23:45:43Z,To be determined,14,areas
 2020-05-27T23:45:43Z,To be determined,0,rls
-2020-05-27T23:45:43Z,Total cases,518,areas
+2020-05-27T23:45:43Z,Total,518,areas
 2020-05-27T23:45:43Z,Total cases,518,rls
 2020-05-27T23:45:43Z,Val-des-Monts,8,areas
 2020-05-29T00:16:40Z,Active cases,218,rls
@@ -823,7 +823,7 @@ time,key,value,table
 2020-05-29T00:16:40Z,Sainte-Thérèse-de-la-Gatineau,5,areas
 2020-05-29T00:16:40Z,Thurso,5,areas
 2020-05-29T00:16:40Z,To be determined,0,rls
-2020-05-29T00:16:40Z,Total cases,527,areas
+2020-05-29T00:16:40Z,Total,527,areas
 2020-05-29T00:16:40Z,Total cases,527,rls
 2020-05-29T00:16:40Z,Val-des-Monts,8,areas
 2020-05-29T23:47:02Z,Active cases,217,rls
@@ -852,7 +852,7 @@ time,key,value,table
 2020-05-29T23:47:02Z,Thurso,5,areas
 2020-05-29T23:47:02Z,To be determined,5,areas
 2020-05-29T23:47:02Z,To be determined,0,rls
-2020-05-29T23:47:02Z,Total cases,527,areas
+2020-05-29T23:47:02Z,Total,527,areas
 2020-05-29T23:47:02Z,Total cases,532,rls
 2020-05-29T23:47:02Z,Val-des-Monts,8,areas
 2020-05-31T02:01:18Z,Active cases,222,rls
@@ -881,7 +881,7 @@ time,key,value,table
 2020-05-31T02:01:18Z,Thurso,5,areas
 2020-05-31T02:01:18Z,To be determined,11,areas
 2020-05-31T02:01:18Z,To be determined,0,rls
-2020-05-31T02:01:18Z,Total cases,538,areas
+2020-05-31T02:01:18Z,Total,538,areas
 2020-05-31T02:01:18Z,Total cases,538,rls
 2020-05-31T02:01:18Z,Val-des-Monts,8,areas
 2020-06-01T00:23:49Z,Active cases,208,rls
@@ -910,7 +910,7 @@ time,key,value,table
 2020-06-01T00:23:49Z,Thurso,5,areas
 2020-06-01T00:23:49Z,To be determined,9,areas
 2020-06-01T00:23:49Z,To be determined,0,rls
-2020-06-01T00:23:49Z,Total cases,536,areas
+2020-06-01T00:23:49Z,Total,536,areas
 2020-06-01T00:23:49Z,Total cases,536,rls
 2020-06-01T00:23:49Z,Val-des-Monts,8,areas
 2020-06-02T02:34:46Z,Active cases,197,rls
@@ -939,7 +939,7 @@ time,key,value,table
 2020-06-02T02:34:46Z,Thurso,5,areas
 2020-06-02T02:34:46Z,To be determined,10,areas
 2020-06-02T02:34:46Z,To be determined,1,rls
-2020-06-02T02:34:46Z,Total cases,537,areas
+2020-06-02T02:34:46Z,Total,537,areas
 2020-06-02T02:34:46Z,Total cases,537,rls
 2020-06-02T02:34:46Z,Val-des-Monts,8,areas
 2020-06-02T23:58:37Z,Active cases,197,rls
@@ -968,14 +968,13 @@ time,key,value,table
 2020-06-02T23:58:37Z,Thurso,5,areas
 2020-06-02T23:58:37Z,To be determined,1,areas
 2020-06-02T23:58:37Z,To be determined,0,rls
-2020-06-02T23:58:37Z,Total cases,539,areas
+2020-06-02T23:58:37Z,Total,539,areas
 2020-06-02T23:58:37Z,Total cases,539,rls
 2020-06-02T23:58:37Z,Val-des-Monts,8,areas
 2020-06-06T09:50:41Z,Active cases,168,cases
 2020-06-06T09:50:41Z,Average screening test per day,168,cases
 2020-06-06T09:50:41Z,Blue Sea,5,areas
 2020-06-06T09:50:41Z,Cantley,11,areas
-2020-06-06T09:50:41Z,Cumulative cases,548,cases
 2020-06-06T09:50:41Z,Deaths,25,cases
 2020-06-06T09:50:41Z,Fassett,5,areas
 2020-06-06T09:50:41Z,Gatineau,481,areas
@@ -999,13 +998,13 @@ time,key,value,table
 2020-06-06T09:50:41Z,Thurso,5,areas
 2020-06-06T09:50:41Z,To be determined,1,areas
 2020-06-06T09:50:41Z,To be determined,0,rls
-2020-06-06T09:50:41Z,Total cases,539,areas
+2020-06-06T09:50:41Z,Total,539,areas
+2020-06-06T09:50:41Z,Total cases,548,cases
 2020-06-06T09:50:41Z,Val-des-Monts,8,areas
 2020-06-07T13:29:15Z,Active cases,169,cases
 2020-06-07T13:29:15Z,Average screening test per day,168,cases
 2020-06-07T13:29:15Z,Blue Sea,5,areas
 2020-06-07T13:29:15Z,Cantley,11,areas
-2020-06-07T13:29:15Z,Cumulative cases,550,cases
 2020-06-07T13:29:15Z,Deaths,26,cases
 2020-06-07T13:29:15Z,Fassett,5,areas
 2020-06-07T13:29:15Z,Gatineau,481,areas
@@ -1029,13 +1028,13 @@ time,key,value,table
 2020-06-07T13:29:15Z,Thurso,5,areas
 2020-06-07T13:29:15Z,To be determined,2,areas
 2020-06-07T13:29:15Z,To be determined,0,rls
-2020-06-07T13:29:15Z,Total cases,550,areas
+2020-06-07T13:29:15Z,Total,550,areas
+2020-06-07T13:29:15Z,Total cases,550,cases
 2020-06-07T13:29:15Z,Val-des-Monts,8,areas
 2020-06-08T05:37:17Z,Active cases,164,cases
 2020-06-08T05:37:17Z,Average screening test per day,156,cases
 2020-06-08T05:37:17Z,Blue Sea,5,areas
 2020-06-08T05:37:17Z,Cantley,11,areas
-2020-06-08T05:37:17Z,Cumulative cases,552,cases
 2020-06-08T05:37:17Z,Deaths,27,cases
 2020-06-08T05:37:17Z,Fassett,5,areas
 2020-06-08T05:37:17Z,Gatineau,490,areas
@@ -1059,13 +1058,13 @@ time,key,value,table
 2020-06-08T05:37:17Z,Thurso,5,areas
 2020-06-08T05:37:17Z,To be determined,4,areas
 2020-06-08T05:37:17Z,To be determined,1,rls
-2020-06-08T05:37:17Z,Total cases,552,areas
+2020-06-08T05:37:17Z,Total,552,areas
+2020-06-08T05:37:17Z,Total cases,552,cases
 2020-06-08T05:37:17Z,Val-des-Monts,8,areas
 2020-06-08T22:28:06Z,Active cases,171,cases
 2020-06-08T22:28:06Z,Average screening test per day,139,cases
 2020-06-08T22:28:06Z,Blue Sea,5,areas
 2020-06-08T22:28:06Z,Cantley,11,areas
-2020-06-08T22:28:06Z,Cumulative cases,558,cases
 2020-06-08T22:28:06Z,Deaths,27,cases
 2020-06-08T22:28:06Z,Fassett,5,areas
 2020-06-08T22:28:06Z,Gatineau,490,areas
@@ -1089,13 +1088,13 @@ time,key,value,table
 2020-06-08T22:28:06Z,Thurso,5,areas
 2020-06-08T22:28:06Z,To be determined,10,areas
 2020-06-08T22:28:06Z,To be determined,0,rls
-2020-06-08T22:28:06Z,Total cases,558,areas
+2020-06-08T22:28:06Z,Total,558,areas
+2020-06-08T22:28:06Z,Total cases,558,cases
 2020-06-08T22:28:06Z,Val-des-Monts,8,areas
 2020-06-10T06:05:21Z,Active cases,149,cases
 2020-06-10T06:05:21Z,Average screening test per day,141,cases
 2020-06-10T06:05:21Z,Blue Sea,5,areas
 2020-06-10T06:05:21Z,Cantley,11,areas
-2020-06-10T06:05:21Z,Cumulative cases,561,cases
 2020-06-10T06:05:21Z,Deaths,27,cases
 2020-06-10T06:05:21Z,Fassett,5,areas
 2020-06-10T06:05:21Z,Gatineau,504,areas
@@ -1119,13 +1118,13 @@ time,key,value,table
 2020-06-10T06:05:21Z,Thurso,5,areas
 2020-06-10T06:05:21Z,To be determined,0,areas
 2020-06-10T06:05:21Z,To be determined,0,rls
-2020-06-10T06:05:21Z,Total cases,561,areas
+2020-06-10T06:05:21Z,Total,561,areas
+2020-06-10T06:05:21Z,Total cases,561,cases
 2020-06-10T06:05:21Z,Val-des-Monts,7,areas
 2020-06-11T00:59:22Z,Active cases,144,cases
 2020-06-11T00:59:22Z,Average screening test per day,137,cases
 2020-06-11T00:59:22Z,Blue Sea,5,areas
 2020-06-11T00:59:22Z,Cantley,11,areas
-2020-06-11T00:59:22Z,Cumulative cases,562,cases
 2020-06-11T00:59:22Z,Deaths,29,cases
 2020-06-11T00:59:22Z,Fassett,5,areas
 2020-06-11T00:59:22Z,Gatineau,504,areas
@@ -1149,13 +1148,13 @@ time,key,value,table
 2020-06-11T00:59:22Z,Thurso,5,areas
 2020-06-11T00:59:22Z,To be determined,1,areas
 2020-06-11T00:59:22Z,To be determined,0,rls
-2020-06-11T00:59:22Z,Total cases,562,areas
+2020-06-11T00:59:22Z,Total,562,areas
+2020-06-11T00:59:22Z,Total cases,562,cases
 2020-06-11T00:59:22Z,Val-des-Monts,7,areas
 2020-06-11T11:55:26Z,Active cases,144,cases
 2020-06-11T11:55:26Z,Average screening test per day,137,cases
 2020-06-11T11:55:26Z,Blue Sea,5,areas
 2020-06-11T11:55:26Z,Cantley,11,areas
-2020-06-11T11:55:26Z,Cumulative cases,562,cases
 2020-06-11T11:55:26Z,Deaths,29,cases
 2020-06-11T11:55:26Z,Fassett,5,areas
 2020-06-11T11:55:26Z,Gatineau,504,areas
@@ -1179,13 +1178,13 @@ time,key,value,table
 2020-06-11T11:55:26Z,Thurso,5,areas
 2020-06-11T11:55:26Z,To be determined,1,areas
 2020-06-11T11:55:26Z,To be determined,0,rls
-2020-06-11T11:55:26Z,Total cases,562,areas
+2020-06-11T11:55:26Z,Total,562,areas
+2020-06-11T11:55:26Z,Total cases,562,cases
 2020-06-11T11:55:26Z,Val-des-Monts,7,areas
 2020-06-12T00:40:20Z,Active cases,134,cases
 2020-06-12T00:40:20Z,Average screening test per day,154,cases
 2020-06-12T00:40:20Z,Blue Sea,5,areas
 2020-06-12T00:40:20Z,Cantley,11,areas
-2020-06-12T00:40:20Z,Cumulative cases,566,cases
 2020-06-12T00:40:20Z,Deaths,29,cases
 2020-06-12T00:40:20Z,Fassett,5,areas
 2020-06-12T00:40:20Z,Gatineau,509,areas
@@ -1209,13 +1208,13 @@ time,key,value,table
 2020-06-12T00:40:20Z,Thurso,5,areas
 2020-06-12T00:40:20Z,To be determined,0,areas
 2020-06-12T00:40:20Z,To be determined,0,rls
-2020-06-12T00:40:20Z,Total cases,566,areas
+2020-06-12T00:40:20Z,Total,566,areas
+2020-06-12T00:40:20Z,Total cases,566,cases
 2020-06-12T00:40:20Z,Val-des-Monts,7,areas
 2020-06-12T22:16:52Z,Active cases,135,cases
 2020-06-12T22:16:52Z,Average screening test per day,152,cases
 2020-06-12T22:16:52Z,Blue Sea,5,areas
 2020-06-12T22:16:52Z,Cantley,11,areas
-2020-06-12T22:16:52Z,Cumulative cases,568,cases
 2020-06-12T22:16:52Z,Deaths,29,cases
 2020-06-12T22:16:52Z,Fassett,5,areas
 2020-06-12T22:16:52Z,Gatineau,509,areas
@@ -1239,13 +1238,13 @@ time,key,value,table
 2020-06-12T22:16:52Z,Thurso,5,areas
 2020-06-12T22:16:52Z,To be determined,2,areas
 2020-06-12T22:16:52Z,To be determined,0,rls
-2020-06-12T22:16:52Z,Total cases,568,areas
+2020-06-12T22:16:52Z,Total,568,areas
+2020-06-12T22:16:52Z,Total cases,568,cases
 2020-06-12T22:16:52Z,Val-des-Monts,7,areas
 2020-06-14T03:58:13Z,Active cases,123,cases
 2020-06-14T03:58:13Z,Average screening test per day,152,cases
 2020-06-14T03:58:13Z,Blue Sea,5,areas
 2020-06-14T03:58:13Z,Cantley,11,areas
-2020-06-14T03:58:13Z,Cumulative cases,571,cases
 2020-06-14T03:58:13Z,Deaths,29,cases
 2020-06-14T03:58:13Z,Fassett,5,areas
 2020-06-14T03:58:13Z,Gatineau,509,areas
@@ -1269,13 +1268,13 @@ time,key,value,table
 2020-06-14T03:58:13Z,Thurso,5,areas
 2020-06-14T03:58:13Z,To be determined,4,areas
 2020-06-14T03:58:13Z,To be determined,0,rls
-2020-06-14T03:58:13Z,Total cases,571,areas
+2020-06-14T03:58:13Z,Total,571,areas
+2020-06-14T03:58:13Z,Total cases,571,cases
 2020-06-14T03:58:13Z,Val-des-Monts,7,areas
 2020-06-15T01:29:24Z,Active cases,121,cases
 2020-06-15T01:29:24Z,Average screening test per day,161,cases
 2020-06-15T01:29:24Z,Blue Sea,5,areas
 2020-06-15T01:29:24Z,Cantley,11,areas
-2020-06-15T01:29:24Z,Cumulative cases,572,cases
 2020-06-15T01:29:24Z,Deaths,30,cases
 2020-06-15T01:29:24Z,Fassett,5,areas
 2020-06-15T01:29:24Z,Gatineau,509,areas
@@ -1299,13 +1298,13 @@ time,key,value,table
 2020-06-15T01:29:24Z,Thurso,5,areas
 2020-06-15T01:29:24Z,To be determined,5,areas
 2020-06-15T01:29:24Z,To be determined,0,rls
-2020-06-15T01:29:24Z,Total cases,572,areas
+2020-06-15T01:29:24Z,Total,572,areas
+2020-06-15T01:29:24Z,Total cases,572,cases
 2020-06-15T01:29:24Z,Val-des-Monts,7,areas
 2020-06-16T02:17:35Z,Active cases,91,cases
 2020-06-16T02:17:35Z,Average screening test per day,148,cases
 2020-06-16T02:17:35Z,Blue Sea,5,areas
 2020-06-16T02:17:35Z,Cantley,11,areas
-2020-06-16T02:17:35Z,Cumulative cases,573,cases
 2020-06-16T02:17:35Z,Deaths,31,cases
 2020-06-16T02:17:35Z,Fassett,5,areas
 2020-06-16T02:17:35Z,Gatineau,509,areas
@@ -1329,13 +1328,13 @@ time,key,value,table
 2020-06-16T02:17:35Z,Thurso,5,areas
 2020-06-16T02:17:35Z,To be determined,6,areas
 2020-06-16T02:17:35Z,To be determined,0,rls
-2020-06-16T02:17:35Z,Total cases,573,areas
+2020-06-16T02:17:35Z,Total,573,areas
+2020-06-16T02:17:35Z,Total cases,573,cases
 2020-06-16T02:17:35Z,Val-des-Monts,7,areas
 2020-06-16T23:17:57Z,Active cases,89,cases
 2020-06-16T23:17:57Z,Average screening test per day,162,cases
 2020-06-16T23:17:57Z,Blue Sea,5,areas
 2020-06-16T23:17:57Z,Cantley,11,areas
-2020-06-16T23:17:57Z,Cumulative cases,573,cases
 2020-06-16T23:17:57Z,Deaths,32,cases
 2020-06-16T23:17:57Z,Fassett,5,areas
 2020-06-16T23:17:57Z,Gatineau,516,areas
@@ -1359,13 +1358,13 @@ time,key,value,table
 2020-06-16T23:17:57Z,Thurso,5,areas
 2020-06-16T23:17:57Z,To be determined,0,areas
 2020-06-16T23:17:57Z,To be determined,0,rls
-2020-06-16T23:17:57Z,Total cases,573,areas
+2020-06-16T23:17:57Z,Total,573,areas
+2020-06-16T23:17:57Z,Total cases,573,cases
 2020-06-16T23:17:57Z,Val-des-Monts,7,areas
 2020-06-18T03:26:59Z,Active cases,87,cases
 2020-06-18T03:26:59Z,Average screening test per day,183,cases
 2020-06-18T03:26:59Z,Blue Sea,5,areas
 2020-06-18T03:26:59Z,Cantley,11,areas
-2020-06-18T03:26:59Z,Cumulative cases,575,cases
 2020-06-18T03:26:59Z,Deaths,32,cases
 2020-06-18T03:26:59Z,Fassett,5,areas
 2020-06-18T03:26:59Z,Gatineau,516,areas
@@ -1389,13 +1388,13 @@ time,key,value,table
 2020-06-18T03:26:59Z,Thurso,5,areas
 2020-06-18T03:26:59Z,To be determined,2,areas
 2020-06-18T03:26:59Z,To be determined,0,rls
-2020-06-18T03:26:59Z,Total cases,575,areas
+2020-06-18T03:26:59Z,Total,575,areas
+2020-06-18T03:26:59Z,Total cases,575,cases
 2020-06-18T03:26:59Z,Val-des-Monts,7,areas
 2020-06-18T23:20:49Z,Active cases,84,cases
 2020-06-18T23:20:49Z,Average screening test per day,199,cases
 2020-06-18T23:20:49Z,Blue Sea,5,areas
 2020-06-18T23:20:49Z,Cantley,11,areas
-2020-06-18T23:20:49Z,Cumulative cases,576,cases
 2020-06-18T23:20:49Z,Deaths,33,cases
 2020-06-18T23:20:49Z,Fassett,5,areas
 2020-06-18T23:20:49Z,Gatineau,519,areas
@@ -1419,13 +1418,13 @@ time,key,value,table
 2020-06-18T23:20:49Z,Thurso,5,areas
 2020-06-18T23:20:49Z,To be determined,0,areas
 2020-06-18T23:20:49Z,To be determined,0,rls
-2020-06-18T23:20:49Z,Total cases,576,areas
+2020-06-18T23:20:49Z,Total,576,areas
+2020-06-18T23:20:49Z,Total cases,576,cases
 2020-06-18T23:20:49Z,Val-des-Monts,7,areas
 2020-06-20T00:30:44Z,Active cases,83,cases
 2020-06-20T00:30:44Z,Average screening test per day,211,cases
 2020-06-20T00:30:44Z,Blue Sea,5,areas
 2020-06-20T00:30:44Z,Cantley,11,areas
-2020-06-20T00:30:44Z,Cumulative cases,576,cases
 2020-06-20T00:30:44Z,Deaths,33,cases
 2020-06-20T00:30:44Z,Fassett,5,areas
 2020-06-20T00:30:44Z,Gatineau,519,areas
@@ -1449,13 +1448,13 @@ time,key,value,table
 2020-06-20T00:30:44Z,Thurso,5,areas
 2020-06-20T00:30:44Z,To be determined,0,areas
 2020-06-20T00:30:44Z,To be determined,0,rls
-2020-06-20T00:30:44Z,Total cases,576,areas
+2020-06-20T00:30:44Z,Total,576,areas
+2020-06-20T00:30:44Z,Total cases,576,cases
 2020-06-20T00:30:44Z,Val-des-Monts,7,areas
 2020-06-20T22:33:50Z,Active cases,77,cases
 2020-06-20T22:33:50Z,Average screening test per day,211,cases
 2020-06-20T22:33:50Z,Blue Sea,5,areas
 2020-06-20T22:33:50Z,Cantley,11,areas
-2020-06-20T22:33:50Z,Cumulative cases,576,cases
 2020-06-20T22:33:50Z,Deaths,33,cases
 2020-06-20T22:33:50Z,Fassett,5,areas
 2020-06-20T22:33:50Z,Gatineau,519,areas
@@ -1479,13 +1478,13 @@ time,key,value,table
 2020-06-20T22:33:50Z,Thurso,5,areas
 2020-06-20T22:33:50Z,To be determined,0,areas
 2020-06-20T22:33:50Z,To be determined,0,rls
-2020-06-20T22:33:50Z,Total cases,576,areas
+2020-06-20T22:33:50Z,Total,576,areas
+2020-06-20T22:33:50Z,Total cases,576,cases
 2020-06-20T22:33:50Z,Val-des-Monts,7,areas
 2020-06-21T22:31:31Z,Active cases,71,cases
 2020-06-21T22:31:31Z,Average screening test per day,211,cases
 2020-06-21T22:31:31Z,Blue Sea,5,areas
 2020-06-21T22:31:31Z,Cantley,11,areas
-2020-06-21T22:31:31Z,Cumulative cases,576,cases
 2020-06-21T22:31:31Z,Deaths,33,cases
 2020-06-21T22:31:31Z,Fassett,5,areas
 2020-06-21T22:31:31Z,Gatineau,519,areas
@@ -1509,13 +1508,13 @@ time,key,value,table
 2020-06-21T22:31:31Z,Thurso,5,areas
 2020-06-21T22:31:31Z,To be determined,0,areas
 2020-06-21T22:31:31Z,To be determined,0,rls
-2020-06-21T22:31:31Z,Total cases,576,areas
+2020-06-21T22:31:31Z,Total,576,areas
+2020-06-21T22:31:31Z,Total cases,576,cases
 2020-06-21T22:31:31Z,Val-des-Monts,7,areas
 2020-06-23T01:08:53Z,Active cases,70,cases
 2020-06-23T01:08:53Z,Average screening test per day,137,cases
 2020-06-23T01:08:53Z,Blue Sea,5,areas
 2020-06-23T01:08:53Z,Cantley,11,areas
-2020-06-23T01:08:53Z,Cumulative cases,576,cases
 2020-06-23T01:08:53Z,Deaths,33,cases
 2020-06-23T01:08:53Z,Fassett,5,areas
 2020-06-23T01:08:53Z,Gatineau,519,areas
@@ -1539,13 +1538,13 @@ time,key,value,table
 2020-06-23T01:08:53Z,Thurso,5,areas
 2020-06-23T01:08:53Z,To be determined,0,areas
 2020-06-23T01:08:53Z,To be determined,0,rls
-2020-06-23T01:08:53Z,Total cases,576,areas
+2020-06-23T01:08:53Z,Total,576,areas
+2020-06-23T01:08:53Z,Total cases,576,cases
 2020-06-23T01:08:53Z,Val-des-Monts,7,areas
 2020-06-23T23:49:46Z,Active cases,67,cases
 2020-06-23T23:49:46Z,Average screening test per day,110,cases
 2020-06-23T23:49:46Z,Blue Sea,5,areas
 2020-06-23T23:49:46Z,Cantley,11,areas
-2020-06-23T23:49:46Z,Cumulative cases,576,cases
 2020-06-23T23:49:46Z,Deaths,33,cases
 2020-06-23T23:49:46Z,Fassett,5,areas
 2020-06-23T23:49:46Z,Gatineau,518,areas
@@ -1569,13 +1568,13 @@ time,key,value,table
 2020-06-23T23:49:46Z,Thurso,5,areas
 2020-06-23T23:49:46Z,To be determined,1,areas
 2020-06-23T23:49:46Z,To be determined,1,rls
-2020-06-23T23:49:46Z,Total cases,576,areas
+2020-06-23T23:49:46Z,Total,576,areas
+2020-06-23T23:49:46Z,Total cases,576,cases
 2020-06-23T23:49:46Z,Val-des-Monts,7,areas
 2020-06-24T23:59:01Z,Active cases,68,cases
 2020-06-24T23:59:01Z,Average screening test per day,110,cases
 2020-06-24T23:59:01Z,Blue Sea,5,areas
 2020-06-24T23:59:01Z,Cantley,11,areas
-2020-06-24T23:59:01Z,Cumulative cases,578,cases
 2020-06-24T23:59:01Z,Deaths,33,cases
 2020-06-24T23:59:01Z,Fassett,5,areas
 2020-06-24T23:59:01Z,Gatineau,518,areas
@@ -1599,13 +1598,13 @@ time,key,value,table
 2020-06-24T23:59:01Z,Thurso,5,areas
 2020-06-24T23:59:01Z,To be determined,1,areas
 2020-06-24T23:59:01Z,To be determined,1,rls
-2020-06-24T23:59:01Z,Total cases,576,areas
+2020-06-24T23:59:01Z,Total,576,areas
+2020-06-24T23:59:01Z,Total cases,578,cases
 2020-06-24T23:59:01Z,Val-des-Monts,7,areas
 2020-06-25T22:02:19Z,Active cases,71,cases
 2020-06-25T22:02:19Z,Average screening test per day,103,cases
 2020-06-25T22:02:19Z,Blue Sea,5,areas
 2020-06-25T22:02:19Z,Cantley,11,areas
-2020-06-25T22:02:19Z,Cumulative cases,581,cases
 2020-06-25T22:02:19Z,Deaths,33,cases
 2020-06-25T22:02:19Z,Fassett,5,areas
 2020-06-25T22:02:19Z,Gatineau,518,areas
@@ -1629,13 +1628,13 @@ time,key,value,table
 2020-06-25T22:02:19Z,Thurso,5,areas
 2020-06-25T22:02:19Z,To be determined,6,areas
 2020-06-25T22:02:19Z,To be determined,1,rls
-2020-06-25T22:02:19Z,Total cases,581,areas
+2020-06-25T22:02:19Z,Total,581,areas
+2020-06-25T22:02:19Z,Total cases,581,cases
 2020-06-25T22:02:19Z,Val-des-Monts,7,areas
 2020-06-25T22:05:40Z,Active cases,71,cases
 2020-06-25T22:05:40Z,Average screening test per day,103,cases
 2020-06-25T22:05:40Z,Blue Sea,5,areas
 2020-06-25T22:05:40Z,Cantley,11,areas
-2020-06-25T22:05:40Z,Cumulative cases,581,cases
 2020-06-25T22:05:40Z,Deaths,33,cases
 2020-06-25T22:05:40Z,Fassett,5,areas
 2020-06-25T22:05:40Z,Gatineau,518,areas
@@ -1659,13 +1658,13 @@ time,key,value,table
 2020-06-25T22:05:40Z,Thurso,5,areas
 2020-06-25T22:05:40Z,To be determined,6,areas
 2020-06-25T22:05:40Z,To be determined,1,rls
-2020-06-25T22:05:40Z,Total cases,581,areas
+2020-06-25T22:05:40Z,Total,581,areas
+2020-06-25T22:05:40Z,Total cases,581,cases
 2020-06-25T22:05:40Z,Val-des-Monts,7,areas
 2020-07-02T07:56:00Z,Active cases,70,cases
 2020-07-02T07:56:00Z,Average screening test per day,111,cases
 2020-07-02T07:56:00Z,Blue Sea,5,areas
 2020-07-02T07:56:00Z,Cantley,11,areas
-2020-07-02T07:56:00Z,Cumulative cases,591,cases
 2020-07-02T07:56:00Z,Deaths,33,cases
 2020-07-02T07:56:00Z,Fassett,5,areas
 2020-07-02T07:56:00Z,Gatineau,518,areas
@@ -1689,13 +1688,13 @@ time,key,value,table
 2020-07-02T07:56:00Z,Thurso,5,areas
 2020-07-02T07:56:00Z,To be determined,11,areas
 2020-07-02T07:56:00Z,To be determined,0,rls
-2020-07-02T07:56:00Z,Total cases,586,areas
+2020-07-02T07:56:00Z,Total,586,areas
+2020-07-02T07:56:00Z,Total cases,591,cases
 2020-07-02T07:56:00Z,Val-des-Monts,7,areas
 2020-07-03T01:10:07Z,Active cases,69,cases
 2020-07-03T01:10:07Z,Average screening test per day,113,cases
 2020-07-03T01:10:07Z,Blue Sea,5,areas
 2020-07-03T01:10:07Z,Cantley,11,areas
-2020-07-03T01:10:07Z,Cumulative cases,591,cases
 2020-07-03T01:10:07Z,Deaths,33,cases
 2020-07-03T01:10:07Z,Fassett,5,areas
 2020-07-03T01:10:07Z,Gatineau,534,areas
@@ -1719,13 +1718,13 @@ time,key,value,table
 2020-07-03T01:10:07Z,Thurso,5,areas
 2020-07-03T01:10:07Z,To be determined,0,areas
 2020-07-03T01:10:07Z,To be determined,0,rls
-2020-07-03T01:10:07Z,Total cases,591,areas
+2020-07-03T01:10:07Z,Total,591,areas
+2020-07-03T01:10:07Z,Total cases,591,cases
 2020-07-03T01:10:07Z,Val-des-Monts,7,areas
 2020-07-03T23:53:11Z,Active cases,71,cases
 2020-07-03T23:53:11Z,Average screening test per day,196,cases
 2020-07-03T23:53:11Z,Blue Sea,5,areas
 2020-07-03T23:53:11Z,Cantley,11,areas
-2020-07-03T23:53:11Z,Cumulative cases,595,cases
 2020-07-03T23:53:11Z,Deaths,33,cases
 2020-07-03T23:53:11Z,Fassett,5,areas
 2020-07-03T23:53:11Z,Gatineau,534,areas
@@ -1749,13 +1748,13 @@ time,key,value,table
 2020-07-03T23:53:11Z,Thurso,5,areas
 2020-07-03T23:53:11Z,To be determined,4,areas
 2020-07-03T23:53:11Z,To be determined,0,rls
-2020-07-03T23:53:11Z,Total cases,595,areas
+2020-07-03T23:53:11Z,Total,595,areas
+2020-07-03T23:53:11Z,Total cases,595,cases
 2020-07-03T23:53:11Z,Val-des-Monts,7,areas
 2020-07-05T01:04:18Z,Active cases,72,cases
 2020-07-05T01:04:18Z,Average screening test per day,196,cases
 2020-07-05T01:04:18Z,Blue Sea,5,areas
 2020-07-05T01:04:18Z,Cantley,11,areas
-2020-07-05T01:04:18Z,Cumulative cases,596,cases
 2020-07-05T01:04:18Z,Deaths,33,cases
 2020-07-05T01:04:18Z,Fassett,5,areas
 2020-07-05T01:04:18Z,Gatineau,534,areas
@@ -1779,13 +1778,13 @@ time,key,value,table
 2020-07-05T01:04:18Z,Thurso,5,areas
 2020-07-05T01:04:18Z,To be determined,5,areas
 2020-07-05T01:04:18Z,To be determined,1,rls
-2020-07-05T01:04:18Z,Total cases,596,areas
+2020-07-05T01:04:18Z,Total,596,areas
+2020-07-05T01:04:18Z,Total cases,596,cases
 2020-07-05T01:04:18Z,Val-des-Monts,7,areas
 2020-07-06T00:50:45Z,Active cases,74,cases
 2020-07-06T00:50:45Z,Average screening test per day,196,cases
 2020-07-06T00:50:45Z,Blue Sea,5,areas
 2020-07-06T00:50:45Z,Cantley,11,areas
-2020-07-06T00:50:45Z,Cumulative cases,598,cases
 2020-07-06T00:50:45Z,Deaths,33,cases
 2020-07-06T00:50:45Z,Fassett,5,areas
 2020-07-06T00:50:45Z,Gatineau,534,areas
@@ -1809,13 +1808,13 @@ time,key,value,table
 2020-07-06T00:50:45Z,Thurso,5,areas
 2020-07-06T00:50:45Z,To be determined,7,areas
 2020-07-06T00:50:45Z,To be determined,1,rls
-2020-07-06T00:50:45Z,Total cases,598,areas
+2020-07-06T00:50:45Z,Total,598,areas
+2020-07-06T00:50:45Z,Total cases,598,cases
 2020-07-06T00:50:45Z,Val-des-Monts,7,areas
 2020-07-07T03:59:13Z,Active cases,82,cases
 2020-07-07T03:59:13Z,Average screening test per day,93,cases
 2020-07-07T03:59:13Z,Blue Sea,5,areas
 2020-07-07T03:59:13Z,Cantley,11,areas
-2020-07-07T03:59:13Z,Cumulative cases,606,cases
 2020-07-07T03:59:13Z,Deaths,33,cases
 2020-07-07T03:59:13Z,Fassett,5,areas
 2020-07-07T03:59:13Z,Gatineau,534,areas
@@ -1839,13 +1838,13 @@ time,key,value,table
 2020-07-07T03:59:13Z,Thurso,5,areas
 2020-07-07T03:59:13Z,To be determined,15,areas
 2020-07-07T03:59:13Z,To be determined,1,rls
-2020-07-07T03:59:13Z,Total cases,606,areas
+2020-07-07T03:59:13Z,Total,606,areas
+2020-07-07T03:59:13Z,Total cases,606,cases
 2020-07-07T03:59:13Z,Val-des-Monts,7,areas
 2020-07-08T00:08:43Z,Active cases,83,cases
 2020-07-08T00:08:43Z,Average screening test per day,113,cases
 2020-07-08T00:08:43Z,Blue Sea,5,areas
 2020-07-08T00:08:43Z,Cantley,11,areas
-2020-07-08T00:08:43Z,Cumulative cases,608,cases
 2020-07-08T00:08:43Z,Deaths,33,cases
 2020-07-08T00:08:43Z,Fassett,5,areas
 2020-07-08T00:08:43Z,Gatineau,534,areas
@@ -1869,13 +1868,13 @@ time,key,value,table
 2020-07-08T00:08:43Z,Thurso,5,areas
 2020-07-08T00:08:43Z,To be determined,17,areas
 2020-07-08T00:08:43Z,To be determined,1,rls
-2020-07-08T00:08:43Z,Total cases,608,areas
+2020-07-08T00:08:43Z,Total,608,areas
+2020-07-08T00:08:43Z,Total cases,608,cases
 2020-07-08T00:08:43Z,Val-des-Monts,7,areas
 2020-07-09T00:38:40Z,Active cases,84,cases
 2020-07-09T00:38:40Z,Average screening test per day,132,cases
 2020-07-09T00:38:40Z,Blue Sea,5,areas
 2020-07-09T00:38:40Z,Cantley,11,areas
-2020-07-09T00:38:40Z,Cumulative cases,609,cases
 2020-07-09T00:38:40Z,Deaths,33,cases
 2020-07-09T00:38:40Z,Fassett,5,areas
 2020-07-09T00:38:40Z,Gatineau,534,areas
@@ -1899,13 +1898,13 @@ time,key,value,table
 2020-07-09T00:38:40Z,Thurso,5,areas
 2020-07-09T00:38:40Z,To be determined,18,areas
 2020-07-09T00:38:40Z,To be determined,0,rls
-2020-07-09T00:38:40Z,Total cases,609,areas
+2020-07-09T00:38:40Z,Total,609,areas
+2020-07-09T00:38:40Z,Total cases,609,cases
 2020-07-09T00:38:40Z,Val-des-Monts,7,areas
 2020-07-10T03:12:00Z,Active cases,65,cases
 2020-07-10T03:12:00Z,Average screening test per day,160,cases
 2020-07-10T03:12:00Z,Blue Sea,5,areas
 2020-07-10T03:12:00Z,Cantley,12,areas
-2020-07-10T03:12:00Z,Cumulative cases,615,cases
 2020-07-10T03:12:00Z,Deaths,33,cases
 2020-07-10T03:12:00Z,Fassett,5,areas
 2020-07-10T03:12:00Z,Gatineau,553,areas
@@ -1929,13 +1928,13 @@ time,key,value,table
 2020-07-10T03:12:00Z,Thurso,5,areas
 2020-07-10T03:12:00Z,To be determined,0,areas
 2020-07-10T03:12:00Z,To be determined,0,rls
-2020-07-10T03:12:00Z,Total cases,615,areas
+2020-07-10T03:12:00Z,Total,615,areas
+2020-07-10T03:12:00Z,Total cases,615,cases
 2020-07-10T03:12:00Z,Val-des-Monts,9,areas
 2020-07-10T23:50:07Z,Active cases,67,cases
 2020-07-10T23:50:07Z,Average screening test per day,168,cases
 2020-07-10T23:50:07Z,Blue Sea,5,areas
 2020-07-10T23:50:07Z,Cantley,12,areas
-2020-07-10T23:50:07Z,Cumulative cases,618,cases
 2020-07-10T23:50:07Z,Deaths,33,cases
 2020-07-10T23:50:07Z,Fassett,5,areas
 2020-07-10T23:50:07Z,Gatineau,553,areas
@@ -1959,13 +1958,13 @@ time,key,value,table
 2020-07-10T23:50:07Z,Thurso,5,areas
 2020-07-10T23:50:07Z,To be determined,0,areas
 2020-07-10T23:50:07Z,To be determined,0,rls
-2020-07-10T23:50:07Z,Total cases,615,areas
+2020-07-10T23:50:07Z,Total,615,areas
+2020-07-10T23:50:07Z,Total cases,618,cases
 2020-07-10T23:50:07Z,Val-des-Monts,9,areas
 2020-07-11T23:11:27Z,Active cases,68,cases
 2020-07-11T23:11:27Z,Average screening test per day,168,cases
 2020-07-11T23:11:27Z,Blue Sea,5,areas
 2020-07-11T23:11:27Z,Cantley,12,areas
-2020-07-11T23:11:27Z,Cumulative cases,619,cases
 2020-07-11T23:11:27Z,Deaths,33,cases
 2020-07-11T23:11:27Z,Fassett,5,areas
 2020-07-11T23:11:27Z,Gatineau,553,areas
@@ -1989,13 +1988,13 @@ time,key,value,table
 2020-07-11T23:11:27Z,Thurso,5,areas
 2020-07-11T23:11:27Z,To be determined,4,areas
 2020-07-11T23:11:27Z,To be determined,0,rls
-2020-07-11T23:11:27Z,Total cases,619,areas
+2020-07-11T23:11:27Z,Total,619,areas
+2020-07-11T23:11:27Z,Total cases,619,cases
 2020-07-11T23:11:27Z,Val-des-Monts,9,areas
 2020-07-13T05:22:43Z,Active cases,68,cases
 2020-07-13T05:22:43Z,Average screening test per day,168,cases
 2020-07-13T05:22:43Z,Blue Sea,5,areas
 2020-07-13T05:22:43Z,Cantley,12,areas
-2020-07-13T05:22:43Z,Cumulative cases,620,cases
 2020-07-13T05:22:43Z,Deaths,33,cases
 2020-07-13T05:22:43Z,Fassett,5,areas
 2020-07-13T05:22:43Z,Gatineau,553,areas
@@ -2019,13 +2018,13 @@ time,key,value,table
 2020-07-13T05:22:43Z,Thurso,5,areas
 2020-07-13T05:22:43Z,To be determined,4,areas
 2020-07-13T05:22:43Z,To be determined,0,rls
-2020-07-13T05:22:43Z,Total cases,619,areas
+2020-07-13T05:22:43Z,Total,619,areas
+2020-07-13T05:22:43Z,Total cases,620,cases
 2020-07-13T05:22:43Z,Val-des-Monts,9,areas
 2020-07-13T16:46:46Z,Active cases,68,cases
 2020-07-13T16:46:46Z,Average screening test per day,168,cases
 2020-07-13T16:46:46Z,Blue Sea,5,areas
 2020-07-13T16:46:46Z,Cantley,12,areas
-2020-07-13T16:46:46Z,Cumulative cases,620,cases
 2020-07-13T16:46:46Z,Deaths,33,cases
 2020-07-13T16:46:46Z,Fassett,5,areas
 2020-07-13T16:46:46Z,Gatineau,553,areas
@@ -2049,13 +2048,13 @@ time,key,value,table
 2020-07-13T16:46:46Z,Thurso,5,areas
 2020-07-13T16:46:46Z,To be determined,4,areas
 2020-07-13T16:46:46Z,To be determined,0,rls
-2020-07-13T16:46:46Z,Total cases,619,areas
+2020-07-13T16:46:46Z,Total,619,areas
+2020-07-13T16:46:46Z,Total cases,620,cases
 2020-07-13T16:46:46Z,Val-des-Monts,9,areas
 2020-07-14T06:25:09Z,Active cases,71,cases
 2020-07-14T06:25:09Z,Average screening test per day,183,cases
 2020-07-14T06:25:09Z,Blue Sea,5,areas
 2020-07-14T06:25:09Z,Cantley,12,areas
-2020-07-14T06:25:09Z,Cumulative cases,624,cases
 2020-07-14T06:25:09Z,Deaths,33,cases
 2020-07-14T06:25:09Z,Fassett,5,areas
 2020-07-14T06:25:09Z,Gatineau,553,areas
@@ -2079,13 +2078,13 @@ time,key,value,table
 2020-07-14T06:25:09Z,Thurso,5,areas
 2020-07-14T06:25:09Z,To be determined,9,areas
 2020-07-14T06:25:09Z,To be determined,0,rls
-2020-07-14T06:25:09Z,Total cases,624,areas
+2020-07-14T06:25:09Z,Total,624,areas
+2020-07-14T06:25:09Z,Total cases,624,cases
 2020-07-14T06:25:09Z,Val-des-Monts,9,areas
 2020-07-15T04:37:04Z,Active cases,60,cases
 2020-07-15T04:37:04Z,Average screening test per day,186,cases
 2020-07-15T04:37:04Z,Blue Sea,5,areas
 2020-07-15T04:37:04Z,Cantley,12,areas
-2020-07-15T04:37:04Z,Cumulative cases,627,cases
 2020-07-15T04:37:04Z,Deaths,33,cases
 2020-07-15T04:37:04Z,Fassett,5,areas
 2020-07-15T04:37:04Z,Gatineau,553,areas
@@ -2109,13 +2108,13 @@ time,key,value,table
 2020-07-15T04:37:04Z,Thurso,5,areas
 2020-07-15T04:37:04Z,To be determined,12,areas
 2020-07-15T04:37:04Z,To be determined,0,rls
-2020-07-15T04:37:04Z,Total cases,627,areas
+2020-07-15T04:37:04Z,Total,627,areas
+2020-07-15T04:37:04Z,Total cases,627,cases
 2020-07-15T04:37:04Z,Val-des-Monts,9,areas
 2020-07-16T08:15:50Z,Active cases,60,cases
 2020-07-16T08:15:50Z,Average screening test per day,179,cases
 2020-07-16T08:15:50Z,Blue Sea,5,areas
 2020-07-16T08:15:50Z,Cantley,12,areas
-2020-07-16T08:15:50Z,Cumulative cases,628,cases
 2020-07-16T08:15:50Z,Deaths,33,cases
 2020-07-16T08:15:50Z,Fassett,5,areas
 2020-07-16T08:15:50Z,Gatineau,553,areas
@@ -2139,13 +2138,13 @@ time,key,value,table
 2020-07-16T08:15:50Z,Thurso,5,areas
 2020-07-16T08:15:50Z,To be determined,13,areas
 2020-07-16T08:15:50Z,To be determined,0,rls
-2020-07-16T08:15:50Z,Total cases,628,areas
+2020-07-16T08:15:50Z,Total,628,areas
+2020-07-16T08:15:50Z,Total cases,628,cases
 2020-07-16T08:15:50Z,Val-des-Monts,9,areas
 2020-07-16T09:20:21Z,Active cases,60,cases
 2020-07-16T09:20:21Z,Average screening test per day,179,cases
 2020-07-16T09:20:21Z,Blue Sea,5,areas
 2020-07-16T09:20:21Z,Cantley,12,areas
-2020-07-16T09:20:21Z,Cumulative cases,628,cases
 2020-07-16T09:20:21Z,Deaths,33,cases
 2020-07-16T09:20:21Z,Fassett,5,areas
 2020-07-16T09:20:21Z,Gatineau,553,areas
@@ -2169,13 +2168,13 @@ time,key,value,table
 2020-07-16T09:20:21Z,Thurso,5,areas
 2020-07-16T09:20:21Z,To be determined,13,areas
 2020-07-16T09:20:21Z,To be determined,0,rls
-2020-07-16T09:20:21Z,Total cases,628,areas
+2020-07-16T09:20:21Z,Total,628,areas
+2020-07-16T09:20:21Z,Total cases,628,cases
 2020-07-16T09:20:21Z,Val-des-Monts,9,areas
 2020-07-16T23:01:17Z,Active cases,59,cases
 2020-07-16T23:01:17Z,Average screening test per day,188,cases
 2020-07-16T23:01:17Z,Blue Sea,5,areas
 2020-07-16T23:01:17Z,Cantley,12,areas
-2020-07-16T23:01:17Z,Cumulative cases,629,cases
 2020-07-16T23:01:17Z,Deaths,33,cases
 2020-07-16T23:01:17Z,Fassett,5,areas
 2020-07-16T23:01:17Z,Gatineau,565,areas
@@ -2199,13 +2198,13 @@ time,key,value,table
 2020-07-16T23:01:17Z,Thurso,5,areas
 2020-07-16T23:01:17Z,To be determined,0,areas
 2020-07-16T23:01:17Z,To be determined,0,rls
-2020-07-16T23:01:17Z,Total cases,629,areas
+2020-07-16T23:01:17Z,Total,629,areas
+2020-07-16T23:01:17Z,Total cases,629,cases
 2020-07-16T23:01:17Z,Val-des-Monts,10,areas
 2020-07-18T06:36:02Z,Active cases,59,cases
 2020-07-18T06:36:02Z,Average screening test per day,186,cases
 2020-07-18T06:36:02Z,Blue Sea,5,areas
 2020-07-18T06:36:02Z,Cantley,12,areas
-2020-07-18T06:36:02Z,Cumulative cases,629,cases
 2020-07-18T06:36:02Z,Deaths,33,cases
 2020-07-18T06:36:02Z,Fassett,5,areas
 2020-07-18T06:36:02Z,Gatineau,565,areas
@@ -2229,13 +2228,13 @@ time,key,value,table
 2020-07-18T06:36:02Z,Thurso,5,areas
 2020-07-18T06:36:02Z,To be determined,0,areas
 2020-07-18T06:36:02Z,To be determined,0,rls
-2020-07-18T06:36:02Z,Total cases,629,areas
+2020-07-18T06:36:02Z,Total,629,areas
+2020-07-18T06:36:02Z,Total cases,629,cases
 2020-07-18T06:36:02Z,Val-des-Monts,10,areas
 2020-07-19T01:16:30Z,Active cases,60,cases
 2020-07-19T01:16:30Z,Average screening test per day,186,cases
 2020-07-19T01:16:30Z,Blue Sea,5,areas
 2020-07-19T01:16:30Z,Cantley,12,areas
-2020-07-19T01:16:30Z,Cumulative cases,632,cases
 2020-07-19T01:16:30Z,Deaths,33,cases
 2020-07-19T01:16:30Z,Fassett,5,areas
 2020-07-19T01:16:30Z,Gatineau,565,areas
@@ -2259,13 +2258,13 @@ time,key,value,table
 2020-07-19T01:16:30Z,Thurso,5,areas
 2020-07-19T01:16:30Z,To be determined,0,areas
 2020-07-19T01:16:30Z,To be determined,0,rls
-2020-07-19T01:16:30Z,Total cases,629,areas
+2020-07-19T01:16:30Z,Total,629,areas
+2020-07-19T01:16:30Z,Total cases,632,cases
 2020-07-19T01:16:30Z,Val-des-Monts,10,areas
 2020-07-20T01:34:20Z,Active cases,61,cases
 2020-07-20T01:34:20Z,Average screening test per day,186,cases
 2020-07-20T01:34:20Z,Blue Sea,5,areas
 2020-07-20T01:34:20Z,Cantley,12,areas
-2020-07-20T01:34:20Z,Cumulative cases,633,cases
 2020-07-20T01:34:20Z,Deaths,33,cases
 2020-07-20T01:34:20Z,Fassett,5,areas
 2020-07-20T01:34:20Z,Gatineau,565,areas
@@ -2289,13 +2288,13 @@ time,key,value,table
 2020-07-20T01:34:20Z,Thurso,5,areas
 2020-07-20T01:34:20Z,To be determined,4,areas
 2020-07-20T01:34:20Z,To be determined,0,rls
-2020-07-20T01:34:20Z,Total cases,633,areas
+2020-07-20T01:34:20Z,Total,633,areas
+2020-07-20T01:34:20Z,Total cases,633,cases
 2020-07-20T01:34:20Z,Val-des-Monts,10,areas
 2020-07-20T23:27:45Z,Active cases,64,cases
 2020-07-20T23:27:45Z,Average screening test per day,196,cases
 2020-07-20T23:27:45Z,Blue Sea,5,areas
 2020-07-20T23:27:45Z,Cantley,12,areas
-2020-07-20T23:27:45Z,Cumulative cases,636,cases
 2020-07-20T23:27:45Z,Deaths,33,cases
 2020-07-20T23:27:45Z,Fassett,5,areas
 2020-07-20T23:27:45Z,Gatineau,565,areas
@@ -2319,13 +2318,13 @@ time,key,value,table
 2020-07-20T23:27:45Z,Thurso,5,areas
 2020-07-20T23:27:45Z,To be determined,7,areas
 2020-07-20T23:27:45Z,To be determined,0,rls
-2020-07-20T23:27:45Z,Total cases,636,areas
+2020-07-20T23:27:45Z,Total,636,areas
+2020-07-20T23:27:45Z,Total cases,636,cases
 2020-07-20T23:27:45Z,Val-des-Monts,10,areas
 2020-07-21T22:11:31Z,Active cases,43,cases
 2020-07-21T22:11:31Z,Average screening test per day,188,cases
 2020-07-21T22:11:31Z,Blue Sea,5,areas
 2020-07-21T22:11:31Z,Cantley,12,areas
-2020-07-21T22:11:31Z,Cumulative cases,638,cases
 2020-07-21T22:11:31Z,Deaths,33,cases
 2020-07-21T22:11:31Z,Fassett,5,areas
 2020-07-21T22:11:31Z,Gatineau,565,areas
@@ -2349,13 +2348,13 @@ time,key,value,table
 2020-07-21T22:11:31Z,Thurso,5,areas
 2020-07-21T22:11:31Z,To be determined,9,areas
 2020-07-21T22:11:31Z,To be determined,0,rls
-2020-07-21T22:11:31Z,Total cases,638,areas
+2020-07-21T22:11:31Z,Total,638,areas
+2020-07-21T22:11:31Z,Total cases,638,cases
 2020-07-21T22:11:31Z,Val-des-Monts,10,areas
 2020-07-22T23:33:25Z,Active cases,48,cases
 2020-07-22T23:33:25Z,Average screening test per day,196,cases
 2020-07-22T23:33:25Z,Blue Sea,5,areas
 2020-07-22T23:33:25Z,Cantley,12,areas
-2020-07-22T23:33:25Z,Cumulative cases,643,cases
 2020-07-22T23:33:25Z,Deaths,33,cases
 2020-07-22T23:33:25Z,Fassett,5,areas
 2020-07-22T23:33:25Z,Gatineau,565,areas
@@ -2379,13 +2378,13 @@ time,key,value,table
 2020-07-22T23:33:25Z,Thurso,5,areas
 2020-07-22T23:33:25Z,To be determined,14,areas
 2020-07-22T23:33:25Z,To be determined,0,rls
-2020-07-22T23:33:25Z,Total cases,643,areas
+2020-07-22T23:33:25Z,Total,643,areas
+2020-07-22T23:33:25Z,Total cases,643,cases
 2020-07-22T23:33:25Z,Val-des-Monts,10,areas
 2020-07-23T22:06:57Z,Active cases,48,cases
 2020-07-23T22:06:57Z,Average screening test per day,196,cases
 2020-07-23T22:06:57Z,Blue Sea,5,areas
 2020-07-23T22:06:57Z,Cantley,12,areas
-2020-07-23T22:06:57Z,Cumulative cases,643,cases
 2020-07-23T22:06:57Z,Deaths,33,cases
 2020-07-23T22:06:57Z,Fassett,5,areas
 2020-07-23T22:06:57Z,Gatineau,565,areas
@@ -2409,13 +2408,13 @@ time,key,value,table
 2020-07-23T22:06:57Z,Thurso,5,areas
 2020-07-23T22:06:57Z,To be determined,14,areas
 2020-07-23T22:06:57Z,To be determined,0,rls
-2020-07-23T22:06:57Z,Total cases,643,areas
+2020-07-23T22:06:57Z,Total,643,areas
+2020-07-23T22:06:57Z,Total cases,643,cases
 2020-07-23T22:06:57Z,Val-des-Monts,10,areas
 2020-07-24T03:39:26Z,Active cases,35,cases
 2020-07-24T03:39:26Z,Average screening test per day,210,cases
 2020-07-24T03:39:26Z,Blue Sea,5,areas
 2020-07-24T03:39:26Z,Cantley,12,areas
-2020-07-24T03:39:26Z,Cumulative cases,646,cases
 2020-07-24T03:39:26Z,Deaths,33,cases
 2020-07-24T03:39:26Z,Fassett,5,areas
 2020-07-24T03:39:26Z,Gatineau,582,areas
@@ -2439,13 +2438,13 @@ time,key,value,table
 2020-07-24T03:39:26Z,Thurso,5,areas
 2020-07-24T03:39:26Z,To be determined,0,areas
 2020-07-24T03:39:26Z,To be determined,0,rls
-2020-07-24T03:39:26Z,Total cases,646,areas
+2020-07-24T03:39:26Z,Total,646,areas
+2020-07-24T03:39:26Z,Total cases,646,cases
 2020-07-24T03:39:26Z,Val-des-Monts,10,areas
 2020-07-25T00:08:41Z,Active cases,40,cases
 2020-07-25T00:08:41Z,Average screening test per day,224,cases
 2020-07-25T00:08:41Z,Blue Sea,5,areas
 2020-07-25T00:08:41Z,Cantley,12,areas
-2020-07-25T00:08:41Z,Cumulative cases,651,cases
 2020-07-25T00:08:41Z,Deaths,33,cases
 2020-07-25T00:08:41Z,Fassett,5,areas
 2020-07-25T00:08:41Z,Gatineau,582,areas
@@ -2469,13 +2468,13 @@ time,key,value,table
 2020-07-25T00:08:41Z,Thurso,5,areas
 2020-07-25T00:08:41Z,To be determined,5,areas
 2020-07-25T00:08:41Z,To be determined,0,rls
-2020-07-25T00:08:41Z,Total cases,651,areas
+2020-07-25T00:08:41Z,Total,651,areas
+2020-07-25T00:08:41Z,Total cases,651,cases
 2020-07-25T00:08:41Z,Val-des-Monts,10,areas
 2020-07-25T00:55:59Z,Active cases,40,cases
 2020-07-25T00:55:59Z,Average screening test per day,224,cases
 2020-07-25T00:55:59Z,Blue Sea,5,areas
 2020-07-25T00:55:59Z,Cantley,12,areas
-2020-07-25T00:55:59Z,Cumulative cases,651,cases
 2020-07-25T00:55:59Z,Deaths,33,cases
 2020-07-25T00:55:59Z,Fassett,5,areas
 2020-07-25T00:55:59Z,Gatineau,582,areas
@@ -2499,13 +2498,13 @@ time,key,value,table
 2020-07-25T00:55:59Z,Thurso,5,areas
 2020-07-25T00:55:59Z,To be determined,5,areas
 2020-07-25T00:55:59Z,To be determined,0,rls
-2020-07-25T00:55:59Z,Total cases,651,areas
+2020-07-25T00:55:59Z,Total,651,areas
+2020-07-25T00:55:59Z,Total cases,651,cases
 2020-07-25T00:55:59Z,Val-des-Monts,10,areas
 2020-07-25T23:34:51Z,Active cases,42,cases
 2020-07-25T23:34:51Z,Average screening test per day,224,cases
 2020-07-25T23:34:51Z,Blue Sea,5,areas
 2020-07-25T23:34:51Z,Cantley,12,areas
-2020-07-25T23:34:51Z,Cumulative cases,653,cases
 2020-07-25T23:34:51Z,Deaths,33,cases
 2020-07-25T23:34:51Z,Fassett,5,areas
 2020-07-25T23:34:51Z,Gatineau,582,areas
@@ -2529,13 +2528,13 @@ time,key,value,table
 2020-07-25T23:34:51Z,Thurso,5,areas
 2020-07-25T23:34:51Z,To be determined,5,areas
 2020-07-25T23:34:51Z,To be determined,0,rls
-2020-07-25T23:34:51Z,Total cases,651,areas
+2020-07-25T23:34:51Z,Total,651,areas
+2020-07-25T23:34:51Z,Total cases,653,cases
 2020-07-25T23:34:51Z,Val-des-Monts,10,areas
 2020-07-26T15:22:55Z,Active cases,42,cases
 2020-07-26T15:22:55Z,Average screening test per day,224,cases
 2020-07-26T15:22:55Z,Blue Sea,5,areas
 2020-07-26T15:22:55Z,Cantley,12,areas
-2020-07-26T15:22:55Z,Cumulative cases,653,cases
 2020-07-26T15:22:55Z,Deaths,33,cases
 2020-07-26T15:22:55Z,Fassett,5,areas
 2020-07-26T15:22:55Z,Gatineau,582,areas
@@ -2559,13 +2558,13 @@ time,key,value,table
 2020-07-26T15:22:55Z,Thurso,5,areas
 2020-07-26T15:22:55Z,To be determined,5,areas
 2020-07-26T15:22:55Z,To be determined,0,rls
-2020-07-26T15:22:55Z,Total cases,651,areas
+2020-07-26T15:22:55Z,Total,651,areas
+2020-07-26T15:22:55Z,Total cases,653,cases
 2020-07-26T15:22:55Z,Val-des-Monts,10,areas
 2020-07-27T02:08:56Z,Active cases,43,cases
 2020-07-27T02:08:56Z,Average screening test per day,224,cases
 2020-07-27T02:08:56Z,Blue Sea,5,areas
 2020-07-27T02:08:56Z,Cantley,12,areas
-2020-07-27T02:08:56Z,Cumulative cases,657,cases
 2020-07-27T02:08:56Z,Deaths,33,cases
 2020-07-27T02:08:56Z,Fassett,5,areas
 2020-07-27T02:08:56Z,Gatineau,582,areas
@@ -2589,13 +2588,13 @@ time,key,value,table
 2020-07-27T02:08:56Z,Thurso,5,areas
 2020-07-27T02:08:56Z,To be determined,11,areas
 2020-07-27T02:08:56Z,To be determined,0,rls
-2020-07-27T02:08:56Z,Total cases,657,areas
+2020-07-27T02:08:56Z,Total,657,areas
+2020-07-27T02:08:56Z,Total cases,657,cases
 2020-07-27T02:08:56Z,Val-des-Monts,10,areas
 2020-07-27T15:26:42Z,Active cases,43,cases
 2020-07-27T15:26:42Z,Average screening test per day,224,cases
 2020-07-27T15:26:42Z,Blue Sea,5,areas
 2020-07-27T15:26:42Z,Cantley,12,areas
-2020-07-27T15:26:42Z,Cumulative cases,657,cases
 2020-07-27T15:26:42Z,Deaths,33,cases
 2020-07-27T15:26:42Z,Fassett,5,areas
 2020-07-27T15:26:42Z,Gatineau,582,areas
@@ -2619,13 +2618,13 @@ time,key,value,table
 2020-07-27T15:26:42Z,Thurso,5,areas
 2020-07-27T15:26:42Z,To be determined,11,areas
 2020-07-27T15:26:42Z,To be determined,0,rls
-2020-07-27T15:26:42Z,Total cases,657,areas
+2020-07-27T15:26:42Z,Total,657,areas
+2020-07-27T15:26:42Z,Total cases,657,cases
 2020-07-27T15:26:42Z,Val-des-Monts,10,areas
 2020-07-27T22:14:32Z,Active cases,43,cases
 2020-07-27T22:14:32Z,Average screening test per day,267,cases
 2020-07-27T22:14:32Z,Blue Sea,5,areas
 2020-07-27T22:14:32Z,Cantley,12,areas
-2020-07-27T22:14:32Z,Cumulative cases,659,cases
 2020-07-27T22:14:32Z,Deaths,33,cases
 2020-07-27T22:14:32Z,Fassett,5,areas
 2020-07-27T22:14:32Z,Gatineau,582,areas
@@ -2649,13 +2648,13 @@ time,key,value,table
 2020-07-27T22:14:32Z,Thurso,5,areas
 2020-07-27T22:14:32Z,To be determined,13,areas
 2020-07-27T22:14:32Z,To be determined,0,rls
-2020-07-27T22:14:32Z,Total cases,659,areas
+2020-07-27T22:14:32Z,Total,659,areas
+2020-07-27T22:14:32Z,Total cases,659,cases
 2020-07-27T22:14:32Z,Val-des-Monts,10,areas
 2020-07-28T14:07:41Z,Active cases,43,cases
 2020-07-28T14:07:41Z,Average screening test per day,267,cases
 2020-07-28T14:07:41Z,Blue Sea,5,areas
 2020-07-28T14:07:41Z,Cantley,12,areas
-2020-07-28T14:07:41Z,Cumulative cases,659,cases
 2020-07-28T14:07:41Z,Deaths,33,cases
 2020-07-28T14:07:41Z,Fassett,5,areas
 2020-07-28T14:07:41Z,Gatineau,582,areas
@@ -2679,13 +2678,13 @@ time,key,value,table
 2020-07-28T14:07:41Z,Thurso,5,areas
 2020-07-28T14:07:41Z,To be determined,13,areas
 2020-07-28T14:07:41Z,To be determined,0,rls
-2020-07-28T14:07:41Z,Total cases,659,areas
+2020-07-28T14:07:41Z,Total,659,areas
+2020-07-28T14:07:41Z,Total cases,659,cases
 2020-07-28T14:07:41Z,Val-des-Monts,10,areas
 2020-07-28T23:40:42Z,Active cases,45,cases
 2020-07-28T23:40:42Z,Average screening test per day,285,cases
 2020-07-28T23:40:42Z,Blue Sea,5,areas
 2020-07-28T23:40:42Z,Cantley,12,areas
-2020-07-28T23:40:42Z,Cumulative cases,661,cases
 2020-07-28T23:40:42Z,Deaths,33,cases
 2020-07-28T23:40:42Z,Fassett,5,areas
 2020-07-28T23:40:42Z,Gatineau,582,areas
@@ -2709,12 +2708,12 @@ time,key,value,table
 2020-07-28T23:40:42Z,Thurso,5,areas
 2020-07-28T23:40:42Z,To be determined,15,areas
 2020-07-28T23:40:42Z,To be determined,0,rls
-2020-07-28T23:40:42Z,Total cases,661,areas
+2020-07-28T23:40:42Z,Total,661,areas
+2020-07-28T23:40:42Z,Total cases,661,cases
 2020-07-28T23:40:42Z,Val-des-Monts,10,areas
 2020-07-29T22:51:24Z,Average screening test per day,288,cases
 2020-07-29T22:51:24Z,Blue Sea,5,areas
 2020-07-29T22:51:24Z,Cantley,12,areas
-2020-07-29T22:51:24Z,Cumulative cases,665,cases
 2020-07-29T22:51:24Z,Deaths,33,cases
 2020-07-29T22:51:24Z,Fassett,5,areas
 2020-07-29T22:51:24Z,Gatineau,582,areas
@@ -2737,12 +2736,12 @@ time,key,value,table
 2020-07-29T22:51:24Z,Thurso,5,areas
 2020-07-29T22:51:24Z,To be determined,15,areas
 2020-07-29T22:51:24Z,To be determined,4,rls
-2020-07-29T22:51:24Z,Total cases,665,areas
+2020-07-29T22:51:24Z,Total,665,areas
+2020-07-29T22:51:24Z,Total cases,665,cases
 2020-07-29T22:51:24Z,Val-des-Monts,10,areas
 2020-07-30T00:52:13Z,Average screening test per day,288,cases
 2020-07-30T00:52:13Z,Blue Sea,5,areas
 2020-07-30T00:52:13Z,Cantley,12,areas
-2020-07-30T00:52:13Z,Cumulative cases,665,cases
 2020-07-30T00:52:13Z,Deaths,33,cases
 2020-07-30T00:52:13Z,Fassett,5,areas
 2020-07-30T00:52:13Z,Gatineau,582,areas
@@ -2765,12 +2764,12 @@ time,key,value,table
 2020-07-30T00:52:13Z,Thurso,5,areas
 2020-07-30T00:52:13Z,To be determined,15,areas
 2020-07-30T00:52:13Z,To be determined,4,rls
-2020-07-30T00:52:13Z,Total cases,665,areas
+2020-07-30T00:52:13Z,Total,665,areas
+2020-07-30T00:52:13Z,Total cases,665,cases
 2020-07-30T00:52:13Z,Val-des-Monts,10,areas
 2020-07-31T13:52:40Z,Average screening test per day,283,cases
 2020-07-31T13:52:40Z,Blue Sea,5,areas
 2020-07-31T13:52:40Z,Cantley,12,areas
-2020-07-31T13:52:40Z,Cumulative cases,668,cases
 2020-07-31T13:52:40Z,Deaths,33,cases
 2020-07-31T13:52:40Z,Fassett,5,areas
 2020-07-31T13:52:40Z,Gatineau,582,areas
@@ -2793,12 +2792,12 @@ time,key,value,table
 2020-07-31T13:52:40Z,Thurso,5,areas
 2020-07-31T13:52:40Z,To be determined,18,areas
 2020-07-31T13:52:40Z,To be determined,7,rls
-2020-07-31T13:52:40Z,Total cases,668,areas
+2020-07-31T13:52:40Z,Total,668,areas
+2020-07-31T13:52:40Z,Total cases,668,cases
 2020-07-31T13:52:40Z,Val-des-Monts,10,areas
 2020-07-31T21:01:58Z,Average screening test per day,283,cases
 2020-07-31T21:01:58Z,Blue Sea,5,areas
 2020-07-31T21:01:58Z,Cantley,12,areas
-2020-07-31T21:01:58Z,Cumulative cases,668,cases
 2020-07-31T21:01:58Z,Deaths,33,cases
 2020-07-31T21:01:58Z,Fassett,5,areas
 2020-07-31T21:01:58Z,Gatineau,582,areas
@@ -2821,13 +2820,13 @@ time,key,value,table
 2020-07-31T21:01:58Z,Thurso,5,areas
 2020-07-31T21:01:58Z,To be determined,18,areas
 2020-07-31T21:01:58Z,To be determined,7,rls
-2020-07-31T21:01:58Z,Total cases,668,areas
+2020-07-31T21:01:58Z,Total,668,areas
+2020-07-31T21:01:58Z,Total cases,668,cases
 2020-07-31T21:01:58Z,Val-des-Monts,10,areas
 2020-08-02T04:51:12Z,Active cases,54,cases
 2020-08-02T04:51:12Z,Average screening test per day,280,cases
 2020-08-02T04:51:12Z,Blue Sea,5,areas
 2020-08-02T04:51:12Z,Cantley,12,areas
-2020-08-02T04:51:12Z,Cumulative cases,678,cases
 2020-08-02T04:51:12Z,Deaths,33,cases
 2020-08-02T04:51:12Z,Fassett,5,areas
 2020-08-02T04:51:12Z,Gatineau,582,areas
@@ -2851,13 +2850,13 @@ time,key,value,table
 2020-08-02T04:51:12Z,Thurso,5,areas
 2020-08-02T04:51:12Z,To be determined,28,areas
 2020-08-02T04:51:12Z,To be determined,0,rls
-2020-08-02T04:51:12Z,Total cases,678,areas
+2020-08-02T04:51:12Z,Total,678,areas
+2020-08-02T04:51:12Z,Total cases,678,cases
 2020-08-02T04:51:12Z,Val-des-Monts,10,areas
 2020-08-04T01:27:43Z,Active cases,58,cases
 2020-08-04T01:27:43Z,Average screening test per day,280,cases
 2020-08-04T01:27:43Z,Blue Sea,5,areas
 2020-08-04T01:27:43Z,Cantley,12,areas
-2020-08-04T01:27:43Z,Cumulative cases,682,cases
 2020-08-04T01:27:43Z,Deaths,33,cases
 2020-08-04T01:27:43Z,Fassett,5,areas
 2020-08-04T01:27:43Z,Gatineau,582,areas
@@ -2881,13 +2880,13 @@ time,key,value,table
 2020-08-04T01:27:43Z,Thurso,5,areas
 2020-08-04T01:27:43Z,To be determined,32,areas
 2020-08-04T01:27:43Z,To be determined,0,rls
-2020-08-04T01:27:43Z,Total cases,682,areas
+2020-08-04T01:27:43Z,Total,682,areas
+2020-08-04T01:27:43Z,Total cases,682,cases
 2020-08-04T01:27:43Z,Val-des-Monts,10,areas
 2020-08-06T10:58:10Z,Active cases,33,cases
 2020-08-06T10:58:10Z,Average screening test per day,271,cases
 2020-08-06T10:58:10Z,Blue Sea,5,areas
 2020-08-06T10:58:10Z,Cantley,12,areas
-2020-08-06T10:58:10Z,Cumulative cases,685,cases
 2020-08-06T10:58:10Z,Deaths,33,cases
 2020-08-06T10:58:10Z,Fassett,5,areas
 2020-08-06T10:58:10Z,Gatineau,582,areas
@@ -2911,13 +2910,13 @@ time,key,value,table
 2020-08-06T10:58:10Z,Thurso,5,areas
 2020-08-06T10:58:10Z,To be determined,35,areas
 2020-08-06T10:58:10Z,To be determined,0,rls
-2020-08-06T10:58:10Z,Total cases,685,areas
+2020-08-06T10:58:10Z,Total,685,areas
+2020-08-06T10:58:10Z,Total cases,685,cases
 2020-08-06T10:58:10Z,Val-des-Monts,10,areas
 2020-08-07T01:55:19Z,Active cases,36,cases
 2020-08-07T01:55:19Z,Average screening test per day,271,cases
 2020-08-07T01:55:19Z,Blue Sea,5,areas
 2020-08-07T01:55:19Z,Cantley,12,areas
-2020-08-07T01:55:19Z,Cumulative cases,691,cases
 2020-08-07T01:55:19Z,Deaths,33,cases
 2020-08-07T01:55:19Z,Fassett,5,areas
 2020-08-07T01:55:19Z,Gatineau,624,areas
@@ -2941,13 +2940,13 @@ time,key,value,table
 2020-08-07T01:55:19Z,Thurso,5,areas
 2020-08-07T01:55:19Z,To be determined,0,areas
 2020-08-07T01:55:19Z,To be determined,0,rls
-2020-08-07T01:55:19Z,Total cases,691,areas
+2020-08-07T01:55:19Z,Total,691,areas
+2020-08-07T01:55:19Z,Total cases,691,cases
 2020-08-07T01:55:19Z,Val-des-Monts,10,areas
 2020-08-07T22:23:25Z,Active cases,35,cases
 2020-08-07T22:23:25Z,Average screening test per day,286,cases
 2020-08-07T22:23:25Z,Blue Sea,5,areas
 2020-08-07T22:23:25Z,Cantley,12,areas
-2020-08-07T22:23:25Z,Cumulative cases,692,cases
 2020-08-07T22:23:25Z,Deaths,33,cases
 2020-08-07T22:23:25Z,Fassett,5,areas
 2020-08-07T22:23:25Z,Gatineau,624,areas
@@ -2971,13 +2970,13 @@ time,key,value,table
 2020-08-07T22:23:25Z,Thurso,5,areas
 2020-08-07T22:23:25Z,To be determined,1,areas
 2020-08-07T22:23:25Z,To be determined,0,rls
-2020-08-07T22:23:25Z,Total cases,692,areas
+2020-08-07T22:23:25Z,Total,692,areas
+2020-08-07T22:23:25Z,Total cases,692,cases
 2020-08-07T22:23:25Z,Val-des-Monts,10,areas
 2020-08-09T21:55:43Z,Active cases,49,cases
 2020-08-09T21:55:43Z,Average screening test per day,286,cases
 2020-08-09T21:55:43Z,Blue Sea,5,areas
 2020-08-09T21:55:43Z,Cantley,12,areas
-2020-08-09T21:55:43Z,Cumulative cases,707,cases
 2020-08-09T21:55:43Z,Deaths,33,cases
 2020-08-09T21:55:43Z,Fassett,5,areas
 2020-08-09T21:55:43Z,Gatineau,624,areas
@@ -3001,13 +3000,13 @@ time,key,value,table
 2020-08-09T21:55:43Z,Thurso,5,areas
 2020-08-09T21:55:43Z,To be determined,1,areas
 2020-08-09T21:55:43Z,To be determined,0,rls
-2020-08-09T21:55:43Z,Total cases,692,areas
+2020-08-09T21:55:43Z,Total,692,areas
+2020-08-09T21:55:43Z,Total cases,707,cases
 2020-08-09T21:55:43Z,Val-des-Monts,10,areas
 2020-08-12T18:09:43Z,Active cases,49,cases
 2020-08-12T18:09:43Z,Average screening test per day,286,cases
 2020-08-12T18:09:43Z,Blue Sea,5,areas
 2020-08-12T18:09:43Z,Cantley,12,areas
-2020-08-12T18:09:43Z,Cumulative cases,707,cases
 2020-08-12T18:09:43Z,Deaths,33,cases
 2020-08-12T18:09:43Z,Fassett,5,areas
 2020-08-12T18:09:43Z,Gatineau,624,areas
@@ -3031,13 +3030,13 @@ time,key,value,table
 2020-08-12T18:09:43Z,Thurso,5,areas
 2020-08-12T18:09:43Z,To be determined,1,areas
 2020-08-12T18:09:43Z,To be determined,0,rls
-2020-08-12T18:09:43Z,Total cases,692,areas
+2020-08-12T18:09:43Z,Total,692,areas
+2020-08-12T18:09:43Z,Total cases,707,cases
 2020-08-12T18:09:43Z,Val-des-Monts,10,areas
 2020-08-13T22:50:26Z,Active cases,46,cases
 2020-08-13T22:50:26Z,Average screening test per day,316,cases
 2020-08-13T22:50:26Z,Blue Sea,5,areas
 2020-08-13T22:50:26Z,Cantley,12,areas
-2020-08-13T22:50:26Z,Cumulative cases,722,cases
 2020-08-13T22:50:26Z,Deaths,33,cases
 2020-08-13T22:50:26Z,Fassett,5,areas
 2020-08-13T22:50:26Z,Gatineau,624,areas
@@ -3061,14 +3060,14 @@ time,key,value,table
 2020-08-13T22:50:26Z,Thurso,5,areas
 2020-08-13T22:50:26Z,To be determined,30,areas
 2020-08-13T22:50:26Z,To be determined,2,rls
-2020-08-13T22:50:26Z,Total cases,720,areas
+2020-08-13T22:50:26Z,Total,720,areas
+2020-08-13T22:50:26Z,Total cases,722,cases
 2020-08-13T22:50:26Z,Val-des-Monts,10,areas
 2020-08-15T19:01:58Z,Active cases,47,cases
 2020-08-15T19:01:58Z,Average screening test per day,288,cases
 2020-08-15T19:01:58Z,Blue Sea,5,areas
 2020-08-15T19:01:58Z,Bouchette,5,areas
 2020-08-15T19:01:58Z,Cantley,13,areas
-2020-08-15T19:01:58Z,Cumulative cases,727,cases
 2020-08-15T19:01:58Z,Deaths,33,cases
 2020-08-15T19:01:58Z,Fassett,5,areas
 2020-08-15T19:01:58Z,Gatineau,655,areas
@@ -3092,14 +3091,14 @@ time,key,value,table
 2020-08-15T19:01:58Z,Thurso,5,areas
 2020-08-15T19:01:58Z,To be determined,3,areas
 2020-08-15T19:01:58Z,To be determined,2,rls
-2020-08-15T19:01:58Z,Total cases,727,areas
+2020-08-15T19:01:58Z,Total,727,areas
+2020-08-15T19:01:58Z,Total cases,727,cases
 2020-08-15T19:01:58Z,Val-des-Monts,10,areas
 2020-08-16T21:25:27Z,Active cases,44,cases
 2020-08-16T21:25:27Z,Average screening test per day,288,cases
 2020-08-16T21:25:27Z,Blue Sea,5,areas
 2020-08-16T21:25:27Z,Bouchette,5,areas
 2020-08-16T21:25:27Z,Cantley,13,areas
-2020-08-16T21:25:27Z,Cumulative cases,730,cases
 2020-08-16T21:25:27Z,Deaths,33,cases
 2020-08-16T21:25:27Z,Fassett,5,areas
 2020-08-16T21:25:27Z,Gatineau,655,areas
@@ -3123,14 +3122,14 @@ time,key,value,table
 2020-08-16T21:25:27Z,Thurso,5,areas
 2020-08-16T21:25:27Z,To be determined,3,areas
 2020-08-16T21:25:27Z,To be determined,2,rls
-2020-08-16T21:25:27Z,Total cases,727,areas
+2020-08-16T21:25:27Z,Total,727,areas
+2020-08-16T21:25:27Z,Total cases,730,cases
 2020-08-16T21:25:27Z,Val-des-Monts,10,areas
 2020-08-21T03:09:43Z,Active cases,38,cases
 2020-08-21T03:09:43Z,Average screening test per day,263,cases
 2020-08-21T03:09:43Z,Blue Sea,5,areas
 2020-08-21T03:09:43Z,Bouchette,5,areas
 2020-08-21T03:09:43Z,Cantley,13,areas
-2020-08-21T03:09:43Z,Cumulative cases,745,cases
 2020-08-21T03:09:43Z,Deaths,33,cases
 2020-08-21T03:09:43Z,Fassett,5,areas
 2020-08-21T03:09:43Z,Gatineau,674,areas
@@ -3154,14 +3153,14 @@ time,key,value,table
 2020-08-21T03:09:43Z,Thurso,5,areas
 2020-08-21T03:09:43Z,To be determined,1,areas
 2020-08-21T03:09:43Z,To be determined,1,rls
-2020-08-21T03:09:43Z,Total cases,745,areas
+2020-08-21T03:09:43Z,Total,745,areas
+2020-08-21T03:09:43Z,Total cases,745,cases
 2020-08-21T03:09:43Z,Val-des-Monts,10,areas
 2020-08-22T07:56:20Z,Active cases,41,cases
 2020-08-22T07:56:20Z,Average screening test per day,270,cases
 2020-08-22T07:56:20Z,Blue Sea,5,areas
 2020-08-22T07:56:20Z,Bouchette,5,areas
 2020-08-22T07:56:20Z,Cantley,13,areas
-2020-08-22T07:56:20Z,Cumulative cases,751,cases
 2020-08-22T07:56:20Z,Deaths,33,cases
 2020-08-22T07:56:20Z,Fassett,5,areas
 2020-08-22T07:56:20Z,Gatineau,674,areas
@@ -3185,14 +3184,14 @@ time,key,value,table
 2020-08-22T07:56:20Z,Thurso,5,areas
 2020-08-22T07:56:20Z,To be determined,7,areas
 2020-08-22T07:56:20Z,To be determined,1,rls
-2020-08-22T07:56:20Z,Total cases,751,areas
+2020-08-22T07:56:20Z,Total,751,areas
+2020-08-22T07:56:20Z,Total cases,751,cases
 2020-08-22T07:56:20Z,Val-des-Monts,10,areas
 2020-08-24T00:23:07Z,Active cases,52,cases
 2020-08-24T00:23:07Z,Average screening test per day,270,cases
 2020-08-24T00:23:07Z,Blue Sea,5,areas
 2020-08-24T00:23:07Z,Bouchette,5,areas
 2020-08-24T00:23:07Z,Cantley,13,areas
-2020-08-24T00:23:07Z,Cumulative cases,762,cases
 2020-08-24T00:23:07Z,Deaths,33,cases
 2020-08-24T00:23:07Z,Fassett,5,areas
 2020-08-24T00:23:07Z,Gatineau,674,areas
@@ -3216,14 +3215,14 @@ time,key,value,table
 2020-08-24T00:23:07Z,Thurso,5,areas
 2020-08-24T00:23:07Z,To be determined,7,areas
 2020-08-24T00:23:07Z,To be determined,1,rls
-2020-08-24T00:23:07Z,Total cases,751,areas
+2020-08-24T00:23:07Z,Total,751,areas
+2020-08-24T00:23:07Z,Total cases,762,cases
 2020-08-24T00:23:07Z,Val-des-Monts,10,areas
 2020-08-26T07:01:35Z,Active cases,70,cases
 2020-08-26T07:01:35Z,Average screening test per day,318,cases
 2020-08-26T07:01:35Z,Blue Sea,5,areas
 2020-08-26T07:01:35Z,Bouchette,5,areas
 2020-08-26T07:01:35Z,Cantley,13,areas
-2020-08-26T07:01:35Z,Cumulative cases,780,cases
 2020-08-26T07:01:35Z,Deaths,33,cases
 2020-08-26T07:01:35Z,Fassett,5,areas
 2020-08-26T07:01:35Z,Gatineau,674,areas
@@ -3247,14 +3246,14 @@ time,key,value,table
 2020-08-26T07:01:35Z,Thurso,5,areas
 2020-08-26T07:01:35Z,To be determined,29,areas
 2020-08-26T07:01:35Z,To be determined,0,rls
-2020-08-26T07:01:35Z,Total cases,780,areas
+2020-08-26T07:01:35Z,Total,780,areas
+2020-08-26T07:01:35Z,Total cases,780,cases
 2020-08-26T07:01:35Z,Val-des-Monts,10,areas
 2020-08-27T07:17:54Z,Active cases,72,cases
 2020-08-27T07:17:54Z,Average screening test per day,342,cases
 2020-08-27T07:17:54Z,Blue Sea,5,areas
 2020-08-27T07:17:54Z,Bouchette,5,areas
 2020-08-27T07:17:54Z,Cantley,13,areas
-2020-08-27T07:17:54Z,Cumulative cases,790,cases
 2020-08-27T07:17:54Z,Deaths,33,cases
 2020-08-27T07:17:54Z,Fassett,5,areas
 2020-08-27T07:17:54Z,Gatineau,674,areas
@@ -3278,14 +3277,14 @@ time,key,value,table
 2020-08-27T07:17:54Z,Thurso,5,areas
 2020-08-27T07:17:54Z,To be determined,39,areas
 2020-08-27T07:17:54Z,To be determined,0,rls
-2020-08-27T07:17:54Z,Total cases,790,areas
+2020-08-27T07:17:54Z,Total,790,areas
+2020-08-27T07:17:54Z,Total cases,790,cases
 2020-08-27T07:17:54Z,Val-des-Monts,10,areas
 2020-08-28T05:21:42Z,Active cases,74,cases
 2020-08-28T05:21:42Z,Average screening test per day,357,cases
 2020-08-28T05:21:42Z,Blue Sea,5,areas
 2020-08-28T05:21:42Z,Bouchette,5,areas
 2020-08-28T05:21:42Z,Cantley,14,areas
-2020-08-28T05:21:42Z,Cumulative cases,797,cases
 2020-08-28T05:21:42Z,Deaths,33,cases
 2020-08-28T05:21:42Z,Fassett,5,areas
 2020-08-28T05:21:42Z,Gatineau,717,areas
@@ -3309,7 +3308,8 @@ time,key,value,table
 2020-08-28T05:21:42Z,Thurso,6,areas
 2020-08-28T05:21:42Z,To be determined,3,areas
 2020-08-28T05:21:42Z,To be determined,2,rls
-2020-08-28T05:21:42Z,Total cases,797,areas
+2020-08-28T05:21:42Z,Total,797,areas
+2020-08-28T05:21:42Z,Total cases,797,cases
 2020-08-28T05:21:42Z,Val-des-Monts,11,areas
 2020-08-29T05:19:58Z,Active cases,78,cases
 2020-08-29T05:19:58Z,Average screening test per day,354,cases
@@ -3317,7 +3317,6 @@ time,key,value,table
 2020-08-29T05:19:58Z,Bouchette,5,areas
 2020-08-29T05:19:58Z,Cantley,14,areas
 2020-08-29T05:19:58Z,Chelsea,5,areas
-2020-08-29T05:19:58Z,Cumulative cases,805,cases
 2020-08-29T05:19:58Z,Deaths,33,cases
 2020-08-29T05:19:58Z,Fassett,5,areas
 2020-08-29T05:19:58Z,Gatineau,717,areas
@@ -3341,7 +3340,8 @@ time,key,value,table
 2020-08-29T05:19:58Z,Thurso,6,areas
 2020-08-29T05:19:58Z,To be determined,11,areas
 2020-08-29T05:19:58Z,To be determined,2,rls
-2020-08-29T05:19:58Z,Total cases,805,areas
+2020-08-29T05:19:58Z,Total,805,areas
+2020-08-29T05:19:58Z,Total cases,805,cases
 2020-08-29T05:19:58Z,Val-des-Monts,11,areas
 2020-08-29T07:09:17Z,Active cases,78,cases
 2020-08-29T07:09:17Z,Average screening test per day,354,cases
@@ -3349,7 +3349,6 @@ time,key,value,table
 2020-08-29T07:09:17Z,Bouchette,5,areas
 2020-08-29T07:09:17Z,Cantley,14,areas
 2020-08-29T07:09:17Z,Chelsea,5,areas
-2020-08-29T07:09:17Z,Cumulative cases,805,cases
 2020-08-29T07:09:17Z,Deaths,33,cases
 2020-08-29T07:09:17Z,Fassett,5,areas
 2020-08-29T07:09:17Z,Gatineau,717,areas
@@ -3373,7 +3372,8 @@ time,key,value,table
 2020-08-29T07:09:17Z,Thurso,6,areas
 2020-08-29T07:09:17Z,To be determined,11,areas
 2020-08-29T07:09:17Z,To be determined,2,rls
-2020-08-29T07:09:17Z,Total cases,805,areas
+2020-08-29T07:09:17Z,Total,805,areas
+2020-08-29T07:09:17Z,Total cases,805,cases
 2020-08-29T07:09:17Z,Val-des-Monts,11,areas
 2020-08-30T03:53:25Z,Active cases,82,cases
 2020-08-30T03:53:25Z,Average screening test per day,354,cases
@@ -3381,7 +3381,6 @@ time,key,value,table
 2020-08-30T03:53:25Z,Bouchette,5,areas
 2020-08-30T03:53:25Z,Cantley,14,areas
 2020-08-30T03:53:25Z,Chelsea,5,areas
-2020-08-30T03:53:25Z,Cumulative cases,810,cases
 2020-08-30T03:53:25Z,Deaths,33,cases
 2020-08-30T03:53:25Z,Fassett,5,areas
 2020-08-30T03:53:25Z,Gatineau,717,areas
@@ -3405,7 +3404,8 @@ time,key,value,table
 2020-08-30T03:53:25Z,Thurso,6,areas
 2020-08-30T03:53:25Z,To be determined,11,areas
 2020-08-30T03:53:25Z,To be determined,2,rls
-2020-08-30T03:53:25Z,Total cases,805,areas
+2020-08-30T03:53:25Z,Total,805,areas
+2020-08-30T03:53:25Z,Total cases,810,cases
 2020-08-30T03:53:25Z,Val-des-Monts,11,areas
 2020-08-31T07:02:42Z,Active cases,93,cases
 2020-08-31T07:02:42Z,Average screening test per day,354,cases
@@ -3413,7 +3413,6 @@ time,key,value,table
 2020-08-31T07:02:42Z,Bouchette,5,areas
 2020-08-31T07:02:42Z,Cantley,14,areas
 2020-08-31T07:02:42Z,Chelsea,5,areas
-2020-08-31T07:02:42Z,Cumulative cases,821,cases
 2020-08-31T07:02:42Z,Deaths,33,cases
 2020-08-31T07:02:42Z,Fassett,5,areas
 2020-08-31T07:02:42Z,Gatineau,717,areas
@@ -3437,7 +3436,8 @@ time,key,value,table
 2020-08-31T07:02:42Z,Thurso,6,areas
 2020-08-31T07:02:42Z,To be determined,16,areas
 2020-08-31T07:02:42Z,To be determined,2,rls
-2020-08-31T07:02:42Z,Total cases,821,areas
+2020-08-31T07:02:42Z,Total,821,areas
+2020-08-31T07:02:42Z,Total cases,821,cases
 2020-08-31T07:02:42Z,Val-des-Monts,11,areas
 2020-08-31T10:55:09Z,Active cases,93,cases
 2020-08-31T10:55:09Z,Average screening test per day,354,cases
@@ -3445,7 +3445,6 @@ time,key,value,table
 2020-08-31T10:55:09Z,Bouchette,5,areas
 2020-08-31T10:55:09Z,Cantley,14,areas
 2020-08-31T10:55:09Z,Chelsea,5,areas
-2020-08-31T10:55:09Z,Cumulative cases,821,cases
 2020-08-31T10:55:09Z,Deaths,33,cases
 2020-08-31T10:55:09Z,Fassett,5,areas
 2020-08-31T10:55:09Z,Gatineau,717,areas
@@ -3469,7 +3468,8 @@ time,key,value,table
 2020-08-31T10:55:09Z,Thurso,6,areas
 2020-08-31T10:55:09Z,To be determined,16,areas
 2020-08-31T10:55:09Z,To be determined,2,rls
-2020-08-31T10:55:09Z,Total cases,821,areas
+2020-08-31T10:55:09Z,Total,821,areas
+2020-08-31T10:55:09Z,Total cases,821,cases
 2020-08-31T10:55:09Z,Val-des-Monts,11,areas
 2020-09-03T10:43:57Z,Active cases,111,cases
 2020-09-03T10:43:57Z,Average screening test per day,343,cases
@@ -3477,7 +3477,6 @@ time,key,value,table
 2020-09-03T10:43:57Z,Bouchette,5,areas
 2020-09-03T10:43:57Z,Cantley,14,areas
 2020-09-03T10:43:57Z,Chelsea,5,areas
-2020-09-03T10:43:57Z,Cumulative cases,853,cases
 2020-09-03T10:43:57Z,Deaths,33,cases
 2020-09-03T10:43:57Z,Fassett,5,areas
 2020-09-03T10:43:57Z,Gatineau,717,areas
@@ -3501,7 +3500,8 @@ time,key,value,table
 2020-09-03T10:43:57Z,Thurso,6,areas
 2020-09-03T10:43:57Z,To be determined,48,areas
 2020-09-03T10:43:57Z,To be determined,4,rls
-2020-09-03T10:43:57Z,Total cases,853,areas
+2020-09-03T10:43:57Z,Total,853,areas
+2020-09-03T10:43:57Z,Total cases,853,cases
 2020-09-03T10:43:57Z,Val-des-Monts,11,areas
 2020-09-07T19:37:36Z,Active cases,103,cases
 2020-09-07T19:37:36Z,Average screening test per day,390,cases
@@ -3509,7 +3509,6 @@ time,key,value,table
 2020-09-07T19:37:36Z,Bouchette,5,areas
 2020-09-07T19:37:36Z,Cantley,16,areas
 2020-09-07T19:37:36Z,Chelsea,5,areas
-2020-09-07T19:37:36Z,Cumulative cases,894,cases
 2020-09-07T19:37:36Z,Deaths,33,cases
 2020-09-07T19:37:36Z,Fassett,5,areas
 2020-09-07T19:37:36Z,Gatineau,774,areas
@@ -3533,7 +3532,8 @@ time,key,value,table
 2020-09-07T19:37:36Z,Thurso,7,areas
 2020-09-07T19:37:36Z,To be determined,27,areas
 2020-09-07T19:37:36Z,To be determined,6,rls
-2020-09-07T19:37:36Z,Total cases,886,areas
+2020-09-07T19:37:36Z,Total,886,areas
+2020-09-07T19:37:36Z,Total cases,894,cases
 2020-09-07T19:37:36Z,Val-des-Monts,13,areas
 2020-09-09T16:05:18Z,Active cases,87,cases
 2020-09-09T16:05:18Z,Average screening test per day,382,cases
@@ -3541,7 +3541,6 @@ time,key,value,table
 2020-09-09T16:05:18Z,Bouchette,5,areas
 2020-09-09T16:05:18Z,Cantley,16,areas
 2020-09-09T16:05:18Z,Chelsea,5,areas
-2020-09-09T16:05:18Z,Cumulative cases,907,cases
 2020-09-09T16:05:18Z,Deaths,34,cases
 2020-09-09T16:05:18Z,Fassett,5,areas
 2020-09-09T16:05:18Z,Gatineau,774,areas
@@ -3565,7 +3564,8 @@ time,key,value,table
 2020-09-09T16:05:18Z,Thurso,7,areas
 2020-09-09T16:05:18Z,To be determined,48,areas
 2020-09-09T16:05:18Z,To be determined,6,rls
-2020-09-09T16:05:18Z,Total cases,907,areas
+2020-09-09T16:05:18Z,Total,907,areas
+2020-09-09T16:05:18Z,Total cases,907,cases
 2020-09-09T16:05:18Z,Val-des-Monts,13,areas
 2020-09-10T16:55:27Z,Active cases,76,cases
 2020-09-10T16:55:27Z,Average screening test per day,400,cases
@@ -3573,7 +3573,6 @@ time,key,value,table
 2020-09-10T16:55:27Z,Bouchette,5,areas
 2020-09-10T16:55:27Z,Cantley,16,areas
 2020-09-10T16:55:27Z,Chelsea,5,areas
-2020-09-10T16:55:27Z,Cumulative cases,924,cases
 2020-09-10T16:55:27Z,Deaths,34,cases
 2020-09-10T16:55:27Z,Fassett,5,areas
 2020-09-10T16:55:27Z,Gatineau,774,areas
@@ -3597,7 +3596,8 @@ time,key,value,table
 2020-09-10T16:55:27Z,Thurso,7,areas
 2020-09-10T16:55:27Z,To be determined,65,areas
 2020-09-10T16:55:27Z,To be determined,6,rls
-2020-09-10T16:55:27Z,Total cases,924,areas
+2020-09-10T16:55:27Z,Total,924,areas
+2020-09-10T16:55:27Z,Total cases,924,cases
 2020-09-10T16:55:27Z,Val-des-Monts,13,areas
 2020-09-13T04:31:36Z,Active cases,85,cases
 2020-09-13T04:31:36Z,Average screening test per day,418,cases
@@ -3605,7 +3605,6 @@ time,key,value,table
 2020-09-13T04:31:36Z,Bouchette,5,areas
 2020-09-13T04:31:36Z,Cantley,17,areas
 2020-09-13T04:31:36Z,Chelsea,5,areas
-2020-09-13T04:31:36Z,Cumulative cases,963,cases
 2020-09-13T04:31:36Z,Deaths,34,cases
 2020-09-13T04:31:36Z,Fassett,5,areas
 2020-09-13T04:31:36Z,Gatineau,842,areas
@@ -3629,7 +3628,8 @@ time,key,value,table
 2020-09-13T04:31:36Z,Thurso,7,areas
 2020-09-13T04:31:36Z,To be determined,31,areas
 2020-09-13T04:31:36Z,To be determined,6,rls
-2020-09-13T04:31:36Z,Total cases,963,areas
+2020-09-13T04:31:36Z,Total,963,areas
+2020-09-13T04:31:36Z,Total cases,963,cases
 2020-09-13T04:31:36Z,Val-des-Monts,14,areas
 2020-09-13T23:39:18Z,Active cases,83,cases
 2020-09-13T23:39:18Z,Average screening test per day,418,cases
@@ -3637,7 +3637,6 @@ time,key,value,table
 2020-09-13T23:39:18Z,Bouchette,5,areas
 2020-09-13T23:39:18Z,Cantley,17,areas
 2020-09-13T23:39:18Z,Chelsea,5,areas
-2020-09-13T23:39:18Z,Cumulative cases,978,cases
 2020-09-13T23:39:18Z,Deaths,34,cases
 2020-09-13T23:39:18Z,Fassett,5,areas
 2020-09-13T23:39:18Z,Gatineau,842,areas
@@ -3661,7 +3660,8 @@ time,key,value,table
 2020-09-13T23:39:18Z,Thurso,7,areas
 2020-09-13T23:39:18Z,To be determined,46,areas
 2020-09-13T23:39:18Z,To be determined,2,rls
-2020-09-13T23:39:18Z,Total cases,978,areas
+2020-09-13T23:39:18Z,Total,978,areas
+2020-09-13T23:39:18Z,Total cases,978,cases
 2020-09-13T23:39:18Z,Val-des-Monts,14,areas
 2020-09-14T05:55:53Z,Active cases,83,cases
 2020-09-14T05:55:53Z,Average screening test per day,418,cases
@@ -3669,7 +3669,6 @@ time,key,value,table
 2020-09-14T05:55:53Z,Bouchette,5,areas
 2020-09-14T05:55:53Z,Cantley,17,areas
 2020-09-14T05:55:53Z,Chelsea,5,areas
-2020-09-14T05:55:53Z,Cumulative cases,978,cases
 2020-09-14T05:55:53Z,Deaths,34,cases
 2020-09-14T05:55:53Z,Fassett,5,areas
 2020-09-14T05:55:53Z,Gatineau,842,areas
@@ -3693,7 +3692,8 @@ time,key,value,table
 2020-09-14T05:55:53Z,Thurso,7,areas
 2020-09-14T05:55:53Z,To be determined,46,areas
 2020-09-14T05:55:53Z,To be determined,2,rls
-2020-09-14T05:55:53Z,Total cases,978,areas
+2020-09-14T05:55:53Z,Total,978,areas
+2020-09-14T05:55:53Z,Total cases,978,cases
 2020-09-14T05:55:53Z,Val-des-Monts,14,areas
 2020-09-15T07:36:52Z,Active cases,99,cases
 2020-09-15T07:36:52Z,Average screening test per day,483,cases
@@ -3701,7 +3701,6 @@ time,key,value,table
 2020-09-15T07:36:52Z,Bouchette,5,areas
 2020-09-15T07:36:52Z,Cantley,17,areas
 2020-09-15T07:36:52Z,Chelsea,5,areas
-2020-09-15T07:36:52Z,Cumulative cases,998,cases
 2020-09-15T07:36:52Z,Deaths,34,cases
 2020-09-15T07:36:52Z,Déléage,5,areas
 2020-09-15T07:36:52Z,Fassett,5,areas
@@ -3729,7 +3728,8 @@ time,key,value,table
 2020-09-15T07:36:52Z,Thurso,7,areas
 2020-09-15T07:36:52Z,To be determined,0,areas
 2020-09-15T07:36:52Z,To be determined,0,rls
-2020-09-15T07:36:52Z,Total cases,998,areas
+2020-09-15T07:36:52Z,Total,998,areas
+2020-09-15T07:36:52Z,Total cases,998,cases
 2020-09-15T07:36:52Z,Val-des-Monts,16,areas
 2020-09-16T15:18:07Z,Active cases,111,cases
 2020-09-16T15:18:07Z,Average screening test per day,530,cases
@@ -3737,7 +3737,6 @@ time,key,value,table
 2020-09-16T15:18:07Z,Bouchette,5,areas
 2020-09-16T15:18:07Z,Cantley,17,areas
 2020-09-16T15:18:07Z,Chelsea,5,areas
-2020-09-16T15:18:07Z,Cumulative cases,1014,cases
 2020-09-16T15:18:07Z,Deaths,34,cases
 2020-09-16T15:18:07Z,Déléage,5,areas
 2020-09-16T15:18:07Z,Fassett,5,areas
@@ -3765,7 +3764,8 @@ time,key,value,table
 2020-09-16T15:18:07Z,Thurso,7,areas
 2020-09-16T15:18:07Z,To be determined,16,areas
 2020-09-16T15:18:07Z,To be determined,0,rls
-2020-09-16T15:18:07Z,Total cases,1014,areas
+2020-09-16T15:18:07Z,Total,1014,areas
+2020-09-16T15:18:07Z,Total cases,1014,cases
 2020-09-16T15:18:07Z,Val-des-Monts,16,areas
 2020-09-18T15:42:17Z,Active cases,120,cases
 2020-09-18T15:42:17Z,Average screening test per day,557,cases
@@ -3801,7 +3801,7 @@ time,key,value,table
 2020-09-18T15:42:17Z,Thurso,7,areas
 2020-09-18T15:42:17Z,To be determined,3,areas
 2020-09-18T15:42:17Z,To be determined,3,rls
-2020-09-18T15:42:17Z,Total cases,1057,areas
+2020-09-18T15:42:17Z,Total,1057,areas
 2020-09-18T15:42:17Z,Val-des-Monts,17,areas
 2020-09-20T05:54:26Z,Active cases,130,cases
 2020-09-20T05:54:26Z,Average screening test per day,574,cases
@@ -3837,7 +3837,7 @@ time,key,value,table
 2020-09-20T05:54:26Z,Thurso,7,areas
 2020-09-20T05:54:26Z,To be determined,12,areas
 2020-09-20T05:54:26Z,To be determined,3,rls
-2020-09-20T05:54:26Z,Total cases,1066,areas
+2020-09-20T05:54:26Z,Total,1066,areas
 2020-09-20T05:54:26Z,Val-des-Monts,17,areas
 2020-09-22T07:27:03Z,Active cases,153,cases
 2020-09-22T07:27:03Z,Average screening test per day,548,cases
@@ -3873,7 +3873,7 @@ time,key,value,table
 2020-09-22T07:27:03Z,Thurso,7,areas
 2020-09-22T07:27:03Z,To be determined,92,areas
 2020-09-22T07:27:03Z,To be determined,6,rls
-2020-09-22T07:27:03Z,Total cases,1146,areas
+2020-09-22T07:27:03Z,Total,1146,areas
 2020-09-22T07:27:03Z,Val-des-Monts,17,areas
 2020-09-22T21:29:24Z,Active cases,142,cases
 2020-09-22T21:29:24Z,Average screening test per day,579,cases
@@ -3909,7 +3909,7 @@ time,key,value,table
 2020-09-22T21:29:24Z,Thurso,7,areas
 2020-09-22T21:29:24Z,To be determined,103,areas
 2020-09-22T21:29:24Z,To be determined,1,rls
-2020-09-22T21:29:24Z,Total cases,1157,areas
+2020-09-22T21:29:24Z,Total,1157,areas
 2020-09-22T21:29:24Z,Val-des-Monts,17,areas
 2020-09-25T02:20:24Z,Active cases,171,cases
 2020-09-25T02:20:24Z,Average screening test per day,699,cases
@@ -3945,7 +3945,7 @@ time,key,value,table
 2020-09-25T02:20:24Z,Thurso,7,areas
 2020-09-25T02:20:24Z,To be determined,156,areas
 2020-09-25T02:20:24Z,To be determined,3,rls
-2020-09-25T02:20:24Z,Total cases,1210,areas
+2020-09-25T02:20:24Z,Total,1210,areas
 2020-09-25T02:20:24Z,Val-des-Monts,17,areas
 2020-09-28T22:43:19Z,Active cases,167,cases
 2020-09-28T22:43:19Z,Average screening test per day,647,cases
@@ -3983,7 +3983,7 @@ time,key,value,table
 2020-09-28T22:43:19Z,Thurso,8,areas
 2020-09-28T22:43:19Z,To be determined,64,areas
 2020-09-28T22:43:19Z,To be determined,4,rls
-2020-09-28T22:43:19Z,Total cases,1292,areas
+2020-09-28T22:43:19Z,Total,1292,areas
 2020-09-28T22:43:19Z,Val-des-Monts,18,areas
 2020-10-01T09:51:36Z,Active cases,183,cases
 2020-10-01T09:51:36Z,Average screening test per day,621,cases
@@ -4021,7 +4021,7 @@ time,key,value,table
 2020-10-01T09:51:36Z,Thurso,8,areas
 2020-10-01T09:51:36Z,To be determined,125,areas
 2020-10-01T09:51:36Z,To be determined,4,rls
-2020-10-01T09:51:36Z,Total cases,1355,areas
+2020-10-01T09:51:36Z,Total,1355,areas
 2020-10-01T09:51:36Z,Val-des-Monts,18,areas
 2020-10-03T04:12:31Z,Active cases,206,cases
 2020-10-03T04:12:31Z,Average screening test per day,563,cases
@@ -4059,7 +4059,7 @@ time,key,value,table
 2020-10-03T04:12:31Z,Thurso,7,areas
 2020-10-03T04:12:31Z,To be determined,36,areas
 2020-10-03T04:12:31Z,To be determined,7,rls
-2020-10-03T04:12:31Z,Total cases,1423,areas
+2020-10-03T04:12:31Z,Total,1423,areas
 2020-10-03T04:12:31Z,Val-des-Monts,18,areas
 2020-10-08T17:13:38Z,Active cases,264,cases
 2020-10-08T17:13:38Z,Average screening test per day,517,cases
@@ -4098,7 +4098,7 @@ time,key,value,table
 2020-10-08T17:13:38Z,Thurso,7,areas
 2020-10-08T17:13:38Z,To be determined,219,areas
 2020-10-08T17:13:38Z,To be determined,9,rls
-2020-10-08T17:13:38Z,Total cases,1629,areas
+2020-10-08T17:13:38Z,Total,1629,areas
 2020-10-08T17:13:38Z,Val-des-Monts,18,areas
 2020-10-12T02:02:21Z,Active cases,278,cases
 2020-10-12T02:02:21Z,Average screening test per day,492,cases
@@ -4140,7 +4140,7 @@ time,key,value,table
 2020-10-12T02:02:21Z,Thurso,8,areas
 2020-10-12T02:02:21Z,To be determined,12,areas
 2020-10-12T02:02:21Z,To be determined,5,rls
-2020-10-12T02:02:21Z,Total cases,1661,areas
+2020-10-12T02:02:21Z,Total,1661,areas
 2020-10-12T02:02:21Z,Val-des-Monts,22,areas
 2020-10-12T12:03:01Z,Active cases,278,cases
 2020-10-12T12:03:01Z,Average screening test per day,492,cases
@@ -4182,7 +4182,7 @@ time,key,value,table
 2020-10-12T12:03:01Z,Thurso,8,areas
 2020-10-12T12:03:01Z,To be determined,12,areas
 2020-10-12T12:03:01Z,To be determined,5,rls
-2020-10-12T12:03:01Z,Total cases,1661,areas
+2020-10-12T12:03:01Z,Total,1661,areas
 2020-10-12T12:03:01Z,Val-des-Monts,22,areas
 2020-10-12T16:00:01Z,Active cases,278,cases
 2020-10-12T16:00:01Z,Average screening test per day,492,cases
@@ -4224,7 +4224,7 @@ time,key,value,table
 2020-10-12T16:00:01Z,Thurso,8,areas
 2020-10-12T16:00:01Z,To be determined,12,areas
 2020-10-12T16:00:01Z,To be determined,5,rls
-2020-10-12T16:00:01Z,Total cases,1661,areas
+2020-10-12T16:00:01Z,Total,1661,areas
 2020-10-12T16:00:01Z,Val-des-Monts,22,areas
 2020-10-13T16:00:02Z,Active cases,267,cases
 2020-10-13T16:00:02Z,Average screening test per day,492,cases
@@ -4266,7 +4266,7 @@ time,key,value,table
 2020-10-13T16:00:02Z,Thurso,8,areas
 2020-10-13T16:00:02Z,To be determined,12,areas
 2020-10-13T16:00:02Z,To be determined,2,rls
-2020-10-13T16:00:02Z,Total cases,1661,areas
+2020-10-13T16:00:02Z,Total,1661,areas
 2020-10-13T16:00:02Z,Val-des-Monts,22,areas
 2020-10-14T16:00:01Z,Active cases,248,cases
 2020-10-14T16:00:01Z,Average screening test per day,435,cases
@@ -4308,7 +4308,7 @@ time,key,value,table
 2020-10-14T16:00:01Z,Thurso,8,areas
 2020-10-14T16:00:01Z,To be determined,27,areas
 2020-10-14T16:00:01Z,To be determined,24,rls
-2020-10-14T16:00:01Z,Total cases,1814,areas
+2020-10-14T16:00:01Z,Total,1814,areas
 2020-10-14T16:00:01Z,Val-des-Monts,22,areas
 2020-10-16T02:12:49Z,Active cases,297,cases
 2020-10-16T02:12:49Z,Average screening test per day,380,cases
@@ -4350,7 +4350,7 @@ time,key,value,table
 2020-10-16T02:12:49Z,Thurso,8,areas
 2020-10-16T02:12:49Z,To be determined,17,areas
 2020-10-16T02:12:49Z,To be determined,10,rls
-2020-10-16T02:12:49Z,Total cases,1925,areas
+2020-10-16T02:12:49Z,Total,1925,areas
 2020-10-16T02:12:49Z,Val-des-Monts,27,areas
 2020-10-16T16:00:01Z,Active cases,297,cases
 2020-10-16T16:00:01Z,Average screening test per day,380,cases
@@ -4392,7 +4392,7 @@ time,key,value,table
 2020-10-16T16:00:01Z,Thurso,8,areas
 2020-10-16T16:00:01Z,To be determined,17,areas
 2020-10-16T16:00:01Z,To be determined,10,rls
-2020-10-16T16:00:01Z,Total cases,1925,areas
+2020-10-16T16:00:01Z,Total,1925,areas
 2020-10-16T16:00:01Z,Val-des-Monts,27,areas
 2020-10-17T16:00:01Z,Active cases,284,cases
 2020-10-17T16:00:01Z,Average screening test per day,389,cases
@@ -4434,7 +4434,7 @@ time,key,value,table
 2020-10-17T16:00:01Z,Thurso,8,areas
 2020-10-17T16:00:01Z,To be determined,55,areas
 2020-10-17T16:00:01Z,To be determined,12,rls
-2020-10-17T16:00:01Z,Total cases,1963,areas
+2020-10-17T16:00:01Z,Total,1963,areas
 2020-10-17T16:00:01Z,Val-des-Monts,27,areas
 2020-10-18T20:21:20Z,Active cases,256,cases
 2020-10-18T20:21:20Z,Average screening test per day,389,cases
@@ -4476,7 +4476,7 @@ time,key,value,table
 2020-10-18T20:21:20Z,Thurso,8,areas
 2020-10-18T20:21:20Z,To be determined,55,areas
 2020-10-18T20:21:20Z,To be determined,10,rls
-2020-10-18T20:21:20Z,Total cases,1963,areas
+2020-10-18T20:21:20Z,Total,1963,areas
 2020-10-18T20:21:20Z,Val-des-Monts,27,areas
 2020-10-19T16:00:01Z,Active cases,256,cases
 2020-10-19T16:00:01Z,Average screening test per day,389,cases
@@ -4518,7 +4518,7 @@ time,key,value,table
 2020-10-19T16:00:01Z,Thurso,8,areas
 2020-10-19T16:00:01Z,To be determined,55,areas
 2020-10-19T16:00:01Z,To be determined,10,rls
-2020-10-19T16:00:01Z,Total cases,1963,areas
+2020-10-19T16:00:01Z,Total,1963,areas
 2020-10-19T16:00:01Z,Val-des-Monts,27,areas
 2020-10-24T22:07:01Z,Active cases,271,cases
 2020-10-24T22:07:01Z,Average screening test per day,381,cases
@@ -4571,9 +4571,9 @@ time,key,value,table
 2020-10-24T22:07:01Z,To be determined,40,areas
 2020-10-24T22:07:01Z,To be determined,22,rls
 2020-10-24T22:07:01Z,To be determined (active),17,rls
-2020-10-24T22:07:01Z,Total cases,2188,areas
-2020-10-24T22:07:01Z,Total cases,2188,rls
-2020-10-24T22:07:01Z,Total cases (active),264,rls
+2020-10-24T22:07:01Z,Total,2188,areas
+2020-10-24T22:07:01Z,Total,2188,rls
+2020-10-24T22:07:01Z,Total (active),264,rls
 2020-10-24T22:07:01Z,Val-des-Bois,5,areas
 2020-10-24T22:07:01Z,Val-des-Monts,27,areas
 2020-10-25T18:31:32Z,Active cases,258,cases
@@ -4627,9 +4627,9 @@ time,key,value,table
 2020-10-25T18:31:32Z,To be determined,66,areas
 2020-10-25T18:31:32Z,To be determined,22,rls
 2020-10-25T18:31:32Z,To be determined (active),14,rls
-2020-10-25T18:31:32Z,Total cases,2249,areas
-2020-10-25T18:31:32Z,Total cases,2249,rls
-2020-10-25T18:31:32Z,Total cases (active),258,rls
+2020-10-25T18:31:32Z,Total,2249,areas
+2020-10-25T18:31:32Z,Total,2249,rls
+2020-10-25T18:31:32Z,Total (active),258,rls
 2020-10-25T18:31:32Z,Val-des-Bois,5,areas
 2020-10-25T18:31:32Z,Val-des-Monts,27,areas
 2020-10-26T16:00:01Z,Active cases,258,cases
@@ -4683,9 +4683,9 @@ time,key,value,table
 2020-10-26T16:00:01Z,To be determined,66,areas
 2020-10-26T16:00:01Z,To be determined,22,rls
 2020-10-26T16:00:01Z,To be determined (active),14,rls
-2020-10-26T16:00:01Z,Total cases,2249,areas
-2020-10-26T16:00:01Z,Total cases,2249,rls
-2020-10-26T16:00:01Z,Total cases (active),258,rls
+2020-10-26T16:00:01Z,Total,2249,areas
+2020-10-26T16:00:01Z,Total,2249,rls
+2020-10-26T16:00:01Z,Total (active),258,rls
 2020-10-26T16:00:01Z,Val-des-Bois,5,areas
 2020-10-26T16:00:01Z,Val-des-Monts,27,areas
 2020-10-27T16:00:01Z,Active cases,237,cases
@@ -4739,9 +4739,9 @@ time,key,value,table
 2020-10-27T16:00:01Z,To be determined,105,areas
 2020-10-27T16:00:01Z,To be determined,5,rls
 2020-10-27T16:00:01Z,To be determined (active),2,rls
-2020-10-27T16:00:01Z,Total cases,2288,areas
-2020-10-27T16:00:01Z,Total cases,2288,rls
-2020-10-27T16:00:01Z,Total cases (active),237,rls
+2020-10-27T16:00:01Z,Total,2288,areas
+2020-10-27T16:00:01Z,Total,2288,rls
+2020-10-27T16:00:01Z,Total (active),237,rls
 2020-10-27T16:00:01Z,Val-des-Bois,5,areas
 2020-10-27T16:00:01Z,Val-des-Monts,27,areas
 2020-10-28T16:00:02Z,Active cases,237,cases
@@ -4795,9 +4795,9 @@ time,key,value,table
 2020-10-28T16:00:02Z,To be determined,105,areas
 2020-10-28T16:00:02Z,To be determined,5,rls
 2020-10-28T16:00:02Z,To be determined (active),2,rls
-2020-10-28T16:00:02Z,Total cases,2288,areas
-2020-10-28T16:00:02Z,Total cases,2288,rls
-2020-10-28T16:00:02Z,Total cases (active),237,rls
+2020-10-28T16:00:02Z,Total,2288,areas
+2020-10-28T16:00:02Z,Total,2288,rls
+2020-10-28T16:00:02Z,Total (active),237,rls
 2020-10-28T16:00:02Z,Val-des-Bois,5,areas
 2020-10-28T16:00:02Z,Val-des-Monts,27,areas
 2020-10-30T15:10:01Z,Active cases,272,cases
@@ -4851,9 +4851,9 @@ time,key,value,table
 2020-10-30T15:10:01Z,To be determined,10,areas
 2020-10-30T15:10:01Z,To be determined,8,rls
 2020-10-30T15:10:01Z,To be determined (active),4,rls
-2020-10-30T15:10:01Z,Total cases,2371,areas
-2020-10-30T15:10:01Z,Total cases,2371,rls
-2020-10-30T15:10:01Z,Total cases (active),272,rls
+2020-10-30T15:10:01Z,Total,2371,areas
+2020-10-30T15:10:01Z,Total,2371,rls
+2020-10-30T15:10:01Z,Total (active),272,rls
 2020-10-30T15:10:01Z,Val-des-Bois,5,areas
 2020-10-30T15:10:01Z,Val-des-Monts,33,areas
 2020-10-30T16:00:01Z,Active cases,272,cases
@@ -4907,9 +4907,9 @@ time,key,value,table
 2020-10-30T16:00:01Z,To be determined,10,areas
 2020-10-30T16:00:01Z,To be determined,8,rls
 2020-10-30T16:00:01Z,To be determined (active),4,rls
-2020-10-30T16:00:01Z,Total cases,2371,areas
-2020-10-30T16:00:01Z,Total cases,2371,rls
-2020-10-30T16:00:01Z,Total cases (active),272,rls
+2020-10-30T16:00:01Z,Total,2371,areas
+2020-10-30T16:00:01Z,Total,2371,rls
+2020-10-30T16:00:01Z,Total (active),272,rls
 2020-10-30T16:00:01Z,Val-des-Bois,5,areas
 2020-10-30T16:00:01Z,Val-des-Monts,33,areas
 2020-10-31T08:12:16Z,Active cases,258,cases
@@ -4965,9 +4965,9 @@ time,key,value,table
 2020-10-31T08:12:16Z,To be determined,60,areas
 2020-10-31T08:12:16Z,To be determined,7,rls
 2020-10-31T08:12:16Z,To be determined (active),4,rls
-2020-10-31T08:12:16Z,Total cases,2421,areas
-2020-10-31T08:12:16Z,Total cases,2421,rls
-2020-10-31T08:12:16Z,Total cases (active),259,rls
+2020-10-31T08:12:16Z,Total,2421,areas
+2020-10-31T08:12:16Z,Total,2421,rls
+2020-10-31T08:12:16Z,Total (active),259,rls
 2020-10-31T08:12:16Z,Val-des-Bois,5,areas
 2020-10-31T08:12:16Z,Val-des-Monts,33,areas
 2020-10-31T18:24:42Z,Active cases,275,cases
@@ -5023,9 +5023,9 @@ time,key,value,table
 2020-10-31T18:24:42Z,To be determined,60,areas
 2020-10-31T18:24:42Z,To be determined,7,rls
 2020-10-31T18:24:42Z,To be determined (active),4,rls
-2020-10-31T18:24:42Z,Total cases,2421,areas
-2020-10-31T18:24:42Z,Total cases,2421,rls
-2020-10-31T18:24:42Z,Total cases (active),259,rls
+2020-10-31T18:24:42Z,Total,2421,areas
+2020-10-31T18:24:42Z,Total,2421,rls
+2020-10-31T18:24:42Z,Total (active),259,rls
 2020-10-31T18:24:42Z,Val-des-Bois,5,areas
 2020-10-31T18:24:42Z,Val-des-Monts,33,areas
 2020-11-01T17:00:01Z,Active cases,288,cases
@@ -5080,9 +5080,9 @@ time,key,value,table
 2020-11-01T17:00:01Z,To be determined,60,areas
 2020-11-01T17:00:01Z,To be determined,7,rls
 2020-11-01T17:00:01Z,To be determined (active),4,rls
-2020-11-01T17:00:01Z,Total cases,2421,areas
-2020-11-01T17:00:01Z,Total cases,2421,rls
-2020-11-01T17:00:01Z,Total cases (active),259,rls
+2020-11-01T17:00:01Z,Total,2421,areas
+2020-11-01T17:00:01Z,Total,2421,rls
+2020-11-01T17:00:01Z,Total (active),259,rls
 2020-11-01T17:00:01Z,Val-des-Bois,5,areas
 2020-11-01T17:00:01Z,Val-des-Monts,33,areas
 2020-11-02T17:00:02Z,Active cases,288,cases
@@ -5137,9 +5137,9 @@ time,key,value,table
 2020-11-02T17:00:02Z,To be determined,60,areas
 2020-11-02T17:00:02Z,To be determined,7,rls
 2020-11-02T17:00:02Z,To be determined (active),4,rls
-2020-11-02T17:00:02Z,Total cases,2421,areas
-2020-11-02T17:00:02Z,Total cases,2421,rls
-2020-11-02T17:00:02Z,Total cases (active),259,rls
+2020-11-02T17:00:02Z,Total,2421,areas
+2020-11-02T17:00:02Z,Total,2421,rls
+2020-11-02T17:00:02Z,Total (active),259,rls
 2020-11-02T17:00:02Z,Val-des-Bois,5,areas
 2020-11-02T17:00:02Z,Val-des-Monts,33,areas
 2020-11-03T17:00:01Z,Active cases,257,cases
@@ -5195,9 +5195,9 @@ time,key,value,table
 2020-11-03T17:00:01Z,To be determined,176,areas
 2020-11-03T17:00:01Z,To be determined,11,rls
 2020-11-03T17:00:01Z,To be determined (active),5,rls
-2020-11-03T17:00:01Z,Total cases,2537,areas
-2020-11-03T17:00:01Z,Total cases,2537,rls
-2020-11-03T17:00:01Z,Total cases (active),257,rls
+2020-11-03T17:00:01Z,Total,2537,areas
+2020-11-03T17:00:01Z,Total,2537,rls
+2020-11-03T17:00:01Z,Total (active),257,rls
 2020-11-03T17:00:01Z,Val-des-Bois,5,areas
 2020-11-03T17:00:01Z,Val-des-Monts,33,areas
 2020-11-04T17:00:01Z,Active cases,259,cases
@@ -5253,9 +5253,9 @@ time,key,value,table
 2020-11-04T17:00:01Z,To be determined,207,areas
 2020-11-04T17:00:01Z,To be determined,11,rls
 2020-11-04T17:00:01Z,To be determined (active),5,rls
-2020-11-04T17:00:01Z,Total cases,2568,areas
-2020-11-04T17:00:01Z,Total cases,2568,rls
-2020-11-04T17:00:01Z,Total cases (active),259,rls
+2020-11-04T17:00:01Z,Total,2568,areas
+2020-11-04T17:00:01Z,Total,2568,rls
+2020-11-04T17:00:01Z,Total (active),259,rls
 2020-11-04T17:00:01Z,Val-des-Bois,5,areas
 2020-11-04T17:00:01Z,Val-des-Monts,33,areas
 2020-11-04T21:45:06Z,Active cases,259,cases
@@ -5311,9 +5311,9 @@ time,key,value,table
 2020-11-04T21:45:06Z,To be determined,207,areas
 2020-11-04T21:45:06Z,To be determined,11,rls
 2020-11-04T21:45:06Z,To be determined (active),5,rls
-2020-11-04T21:45:06Z,Total cases,2568,areas
-2020-11-04T21:45:06Z,Total cases,2568,rls
-2020-11-04T21:45:06Z,Total cases (active),259,rls
+2020-11-04T21:45:06Z,Total,2568,areas
+2020-11-04T21:45:06Z,Total,2568,rls
+2020-11-04T21:45:06Z,Total (active),259,rls
 2020-11-04T21:45:06Z,Val-des-Bois,5,areas
 2020-11-04T21:45:06Z,Val-des-Monts,33,areas
 2020-11-05T01:34:46Z,Active cases,281,cases
@@ -5369,9 +5369,9 @@ time,key,value,table
 2020-11-05T01:34:46Z,To be determined,256,areas
 2020-11-05T01:34:46Z,To be determined,14,rls
 2020-11-05T01:34:46Z,To be determined (active),8,rls
-2020-11-05T01:34:46Z,Total cases,2617,areas
-2020-11-05T01:34:46Z,Total cases,2617,rls
-2020-11-05T01:34:46Z,Total cases (active),281,rls
+2020-11-05T01:34:46Z,Total,2617,areas
+2020-11-05T01:34:46Z,Total,2617,rls
+2020-11-05T01:34:46Z,Total (active),281,rls
 2020-11-05T01:34:46Z,Val-des-Bois,5,areas
 2020-11-05T01:34:46Z,Val-des-Monts,33,areas
 2020-11-05T17:00:01Z,Active cases,282,cases
@@ -5429,9 +5429,9 @@ time,key,value,table
 2020-11-05T17:00:01Z,To be determined,12,areas
 2020-11-05T17:00:01Z,To be determined,7,rls
 2020-11-05T17:00:01Z,To be determined (active),2,rls
-2020-11-05T17:00:01Z,Total cases,2646,areas
-2020-11-05T17:00:01Z,Total cases,2646,rls
-2020-11-05T17:00:01Z,Total cases (active),282,rls
+2020-11-05T17:00:01Z,Total,2646,areas
+2020-11-05T17:00:01Z,Total,2646,rls
+2020-11-05T17:00:01Z,Total (active),282,rls
 2020-11-05T17:00:01Z,Val-des-Bois,5,areas
 2020-11-05T17:00:01Z,Val-des-Monts,33,areas
 2020-11-06T17:00:01Z,Active cases,296,cases
@@ -5489,9 +5489,9 @@ time,key,value,table
 2020-11-06T17:00:01Z,To be determined,46,areas
 2020-11-06T17:00:01Z,To be determined,8,rls
 2020-11-06T17:00:01Z,To be determined (active),3,rls
-2020-11-06T17:00:01Z,Total cases,2680,areas
-2020-11-06T17:00:01Z,Total cases,2680,rls
-2020-11-06T17:00:01Z,Total cases (active),296,rls
+2020-11-06T17:00:01Z,Total,2680,areas
+2020-11-06T17:00:01Z,Total,2680,rls
+2020-11-06T17:00:01Z,Total (active),296,rls
 2020-11-06T17:00:01Z,Val-des-Bois,5,areas
 2020-11-06T17:00:01Z,Val-des-Monts,33,areas
 2020-11-06T22:28:14Z,Active cases,296,cases
@@ -5549,9 +5549,9 @@ time,key,value,table
 2020-11-06T22:28:14Z,To be determined,46,areas
 2020-11-06T22:28:14Z,To be determined,8,rls
 2020-11-06T22:28:14Z,To be determined (active),3,rls
-2020-11-06T22:28:14Z,Total cases,2680,areas
-2020-11-06T22:28:14Z,Total cases,2680,rls
-2020-11-06T22:28:14Z,Total cases (active),296,rls
+2020-11-06T22:28:14Z,Total,2680,areas
+2020-11-06T22:28:14Z,Total,2680,rls
+2020-11-06T22:28:14Z,Total (active),296,rls
 2020-11-06T22:28:14Z,Val-des-Bois,5,areas
 2020-11-06T22:28:14Z,Val-des-Monts,33,areas
 2020-11-07T17:00:03Z,Active cases,296,cases
@@ -5609,9 +5609,9 @@ time,key,value,table
 2020-11-07T17:00:03Z,To be determined,46,areas
 2020-11-07T17:00:03Z,To be determined,8,rls
 2020-11-07T17:00:03Z,To be determined (active),3,rls
-2020-11-07T17:00:03Z,Total cases,2680,areas
-2020-11-07T17:00:03Z,Total cases,2680,rls
-2020-11-07T17:00:03Z,Total cases (active),296,rls
+2020-11-07T17:00:03Z,Total,2680,areas
+2020-11-07T17:00:03Z,Total,2680,rls
+2020-11-07T17:00:03Z,Total (active),296,rls
 2020-11-07T17:00:03Z,Val-des-Bois,5,areas
 2020-11-07T17:00:03Z,Val-des-Monts,33,areas
 2020-11-08T17:00:01Z,Active cases,286,cases
@@ -5669,9 +5669,9 @@ time,key,value,table
 2020-11-08T17:00:01Z,To be determined,71,areas
 2020-11-08T17:00:01Z,To be determined,9,rls
 2020-11-08T17:00:01Z,To be determined (active),3,rls
-2020-11-08T17:00:01Z,Total cases,2705,areas
-2020-11-08T17:00:01Z,Total cases,2705,rls
-2020-11-08T17:00:01Z,Total cases (active),286,rls
+2020-11-08T17:00:01Z,Total,2705,areas
+2020-11-08T17:00:01Z,Total,2705,rls
+2020-11-08T17:00:01Z,Total (active),286,rls
 2020-11-08T17:00:01Z,Val-des-Bois,5,areas
 2020-11-08T17:00:01Z,Val-des-Monts,33,areas
 2020-11-09T17:00:01Z,Active cases,315,cases
@@ -5729,9 +5729,9 @@ time,key,value,table
 2020-11-09T17:00:01Z,To be determined,71,areas
 2020-11-09T17:00:01Z,To be determined,9,rls
 2020-11-09T17:00:01Z,To be determined (active),3,rls
-2020-11-09T17:00:01Z,Total cases,2705,areas
-2020-11-09T17:00:01Z,Total cases,2705,rls
-2020-11-09T17:00:01Z,Total cases (active),286,rls
+2020-11-09T17:00:01Z,Total,2705,areas
+2020-11-09T17:00:01Z,Total,2705,rls
+2020-11-09T17:00:01Z,Total (active),286,rls
 2020-11-09T17:00:01Z,Val-des-Bois,5,areas
 2020-11-09T17:00:01Z,Val-des-Monts,33,areas
 2020-11-10T17:00:02Z,Active cases,314,cases
@@ -5789,9 +5789,9 @@ time,key,value,table
 2020-11-10T17:00:02Z,To be determined,168,areas
 2020-11-10T17:00:02Z,To be determined,12,rls
 2020-11-10T17:00:02Z,To be determined (active),6,rls
-2020-11-10T17:00:02Z,Total cases,2802,areas
-2020-11-10T17:00:02Z,Total cases,2802,rls
-2020-11-10T17:00:02Z,Total cases (active),314,rls
+2020-11-10T17:00:02Z,Total,2802,areas
+2020-11-10T17:00:02Z,Total,2802,rls
+2020-11-10T17:00:02Z,Total (active),314,rls
 2020-11-10T17:00:02Z,Val-des-Bois,5,areas
 2020-11-10T17:00:02Z,Val-des-Monts,33,areas
 2020-11-13T15:53:14Z,Active cases,290,cases
@@ -5852,9 +5852,9 @@ time,key,value,table
 2020-11-13T15:53:14Z,To be determined,197,areas
 2020-11-13T15:53:14Z,To be determined,9,rls
 2020-11-13T15:53:14Z,To be determined (active),3,rls
-2020-11-13T15:53:14Z,Total cases,2831,areas
-2020-11-13T15:53:14Z,Total cases,2862,rls
-2020-11-13T15:53:14Z,Total cases (active),290,rls
+2020-11-13T15:53:14Z,Total,2831,areas
+2020-11-13T15:53:14Z,Total,2862,rls
+2020-11-13T15:53:14Z,Total (active),290,rls
 2020-11-13T15:53:14Z,Val-des-Bois,5,areas
 2020-11-13T15:53:14Z,Val-des-Monts,33,areas
 2020-11-13T15:54:04Z,Active cases,290,cases
@@ -5915,9 +5915,9 @@ time,key,value,table
 2020-11-13T15:54:04Z,To be determined,197,areas
 2020-11-13T15:54:04Z,To be determined,9,rls
 2020-11-13T15:54:04Z,To be determined (active),3,rls
-2020-11-13T15:54:04Z,Total cases,2831,areas
-2020-11-13T15:54:04Z,Total cases,2862,rls
-2020-11-13T15:54:04Z,Total cases (active),290,rls
+2020-11-13T15:54:04Z,Total,2831,areas
+2020-11-13T15:54:04Z,Total,2862,rls
+2020-11-13T15:54:04Z,Total (active),290,rls
 2020-11-13T15:54:04Z,Val-des-Bois,5,areas
 2020-11-13T15:54:04Z,Val-des-Monts,33,areas
 2020-11-13T15:58:09Z,Active cases,290,cases
@@ -5978,9 +5978,9 @@ time,key,value,table
 2020-11-13T15:58:09Z,To be determined,197,areas
 2020-11-13T15:58:09Z,To be determined,9,rls
 2020-11-13T15:58:09Z,To be determined (active),3,rls
-2020-11-13T15:58:09Z,Total cases,2831,areas
-2020-11-13T15:58:09Z,Total cases,2862,rls
-2020-11-13T15:58:09Z,Total cases (active),290,rls
+2020-11-13T15:58:09Z,Total,2831,areas
+2020-11-13T15:58:09Z,Total,2862,rls
+2020-11-13T15:58:09Z,Total (active),290,rls
 2020-11-13T15:58:09Z,Val-des-Bois,5,areas
 2020-11-13T15:58:09Z,Val-des-Monts,33,areas
 2020-11-16T13:48:00Z,Active cases,344,cases
@@ -6041,9 +6041,9 @@ time,key,value,table
 2020-11-16T13:48:00Z,To be determined,54,areas
 2020-11-16T13:48:00Z,To be determined,12,rls
 2020-11-16T13:48:00Z,To be determined (active),4,rls
-2020-11-16T13:48:00Z,Total cases,2901,areas
-2020-11-16T13:48:00Z,Total cases,3004,rls
-2020-11-16T13:48:00Z,Total cases (active),344,rls
+2020-11-16T13:48:00Z,Total,2901,areas
+2020-11-16T13:48:00Z,Total,3004,rls
+2020-11-16T13:48:00Z,Total (active),344,rls
 2020-11-16T13:48:00Z,Val-des-Bois,5,areas
 2020-11-16T13:48:00Z,Val-des-Monts,33,areas
 2020-11-17T16:11:19Z,Active cases,382,cases
@@ -6104,9 +6104,9 @@ time,key,value,table
 2020-11-17T16:11:19Z,To be determined,151,areas
 2020-11-17T16:11:19Z,To be determined,13,rls
 2020-11-17T16:11:19Z,To be determined (active),5,rls
-2020-11-17T16:11:19Z,Total cases,3101,areas
-2020-11-17T16:11:19Z,Total cases,3101,rls
-2020-11-17T16:11:19Z,Total cases (active),382,rls
+2020-11-17T16:11:19Z,Total,3101,areas
+2020-11-17T16:11:19Z,Total,3101,rls
+2020-11-17T16:11:19Z,Total (active),382,rls
 2020-11-17T16:11:19Z,Val-des-Bois,5,areas
 2020-11-17T16:11:19Z,Val-des-Monts,33,areas
 2020-11-18T16:31:08Z,Active cases,382,cases
@@ -6167,9 +6167,9 @@ time,key,value,table
 2020-11-18T16:31:08Z,To be determined,151,areas
 2020-11-18T16:31:08Z,To be determined,13,rls
 2020-11-18T16:31:08Z,To be determined (active),5,rls
-2020-11-18T16:31:08Z,Total cases,3101,areas
-2020-11-18T16:31:08Z,Total cases,3101,rls
-2020-11-18T16:31:08Z,Total cases (active),382,rls
+2020-11-18T16:31:08Z,Total,3101,areas
+2020-11-18T16:31:08Z,Total,3101,rls
+2020-11-18T16:31:08Z,Total (active),382,rls
 2020-11-18T16:31:08Z,Val-des-Bois,5,areas
 2020-11-18T16:31:08Z,Val-des-Monts,33,areas
 2020-11-18T19:13:52Z,Active cases,382,cases
@@ -6230,9 +6230,9 @@ time,key,value,table
 2020-11-18T19:13:52Z,To be determined,151,areas
 2020-11-18T19:13:52Z,To be determined,13,rls
 2020-11-18T19:13:52Z,To be determined (active),5,rls
-2020-11-18T19:13:52Z,Total cases,3101,areas
-2020-11-18T19:13:52Z,Total cases,3101,rls
-2020-11-18T19:13:52Z,Total cases (active),382,rls
+2020-11-18T19:13:52Z,Total,3101,areas
+2020-11-18T19:13:52Z,Total,3101,rls
+2020-11-18T19:13:52Z,Total (active),382,rls
 2020-11-18T19:13:52Z,Val-des-Bois,5,areas
 2020-11-18T19:13:52Z,Val-des-Monts,33,areas
 2020-11-20T20:44:28Z,Active cases,384,cases
@@ -6295,9 +6295,9 @@ time,key,value,table
 2020-11-20T20:44:28Z,To be determined,42,areas
 2020-11-20T20:44:28Z,To be determined,6,rls
 2020-11-20T20:44:28Z,To be determined (active),0,rls
-2020-11-20T20:44:28Z,Total cases,3215,areas
-2020-11-20T20:44:28Z,Total cases,3215,rls
-2020-11-20T20:44:28Z,Total cases (active),384,rls
+2020-11-20T20:44:28Z,Total,3215,areas
+2020-11-20T20:44:28Z,Total,3215,rls
+2020-11-20T20:44:28Z,Total (active),384,rls
 2020-11-20T20:44:28Z,Val-des-Bois,5,areas
 2020-11-20T20:44:28Z,Val-des-Monts,40,areas
 2020-11-22T06:54:50Z,Active cases,367,cases
@@ -6360,9 +6360,9 @@ time,key,value,table
 2020-11-22T06:54:50Z,To be determined,67,areas
 2020-11-22T06:54:50Z,To be determined,9,rls
 2020-11-22T06:54:50Z,To be determined (active),2,rls
-2020-11-22T06:54:50Z,Total cases,3240,areas
-2020-11-22T06:54:50Z,Total cases,3240,rls
-2020-11-22T06:54:50Z,Total cases (active),367,rls
+2020-11-22T06:54:50Z,Total,3240,areas
+2020-11-22T06:54:50Z,Total,3240,rls
+2020-11-22T06:54:50Z,Total (active),367,rls
 2020-11-22T06:54:50Z,Val-des-Bois,5,areas
 2020-11-22T06:54:50Z,Val-des-Monts,40,areas
 2020-11-23T18:14:33Z,Active cases,370,cases
@@ -6425,9 +6425,9 @@ time,key,value,table
 2020-11-23T18:14:33Z,To be determined,67,areas
 2020-11-23T18:14:33Z,To be determined,9,rls
 2020-11-23T18:14:33Z,To be determined (active),2,rls
-2020-11-23T18:14:33Z,Total cases,3240,areas
-2020-11-23T18:14:33Z,Total cases,3240,rls
-2020-11-23T18:14:33Z,Total cases (active),367,rls
+2020-11-23T18:14:33Z,Total,3240,areas
+2020-11-23T18:14:33Z,Total,3240,rls
+2020-11-23T18:14:33Z,Total (active),367,rls
 2020-11-23T18:14:33Z,Val-des-Bois,5,areas
 2020-11-23T18:14:33Z,Val-des-Monts,40,areas
 2020-11-25T18:27:33Z,Active cases,380,cases
@@ -6490,9 +6490,9 @@ time,key,value,table
 2020-11-25T18:27:33Z,To be determined,226,areas
 2020-11-25T18:27:33Z,To be determined,12,rls
 2020-11-25T18:27:33Z,To be determined (active),5,rls
-2020-11-25T18:27:33Z,Total cases,3399,areas
-2020-11-25T18:27:33Z,Total cases,3399,rls
-2020-11-25T18:27:33Z,Total cases (active),380,rls
+2020-11-25T18:27:33Z,Total,3399,areas
+2020-11-25T18:27:33Z,Total,3399,rls
+2020-11-25T18:27:33Z,Total (active),380,rls
 2020-11-25T18:27:33Z,Val-des-Bois,5,areas
 2020-11-25T18:27:33Z,Val-des-Monts,40,areas
 2020-11-26T15:09:13Z,Active cases,346,cases
@@ -6555,9 +6555,9 @@ time,key,value,table
 2020-11-26T15:09:13Z,To be determined,253,areas
 2020-11-26T15:09:13Z,To be determined,5,rls
 2020-11-26T15:09:13Z,To be determined (active),3,rls
-2020-11-26T15:09:13Z,Total cases,3426,areas
-2020-11-26T15:09:13Z,Total cases,3426,rls
-2020-11-26T15:09:13Z,Total cases (active),346,rls
+2020-11-26T15:09:13Z,Total,3426,areas
+2020-11-26T15:09:13Z,Total,3426,rls
+2020-11-26T15:09:13Z,Total (active),346,rls
 2020-11-26T15:09:13Z,Val-des-Bois,5,areas
 2020-11-26T15:09:13Z,Val-des-Monts,40,areas
 2020-11-28T08:50:42Z,Active cases,351,cases
@@ -6621,9 +6621,9 @@ time,key,value,table
 2020-11-28T08:50:42Z,To be determined,12,areas
 2020-11-28T08:50:42Z,To be determined,7,rls
 2020-11-28T08:50:42Z,To be determined (active),5,rls
-2020-11-28T08:50:42Z,Total cases,3491,areas
-2020-11-28T08:50:42Z,Total cases,3491,rls
-2020-11-28T08:50:42Z,Total cases (active),351,rls
+2020-11-28T08:50:42Z,Total,3491,areas
+2020-11-28T08:50:42Z,Total,3491,rls
+2020-11-28T08:50:42Z,Total (active),351,rls
 2020-11-28T08:50:42Z,Val-des-Bois,7,areas
 2020-11-28T08:50:42Z,Val-des-Monts,44,areas
 2020-11-29T00:42:07Z,Active cases,347,cases
@@ -6687,9 +6687,9 @@ time,key,value,table
 2020-11-29T00:42:07Z,To be determined,12,areas
 2020-11-29T00:42:07Z,To be determined,7,rls
 2020-11-29T00:42:07Z,To be determined (active),5,rls
-2020-11-29T00:42:07Z,Total cases,3491,areas
-2020-11-29T00:42:07Z,Total cases,3491,rls
-2020-11-29T00:42:07Z,Total cases (active),351,rls
+2020-11-29T00:42:07Z,Total,3491,areas
+2020-11-29T00:42:07Z,Total,3491,rls
+2020-11-29T00:42:07Z,Total (active),351,rls
 2020-11-29T00:42:07Z,Val-des-Bois,7,areas
 2020-11-29T00:42:07Z,Val-des-Monts,44,areas
 2020-12-05T23:45:01Z,Active cases,253,cases
@@ -6755,9 +6755,9 @@ time,key,value,table
 2020-12-05T23:45:01Z,To be determined,23,areas
 2020-12-05T23:45:01Z,To be determined,4,rls
 2020-12-05T23:45:01Z,To be determined (active),5,rls
-2020-12-05T23:45:01Z,Total cases,3640,areas
-2020-12-05T23:45:01Z,Total cases,3640,rls
-2020-12-05T23:45:01Z,Total cases (active),248,rls
+2020-12-05T23:45:01Z,Total,3640,areas
+2020-12-05T23:45:01Z,Total,3640,rls
+2020-12-05T23:45:01Z,Total (active),248,rls
 2020-12-05T23:45:01Z,Val-des-Bois,7,areas
 2020-12-05T23:45:01Z,Val-des-Monts,47,areas
 2020-12-09T20:58:52Z,Active cases,294,cases
@@ -6824,9 +6824,9 @@ time,key,value,table
 2020-12-09T20:58:52Z,To be determined,9,areas
 2020-12-09T20:58:52Z,To be determined,5,rls
 2020-12-09T20:58:52Z,To be determined (active),5,rls
-2020-12-09T20:58:52Z,Total cases,3806,areas
-2020-12-09T20:58:52Z,Total cases,3806,rls
-2020-12-09T20:58:52Z,Total cases (active),294,rls
+2020-12-09T20:58:52Z,Total,3806,areas
+2020-12-09T20:58:52Z,Total,3806,rls
+2020-12-09T20:58:52Z,Total (active),294,rls
 2020-12-09T20:58:52Z,Val-des-Bois,7,areas
 2020-12-09T20:58:52Z,Val-des-Monts,54,areas
 2020-12-09T23:43:54Z,Active cases,294,cases
@@ -6893,9 +6893,9 @@ time,key,value,table
 2020-12-09T23:43:54Z,To be determined,9,areas
 2020-12-09T23:43:54Z,To be determined,5,rls
 2020-12-09T23:43:54Z,To be determined (active),5,rls
-2020-12-09T23:43:54Z,Total cases,3806,areas
-2020-12-09T23:43:54Z,Total cases,3806,rls
-2020-12-09T23:43:54Z,Total cases (active),294,rls
+2020-12-09T23:43:54Z,Total,3806,areas
+2020-12-09T23:43:54Z,Total,3806,rls
+2020-12-09T23:43:54Z,Total (active),294,rls
 2020-12-09T23:43:54Z,Val-des-Bois,7,areas
 2020-12-09T23:43:54Z,Val-des-Monts,54,areas
 2020-12-10T17:45:02Z,Active cases,294,cases
@@ -6962,9 +6962,9 @@ time,key,value,table
 2020-12-10T17:45:02Z,To be determined,9,areas
 2020-12-10T17:45:02Z,To be determined,5,rls
 2020-12-10T17:45:02Z,To be determined (active),5,rls
-2020-12-10T17:45:02Z,Total cases,3806,areas
-2020-12-10T17:45:02Z,Total cases,3806,rls
-2020-12-10T17:45:02Z,Total cases (active),294,rls
+2020-12-10T17:45:02Z,Total,3806,areas
+2020-12-10T17:45:02Z,Total,3806,rls
+2020-12-10T17:45:02Z,Total (active),294,rls
 2020-12-10T17:45:02Z,Val-des-Bois,7,areas
 2020-12-10T17:45:02Z,Val-des-Monts,54,areas
 2020-12-10T21:00:01Z,Active cases,293,cases
@@ -7031,9 +7031,9 @@ time,key,value,table
 2020-12-10T21:00:01Z,To be determined,36,areas
 2020-12-10T21:00:01Z,To be determined,5,rls
 2020-12-10T21:00:01Z,To be determined (active),5,rls
-2020-12-10T21:00:01Z,Total cases,3833,areas
-2020-12-10T21:00:01Z,Total cases,3833,rls
-2020-12-10T21:00:01Z,Total cases (active),293,rls
+2020-12-10T21:00:01Z,Total,3833,areas
+2020-12-10T21:00:01Z,Total,3833,rls
+2020-12-10T21:00:01Z,Total (active),293,rls
 2020-12-10T21:00:01Z,Val-des-Bois,7,areas
 2020-12-10T21:00:01Z,Val-des-Monts,54,areas
 2020-12-12T17:00:02Z,Active cases,343,cases
@@ -7100,9 +7100,9 @@ time,key,value,table
 2020-12-12T17:00:02Z,To be determined,36,areas
 2020-12-12T17:00:02Z,To be determined,5,rls
 2020-12-12T17:00:02Z,To be determined (active),5,rls
-2020-12-12T17:00:02Z,Total cases,3833,areas
-2020-12-12T17:00:02Z,Total cases,3908,rls
-2020-12-12T17:00:02Z,Total cases (active),343,rls
+2020-12-12T17:00:02Z,Total,3833,areas
+2020-12-12T17:00:02Z,Total,3908,rls
+2020-12-12T17:00:02Z,Total (active),343,rls
 2020-12-12T17:00:02Z,Val-des-Bois,7,areas
 2020-12-12T17:00:02Z,Val-des-Monts,54,areas
 2020-12-14T17:00:02Z,Active cases,351,cases
@@ -7169,9 +7169,9 @@ time,key,value,table
 2020-12-14T17:00:02Z,To be determined,75,areas
 2020-12-14T17:00:02Z,To be determined,5,rls
 2020-12-14T17:00:02Z,To be determined (active),5,rls
-2020-12-14T17:00:02Z,Total cases,3972,areas
-2020-12-14T17:00:02Z,Total cases,3972,rls
-2020-12-14T17:00:02Z,Total cases (active),351,rls
+2020-12-14T17:00:02Z,Total,3972,areas
+2020-12-14T17:00:02Z,Total,3972,rls
+2020-12-14T17:00:02Z,Total (active),351,rls
 2020-12-14T17:00:02Z,Val-des-Bois,7,areas
 2020-12-14T17:00:02Z,Val-des-Monts,54,areas
 2020-12-14T21:00:01Z,Active cases,343,cases
@@ -7238,9 +7238,9 @@ time,key,value,table
 2020-12-14T21:00:01Z,To be determined,98,areas
 2020-12-14T21:00:01Z,To be determined,5,rls
 2020-12-14T21:00:01Z,To be determined (active),5,rls
-2020-12-14T21:00:01Z,Total cases,3995,areas
-2020-12-14T21:00:01Z,Total cases,3995,rls
-2020-12-14T21:00:01Z,Total cases (active),343,rls
+2020-12-14T21:00:01Z,Total,3995,areas
+2020-12-14T21:00:01Z,Total,3995,rls
+2020-12-14T21:00:01Z,Total (active),343,rls
 2020-12-14T21:00:01Z,Val-des-Bois,7,areas
 2020-12-14T21:00:01Z,Val-des-Monts,54,areas
 2020-12-15T17:00:01Z,Active cases,343,cases
@@ -7307,9 +7307,9 @@ time,key,value,table
 2020-12-15T17:00:01Z,To be determined,98,areas
 2020-12-15T17:00:01Z,To be determined,5,rls
 2020-12-15T17:00:01Z,To be determined (active),5,rls
-2020-12-15T17:00:01Z,Total cases,3995,areas
-2020-12-15T17:00:01Z,Total cases,3995,rls
-2020-12-15T17:00:01Z,Total cases (active),343,rls
+2020-12-15T17:00:01Z,Total,3995,areas
+2020-12-15T17:00:01Z,Total,3995,rls
+2020-12-15T17:00:01Z,Total (active),343,rls
 2020-12-15T17:00:01Z,Val-des-Bois,7,areas
 2020-12-15T17:00:01Z,Val-des-Monts,54,areas
 2020-12-15T21:00:01Z,Active cases,340,cases
@@ -7375,9 +7375,9 @@ time,key,value,table
 2020-12-15T21:00:01Z,To be determined,132,areas
 2020-12-15T21:00:01Z,To be determined,5,rls
 2020-12-15T21:00:01Z,To be determined (active),5,rls
-2020-12-15T21:00:01Z,Total cases,4029,areas
-2020-12-15T21:00:01Z,Total cases,4029,rls
-2020-12-15T21:00:01Z,Total cases (active),340,rls
+2020-12-15T21:00:01Z,Total,4029,areas
+2020-12-15T21:00:01Z,Total,4029,rls
+2020-12-15T21:00:01Z,Total (active),340,rls
 2020-12-15T21:00:01Z,Val-des-Bois,7,areas
 2020-12-15T21:00:01Z,Val-des-Monts,54,areas
 2020-12-16T21:00:01Z,Active cases,367,cases
@@ -7444,9 +7444,9 @@ time,key,value,table
 2020-12-16T21:00:01Z,To be determined,192,areas
 2020-12-16T21:00:01Z,To be determined,5,rls
 2020-12-16T21:00:01Z,To be determined (active),5,rls
-2020-12-16T21:00:01Z,Total cases,4089,areas
-2020-12-16T21:00:01Z,Total cases,4089,rls
-2020-12-16T21:00:01Z,Total cases (active),367,rls
+2020-12-16T21:00:01Z,Total,4089,areas
+2020-12-16T21:00:01Z,Total,4089,rls
+2020-12-16T21:00:01Z,Total (active),367,rls
 2020-12-16T21:00:01Z,Val-des-Bois,7,areas
 2020-12-16T21:00:01Z,Val-des-Monts,54,areas
 2020-12-17T21:00:01Z,Active cases,391,cases
@@ -7517,9 +7517,9 @@ time,key,value,table
 2020-12-17T21:00:01Z,To be determined,12,areas
 2020-12-17T21:00:01Z,To be determined,5,rls
 2020-12-17T21:00:01Z,To be determined (active),5,rls
-2020-12-17T21:00:01Z,Total cases,4136,areas
-2020-12-17T21:00:01Z,Total cases,4136,rls
-2020-12-17T21:00:01Z,Total cases (active),391,rls
+2020-12-17T21:00:01Z,Total,4136,areas
+2020-12-17T21:00:01Z,Total,4136,rls
+2020-12-17T21:00:01Z,Total (active),391,rls
 2020-12-17T21:00:01Z,Val-des-Bois,6,areas
 2020-12-17T21:00:01Z,Val-des-Monts,56,areas
 2020-12-18T21:00:02Z,Active cases,387,cases
@@ -7590,9 +7590,9 @@ time,key,value,table
 2020-12-18T21:00:02Z,To be determined,52,areas
 2020-12-18T21:00:02Z,To be determined,5,rls
 2020-12-18T21:00:02Z,To be determined (active),5,rls
-2020-12-18T21:00:02Z,Total cases,4176,areas
-2020-12-18T21:00:02Z,Total cases,4176,rls
-2020-12-18T21:00:02Z,Total cases (active),387,rls
+2020-12-18T21:00:02Z,Total,4176,areas
+2020-12-18T21:00:02Z,Total,4176,rls
+2020-12-18T21:00:02Z,Total (active),387,rls
 2020-12-18T21:00:02Z,Val-des-Bois,6,areas
 2020-12-18T21:00:02Z,Val-des-Monts,56,areas
 2020-12-21T21:00:03Z,Active cases,404,cases
@@ -7663,9 +7663,9 @@ time,key,value,table
 2020-12-21T21:00:03Z,To be determined,140,areas
 2020-12-21T21:00:03Z,To be determined,5,rls
 2020-12-21T21:00:03Z,To be determined (active),5,rls
-2020-12-21T21:00:03Z,Total cases,4319,areas
-2020-12-21T21:00:03Z,Total cases,4319,rls
-2020-12-21T21:00:03Z,Total cases (active),404,rls
+2020-12-21T21:00:03Z,Total,4319,areas
+2020-12-21T21:00:03Z,Total,4319,rls
+2020-12-21T21:00:03Z,Total (active),404,rls
 2020-12-21T21:00:03Z,Val-des-Bois,6,areas
 2020-12-21T21:00:03Z,Val-des-Monts,56,areas
 2020-12-22T21:00:02Z,Active cases,404,cases
@@ -7736,9 +7736,9 @@ time,key,value,table
 2020-12-22T21:00:02Z,To be determined,140,areas
 2020-12-22T21:00:02Z,To be determined,5,rls
 2020-12-22T21:00:02Z,To be determined (active),5,rls
-2020-12-22T21:00:02Z,Total cases,4319,areas
-2020-12-22T21:00:02Z,Total cases,4319,rls
-2020-12-22T21:00:02Z,Total cases (active),404,rls
+2020-12-22T21:00:02Z,Total,4319,areas
+2020-12-22T21:00:02Z,Total,4319,rls
+2020-12-22T21:00:02Z,Total (active),404,rls
 2020-12-22T21:00:02Z,Val-des-Bois,6,areas
 2020-12-22T21:00:02Z,Val-des-Monts,56,areas
 2020-12-23T21:00:01Z,Active cases,406,cases
@@ -7810,9 +7810,9 @@ time,key,value,table
 2020-12-23T21:00:01Z,To be determined,169,areas
 2020-12-23T21:00:01Z,To be determined,5,rls
 2020-12-23T21:00:01Z,To be determined (active),5,rls
-2020-12-23T21:00:01Z,Total cases,4348,areas
-2020-12-23T21:00:01Z,Total cases,4396,rls
-2020-12-23T21:00:01Z,Total cases (active),406,rls
+2020-12-23T21:00:01Z,Total,4348,areas
+2020-12-23T21:00:01Z,Total,4396,rls
+2020-12-23T21:00:01Z,Total (active),406,rls
 2020-12-23T21:00:01Z,Val-des-Bois,6,areas
 2020-12-23T21:00:01Z,Val-des-Monts,58,areas
 2021-01-04T21:00:02Z,Active cases,491,cases
@@ -7886,9 +7886,9 @@ time,key,value,table
 2021-01-04T21:00:02Z,To be determined,282,areas
 2021-01-04T21:00:02Z,To be determined,5,rls
 2021-01-04T21:00:02Z,To be determined (active),5,rls
-2021-01-04T21:00:02Z,Total cases,4984,areas
-2021-01-04T21:00:02Z,Total cases,4984,rls
-2021-01-04T21:00:02Z,Total cases (active),491,rls
+2021-01-04T21:00:02Z,Total,4984,areas
+2021-01-04T21:00:02Z,Total,4984,rls
+2021-01-04T21:00:02Z,Total (active),491,rls
 2021-01-04T21:00:02Z,Val-des-Bois,6,areas
 2021-01-04T21:00:02Z,Val-des-Monts,64,areas
 2021-01-05T21:00:01Z,Active cases,477,cases
@@ -7962,9 +7962,9 @@ time,key,value,table
 2021-01-05T21:00:01Z,To be determined,315,areas
 2021-01-05T21:00:01Z,To be determined,5,rls
 2021-01-05T21:00:01Z,To be determined (active),5,rls
-2021-01-05T21:00:01Z,Total cases,5017,areas
-2021-01-05T21:00:01Z,Total cases,5017,rls
-2021-01-05T21:00:01Z,Total cases (active),477,rls
+2021-01-05T21:00:01Z,Total,5017,areas
+2021-01-05T21:00:01Z,Total,5017,rls
+2021-01-05T21:00:01Z,Total (active),477,rls
 2021-01-05T21:00:01Z,Val-des-Bois,6,areas
 2021-01-05T21:00:01Z,Val-des-Monts,64,areas
 2021-01-06T21:00:01Z,Active cases,453,cases
@@ -8037,9 +8037,9 @@ time,key,value,table
 2021-01-06T21:00:01Z,To be determined,360,areas
 2021-01-06T21:00:01Z,To be determined,5,rls
 2021-01-06T21:00:01Z,To be determined (active),5,rls
-2021-01-06T21:00:01Z,Total cases,5062,areas
-2021-01-06T21:00:01Z,Total cases,5062,rls
-2021-01-06T21:00:01Z,Total cases (active),453,rls
+2021-01-06T21:00:01Z,Total,5062,areas
+2021-01-06T21:00:01Z,Total,5062,rls
+2021-01-06T21:00:01Z,Total (active),453,rls
 2021-01-06T21:00:01Z,Val-des-Bois,6,areas
 2021-01-06T21:00:01Z,Val-des-Monts,64,areas
 2021-01-08T21:00:01Z,Active cases,426,cases
@@ -8115,9 +8115,9 @@ time,key,value,table
 2021-01-08T21:00:01Z,To be determined,72,areas
 2021-01-08T21:00:01Z,To be determined,5,rls
 2021-01-08T21:00:01Z,To be determined (active),0,rls
-2021-01-08T21:00:01Z,Total cases,5168,areas
-2021-01-08T21:00:01Z,Total cases,5168,rls
-2021-01-08T21:00:01Z,Total cases (active),426,rls
+2021-01-08T21:00:01Z,Total,5168,areas
+2021-01-08T21:00:01Z,Total,5168,rls
+2021-01-08T21:00:01Z,Total (active),426,rls
 2021-01-08T21:00:01Z,Val-des-Bois,8,areas
 2021-01-08T21:00:01Z,Val-des-Monts,83,areas
 2021-01-08T21:00:01Z,Waltham,5,areas
@@ -8194,9 +8194,9 @@ time,key,value,table
 2021-01-10T21:00:01Z,To be determined,72,areas
 2021-01-10T21:00:01Z,To be determined,5,rls
 2021-01-10T21:00:01Z,To be determined (active),0,rls
-2021-01-10T21:00:01Z,Total cases,5168,areas
-2021-01-10T21:00:01Z,Total cases,5168,rls
-2021-01-10T21:00:01Z,Total cases (active),426,rls
+2021-01-10T21:00:01Z,Total,5168,areas
+2021-01-10T21:00:01Z,Total,5168,rls
+2021-01-10T21:00:01Z,Total (active),426,rls
 2021-01-10T21:00:01Z,Val-des-Bois,8,areas
 2021-01-10T21:00:01Z,Val-des-Monts,83,areas
 2021-01-10T21:00:01Z,Waltham,5,areas
@@ -8273,9 +8273,9 @@ time,key,value,table
 2021-01-11T21:00:03Z,To be determined,144,areas
 2021-01-11T21:00:03Z,To be determined,5,rls
 2021-01-11T21:00:03Z,To be determined (active),5,rls
-2021-01-11T21:00:03Z,Total cases,5312,areas
-2021-01-11T21:00:03Z,Total cases,5312,rls
-2021-01-11T21:00:03Z,Total cases (active),430,rls
+2021-01-11T21:00:03Z,Total,5312,areas
+2021-01-11T21:00:03Z,Total,5312,rls
+2021-01-11T21:00:03Z,Total (active),430,rls
 2021-01-11T21:00:03Z,Val-des-Bois,8,areas
 2021-01-11T21:00:03Z,Val-des-Monts,83,areas
 2021-01-11T21:00:03Z,Waltham,5,areas
@@ -8352,9 +8352,9 @@ time,key,value,table
 2021-01-12T21:00:01Z,To be determined,188,areas
 2021-01-12T21:00:01Z,To be determined,5,rls
 2021-01-12T21:00:01Z,To be determined (active),5,rls
-2021-01-12T21:00:01Z,Total cases,5356,areas
-2021-01-12T21:00:01Z,Total cases,5356,rls
-2021-01-12T21:00:01Z,Total cases (active),444,rls
+2021-01-12T21:00:01Z,Total,5356,areas
+2021-01-12T21:00:01Z,Total,5356,rls
+2021-01-12T21:00:01Z,Total (active),444,rls
 2021-01-12T21:00:01Z,Val-des-Bois,8,areas
 2021-01-12T21:00:01Z,Val-des-Monts,83,areas
 2021-01-12T21:00:01Z,Waltham,5,areas
@@ -8431,9 +8431,9 @@ time,key,value,table
 2021-01-13T21:00:01Z,To be determined,188,areas
 2021-01-13T21:00:01Z,To be determined,5,rls
 2021-01-13T21:00:01Z,To be determined (active),5,rls
-2021-01-13T21:00:01Z,Total cases,5356,areas
-2021-01-13T21:00:01Z,Total cases,5356,rls
-2021-01-13T21:00:01Z,Total cases (active),444,rls
+2021-01-13T21:00:01Z,Total,5356,areas
+2021-01-13T21:00:01Z,Total,5356,rls
+2021-01-13T21:00:01Z,Total (active),444,rls
 2021-01-13T21:00:01Z,Val-des-Bois,8,areas
 2021-01-13T21:00:01Z,Val-des-Monts,83,areas
 2021-01-13T21:00:01Z,Waltham,5,areas
@@ -8511,9 +8511,9 @@ time,key,value,table
 2021-01-14T21:00:01Z,To be determined,6,areas
 2021-01-14T21:00:01Z,To be determined,5,rls
 2021-01-14T21:00:01Z,To be determined (active),5,rls
-2021-01-14T21:00:01Z,Total cases,5445,areas
-2021-01-14T21:00:01Z,Total cases,5445,rls
-2021-01-14T21:00:01Z,Total cases (active),429,rls
+2021-01-14T21:00:01Z,Total,5445,areas
+2021-01-14T21:00:01Z,Total,5445,rls
+2021-01-14T21:00:01Z,Total (active),429,rls
 2021-01-14T21:00:01Z,Val-des-Bois,8,areas
 2021-01-14T21:00:01Z,Val-des-Monts,87,areas
 2021-01-14T21:00:01Z,Waltham,5,areas
@@ -8591,9 +8591,9 @@ time,key,value,table
 2021-01-15T21:00:02Z,To be determined,44,areas
 2021-01-15T21:00:02Z,To be determined,5,rls
 2021-01-15T21:00:02Z,To be determined (active),5,rls
-2021-01-15T21:00:02Z,Total cases,5483,areas
-2021-01-15T21:00:02Z,Total cases,5483,rls
-2021-01-15T21:00:02Z,Total cases (active),397,rls
+2021-01-15T21:00:02Z,Total,5483,areas
+2021-01-15T21:00:02Z,Total,5483,rls
+2021-01-15T21:00:02Z,Total (active),397,rls
 2021-01-15T21:00:02Z,Val-des-Bois,8,areas
 2021-01-15T21:00:02Z,Val-des-Monts,87,areas
 2021-01-15T21:00:02Z,Waltham,5,areas
@@ -8671,9 +8671,9 @@ time,key,value,table
 2021-01-16T21:00:02Z,To be determined,44,areas
 2021-01-16T21:00:02Z,To be determined,5,rls
 2021-01-16T21:00:02Z,To be determined (active),5,rls
-2021-01-16T21:00:02Z,Total cases,5483,areas
-2021-01-16T21:00:02Z,Total cases,5483,rls
-2021-01-16T21:00:02Z,Total cases (active),397,rls
+2021-01-16T21:00:02Z,Total,5483,areas
+2021-01-16T21:00:02Z,Total,5483,rls
+2021-01-16T21:00:02Z,Total (active),397,rls
 2021-01-16T21:00:02Z,Val-des-Bois,8,areas
 2021-01-16T21:00:02Z,Val-des-Monts,87,areas
 2021-01-16T21:00:02Z,Waltham,5,areas
@@ -8751,9 +8751,9 @@ time,key,value,table
 2021-01-17T21:00:01Z,To be determined,44,areas
 2021-01-17T21:00:01Z,To be determined,5,rls
 2021-01-17T21:00:01Z,To be determined (active),5,rls
-2021-01-17T21:00:01Z,Total cases,5483,areas
-2021-01-17T21:00:01Z,Total cases,5483,rls
-2021-01-17T21:00:01Z,Total cases (active),397,rls
+2021-01-17T21:00:01Z,Total,5483,areas
+2021-01-17T21:00:01Z,Total,5483,rls
+2021-01-17T21:00:01Z,Total (active),397,rls
 2021-01-17T21:00:01Z,Val-des-Bois,8,areas
 2021-01-17T21:00:01Z,Val-des-Monts,87,areas
 2021-01-17T21:00:01Z,Waltham,5,areas
@@ -8831,9 +8831,9 @@ time,key,value,table
 2021-01-18T21:00:03Z,To be determined,170,areas
 2021-01-18T21:00:03Z,To be determined,6,rls
 2021-01-18T21:00:03Z,To be determined (active),5,rls
-2021-01-18T21:00:03Z,Total cases,5609,areas
-2021-01-18T21:00:03Z,Total cases,5609,rls
-2021-01-18T21:00:03Z,Total cases (active),369,rls
+2021-01-18T21:00:03Z,Total,5609,areas
+2021-01-18T21:00:03Z,Total,5609,rls
+2021-01-18T21:00:03Z,Total (active),369,rls
 2021-01-18T21:00:03Z,Val-des-Bois,8,areas
 2021-01-18T21:00:03Z,Val-des-Monts,87,areas
 2021-01-18T21:00:03Z,Waltham,5,areas
@@ -8911,9 +8911,9 @@ time,key,value,table
 2021-01-19T21:00:02Z,To be determined,170,areas
 2021-01-19T21:00:02Z,To be determined,6,rls
 2021-01-19T21:00:02Z,To be determined (active),5,rls
-2021-01-19T21:00:02Z,Total cases,5609,areas
-2021-01-19T21:00:02Z,Total cases,5609,rls
-2021-01-19T21:00:02Z,Total cases (active),369,rls
+2021-01-19T21:00:02Z,Total,5609,areas
+2021-01-19T21:00:02Z,Total,5609,rls
+2021-01-19T21:00:02Z,Total (active),369,rls
 2021-01-19T21:00:02Z,Val-des-Bois,8,areas
 2021-01-19T21:00:02Z,Val-des-Monts,87,areas
 2021-01-19T21:00:02Z,Waltham,5,areas
@@ -8991,9 +8991,9 @@ time,key,value,table
 2021-01-20T21:00:02Z,To be determined,211,areas
 2021-01-20T21:00:02Z,To be determined,7,rls
 2021-01-20T21:00:02Z,To be determined (active),5,rls
-2021-01-20T21:00:02Z,Total cases,5650,areas
-2021-01-20T21:00:02Z,Total cases,5650,rls
-2021-01-20T21:00:02Z,Total cases (active),313,rls
+2021-01-20T21:00:02Z,Total,5650,areas
+2021-01-20T21:00:02Z,Total,5650,rls
+2021-01-20T21:00:02Z,Total (active),313,rls
 2021-01-20T21:00:02Z,Val-des-Bois,8,areas
 2021-01-20T21:00:02Z,Val-des-Monts,87,areas
 2021-01-20T21:00:02Z,Waltham,5,areas
@@ -9071,9 +9071,9 @@ time,key,value,table
 2021-01-21T21:00:02Z,To be determined,5,areas
 2021-01-21T21:00:02Z,To be determined,7,rls
 2021-01-21T21:00:02Z,To be determined (active),5,rls
-2021-01-21T21:00:02Z,Total cases,5669,areas
-2021-01-21T21:00:02Z,Total cases,5669,rls
-2021-01-21T21:00:02Z,Total cases (active),301,rls
+2021-01-21T21:00:02Z,Total,5669,areas
+2021-01-21T21:00:02Z,Total,5669,rls
+2021-01-21T21:00:02Z,Total (active),301,rls
 2021-01-21T21:00:02Z,Val-des-Bois,8,areas
 2021-01-21T21:00:02Z,Val-des-Monts,96,areas
 2021-01-21T21:00:02Z,Waltham,5,areas
@@ -9151,9 +9151,9 @@ time,key,value,table
 2021-01-22T21:00:02Z,To be determined,17,areas
 2021-01-22T21:00:02Z,To be determined,6,rls
 2021-01-22T21:00:02Z,To be determined (active),5,rls
-2021-01-22T21:00:02Z,Total cases,5684,areas
-2021-01-22T21:00:02Z,Total cases,5684,rls
-2021-01-22T21:00:02Z,Total cases (active),272,rls
+2021-01-22T21:00:02Z,Total,5684,areas
+2021-01-22T21:00:02Z,Total,5684,rls
+2021-01-22T21:00:02Z,Total (active),272,rls
 2021-01-22T21:00:02Z,Val-des-Bois,8,areas
 2021-01-22T21:00:02Z,Val-des-Monts,96,areas
 2021-01-22T21:00:02Z,Waltham,5,areas
@@ -9231,9 +9231,9 @@ time,key,value,table
 2021-01-23T21:00:02Z,To be determined,17,areas
 2021-01-23T21:00:02Z,To be determined,6,rls
 2021-01-23T21:00:02Z,To be determined (active),5,rls
-2021-01-23T21:00:02Z,Total cases,5684,areas
-2021-01-23T21:00:02Z,Total cases,5684,rls
-2021-01-23T21:00:02Z,Total cases (active),272,rls
+2021-01-23T21:00:02Z,Total,5684,areas
+2021-01-23T21:00:02Z,Total,5684,rls
+2021-01-23T21:00:02Z,Total (active),272,rls
 2021-01-23T21:00:02Z,Val-des-Bois,8,areas
 2021-01-23T21:00:02Z,Val-des-Monts,96,areas
 2021-01-23T21:00:02Z,Waltham,5,areas
@@ -9311,9 +9311,9 @@ time,key,value,table
 2021-01-24T21:00:02Z,To be determined,17,areas
 2021-01-24T21:00:02Z,To be determined,6,rls
 2021-01-24T21:00:02Z,To be determined (active),5,rls
-2021-01-24T21:00:02Z,Total cases,5684,areas
-2021-01-24T21:00:02Z,Total cases,5684,rls
-2021-01-24T21:00:02Z,Total cases (active),272,rls
+2021-01-24T21:00:02Z,Total,5684,areas
+2021-01-24T21:00:02Z,Total,5684,rls
+2021-01-24T21:00:02Z,Total (active),272,rls
 2021-01-24T21:00:02Z,Val-des-Bois,8,areas
 2021-01-24T21:00:02Z,Val-des-Monts,96,areas
 2021-01-24T21:00:02Z,Waltham,5,areas
@@ -9391,9 +9391,9 @@ time,key,value,table
 2021-01-25T21:00:01Z,To be determined,17,areas
 2021-01-25T21:00:01Z,To be determined,0,rls
 2021-01-25T21:00:01Z,To be determined (active),0,rls
-2021-01-25T21:00:01Z,Total cases,5684,areas
-2021-01-25T21:00:01Z,Total cases,5752,rls
-2021-01-25T21:00:01Z,Total cases (active),208,rls
+2021-01-25T21:00:01Z,Total,5684,areas
+2021-01-25T21:00:01Z,Total,5752,rls
+2021-01-25T21:00:01Z,Total (active),208,rls
 2021-01-25T21:00:01Z,Val-des-Bois,8,areas
 2021-01-25T21:00:01Z,Val-des-Monts,96,areas
 2021-01-25T21:00:01Z,Waltham,5,areas
@@ -9471,9 +9471,9 @@ time,key,value,table
 2021-01-26T21:00:02Z,To be determined,17,areas
 2021-01-26T21:00:02Z,To be determined,0,rls
 2021-01-26T21:00:02Z,To be determined (active),0,rls
-2021-01-26T21:00:02Z,Total cases,5684,areas
-2021-01-26T21:00:02Z,Total cases,5761,rls
-2021-01-26T21:00:02Z,Total cases (active),179,rls
+2021-01-26T21:00:02Z,Total,5684,areas
+2021-01-26T21:00:02Z,Total,5761,rls
+2021-01-26T21:00:02Z,Total (active),179,rls
 2021-01-26T21:00:02Z,Val-des-Bois,8,areas
 2021-01-26T21:00:02Z,Val-des-Monts,96,areas
 2021-01-26T21:00:02Z,Waltham,5,areas
@@ -9551,9 +9551,9 @@ time,key,value,table
 2021-01-27T21:00:01Z,To be determined,17,areas
 2021-01-27T21:00:01Z,To be determined,0,rls
 2021-01-27T21:00:01Z,To be determined (active),0,rls
-2021-01-27T21:00:01Z,Total cases,5684,areas
-2021-01-27T21:00:01Z,Total cases,5774,rls
-2021-01-27T21:00:01Z,Total cases (active),160,rls
+2021-01-27T21:00:01Z,Total,5684,areas
+2021-01-27T21:00:01Z,Total,5774,rls
+2021-01-27T21:00:01Z,Total (active),160,rls
 2021-01-27T21:00:01Z,Val-des-Bois,8,areas
 2021-01-27T21:00:01Z,Val-des-Monts,96,areas
 2021-01-27T21:00:01Z,Waltham,5,areas
@@ -9631,9 +9631,9 @@ time,key,value,table
 2021-01-28T21:00:01Z,To be determined,0,areas
 2021-01-28T21:00:01Z,To be determined,0,rls
 2021-01-28T21:00:01Z,To be determined (active),0,rls
-2021-01-28T21:00:01Z,Total cases,5792,areas
-2021-01-28T21:00:01Z,Total cases,5792,rls
-2021-01-28T21:00:01Z,Total cases (active),163,rls
+2021-01-28T21:00:01Z,Total,5792,areas
+2021-01-28T21:00:01Z,Total,5792,rls
+2021-01-28T21:00:01Z,Total (active),163,rls
 2021-01-28T21:00:01Z,Val-des-Bois,9,areas
 2021-01-28T21:00:01Z,Val-des-Monts,120,areas
 2021-01-28T21:00:01Z,Waltham,5,areas
@@ -9711,9 +9711,9 @@ time,key,value,table
 2021-01-29T21:00:01Z,To be determined,17,areas
 2021-01-29T21:00:01Z,To be determined,0,rls
 2021-01-29T21:00:01Z,To be determined (active),0,rls
-2021-01-29T21:00:01Z,Total cases,5809,areas
-2021-01-29T21:00:01Z,Total cases,5809,rls
-2021-01-29T21:00:01Z,Total cases (active),145,rls
+2021-01-29T21:00:01Z,Total,5809,areas
+2021-01-29T21:00:01Z,Total,5809,rls
+2021-01-29T21:00:01Z,Total (active),145,rls
 2021-01-29T21:00:01Z,Val-des-Bois,9,areas
 2021-01-29T21:00:01Z,Val-des-Monts,120,areas
 2021-01-29T21:00:01Z,Waltham,5,areas
@@ -9791,9 +9791,9 @@ time,key,value,table
 2021-01-30T21:00:01Z,To be determined,17,areas
 2021-01-30T21:00:01Z,To be determined,0,rls
 2021-01-30T21:00:01Z,To be determined (active),0,rls
-2021-01-30T21:00:01Z,Total cases,5809,areas
-2021-01-30T21:00:01Z,Total cases,5809,rls
-2021-01-30T21:00:01Z,Total cases (active),145,rls
+2021-01-30T21:00:01Z,Total,5809,areas
+2021-01-30T21:00:01Z,Total,5809,rls
+2021-01-30T21:00:01Z,Total (active),145,rls
 2021-01-30T21:00:01Z,Val-des-Bois,9,areas
 2021-01-30T21:00:01Z,Val-des-Monts,120,areas
 2021-01-30T21:00:01Z,Waltham,5,areas
@@ -9871,9 +9871,9 @@ time,key,value,table
 2021-01-31T21:00:01Z,To be determined,17,areas
 2021-01-31T21:00:01Z,To be determined,0,rls
 2021-01-31T21:00:01Z,To be determined (active),0,rls
-2021-01-31T21:00:01Z,Total cases,5809,areas
-2021-01-31T21:00:01Z,Total cases,5809,rls
-2021-01-31T21:00:01Z,Total cases (active),145,rls
+2021-01-31T21:00:01Z,Total,5809,areas
+2021-01-31T21:00:01Z,Total,5809,rls
+2021-01-31T21:00:01Z,Total (active),145,rls
 2021-01-31T21:00:01Z,Val-des-Bois,9,areas
 2021-01-31T21:00:01Z,Val-des-Monts,120,areas
 2021-01-31T21:00:01Z,Waltham,5,areas
@@ -9951,9 +9951,9 @@ time,key,value,table
 2021-02-01T21:00:01Z,To be determined,54,areas
 2021-02-01T21:00:01Z,To be determined,27,rls
 2021-02-01T21:00:01Z,To be determined (active),0,rls
-2021-02-01T21:00:01Z,Total cases,5846,areas
-2021-02-01T21:00:01Z,Total cases,5846,rls
-2021-02-01T21:00:01Z,Total cases (active),130,rls
+2021-02-01T21:00:01Z,Total,5846,areas
+2021-02-01T21:00:01Z,Total,5846,rls
+2021-02-01T21:00:01Z,Total (active),130,rls
 2021-02-01T21:00:01Z,Val-des-Bois,9,areas
 2021-02-01T21:00:01Z,Val-des-Monts,120,areas
 2021-02-01T21:00:01Z,Waltham,5,areas
@@ -10031,9 +10031,9 @@ time,key,value,table
 2021-02-02T21:00:01Z,To be determined,73,areas
 2021-02-02T21:00:01Z,To be determined,27,rls
 2021-02-02T21:00:01Z,To be determined (active),0,rls
-2021-02-02T21:00:01Z,Total cases,5865,areas
-2021-02-02T21:00:01Z,Total cases,5865,rls
-2021-02-02T21:00:01Z,Total cases (active),129,rls
+2021-02-02T21:00:01Z,Total,5865,areas
+2021-02-02T21:00:01Z,Total,5865,rls
+2021-02-02T21:00:01Z,Total (active),129,rls
 2021-02-02T21:00:01Z,Val-des-Bois,9,areas
 2021-02-02T21:00:01Z,Val-des-Monts,120,areas
 2021-02-02T21:00:01Z,Waltham,5,areas
@@ -10111,9 +10111,9 @@ time,key,value,table
 2021-02-03T21:00:01Z,To be determined,73,areas
 2021-02-03T21:00:01Z,To be determined,27,rls
 2021-02-03T21:00:01Z,To be determined (active),0,rls
-2021-02-03T21:00:01Z,Total cases,5865,areas
-2021-02-03T21:00:01Z,Total cases,5865,rls
-2021-02-03T21:00:01Z,Total cases (active),129,rls
+2021-02-03T21:00:01Z,Total,5865,areas
+2021-02-03T21:00:01Z,Total,5865,rls
+2021-02-03T21:00:01Z,Total (active),129,rls
 2021-02-03T21:00:01Z,Val-des-Bois,9,areas
 2021-02-03T21:00:01Z,Val-des-Monts,120,areas
 2021-02-03T21:00:01Z,Waltham,5,areas
@@ -10191,9 +10191,9 @@ time,key,value,table
 2021-02-04T21:00:01Z,To be determined,2,areas
 2021-02-04T21:00:01Z,To be determined,13,rls
 2021-02-04T21:00:01Z,To be determined (active),0,rls
-2021-02-04T21:00:01Z,Total cases,5882,areas
-2021-02-04T21:00:01Z,Total cases,5882,rls
-2021-02-04T21:00:01Z,Total cases (active),116,rls
+2021-02-04T21:00:01Z,Total,5882,areas
+2021-02-04T21:00:01Z,Total,5882,rls
+2021-02-04T21:00:01Z,Total (active),116,rls
 2021-02-04T21:00:01Z,Val-des-Bois,9,areas
 2021-02-04T21:00:01Z,Val-des-Monts,127,areas
 2021-02-04T21:00:01Z,Waltham,5,areas
@@ -10271,9 +10271,9 @@ time,key,value,table
 2021-02-05T21:00:01Z,To be determined,27,areas
 2021-02-05T21:00:01Z,To be determined,13,rls
 2021-02-05T21:00:01Z,To be determined (active),0,rls
-2021-02-05T21:00:01Z,Total cases,5907,areas
-2021-02-05T21:00:01Z,Total cases,5907,rls
-2021-02-05T21:00:01Z,Total cases (active),124,rls
+2021-02-05T21:00:01Z,Total,5907,areas
+2021-02-05T21:00:01Z,Total,5907,rls
+2021-02-05T21:00:01Z,Total (active),124,rls
 2021-02-05T21:00:01Z,Val-des-Bois,9,areas
 2021-02-05T21:00:01Z,Val-des-Monts,127,areas
 2021-02-05T21:00:01Z,Waltham,5,areas
@@ -10351,9 +10351,9 @@ time,key,value,table
 2021-02-08T21:00:09Z,To be determined,46,areas
 2021-02-08T21:00:09Z,To be determined,13,rls
 2021-02-08T21:00:09Z,To be determined (active),0,rls
-2021-02-08T21:00:09Z,Total cases,5953,areas
-2021-02-08T21:00:09Z,Total cases,5953,rls
-2021-02-08T21:00:09Z,Total cases (active),113,rls
+2021-02-08T21:00:09Z,Total,5953,areas
+2021-02-08T21:00:09Z,Total,5953,rls
+2021-02-08T21:00:09Z,Total (active),113,rls
 2021-02-08T21:00:09Z,Val-des-Bois,9,areas
 2021-02-08T21:00:09Z,Val-des-Monts,127,areas
 2021-02-08T21:00:09Z,Waltham,5,areas
@@ -10431,9 +10431,9 @@ time,key,value,table
 2021-02-09T21:00:01Z,To be determined,53,areas
 2021-02-09T21:00:01Z,To be determined,13,rls
 2021-02-09T21:00:01Z,To be determined (active),0,rls
-2021-02-09T21:00:01Z,Total cases,5960,areas
-2021-02-09T21:00:01Z,Total cases,5960,rls
-2021-02-09T21:00:01Z,Total cases (active),106,rls
+2021-02-09T21:00:01Z,Total,5960,areas
+2021-02-09T21:00:01Z,Total,5960,rls
+2021-02-09T21:00:01Z,Total (active),106,rls
 2021-02-09T21:00:01Z,Val-des-Bois,9,areas
 2021-02-09T21:00:01Z,Val-des-Monts,127,areas
 2021-02-09T21:00:01Z,Waltham,5,areas
@@ -10511,9 +10511,9 @@ time,key,value,table
 2021-02-10T21:00:01Z,To be determined,61,areas
 2021-02-10T21:00:01Z,To be determined,13,rls
 2021-02-10T21:00:01Z,To be determined (active),0,rls
-2021-02-10T21:00:01Z,Total cases,5968,areas
-2021-02-10T21:00:01Z,Total cases,5968,rls
-2021-02-10T21:00:01Z,Total cases (active),102,rls
+2021-02-10T21:00:01Z,Total,5968,areas
+2021-02-10T21:00:01Z,Total,5968,rls
+2021-02-10T21:00:01Z,Total (active),102,rls
 2021-02-10T21:00:01Z,Val-des-Bois,9,areas
 2021-02-10T21:00:01Z,Val-des-Monts,127,areas
 2021-02-10T21:00:01Z,Waltham,5,areas
@@ -10591,9 +10591,9 @@ time,key,value,table
 2021-02-11T21:00:01Z,To be determined,14,areas
 2021-02-11T21:00:01Z,To be determined,16,rls
 2021-02-11T21:00:01Z,To be determined (active),3,rls
-2021-02-11T21:00:01Z,Total cases,5989,areas
-2021-02-11T21:00:01Z,Total cases,5989,rls
-2021-02-11T21:00:01Z,Total cases (active),111,rls
+2021-02-11T21:00:01Z,Total,5989,areas
+2021-02-11T21:00:01Z,Total,5989,rls
+2021-02-11T21:00:01Z,Total (active),111,rls
 2021-02-11T21:00:01Z,Val-des-Bois,9,areas
 2021-02-11T21:00:01Z,Val-des-Monts,132,areas
 2021-02-11T21:00:01Z,Waltham,5,areas
@@ -10671,9 +10671,9 @@ time,key,value,table
 2021-02-12T21:00:01Z,To be determined,21,areas
 2021-02-12T21:00:01Z,To be determined,13,rls
 2021-02-12T21:00:01Z,To be determined (active),3,rls
-2021-02-12T21:00:01Z,Total cases,5996,areas
-2021-02-12T21:00:01Z,Total cases,5996,rls
-2021-02-12T21:00:01Z,Total cases (active),105,rls
+2021-02-12T21:00:01Z,Total,5996,areas
+2021-02-12T21:00:01Z,Total,5996,rls
+2021-02-12T21:00:01Z,Total (active),105,rls
 2021-02-12T21:00:01Z,Val-des-Bois,9,areas
 2021-02-12T21:00:01Z,Val-des-Monts,132,areas
 2021-02-12T21:00:01Z,Waltham,5,areas
@@ -10751,9 +10751,9 @@ time,key,value,table
 2021-02-13T21:00:02Z,To be determined,21,areas
 2021-02-13T21:00:02Z,To be determined,13,rls
 2021-02-13T21:00:02Z,To be determined (active),3,rls
-2021-02-13T21:00:02Z,Total cases,5996,areas
-2021-02-13T21:00:02Z,Total cases,5996,rls
-2021-02-13T21:00:02Z,Total cases (active),105,rls
+2021-02-13T21:00:02Z,Total,5996,areas
+2021-02-13T21:00:02Z,Total,5996,rls
+2021-02-13T21:00:02Z,Total (active),105,rls
 2021-02-13T21:00:02Z,Val-des-Bois,9,areas
 2021-02-13T21:00:02Z,Val-des-Monts,132,areas
 2021-02-13T21:00:02Z,Waltham,5,areas
@@ -10831,9 +10831,9 @@ time,key,value,table
 2021-02-15T21:00:02Z,To be determined,21,areas
 2021-02-15T21:00:02Z,To be determined,14,rls
 2021-02-15T21:00:02Z,To be determined (active),4,rls
-2021-02-15T21:00:02Z,Total cases,5996,areas
-2021-02-15T21:00:02Z,Total cases,6056,rls
-2021-02-15T21:00:02Z,Total cases (active),123,rls
+2021-02-15T21:00:02Z,Total,5996,areas
+2021-02-15T21:00:02Z,Total,6056,rls
+2021-02-15T21:00:02Z,Total (active),123,rls
 2021-02-15T21:00:02Z,Val-des-Bois,9,areas
 2021-02-15T21:00:02Z,Val-des-Monts,132,areas
 2021-02-15T21:00:02Z,Waltham,5,areas
@@ -10911,9 +10911,9 @@ time,key,value,table
 2021-02-16T21:00:01Z,To be determined,21,areas
 2021-02-16T21:00:01Z,To be determined,13,rls
 2021-02-16T21:00:01Z,To be determined (active),3,rls
-2021-02-16T21:00:01Z,Total cases,5996,areas
-2021-02-16T21:00:01Z,Total cases,6065,rls
-2021-02-16T21:00:01Z,Total cases (active),124,rls
+2021-02-16T21:00:01Z,Total,5996,areas
+2021-02-16T21:00:01Z,Total,6065,rls
+2021-02-16T21:00:01Z,Total (active),124,rls
 2021-02-16T21:00:01Z,Val-des-Bois,9,areas
 2021-02-16T21:00:01Z,Val-des-Monts,132,areas
 2021-02-16T21:00:01Z,Waltham,5,areas
@@ -10991,9 +10991,9 @@ time,key,value,table
 2021-02-17T21:00:01Z,To be determined,21,areas
 2021-02-17T21:00:01Z,To be determined,13,rls
 2021-02-17T21:00:01Z,To be determined (active),3,rls
-2021-02-17T21:00:01Z,Total cases,5996,areas
-2021-02-17T21:00:01Z,Total cases,6079,rls
-2021-02-17T21:00:01Z,Total cases (active),129,rls
+2021-02-17T21:00:01Z,Total,5996,areas
+2021-02-17T21:00:01Z,Total,6079,rls
+2021-02-17T21:00:01Z,Total (active),129,rls
 2021-02-17T21:00:01Z,Val-des-Bois,9,areas
 2021-02-17T21:00:01Z,Val-des-Monts,132,areas
 2021-02-17T21:00:01Z,Waltham,5,areas
@@ -11071,9 +11071,9 @@ time,key,value,table
 2021-02-18T21:00:02Z,To be determined,13,areas
 2021-02-18T21:00:02Z,To be determined,13,rls
 2021-02-18T21:00:02Z,To be determined (active),3,rls
-2021-02-18T21:00:02Z,Total cases,6087,areas
-2021-02-18T21:00:02Z,Total cases,6087,rls
-2021-02-18T21:00:02Z,Total cases (active),127,rls
+2021-02-18T21:00:02Z,Total,6087,areas
+2021-02-18T21:00:02Z,Total,6087,rls
+2021-02-18T21:00:02Z,Total (active),127,rls
 2021-02-18T21:00:02Z,Val-des-Bois,9,areas
 2021-02-18T21:00:02Z,Val-des-Monts,139,areas
 2021-02-18T21:00:02Z,Waltham,5,areas
@@ -11151,9 +11151,9 @@ time,key,value,table
 2021-02-22T21:00:02Z,To be determined,95,areas
 2021-02-22T21:00:02Z,To be determined,11,rls
 2021-02-22T21:00:02Z,To be determined (active),5,rls
-2021-02-22T21:00:02Z,Total cases,6169,areas
-2021-02-22T21:00:02Z,Total cases,6169,rls
-2021-02-22T21:00:02Z,Total cases (active),143,rls
+2021-02-22T21:00:02Z,Total,6169,areas
+2021-02-22T21:00:02Z,Total,6169,rls
+2021-02-22T21:00:02Z,Total (active),143,rls
 2021-02-22T21:00:02Z,Val-des-Bois,9,areas
 2021-02-22T21:00:02Z,Val-des-Monts,139,areas
 2021-02-22T21:00:02Z,Waltham,5,areas
@@ -11231,9 +11231,9 @@ time,key,value,table
 2021-02-23T21:00:01Z,To be determined,119,areas
 2021-02-23T21:00:01Z,To be determined,11,rls
 2021-02-23T21:00:01Z,To be determined (active),5,rls
-2021-02-23T21:00:01Z,Total cases,6193,areas
-2021-02-23T21:00:01Z,Total cases,6193,rls
-2021-02-23T21:00:01Z,Total cases (active),138,rls
+2021-02-23T21:00:01Z,Total,6193,areas
+2021-02-23T21:00:01Z,Total,6193,rls
+2021-02-23T21:00:01Z,Total (active),138,rls
 2021-02-23T21:00:01Z,Val-des-Bois,9,areas
 2021-02-23T21:00:01Z,Val-des-Monts,139,areas
 2021-02-23T21:00:01Z,Waltham,5,areas
@@ -11311,9 +11311,9 @@ time,key,value,table
 2021-02-24T21:00:01Z,To be determined,135,areas
 2021-02-24T21:00:01Z,To be determined,10,rls
 2021-02-24T21:00:01Z,To be determined (active),5,rls
-2021-02-24T21:00:01Z,Total cases,6209,areas
-2021-02-24T21:00:01Z,Total cases,6209,rls
-2021-02-24T21:00:01Z,Total cases (active),144,rls
+2021-02-24T21:00:01Z,Total,6209,areas
+2021-02-24T21:00:01Z,Total,6209,rls
+2021-02-24T21:00:01Z,Total (active),144,rls
 2021-02-24T21:00:01Z,Val-des-Bois,9,areas
 2021-02-24T21:00:01Z,Val-des-Monts,139,areas
 2021-02-24T21:00:01Z,Waltham,5,areas
@@ -11391,9 +11391,9 @@ time,key,value,table
 2021-02-24T21:10:32Z,To be determined,135,areas
 2021-02-24T21:10:32Z,To be determined,10,rls
 2021-02-24T21:10:32Z,To be determined (active),5,rls
-2021-02-24T21:10:32Z,Total cases,6209,areas
-2021-02-24T21:10:32Z,Total cases,6209,rls
-2021-02-24T21:10:32Z,Total cases (active),144,rls
+2021-02-24T21:10:32Z,Total,6209,areas
+2021-02-24T21:10:32Z,Total,6209,rls
+2021-02-24T21:10:32Z,Total (active),144,rls
 2021-02-24T21:10:32Z,Val-des-Bois,9,areas
 2021-02-24T21:10:32Z,Val-des-Monts,139,areas
 2021-02-24T21:10:32Z,Waltham,5,areas
@@ -11471,9 +11471,9 @@ time,key,value,table
 2021-02-24T21:10:51Z,To be determined,135,areas
 2021-02-24T21:10:51Z,To be determined,10,rls
 2021-02-24T21:10:51Z,To be determined (active),5,rls
-2021-02-24T21:10:51Z,Total cases,6209,areas
-2021-02-24T21:10:51Z,Total cases,6209,rls
-2021-02-24T21:10:51Z,Total cases (active),144,rls
+2021-02-24T21:10:51Z,Total,6209,areas
+2021-02-24T21:10:51Z,Total,6209,rls
+2021-02-24T21:10:51Z,Total (active),144,rls
 2021-02-24T21:10:51Z,Val-des-Bois,9,areas
 2021-02-24T21:10:51Z,Val-des-Monts,139,areas
 2021-02-24T21:10:51Z,Waltham,5,areas
@@ -11551,9 +11551,9 @@ time,key,value,table
 2021-02-24T21:11:12Z,To be determined,135,areas
 2021-02-24T21:11:12Z,To be determined,10,rls
 2021-02-24T21:11:12Z,To be determined (active),5,rls
-2021-02-24T21:11:12Z,Total cases,6209,areas
-2021-02-24T21:11:12Z,Total cases,6209,rls
-2021-02-24T21:11:12Z,Total cases (active),144,rls
+2021-02-24T21:11:12Z,Total,6209,areas
+2021-02-24T21:11:12Z,Total,6209,rls
+2021-02-24T21:11:12Z,Total (active),144,rls
 2021-02-24T21:11:12Z,Val-des-Bois,9,areas
 2021-02-24T21:11:12Z,Val-des-Monts,139,areas
 2021-02-24T21:11:12Z,Waltham,5,areas
@@ -11631,9 +11631,9 @@ time,key,value,table
 2021-02-24T21:11:34Z,To be determined,135,areas
 2021-02-24T21:11:34Z,To be determined,10,rls
 2021-02-24T21:11:34Z,To be determined (active),5,rls
-2021-02-24T21:11:34Z,Total cases,6209,areas
-2021-02-24T21:11:34Z,Total cases,6209,rls
-2021-02-24T21:11:34Z,Total cases (active),144,rls
+2021-02-24T21:11:34Z,Total,6209,areas
+2021-02-24T21:11:34Z,Total,6209,rls
+2021-02-24T21:11:34Z,Total (active),144,rls
 2021-02-24T21:11:34Z,Val-des-Bois,9,areas
 2021-02-24T21:11:34Z,Val-des-Monts,139,areas
 2021-02-24T21:11:34Z,Waltham,5,areas
@@ -11711,9 +11711,9 @@ time,key,value,table
 2021-02-25T21:00:02Z,To be determined,135,areas
 2021-02-25T21:00:02Z,To be determined,10,rls
 2021-02-25T21:00:02Z,To be determined (active),0,rls
-2021-02-25T21:00:02Z,Total cases,6209,areas
-2021-02-25T21:00:02Z,Total cases,6230,rls
-2021-02-25T21:00:02Z,Total cases (active),155,rls
+2021-02-25T21:00:02Z,Total,6209,areas
+2021-02-25T21:00:02Z,Total,6230,rls
+2021-02-25T21:00:02Z,Total (active),155,rls
 2021-02-25T21:00:02Z,Val-des-Bois,12,areas
 2021-02-25T21:00:02Z,Val-des-Monts,144,areas
 2021-02-25T21:00:02Z,Waltham,5,areas
@@ -11791,9 +11791,9 @@ time,key,value,table
 2021-03-06T00:33:22Z,To be determined,33,areas
 2021-03-06T00:33:22Z,To be determined,8,rls
 2021-03-06T00:33:22Z,To be determined (active),5,rls
-2021-03-06T00:33:22Z,Total cases,6425,areas
-2021-03-06T00:33:22Z,Total cases,6425,rls
-2021-03-06T00:33:22Z,Total cases (active),223,rls
+2021-03-06T00:33:22Z,Total,6425,areas
+2021-03-06T00:33:22Z,Total,6425,rls
+2021-03-06T00:33:22Z,Total (active),223,rls
 2021-03-06T00:33:22Z,Val-des-Bois,13,areas
 2021-03-06T00:33:22Z,Val-des-Monts,155,areas
 2021-03-06T00:33:22Z,Waltham,5,areas
@@ -11871,9 +11871,9 @@ time,key,value,table
 2021-03-06T01:37:28Z,To be determined,33,areas
 2021-03-06T01:37:28Z,To be determined,8,rls
 2021-03-06T01:37:28Z,To be determined (active),5,rls
-2021-03-06T01:37:28Z,Total cases,6425,areas
-2021-03-06T01:37:28Z,Total cases,6425,rls
-2021-03-06T01:37:28Z,Total cases (active),223,rls
+2021-03-06T01:37:28Z,Total,6425,areas
+2021-03-06T01:37:28Z,Total,6425,rls
+2021-03-06T01:37:28Z,Total (active),223,rls
 2021-03-06T01:37:28Z,Val-des-Bois,13,areas
 2021-03-06T01:37:28Z,Val-des-Monts,155,areas
 2021-03-06T01:37:28Z,Waltham,5,areas
@@ -11951,9 +11951,9 @@ time,key,value,table
 2021-03-06T12:25:40Z,To be determined,33,areas
 2021-03-06T12:25:40Z,To be determined,8,rls
 2021-03-06T12:25:40Z,To be determined (active),5,rls
-2021-03-06T12:25:40Z,Total cases,6425,areas
-2021-03-06T12:25:40Z,Total cases,6425,rls
-2021-03-06T12:25:40Z,Total cases (active),223,rls
+2021-03-06T12:25:40Z,Total,6425,areas
+2021-03-06T12:25:40Z,Total,6425,rls
+2021-03-06T12:25:40Z,Total (active),223,rls
 2021-03-06T12:25:40Z,Val-des-Bois,13,areas
 2021-03-06T12:25:40Z,Val-des-Monts,155,areas
 2021-03-06T12:25:40Z,Waltham,5,areas
@@ -12031,9 +12031,9 @@ time,key,value,table
 2021-03-08T13:26:35Z,To be determined,33,areas
 2021-03-08T13:26:35Z,To be determined,8,rls
 2021-03-08T13:26:35Z,To be determined (active),5,rls
-2021-03-08T13:26:35Z,Total cases,6425,areas
-2021-03-08T13:26:35Z,Total cases,6425,rls
-2021-03-08T13:26:35Z,Total cases (active),223,rls
+2021-03-08T13:26:35Z,Total,6425,areas
+2021-03-08T13:26:35Z,Total,6425,rls
+2021-03-08T13:26:35Z,Total (active),223,rls
 2021-03-08T13:26:35Z,Val-des-Bois,13,areas
 2021-03-08T13:26:35Z,Val-des-Monts,155,areas
 2021-03-08T13:26:35Z,Waltham,5,areas
@@ -12111,9 +12111,9 @@ time,key,value,table
 2021-03-08T13:26:37Z,To be determined,33,areas
 2021-03-08T13:26:37Z,To be determined,8,rls
 2021-03-08T13:26:37Z,To be determined (active),5,rls
-2021-03-08T13:26:37Z,Total cases,6425,areas
-2021-03-08T13:26:37Z,Total cases,6425,rls
-2021-03-08T13:26:37Z,Total cases (active),223,rls
+2021-03-08T13:26:37Z,Total,6425,areas
+2021-03-08T13:26:37Z,Total,6425,rls
+2021-03-08T13:26:37Z,Total (active),223,rls
 2021-03-08T13:26:37Z,Val-des-Bois,13,areas
 2021-03-08T13:26:37Z,Val-des-Monts,155,areas
 2021-03-08T13:26:37Z,Waltham,5,areas
@@ -12191,9 +12191,9 @@ time,key,value,table
 2021-03-08T14:31:27Z,To be determined,33,areas
 2021-03-08T14:31:27Z,To be determined,8,rls
 2021-03-08T14:31:27Z,To be determined (active),5,rls
-2021-03-08T14:31:27Z,Total cases,6425,areas
-2021-03-08T14:31:27Z,Total cases,6425,rls
-2021-03-08T14:31:27Z,Total cases (active),223,rls
+2021-03-08T14:31:27Z,Total,6425,areas
+2021-03-08T14:31:27Z,Total,6425,rls
+2021-03-08T14:31:27Z,Total (active),223,rls
 2021-03-08T14:31:27Z,Val-des-Bois,13,areas
 2021-03-08T14:31:27Z,Val-des-Monts,155,areas
 2021-03-08T14:31:27Z,Waltham,5,areas
@@ -12271,9 +12271,9 @@ time,key,value,table
 2021-03-08T17:00:02Z,To be determined,33,areas
 2021-03-08T17:00:02Z,To be determined,8,rls
 2021-03-08T17:00:02Z,To be determined (active),5,rls
-2021-03-08T17:00:02Z,Total cases,6425,areas
-2021-03-08T17:00:02Z,Total cases,6425,rls
-2021-03-08T17:00:02Z,Total cases (active),223,rls
+2021-03-08T17:00:02Z,Total,6425,areas
+2021-03-08T17:00:02Z,Total,6425,rls
+2021-03-08T17:00:02Z,Total (active),223,rls
 2021-03-08T17:00:02Z,Val-des-Bois,13,areas
 2021-03-08T17:00:02Z,Val-des-Monts,155,areas
 2021-03-08T17:00:02Z,Waltham,5,areas
@@ -12351,9 +12351,9 @@ time,key,value,table
 2021-03-08T22:47:20Z,To be determined,33,areas
 2021-03-08T22:47:20Z,To be determined,8,rls
 2021-03-08T22:47:20Z,To be determined (active),5,rls
-2021-03-08T22:47:20Z,Total cases,6425,areas
-2021-03-08T22:47:20Z,Total cases,6476,rls
-2021-03-08T22:47:20Z,Total cases (active),222,rls
+2021-03-08T22:47:20Z,Total,6425,areas
+2021-03-08T22:47:20Z,Total,6476,rls
+2021-03-08T22:47:20Z,Total (active),222,rls
 2021-03-08T22:47:20Z,Val-des-Bois,13,areas
 2021-03-08T22:47:20Z,Val-des-Monts,155,areas
 2021-03-08T22:47:20Z,Waltham,5,areas
@@ -12431,9 +12431,9 @@ time,key,value,table
 2021-03-09T17:00:02Z,To be determined,33,areas
 2021-03-09T17:00:02Z,To be determined,8,rls
 2021-03-09T17:00:02Z,To be determined (active),5,rls
-2021-03-09T17:00:02Z,Total cases,6425,areas
-2021-03-09T17:00:02Z,Total cases,6476,rls
-2021-03-09T17:00:02Z,Total cases (active),222,rls
+2021-03-09T17:00:02Z,Total,6425,areas
+2021-03-09T17:00:02Z,Total,6476,rls
+2021-03-09T17:00:02Z,Total (active),222,rls
 2021-03-09T17:00:02Z,Val-des-Bois,13,areas
 2021-03-09T17:00:02Z,Val-des-Monts,155,areas
 2021-03-09T17:00:02Z,Waltham,5,areas
@@ -12511,9 +12511,9 @@ time,key,value,table
 2021-03-09T22:15:01Z,To be determined,33,areas
 2021-03-09T22:15:01Z,To be determined,9,rls
 2021-03-09T22:15:01Z,To be determined (active),5,rls
-2021-03-09T22:15:01Z,Total cases,6425,areas
-2021-03-09T22:15:01Z,Total cases,6491,rls
-2021-03-09T22:15:01Z,Total cases (active),194,rls
+2021-03-09T22:15:01Z,Total,6425,areas
+2021-03-09T22:15:01Z,Total,6491,rls
+2021-03-09T22:15:01Z,Total (active),194,rls
 2021-03-09T22:15:01Z,Val-des-Bois,13,areas
 2021-03-09T22:15:01Z,Val-des-Monts,155,areas
 2021-03-09T22:15:01Z,Waltham,5,areas
@@ -12591,9 +12591,9 @@ time,key,value,table
 2021-03-10T17:00:03Z,To be determined,33,areas
 2021-03-10T17:00:03Z,To be determined,13,rls
 2021-03-10T17:00:03Z,To be determined (active),5,rls
-2021-03-10T17:00:03Z,Total cases,6425,areas
-2021-03-10T17:00:03Z,Total cases,6499,rls
-2021-03-10T17:00:03Z,Total cases (active),171,rls
+2021-03-10T17:00:03Z,Total,6425,areas
+2021-03-10T17:00:03Z,Total,6499,rls
+2021-03-10T17:00:03Z,Total (active),171,rls
 2021-03-10T17:00:03Z,Val-des-Bois,13,areas
 2021-03-10T17:00:03Z,Val-des-Monts,155,areas
 2021-03-10T17:00:03Z,Waltham,5,areas
@@ -12671,9 +12671,9 @@ time,key,value,table
 2021-03-10T22:15:02Z,To be determined,33,areas
 2021-03-10T22:15:02Z,To be determined,13,rls
 2021-03-10T22:15:02Z,To be determined (active),5,rls
-2021-03-10T22:15:02Z,Total cases,6425,areas
-2021-03-10T22:15:02Z,Total cases,6499,rls
-2021-03-10T22:15:02Z,Total cases (active),171,rls
+2021-03-10T22:15:02Z,Total,6425,areas
+2021-03-10T22:15:02Z,Total,6499,rls
+2021-03-10T22:15:02Z,Total (active),171,rls
 2021-03-10T22:15:02Z,Val-des-Bois,13,areas
 2021-03-10T22:15:02Z,Val-des-Monts,155,areas
 2021-03-10T22:15:02Z,Waltham,5,areas
@@ -12751,9 +12751,9 @@ time,key,value,table
 2021-03-11T17:00:02Z,To be determined,11,areas
 2021-03-11T17:00:02Z,To be determined,9,rls
 2021-03-11T17:00:02Z,To be determined (active),5,rls
-2021-03-11T17:00:02Z,Total cases,6519,areas
-2021-03-11T17:00:02Z,Total cases,6519,rls
-2021-03-11T17:00:02Z,Total cases (active),170,rls
+2021-03-11T17:00:02Z,Total,6519,areas
+2021-03-11T17:00:02Z,Total,6519,rls
+2021-03-11T17:00:02Z,Total (active),170,rls
 2021-03-11T17:00:02Z,Val-des-Bois,13,areas
 2021-03-11T17:00:02Z,Val-des-Monts,157,areas
 2021-03-11T17:00:02Z,Waltham,5,areas
@@ -12831,9 +12831,9 @@ time,key,value,table
 2021-03-12T02:18:18Z,To be determined,11,areas
 2021-03-12T02:18:18Z,To be determined,9,rls
 2021-03-12T02:18:18Z,To be determined (active),5,rls
-2021-03-12T02:18:18Z,Total cases,6519,areas
-2021-03-12T02:18:18Z,Total cases,6519,rls
-2021-03-12T02:18:18Z,Total cases (active),170,rls
+2021-03-12T02:18:18Z,Total,6519,areas
+2021-03-12T02:18:18Z,Total,6519,rls
+2021-03-12T02:18:18Z,Total (active),170,rls
 2021-03-12T02:18:18Z,Val-des-Bois,13,areas
 2021-03-12T02:18:18Z,Val-des-Monts,157,areas
 2021-03-12T02:18:18Z,Waltham,5,areas
@@ -12911,9 +12911,9 @@ time,key,value,table
 2021-03-12T16:00:02Z,To be determined,11,areas
 2021-03-12T16:00:02Z,To be determined,9,rls
 2021-03-12T16:00:02Z,To be determined (active),5,rls
-2021-03-12T16:00:02Z,Total cases,6519,areas
-2021-03-12T16:00:02Z,Total cases,6519,rls
-2021-03-12T16:00:02Z,Total cases (active),170,rls
+2021-03-12T16:00:02Z,Total,6519,areas
+2021-03-12T16:00:02Z,Total,6519,rls
+2021-03-12T16:00:02Z,Total (active),170,rls
 2021-03-12T16:00:02Z,Val-des-Bois,13,areas
 2021-03-12T16:00:02Z,Val-des-Monts,157,areas
 2021-03-12T16:00:02Z,Waltham,5,areas

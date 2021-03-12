@@ -97,8 +97,8 @@ covid <- lapply(covid, function(df) {
     df$key[df$key %in% c("Deaths", "Number of deaths")] <- "Deaths"
     df$key[df$key %in% c("Healed cases", "Total number of healed cases in Outaouais", "Resolved cases")] <- "Healed/resolved cases"
     df$key[df$key %in% c("Active cases", "Total of active cases in Outaouais")] <- "Active cases"
-    df$key[df$key %in% c("Cumulative cases", "Total number of cases in Outaouais", "Total") & df$table == "cases"] <- "Cumulative cases"
-    df$key[df$key %in% c("Cumulative cases", "Total number of cases in Outaouais", "Total") & df$table != "cases"] <- "Total cases"
+    # df$key[df$key %in% c("Cumulative cases", "Total number of cases in Outaouais", "Total") & df$table == "cases"] <- "Cumulative cases"
+    df$key[df$key %in% c("Total number of cases in Outaouais")] <- "Total cases" # "Total"
     df$key[df$key %in% c("Collines-de-l'Outaouais", "RLS des Collines-de-l'Outaouais") & df$table == "rls"] <- "RLS des Collines-de-l'Outaouais"
     df$key[df$key %in% c("Papineau", "RLS de Papineau") & df$table == "rls"] <- "RLS de Papineau"
     df$key[df$key %in% c("Pontiac", "RLS du Pontiac") & df$table == "rls"] <- "RLS du Pontiac"
@@ -164,7 +164,7 @@ VisualCheck(keys = tapply(covid$key, covid$table, unique)[["cases"]], tab = "cas
 covid$value[covid$time > "2020-05-23" & covid$time < "2020-05-25" & covid$key == "Total cases" & covid$value == 4729] <- 479
 covid$value[covid$time > "2020-06-24" & covid$time < "2020-06-25" & covid$key == "RLS de Gatineau" & covid$value == 47] <- 497
 covid <- covid[!(covid$time > "2020-12-15" & covid$time < "2020-12-16" & covid$key == "RLS de Gatineau" & covid$value == 32172), ]
-VisualCheck(keys = c("Total cases", "RLS de Gatineau"), tab = "rls")
+VisualCheck(keys = c("Total cases", "Total", "RLS de Gatineau"), tab = "rls")
 VisualCheck(keys = c("Deaths", "To be determined", "To be determined (active)"), tab = "rls")
 VisualCheck(keys = c("Active cases", "Total cases (active)", "Healed/resolved cases"), tab = "rls")
 VisualCheck(keys = c("RLS de Gatineau", "RLS de Gatineau (active)"), tab = "rls")
@@ -174,8 +174,8 @@ VisualCheck(keys = c("RLS du Pontiac", "RLS du Pontiac (active)"), tab = "rls") 
 VisualCheck(keys = c("RLS des Collines-de-l'Outaouais", "RLS des Collines-de-l'Outaouais (active)"), tab = "rls")
 VisualCheck(keys = c("RLS de la Vallée-de-la-Gatineau", "RLS de la Vallée-de-la-Gatineau (active)"), tab = "rls")
 # VisualCheck(keys = tapply(covid$key, covid$table, unique)[["areas"]], tab = "areas")
-covid$value[covid$time > "2020-05-09" & covid$time < "2020-05-11" & covid$key == "Total cases" & covid$value == 3334] <- 334
-VisualCheck(keys = c("Total cases", "Gatineau"), tab = "areas")
+covid$value[covid$time > "2020-05-09" & covid$time < "2020-05-11" & covid$key == "Total" & covid$value == 3334] <- 334
+VisualCheck(keys = c("Total cases", "Total", "Gatineau"), tab = "areas")
 VisualCheck(keys = tapply(covid$key, covid$table, unique)[["areas"]], tab = "areas", exclude = c("Total cases", "Gatineau", "To be determined"))
 
 ### saving data

@@ -57,7 +57,12 @@ Note several important caveats when consulting the trend data.
 4.  Not all the data available on the CISSS Outaouais site are included
     in the dataset.
 
-5.  Finally, at the municipal and RLS levels, CISSS Outaouais does not
+5.  Over time, CISSS Outaouais has made various changes to what it
+    reports and how it labels indicators. While I fix some
+    inconsistencies in labels, I do not reconcile closely related
+    indicators. The figures show how reporting has changed.
+
+6.  Finally, at the municipal and RLS levels, CISSS Outaouais does not
     report numbers of less than 6 precisely, likely for good privacy
     reasons. When “5 or less” are reported, I record this as 5 cases.
     Consumers of the trend data must be aware that counts of 5 do not
@@ -66,17 +71,17 @@ Note several important caveats when consulting the trend data.
 
 Last download: 2021-03-12 11:00:02.
 
-Last data update: 2021-03-12 12:36:22.
+Last data update: 2021-03-12 13:41:58.
 
-Figures updated: 2021-03-12 12:47:57.
+Figures updated: 2021-03-12 14:36:53.
 
 ## Outaouais Region
 
-<img src="README_files/figure-gfm/figures-1.png" width="100%" height="100%" /><img src="README_files/figure-gfm/figures-2.png" width="100%" height="100%" /><img src="README_files/figure-gfm/figures-3.png" width="100%" height="100%" /><img src="README_files/figure-gfm/figures-4.png" width="100%" height="100%" />
+<img src="README_files/figure-gfm/cases-1.png" width="100%" height="100%" /><img src="README_files/figure-gfm/cases-2.png" width="100%" height="100%" />
 
 ## By RLS
 
-TBA
+<img src="README_files/figure-gfm/rls-1.png" width="100%" height="100%" /><img src="README_files/figure-gfm/rls-2.png" width="100%" height="100%" /><img src="README_files/figure-gfm/rls-3.png" width="100%" height="100%" /><img src="README_files/figure-gfm/rls-4.png" width="100%" height="100%" /><img src="README_files/figure-gfm/rls-5.png" width="100%" height="100%" /><img src="README_files/figure-gfm/rls-6.png" width="100%" height="100%" /><img src="README_files/figure-gfm/rls-7.png" width="100%" height="100%" />
 
 ## By Municipalities
 

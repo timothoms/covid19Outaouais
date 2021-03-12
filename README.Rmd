@@ -15,19 +15,19 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 ```{r data, include=FALSE}
 load("data/covid_local.RData")
-# tapply(covid$key, covid$table, unique)
-rls <- c("RLS de Gatineau", "RLS de la Vallée-de-la-Gatineau", "RLS de Papineau", "RLS des Collines-de-l'Outaouais", "RLS du Pontiac")
 keys <- list(
     cases = list(
-        c("Cumulative cases", "Healed/resolved cases"),
-        c("Active cases", "Deaths", "Average screening test per day")
+        list(c("Cumulative cases", "Healed/resolved cases", "Total cases"), title = "Total cases"),
+        list(c("Active cases", "Daily increase", "Deaths", "Average screening test per day"), title = "")
     ),
     rls = list(
-        c("Active cases", "Total cases (active)", "Deaths"),
-        c("Total cases", "Healed/resolved cases"),
-        c("To be determined", "To be determined (active)"),
-        rls,
-        paste(rls, "(active)")
+        list(c("Total cases", "Total"), title = "Total cases"),
+        list(c("Active cases", "Total cases (active)", "Total (active)", "Healed/resolved cases"), title = ""),
+        list(c("RLS de Gatineau", "RLS de Gatineau (active)"), title = "Gatineau"),
+        list(c("RLS des Collines-de-l'Outaouais", "RLS des Collines-de-l'Outaouais (active)"), title = "Collines"),
+        list(c("RLS du Pontiac", "RLS du Pontiac (active)"), title = "Pontiac"),
+        list(c("RLS de Papineau", "RLS de Papineau (active)"), title = "Papineau"),
+        list(c("RLS de la Vallée-de-la-Gatineau", "RLS de la Vallée-de-la-Gatineau (active)"), title = "Vallée-de-la-Gatineau")
     ), 
     areas = list(
         c("Active cases", "To be determined"), 
@@ -52,7 +52,9 @@ The present project provides local trend data based on these snapshots. The HTML
 
 4. Not all the data available on the CISSS Outaouais site are included in the dataset.
 
-5. Finally, at the municipal and RLS levels, CISSS Outaouais does not report numbers of less than 6 precisely, likely for good privacy reasons. When "5 or less" are reported, I record this as 5 cases. Consumers of the trend data must be aware that counts of 5 do not precisely reflect the actual situation at those levels, but refer to 1-5 cases.
+5. Over time, CISSS Outaouais has made various changes to what it reports and how it labels indicators. While I fix some inconsistencies in labels, I do not reconcile closely related indicators. The figures show how reporting has changed.
+
+6. Finally, at the municipal and RLS levels, CISSS Outaouais does not report numbers of less than 6 precisely, likely for good privacy reasons. When "5 or less" are reported, I record this as 5 cases. Consumers of the trend data must be aware that counts of 5 do not precisely reflect the actual situation at those levels, but refer to 1-5 cases.
 
 Last download: `r str_replace(read_file("websites/last_download_time.txt"), "\n", "")`.
 
@@ -62,25 +64,32 @@ Figures updated: `r now()`.
 
 ## Outaouais Region
 
-```{r figures, echo=FALSE, results='hide', fig.width = 7.5, fig.height = 5, out.width = "100%", out.height = "100%"}
+```{r cases, echo=FALSE, results='hide', fig.width = 7.5, fig.height = 5, out.width = "100%", out.height = "100%"}
 lapply(keys$cases, function(keys) {
-    list(ggplot(data = covid[covid$key %in% keys & covid$table == "cases", ]) + 
-             geom_line(mapping = aes(x = time, y = value, group = key, color = key)) + 
-             theme_classic() + labs(x = "", y = "") + 
-             theme(legend.position = "bottom") + 
-             ggtitle(paste(keys, collapse = " & ")),
-         ggplot(data = covid[covid$key %in% keys & covid$table == "cases" & covid$time > now() - days(42), ]) + 
-             geom_line(mapping = aes(x = time, y = value, group = key, color = key)) + 
-             theme_classic() + labs(x = "", y = "") + 
-             theme(legend.position = "bottom") + 
-             ggtitle(paste(paste(keys, collapse = " & "), "(last 6 weeks)"))
-    )
+    # list(
+    ggplot(data = covid[covid$key %in% keys[[1]] & covid$table == "cases", ]) + 
+        geom_line(mapping = aes(x = time, y = value, group = key, color = key)) + 
+        theme_classic() + labs(x = "", y = "") + 
+        theme(legend.position = "bottom") + ggtitle(keys$title)
+    # , ggplot(data = covid[covid$key %in% keys[[1]] & covid$table == "cases" & covid$time > now() - days(42), ]) + 
+    #     geom_line(mapping = aes(x = time, y = value, group = key, color = key)) + 
+    #     theme_classic() + labs(x = "", y = "") + 
+    #     theme(legend.position = "bottom") + 
+    #     ggtitle(paste(keys$title, "(last 6 weeks)"))
+    # )
 })
 ```
 
 ## By RLS
 
-TBA
+```{r rls, echo=FALSE, results='hide', fig.width = 7.5, fig.height = 5, out.width = "100%", out.height = "100%"}
+lapply(keys$rls, function(keys) {
+    ggplot(data = covid[covid$key %in% keys[[1]] & covid$table == "rls", ]) + 
+       geom_line(mapping = aes(x = time, y = value, group = key, color = key)) + 
+       theme_classic() + labs(x = "", y = "") + 
+       theme(legend.position = "bottom") + ggtitle(keys$title)
+})
+```
 
 ## By Municipalities
 
