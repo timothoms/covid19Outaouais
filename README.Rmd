@@ -1,7 +1,6 @@
 ---
 title: "Covid19 Situation in Outaouais"
 author: "Oskar Timo Thoms"
-date: "11/03/2021"
 output: 
   github_document: 
     toc: true
@@ -70,9 +69,9 @@ The present project provides local trend data based on these snapshots. The HTML
 
 6. Finally, at the municipal and RLS levels, CISSS Outaouais does not report numbers of less than 6 precisely, likely for good privacy reasons. When "5 or less" are reported, I record this as 5 cases. Consumers of the trend data must be aware that counts of 5 do not precisely reflect the actual situation at those levels, but refer to 1-5 cases.
 
-Last download: `r str_replace(read_file("websites/last_download_time.txt"), "\n", "")`.
+Last download: `r str_replace(read_file("websites/last_download_time.txt"), "\n", "")`
 
-Last data revision: `r str_replace(read_file("data/data_update_time.txt"), "\n", "")`.
+Last data revision: `r str_replace(read_file("data/data_update_time.txt"), "\n", "")`
 
 # Outaouais Region
 

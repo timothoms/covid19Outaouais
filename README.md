@@ -1,7 +1,6 @@
 Covid19 Situation in Outaouais
 ================
 Oskar Timo Thoms
-11/03/2021
 
 -   [Caveats](#caveats)
 -   [Outaouais Region](#outaouais-region)
@@ -70,9 +69,9 @@ Note several important caveats when consulting the trend data.
     precisely reflect the actual situation at those levels, but refer to
     1-5 cases.
 
-Last download: 2021-03-12 17:15:02.
+Last download: 2021-03-12 17:15:02
 
-Last data revision: 2021-03-12 17:02:41.
+Last data revision: 2021-03-12 17:02:41
 
 # Outaouais Region
 
@@ -86,4 +85,4 @@ Last data revision: 2021-03-12 17:02:41.
 
 <img src="README_files/figure-gfm/areas-1.png" width="100%" height="100%" /><img src="README_files/figure-gfm/areas-2.png" width="100%" height="100%" /><img src="README_files/figure-gfm/areas-3.png" width="100%" height="100%" /><img src="README_files/figure-gfm/areas-4.png" width="100%" height="100%" /><img src="README_files/figure-gfm/areas-5.png" width="100%" height="100%" /><img src="README_files/figure-gfm/areas-6.png" width="100%" height="100%" /><img src="README_files/figure-gfm/areas-7.png" width="100%" height="100%" /><img src="README_files/figure-gfm/areas-8.png" width="100%" height="100%" />
 
-Page last revised: 2021-03-12 17:21:35.
+Page last revised: 2021-03-12 18:00:13.
