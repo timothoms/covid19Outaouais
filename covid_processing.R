@@ -80,7 +80,7 @@ FormatTable <- function(table_id, tables) {
 }
 covid <- lapply(covid, function(set) lapply(names(set), FormatTable, tables = set))
 lapply(covid, function(set) unique(lapply(set, names)))
-# covid$areas[unlist(lapply(covid$areas, function(df) sum(df$key == ""))) == 1] # areas[50] ## Thurso
+covid$areas[unlist(lapply(covid$areas, function(df) sum(df$key == "")) > 0)] ### missing labels
 covid <- lapply(covid, function(set) do.call(rbind, set))
 covid <- lapply(covid, function(df) df[order(df$time), ])
 names(covid_tables) <- covid_tables <- names(covid)
@@ -112,7 +112,7 @@ covid <- lapply(covid, function(df) {
     df$key[df$key %in% c("Pontiac", "MRC du Pontiac") & df$table == "areas"] <- "MRC du Pontiac"
     df$key[df$key %in% c("Val-des-Bois", "Val-des-bois") & df$table == "areas"] <- "Val-des-Bois"
     df$key[df$key %in% c("L'Isle-aux-Allumettes", "L'Îsles-aux-Allumettes") & df$table == "areas"] <- "L'Isle-aux-Allumettes"
-    df$key[df$key == ""] <- "Thurso"
+    # df$key[df$key == "" % df$time <] <- "Thurso"
     df <- df[df$key != df$value, ]
     return(df)
 })
@@ -136,6 +136,9 @@ unique(covid$key)[str_detect(unique(covid$key), "MRC")]
 unique(municipalities$mrc)[!unique(municipalities$mrc) %in% unique(covid$key)]
 
 ### cleaning
+# covid[covid$key == "" & covid$time > "2020-09-28" & covid$time < "2020-10-02", ]
+# covid[covid$key == "" & covid$time > "2021-03-11" & covid$time < "2021-10-13", ]
+covid <- covid[covid$key != "", ] ## losing a few observations here because not labeled
 covid$time <- as_datetime(covid$time, tz = "America/Montreal")
 covid$value <- str_replace(covid$value, fixed("**"), "")
 covid$value <- str_replace(covid$value, fixed("*"), "")
@@ -176,7 +179,7 @@ VisualCheck(keys = c("RLS de la Vallée-de-la-Gatineau", "RLS de la Vallée-de-l
 # VisualCheck(keys = tapply(covid$key, covid$table, unique)[["areas"]], tab = "areas")
 covid$value[covid$time > "2020-05-09" & covid$time < "2020-05-11" & covid$key == "Total" & covid$value == 3334] <- 334
 VisualCheck(keys = c("Total cases", "Total", "Gatineau"), tab = "areas")
-VisualCheck(keys = tapply(covid$key, covid$table, unique)[["areas"]], tab = "areas", exclude = c("Total cases", "Gatineau", "To be determined"))
+# VisualCheck(keys = tapply(covid$key, covid$table, unique)[["areas"]], tab = "areas", exclude = c("Total cases", "Gatineau", "To be determined"))
 
 ### saving data
 save(covid, file = "data/covid_local.RData")
