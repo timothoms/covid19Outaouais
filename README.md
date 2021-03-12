@@ -22,7 +22,7 @@ provides frequent (sometimes daily) snapshots by Réseaux locaux de
 services (RLS) and by municipality, but no trends.
 
 The present project provides local trend data based on these snapshots.
-The HTML code for the [CISSS Outaouais
+The HTML source for the [CISSS Outaouais
 site](https://cisss-outaouais.gouv.qc.ca/language/en/covid19-en/) is
 downloaded daily, the tables are scraped and processed into a tidy
 dataset, to produce the figures on this site. The R code for downloading
@@ -64,11 +64,15 @@ Note several important caveats when consulting the trend data.
     precisely reflect the actual situation at those levels, but refer to
     1-5 cases.
 
-Figures updated: 2021-03-12 06:46:00.
+Last download: 2021-03-12 11:00:02.
+
+Last data update: 2021-03-12 12:36:22.
+
+Figures updated: 2021-03-12 12:47:57.
 
 ## Outaouais Region
 
-![](README_files/figure-gfm/figures-1.png)<!-- -->![](README_files/figure-gfm/figures-2.png)<!-- -->![](README_files/figure-gfm/figures-3.png)<!-- -->![](README_files/figure-gfm/figures-4.png)<!-- -->
+<img src="README_files/figure-gfm/figures-1.png" width="100%" height="100%" /><img src="README_files/figure-gfm/figures-2.png" width="100%" height="100%" /><img src="README_files/figure-gfm/figures-3.png" width="100%" height="100%" /><img src="README_files/figure-gfm/figures-4.png" width="100%" height="100%" />
 
 ## By RLS
 
