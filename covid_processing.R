@@ -201,7 +201,6 @@ covid <- rbind(covid, opencovid)
 
 ### saving data
 save(covid, file = "data/covid_local.RData")
-write_csv(covid, file = "data/covid_local.csv")
 file_connection <-file("data/data_update_time.txt")
 writeLines(as.character(now()), file_connection)
 close(file_connection)
