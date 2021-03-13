@@ -4,9 +4,8 @@ Oskar Timo Thoms
 
 -   [Caveats](#caveats)
 -   [Outaouais Region](#outaouais-region)
--   [By Réseaux locaux de services
-    (RLS)](#by-réseaux-locaux-de-services-rls)
--   [By municipalities](#by-municipalities)
+-   [Réseaux locaux de services (RLS)](#réseaux-locaux-de-services-rls)
+-   [Municipalities: cumulative cases](#municipalities-cumulative-cases)
 
 It is difficult to find covid19 trend data at the local level for the
 Outaouais. The [Quebec
@@ -14,9 +13,10 @@ government](https://www.quebec.ca/en/health/health-issues/a-z/2019-coronavirus/s
 shows summaries but only a few days of trend data for regions. [Quebec
 Public Health](https://www.inspq.qc.ca/covid-19/donnees) shows longer
 time series but only cumulative snapshots by region. The data aggregated
-by the [COVID-19 Canada Open Data Working Group](https://opencovid.ca/)
-can be used to show trends at the health region level. None of these
-sources provide trend data below the regional level. [CISSS
+by the [COVID-19 Canada Open Data Working Group
+(opencovid.ca)](https://opencovid.ca/) can be used to show trends at the
+health region level. None of these sources provide trend data below the
+regional level. [CISSS
 Outaouais](https://cisss-outaouais.gouv.qc.ca/language/en/covid19-en/)
 provides frequent (sometimes daily) snapshots by Réseaux locaux de
 services (RLS) and by municipality, but no trends.
@@ -25,10 +25,12 @@ The present project provides local trend data based on these snapshots.
 The HTML source for the [CISSS Outaouais
 site](https://cisss-outaouais.gouv.qc.ca/language/en/covid19-en/) is
 downloaded daily, the tables are scraped and processed into a tidy
-dataset, to produce the figures on this site. The R code for downloading
-and processing is made available, but not the software for the daily
-automation. (This is currently done with Macscheduler and AppleScript.)
-Note several important caveats when consulting the trend data.
+dataset, to produce the figures on this site. (The
+[opencovid.ca](https://opencovid.ca/) health region data are included
+for comparison.) The R code for downloading and processing is made
+available, but not the software for the daily automation. (This is
+currently done with Macscheduler and AppleScript.) Note several
+important caveats when consulting the trend data.
 
 # Caveats
 
@@ -71,18 +73,18 @@ Note several important caveats when consulting the trend data.
 
 Last download: 2021-03-12 17:15:02
 
-Last data revision: 2021-03-12 17:02:41
+Last data revision: 2021-03-12 18:48:57
 
 # Outaouais Region
 
-<img src="README_files/figure-gfm/cases-1.png" width="100%" height="100%" /><img src="README_files/figure-gfm/cases-2.png" width="100%" height="100%" />
+<img src="README_files/figure-gfm/cases-1.png" width="100%" height="100%" /><img src="README_files/figure-gfm/cases-2.png" width="100%" height="100%" /><img src="README_files/figure-gfm/cases-3.png" width="100%" height="100%" />
 
-# By Réseaux locaux de services (RLS)
+# Réseaux locaux de services (RLS)
 
-<img src="README_files/figure-gfm/rls-1.png" width="100%" height="100%" /><img src="README_files/figure-gfm/rls-2.png" width="100%" height="100%" /><img src="README_files/figure-gfm/rls-3.png" width="100%" height="100%" /><img src="README_files/figure-gfm/rls-4.png" width="100%" height="100%" /><img src="README_files/figure-gfm/rls-5.png" width="100%" height="100%" /><img src="README_files/figure-gfm/rls-6.png" width="100%" height="100%" /><img src="README_files/figure-gfm/rls-7.png" width="100%" height="100%" />
+<img src="README_files/figure-gfm/rls-1.png" width="100%" height="100%" /><img src="README_files/figure-gfm/rls-2.png" width="100%" height="100%" /><img src="README_files/figure-gfm/rls-3.png" width="100%" height="100%" /><img src="README_files/figure-gfm/rls-4.png" width="100%" height="100%" /><img src="README_files/figure-gfm/rls-5.png" width="100%" height="100%" />
 
-# By municipalities
+# Municipalities: cumulative cases
 
-<img src="README_files/figure-gfm/areas-1.png" width="100%" height="100%" /><img src="README_files/figure-gfm/areas-2.png" width="100%" height="100%" /><img src="README_files/figure-gfm/areas-3.png" width="100%" height="100%" /><img src="README_files/figure-gfm/areas-4.png" width="100%" height="100%" /><img src="README_files/figure-gfm/areas-5.png" width="100%" height="100%" /><img src="README_files/figure-gfm/areas-6.png" width="100%" height="100%" /><img src="README_files/figure-gfm/areas-7.png" width="100%" height="100%" /><img src="README_files/figure-gfm/areas-8.png" width="100%" height="100%" />
+<img src="README_files/figure-gfm/areas-1.png" width="100%" height="100%" /><img src="README_files/figure-gfm/areas-2.png" width="100%" height="100%" /><img src="README_files/figure-gfm/areas-3.png" width="100%" height="100%" /><img src="README_files/figure-gfm/areas-4.png" width="100%" height="100%" /><img src="README_files/figure-gfm/areas-5.png" width="100%" height="100%" /><img src="README_files/figure-gfm/areas-6.png" width="100%" height="100%" /><img src="README_files/figure-gfm/areas-7.png" width="100%" height="100%" />
 
-Page last revised: 2021-03-12 18:00:13.
+Page last revised: 2021-03-12 20:45:43.

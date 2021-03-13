@@ -1,6 +1,7 @@
 library("tidyverse")
 library("lubridate")
 library("rvest")
+library("jsonlite")
 library("parallel")
 library("runner")
 
@@ -180,6 +181,23 @@ VisualCheck(keys = c("RLS de la Vallée-de-la-Gatineau", "RLS de la Vallée-de-l
 covid$value[covid$time > "2020-05-09" & covid$time < "2020-05-11" & covid$key == "Total" & covid$value == 3334] <- 334
 VisualCheck(keys = c("Total cases", "Total", "Gatineau"), tab = "areas")
 # VisualCheck(keys = tapply(covid$key, covid$table, unique)[["areas"]], tab = "areas", exclude = c("Total cases", "Gatineau", "To be determined"))
+
+# fromJSON("https://api.opencovid.ca/version")
+api_link <- "https://api.opencovid.ca/timeseries?stat=cases&loc=2407"
+opencovid <- fromJSON(api_link)
+opencovid <- opencovid$cases[, c("date_report", "health_region", "cases", "cumulative_cases")]
+names(opencovid) <- c("time", "key", "cases", "cumulative_cases")
+opencovid$time <- as_datetime(opencovid$time, tz = "America/Montreal", format = "%d-%m-%Y")
+opencovid <- opencovid[opencovid$time > "2020-03-15", ]
+new <- opencovid[, c("time", "key", "cases")]
+new$key <- "New cases (opencovid.ca)"
+names(new)[3] <- "value"
+opencovid <- opencovid[, c("time", "key", "cumulative_cases")]
+opencovid$key <- "Cumulative cases (opencovid.ca)"
+names(opencovid)[3] <- "value"
+opencovid <- rbind(opencovid, new)
+opencovid$table <- "cases"
+covid <- rbind(covid, opencovid)
 
 ### saving data
 save(covid, file = "data/covid_local.RData")
