@@ -2,5 +2,14 @@
 .Rhistory
 .RData
 .Ruserdata
-ignore/
 covid_downloads.scpt
+ignore/
+qc_sit_en/
+qc_sit_fr/
+qc_vaccination_en/
+qc_vaccination_fr/
+qc_variants_fr/
+schools_list_en/
+schools_list_fr/
+schools_sit_en/
+schools_sit_fr/
