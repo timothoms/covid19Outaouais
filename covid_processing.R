@@ -198,8 +198,6 @@ names(opencovid)[3] <- "value"
 opencovid <- rbind(opencovid, new)
 opencovid$table <- "cases"
 covid <- rbind(covid, opencovid)
-# info <- fromJSON("https://api.opencovid.ca/other?stat=hr")[[1]]
-# as.integer(info$pop[info$HR_UID == 2407])
 
 ### saving data
 save(covid, file = "data/covid_local.RData")
