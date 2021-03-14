@@ -2,8 +2,12 @@
 .Rhistory
 .RData
 .Ruserdata
+covid_auto.sh
 covid_downloads.scpt
 ignore/
+pop/
+website/
+local_sit_fr/
 qc_sit_en/
 qc_sit_fr/
 qc_vaccination_en/
