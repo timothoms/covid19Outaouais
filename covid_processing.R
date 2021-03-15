@@ -81,7 +81,8 @@ FormatTable <- function(table_id, tables) {
 }
 covid <- lapply(covid, function(set) lapply(names(set), FormatTable, tables = set))
 lapply(covid, function(set) unique(lapply(set, names)))
-covid$areas[unlist(lapply(covid$areas, function(df) sum(df$key == "")) > 0)] ### missing labels
+length(covid$areas[unlist(lapply(covid$areas, function(df) sum(df$key == "")) > 0)]) ## missing labels, NEED TO FIX THESE
+
 covid <- lapply(covid, function(set) do.call(rbind, set))
 covid <- lapply(covid, function(df) df[order(df$time), ])
 names(covid_tables) <- covid_tables <- names(covid)
@@ -90,6 +91,7 @@ covid <- lapply(covid_tables, function(table_name) {
     df$table <- table_name
     return(df)
 })
+
 ### consistent labels
 covid <- lapply(covid, function(df) {
     df$key <- str_replace(df$key, fixed("**"), "")
@@ -117,8 +119,9 @@ covid <- lapply(covid, function(df) {
     df <- df[df$key != df$value, ]
     return(df)
 })
-lapply(covid, function(set) unique(set$key))
+lapply(covid, function(set) sort(unique(set$key)))
 covid <- unique(do.call(rbind, covid))
+covid[covid$key == "", ] ## NEED TO FIX THESE
 
 ### active cases column
 table(covid$key[!is.na(covid$active)])
@@ -181,6 +184,7 @@ VisualCheck(keys = c("RLS de la Vallée-de-la-Gatineau", "RLS de la Vallée-de-l
 covid$value[covid$time > "2020-05-09" & covid$time < "2020-05-11" & covid$key == "Total" & covid$value == 3334] <- 334
 VisualCheck(keys = c("Total cases", "Total", "Gatineau"), tab = "areas")
 # VisualCheck(keys = tapply(covid$key, covid$table, unique)[["areas"]], tab = "areas", exclude = c("Total cases", "Gatineau", "To be determined"))
+dev.off()
 
 # fromJSON("https://api.opencovid.ca/version")
 api_link <- "https://api.opencovid.ca/timeseries?stat=cases&loc=2407"
