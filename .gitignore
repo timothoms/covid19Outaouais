@@ -2,6 +2,7 @@
 .Rhistory
 .RData
 .Ruserdata
+gitpush.sh
 covid_auto.sh
 covid_downloads.scpt
 ignore/
