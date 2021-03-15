@@ -45,7 +45,7 @@ dataset, to produce the figures on this site. The
 [opencovid.ca](https://opencovid.ca/) health region data are included
 for comparison. The R code for downloading and processing is available
 in this repository, but not the software for daily automation. (This is
-currently done with Macscheduler and AppleScript.)
+currently done with Macscheduler.)
 
 Users of these data need to be aware of the following caveats:
 
@@ -85,12 +85,12 @@ Users of these data need to be aware of the following caveats:
     this dataset must be aware that counts of 5 do not precisely reflect
     the actual situation at those levels, but refer to 1-5 cases.
 
-Last download: 2021-03-12 17:15:02
+Last download: 2021-03-15 11:00:03
 
-Last data revision: 2021-03-12 18:48:57
+Last data revision: 2021-03-15 12:15:56
 
 # Glossary
 
 **TBA**
 
-Page last revised: 2021-03-13 09:25:33.
+Page last revised: 2021-03-15 12:35:10.
