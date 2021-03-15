@@ -59,30 +59,24 @@ It is difficult to find covid19 trend data over time at the local level for the 
 # Outaouais: regional totals
 
 ```{r cases, echo = FALSE, results = 'hide', dpi = 300, fig.width = 7.5, fig.height = 5, out.width = "100%", out.height = "100%"}
-lapply(keys$cases, function(keys) {
-    # list(
-    ggplot() + 
-        geom_line(data = covid[covid$key %in% keys[[1]] & covid$table == "cases", ], mapping = aes(x = time, y = value, group = key, color = key)) + 
-        geom_line(data = covid[covid$key %in% keys[[1]] & covid$table == "areas", ], mapping = aes(x = time, y = value, group = key, color = key)) + 
-        geom_line(data = covid[covid$key %in% keys[[1]] & covid$table == "rls", ], mapping = aes(x = time, y = value, group = key, color = key)) + 
+## for specified number of recent weeks, can include in subset: & covid$time > now() - days(42)
+lapply(keys$cases, function(selection) {
+    ggplot() +
+        geom_line(data = covid[covid$key %in% selection[[1]] & covid$table == "cases", ], mapping = aes(x = time, y = value, group = key, color = key)) + 
+        geom_line(data = covid[covid$key %in% selection[[1]] & covid$table == "areas", ], mapping = aes(x = time, y = value, group = key, color = key)) + 
+        geom_line(data = covid[covid$key %in% selection[[1]] & covid$table == "rls", ], mapping = aes(x = time, y = value, group = key, color = key)) + 
         labs(x = "", y = "") + theme_classic() + 
-        theme(legend.position = "bottom") + theme(legend.title = element_blank()) + ggtitle(keys$title)
-    # , ggplot(data = covid[covid$key %in% keys[[1]] & covid$table == "cases" & covid$time > now() - days(42), ]) + 
-    #     geom_line(mapping = aes(x = time, y = value, group = key, color = key)) + 
-    #     theme_classic() + labs(x = "", y = "") + 
-    #     theme(legend.position = "bottom") + 
-    #     ggtitle(paste(keys$title, "(last 6 weeks)"))
-    # )
+        theme(legend.position = "bottom") + theme(legend.title = element_blank()) + ggtitle(selection$title)
 })
 ```
 
 # RLS: cumulative and active cases
 
 ```{r rls, echo = FALSE, results = 'hide', dpi = 300, fig.width = 7.5, fig.height = 5, out.width = "100%", out.height = "100%"}
-lapply(keys$rls, function(keys) {
-    ggplot(data = covid[covid$key %in% keys[[1]] & covid$table == "rls", ]) + 
+lapply(keys$rls, function(selection) {
+    ggplot(data = covid[covid$key %in% selection[[1]] & covid$table == "rls", ]) + 
     geom_line(mapping = aes(x = time, y = value, group = key, color = key)) + 
-    labs(x = "", y = "") + ggtitle(keys$title) + theme_classic() + 
+    labs(x = "", y = "") + ggtitle(selection$title) + theme_classic() + 
     theme(legend.position = "bottom") + theme(legend.title = element_blank()) 
 })
 ```
@@ -90,18 +84,17 @@ lapply(keys$rls, function(keys) {
 # Municipalities: cumulative cases
 
 ```{r areas, echo = FALSE, results = 'hide', dpi = 300, fig.width = 7.5, fig.height = 5, out.width = "100%", out.height = "100%"}
-## FIRST calculate cumulative sums for RLS and municipalities to graph
-lapply(keys$areas, function(keys) {
-    ggplot(data = covid[covid$key %in% keys[[1]] & covid$table == "areas", ]) + 
+lapply(keys$areas, function(selection) {
+    ggplot(data = covid[covid$key %in% selection[[1]] & covid$table == "areas", ]) + 
         geom_line(mapping = aes(x = time, y = value, group = key, color = key)) + 
         labs(x = "", y = "") + lims(y = c(0, NA)) + theme_classic() + 
-        theme(legend.title = element_blank()) + ggtitle(keys$title)
+        theme(legend.title = element_blank()) + ggtitle(selection$title)
 })
 ```
 
 # Method and caveats
 
-The HTML source for the [CISSS Outaouais site](https://cisss-outaouais.gouv.qc.ca/language/en/covid19-en/) is downloaded daily, the tables are scraped and processed into a tidy dataset, to produce the figures on this site. The [opencovid.ca](https://opencovid.ca/) health region data are included for comparison. The R code for downloading and processing is available in this repository, but not the software for daily automation. (This is currently done with Macscheduler and AppleScript.) 
+The HTML source for the [CISSS Outaouais site](https://cisss-outaouais.gouv.qc.ca/language/en/covid19-en/) is downloaded daily, the tables are scraped and processed into a tidy dataset, to produce the figures on this site. The [opencovid.ca](https://opencovid.ca/) health region data are included for comparison. The R code for downloading and processing is available in this repository, but not the software for daily automation. (This is currently done with Macscheduler.) 
 
 Users of these data need to be aware of the following caveats:
 
