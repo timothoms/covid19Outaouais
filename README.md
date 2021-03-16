@@ -3,6 +3,8 @@ Covid19 Situation in Outaouais
 Oskar Timo Thoms
 
 -   [Outaouais: regional totals](#outaouais-regional-totals)
+    -   [past 6 weeks](#past-6-weeks)
+    -   [past year](#past-year)
 -   [RLS: cumulative and active cases](#rls-cumulative-and-active-cases)
 -   [Municipalities: cumulative cases](#municipalities-cumulative-cases)
 -   [Method and caveats](#method-and-caveats)
@@ -26,7 +28,13 @@ important caveats and data limitations at the bottom of this page.
 
 # Outaouais: regional totals
 
+## past 6 weeks
+
 <img src="README_files/figure-gfm/cases-1.png" width="100%" height="100%" /><img src="README_files/figure-gfm/cases-2.png" width="100%" height="100%" /><img src="README_files/figure-gfm/cases-3.png" width="100%" height="100%" />
+
+## past year
+
+<img src="README_files/figure-gfm/cases_year-1.png" width="100%" height="100%" /><img src="README_files/figure-gfm/cases_year-2.png" width="100%" height="100%" /><img src="README_files/figure-gfm/cases_year-3.png" width="100%" height="100%" />
 
 # RLS: cumulative and active cases
 
@@ -43,9 +51,9 @@ site](https://cisss-outaouais.gouv.qc.ca/language/en/covid19-en/) is
 downloaded daily, the tables are scraped and processed into a tidy
 dataset, to produce the figures on this site. The
 [opencovid.ca](https://opencovid.ca/) health region data are included
-for comparison. The R code for downloading and processing is available
-in this repository, but not the software for daily automation. (This is
-currently done with Macscheduler.)
+for comparison. The R code for downloading and processing the data is
+available in this repository, but not the software for daily automation.
+(This is currently done with Macscheduler.)
 
 Users of these data need to be aware of the following caveats:
 
@@ -85,12 +93,12 @@ Users of these data need to be aware of the following caveats:
     this dataset must be aware that counts of 5 do not precisely reflect
     the actual situation at those levels, but refer to 1-5 cases.
 
-Last download: 2021-03-15 20:44:57
+Last HTML source download: 2021-03-16 09:29:39
 
-Last data revision: 2021-03-15 20:45:40
+Last data revision: 2021-03-16 09:30:14
 
 # Glossary
 
 **TBA**
 
-Page last revised: 2021-03-15 20:46:27
+Page last revised: 2021-03-16 09:30:52
