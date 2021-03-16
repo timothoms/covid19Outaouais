@@ -26,6 +26,9 @@ services (RLS) and by municipality, but no trends. The present project
 provides local trend data based on these snapshots. Please note
 important caveats and data limitations at the bottom of this page.
 
+Note: If the figures below do not show the latest data, reload this page
+in your web browser.
+
 # Outaouais: regional totals
 
 ## past 6 weeks
@@ -52,8 +55,8 @@ downloaded daily, the tables are scraped and processed into a tidy
 dataset, to produce the figures on this site. The
 [opencovid.ca](https://opencovid.ca/) health region data are included
 for comparison. The R code for downloading and processing the data is
-available in this repository, but not the software for daily automation.
-(This is currently done with Macscheduler.)
+available in this repository. (Daily automation is currently done with
+MacScheduler.)
 
 Users of these data need to be aware of the following caveats:
 
@@ -93,12 +96,12 @@ Users of these data need to be aware of the following caveats:
     this dataset must be aware that counts of 5 do not precisely reflect
     the actual situation at those levels, but refer to 1-5 cases.
 
-Last HTML source download: 2021-03-16 09:29:39
+Last HTML source download: 2021-03-16 11:00:05
 
-Last data revision: 2021-03-16 09:30:14
+Last dataset revision: 2021-03-16 11:00:37
 
 # Glossary
 
 **TBA**
 
-Page last revised: 2021-03-16 09:30:52
+Page last revised: 2021-03-16 11:01:13
