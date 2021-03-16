@@ -94,11 +94,12 @@ covid <- lapply(covid_tables, function(table_name) {
     return(df)
 })
 
+# lapply(covid, function(set) set[str_detect(set$key, "534"), ])
 ### consistent labels
 covid <- lapply(covid, function(df) {
     df$key <- str_replace(df$key, fixed("**"), "")
     df$key <- str_replace(df$key, fixed("*"), "")
-    df$key[df$key %in% c("Average screening test per day (last 6 days)", "Average screening test per day (last 7 days)", "Average screening test per day")] <- "Average screening test per day"
+    df$key[df$key %in% c("Average screening test per day (last 6 days)", "Average screening test per day (last 7 days)", "Average screening test per day534", "Average screening test per day")] <- "Average screening test per day"
     df$key[df$key %in% c("Deaths", "Number of deaths")] <- "Deaths"
     df$key[df$key %in% c("Healed cases", "Total number of healed cases in Outaouais", "Resolved cases")] <- "Healed/resolved cases"
     df$key[df$key %in% c("Active cases", "Total of active cases in Outaouais")] <- "Active cases"
@@ -194,7 +195,7 @@ opencovid <- fromJSON(api_link)
 opencovid <- opencovid$cases[, c("date_report", "health_region", "cases", "cumulative_cases")]
 names(opencovid) <- c("time", "key", "cases", "cumulative_cases")
 opencovid$time <- as_datetime(opencovid$time, tz = "America/Montreal", format = "%d-%m-%Y")
-opencovid <- opencovid[opencovid$time > "2020-03-15", ]
+opencovid <- opencovid[opencovid$time > "2020-03-14", ]
 new <- opencovid[, c("time", "key", "cases")]
 new$key <- "New cases (opencovid.ca)"
 names(new)[3] <- "value"
@@ -210,3 +211,31 @@ save(covid, file = "data/covid_local.RData")
 file_connection <-file("data/data_update_time.txt")
 writeLines(as.character(now()), file_connection)
 close(file_connection)
+
+### de-duplication for calculating change variables
+# sort(unique(covid$key))
+daily <- covid %>% arrange(key, time)
+daily$date <- as_date(daily$time)
+daily <- daily %>% group_by(table, key, date) %>% filter(time == max(time))
+# daily[duplicated(daily[, c("table", "key", "date")]), ]
+# daily %>% filter(key == "To be determined") %>% arrange(time) %>% print(n = Inf)
+## not currently showing this indicator in any figures
+# daily %>% filter(key == "Deaths") %>% arrange(time) %>% print(n = Inf)
+# daily %>% filter(key == "Healed/resolved cases") %>% arrange(time) %>% print(n = Inf)
+# daily %>% filter(key == "Active cases") %>% arrange(time) %>% print(n = Inf)
+# daily %>% filter(key == "Total cases") %>% arrange(time) %>% print(n = Inf)
+# daily %>% filter(key == "Total") %>% arrange(time) %>% print(n = Inf)
+# daily %>% filter(key %in% c("Total", "Cumulative cases")) %>% arrange(time) %>% print(n = Inf)
+## these are closely related and often the same but different aggregation:
+## cumulative for entire region, total aggregation across RLS or MRC
+## "Total" sometimes different for RLS and municipalities;
+daily$table[daily$key %in% c("Deaths", "Healed/resolved cases", "Active cases", "Total cases") & daily$table %in% c("rls", "areas")] <- "cases"
+daily <- daily[, c("table", "key", "date", "value")]
+# unique(daily$key)
+not_to_calc_change <- c("New cases (opencovid.ca)", "Daily increase", "To be determined", "To be determined (active)")
+
+### ways to calculate rolling averages
+# data %>% dplyr::arrange(key, date) %>% dplyr::group_by(key) %>% dplyr::mutate(moving3 = zoo::rollmean(value, k = 3, fill = NA, align = "right"), moving7 = zoo::rollmean(value, k = 7, fill = NA, align = "right")) %>% dplyr::ungroup()
+# mean_run(x = data$value, k = 7, lag = 0, idx = as_date(data$date))
+
+save(daily, file = "data/covid_local_daily.RData")
