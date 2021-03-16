@@ -5,8 +5,10 @@ Oskar Timo Thoms
 -   [Outaouais: regional totals](#outaouais-regional-totals)
     -   [past 6 weeks](#past-6-weeks)
     -   [past year](#past-year)
--   [RLS: cumulative and active cases](#rls-cumulative-and-active-cases)
--   [Municipalities: cumulative cases](#municipalities-cumulative-cases)
+-   [RLS](#rls)
+    -   [Cumulative and active cases](#cumulative-and-active-cases)
+-   [Municipalities](#municipalities)
+    -   [Cumulative cases](#cumulative-cases)
 -   [Method and caveats](#method-and-caveats)
 -   [Glossary](#glossary)
 
@@ -39,11 +41,15 @@ in your web browser.
 
 <img src="README_files/figure-gfm/cases_year-1.png" width="100%" height="100%" /><img src="README_files/figure-gfm/cases_year-2.png" width="100%" height="100%" /><img src="README_files/figure-gfm/cases_year-3.png" width="100%" height="100%" />
 
-# RLS: cumulative and active cases
+# RLS
+
+## Cumulative and active cases
 
 <img src="README_files/figure-gfm/rls-1.png" width="100%" height="100%" /><img src="README_files/figure-gfm/rls-2.png" width="100%" height="100%" /><img src="README_files/figure-gfm/rls-3.png" width="100%" height="100%" /><img src="README_files/figure-gfm/rls-4.png" width="100%" height="100%" /><img src="README_files/figure-gfm/rls-5.png" width="100%" height="100%" />
 
-# Municipalities: cumulative cases
+# Municipalities
+
+## Cumulative cases
 
 <img src="README_files/figure-gfm/areas-1.png" width="100%" height="100%" /><img src="README_files/figure-gfm/areas-2.png" width="100%" height="100%" /><img src="README_files/figure-gfm/areas-3.png" width="100%" height="100%" /><img src="README_files/figure-gfm/areas-4.png" width="100%" height="100%" /><img src="README_files/figure-gfm/areas-5.png" width="100%" height="100%" /><img src="README_files/figure-gfm/areas-6.png" width="100%" height="100%" /><img src="README_files/figure-gfm/areas-7.png" width="100%" height="100%" />
 
@@ -104,4 +110,4 @@ Last dataset revision: 2021-03-16 11:00:37
 
 **TBA**
 
-Page last revised: 2021-03-16 11:01:13
+Page last revised: 2021-03-16 12:06:49

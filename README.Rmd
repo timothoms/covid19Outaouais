@@ -95,7 +95,9 @@ lapply(keys$cases, function(selection) {
 })
 ```
 
-# RLS: cumulative and active cases
+# RLS
+
+## Cumulative and active cases
 
 ```{r rls, echo = FALSE, results = 'hide', dpi = 225, fig.width = 7.5, fig.height = 5, out.width = "100%", out.height = "100%"}
 lapply(keys$rls, function(selection) {
@@ -111,14 +113,21 @@ lapply(keys$rls, function(selection) {
 })
 ```
 
-# Municipalities: cumulative cases
+# Municipalities
+
+## Cumulative cases
 
 ```{r areas, echo = FALSE, results = 'hide', dpi = 225, fig.width = 7.5, fig.height = 5, out.width = "100%", out.height = "100%"}
 lapply(keys$areas, function(selection) {
     ggplot(data = covid[covid$key %in% selection[[1]] & covid$table == "areas", ]) + 
         geom_line(mapping = aes(x = time, y = value, group = key, color = key)) + 
-        labs(x = "", y = "") + lims(y = c(0, NA)) + theme_classic() + 
-        theme(legend.title = element_blank()) + ggtitle(selection$title)
+        labs(x = "", y = "") + 
+        lims(y = c(0, NA)) + 
+        scale_x_datetime(date_breaks="2 months", date_minor_breaks = "1 week", date_labels = "%b %Y") +
+        theme_classic() + 
+        theme(legend.title = element_blank(), 
+              panel.grid.major.x = element_line(colour="lightgray", size = 0.33)) + 
+        ggtitle(selection$title)
 })
 ```
 
