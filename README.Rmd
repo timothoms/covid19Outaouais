@@ -10,6 +10,7 @@ output:
 library(tidyverse)
 library(lubridate)
 knitr::opts_chunk$set(echo = TRUE)
+Sys.setlocale(category = "LC_ALL", locale = "en_CA.UTF-8")
 ```
 ```{r data, include=FALSE}
 load("data/covid_local.RData")
@@ -118,4 +119,4 @@ Last data revision: `r str_replace(read_file("data/data_update_time.txt"), "\n",
 
 **TBA**
 
-Page last revised: `r now()`.
+Page last revised: `r now()`

@@ -5,6 +5,8 @@ library("jsonlite")
 library("parallel")
 library("runner")
 
+Sys.setlocale(category = "LC_ALL", locale = "en_CA.UTF-8")
+
 links <- list(
     local_sit_defunct = "https://cisss-outaouais.gouv.qc.ca/language/en/18907-2/",
     local_sit_en = "https://cisss-outaouais.gouv.qc.ca/language/en/covid19-en/",
@@ -17,7 +19,6 @@ links <- list(
     can_visual = "https://health-infobase.canada.ca/covid-19/",
     can_data = "https://www.canada.ca/en/public-health/services/diseases/coronavirus-disease-covid-19/epidemiological-economic-research-data.html"
 )
-
 ParseHTMLtables <- function(path) {
     ids <- files <- dir(path)
     ids <- str_replace(ids, ".snapshot", "")
@@ -25,13 +26,14 @@ ParseHTMLtables <- function(path) {
     files <- paste(path, files, sep = "")
     names(files) <- ids
     tables <- mclapply(files, function(page) {
-        webpage <- read_html(page)
+        webpage <- read_html(page, encoding = "UTF-8")
         tab <- tryCatch(webpage %>% html_nodes(css = "table") %>% html_table(fill = TRUE), error = function(x) return(NULL) )
         return(tab)
     })
     return(tables)
 }
 tables <- ParseHTMLtables(path = "websites/local_sit_en/")
+
 sort(unique(unlist(lapply(tables, length))))
 # unique(lapply(tables[unlist(lapply(tables, length)) == 2], function(set) names(set[[1]])))
 # lapply(tables[unlist(lapply(tables, length)) == 2], function(set) set[[1]])
