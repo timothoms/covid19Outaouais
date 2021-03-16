@@ -85,12 +85,12 @@ Users of these data need to be aware of the following caveats:
     this dataset must be aware that counts of 5 do not precisely reflect
     the actual situation at those levels, but refer to 1-5 cases.
 
-Last download: 2021-03-15 11:00:03
+Last download: 2021-03-15 20:44:57
 
-Last data revision: 2021-03-15 12:15:56
+Last data revision: 2021-03-15 20:45:40
 
 # Glossary
 
 **TBA**
 
-Page last revised: 2021-03-15 12:35:10.
+Page last revised: 2021-03-15 20:46:27
