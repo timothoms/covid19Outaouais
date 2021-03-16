@@ -2,11 +2,9 @@
 .Rhistory
 .RData
 .Ruserdata
-gitpush.sh
 covid_auto.sh
 ignore/
 pop/
-website/
 local_sit_fr/
 qc_sit_en/
 qc_sit_fr/
