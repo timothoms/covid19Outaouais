@@ -25,9 +25,18 @@ It is difficult to find covid19 trend data over time at the local level for the 
 <!-- ## Cumulative cases & deaths  -->
 <!-- ## Testing -->
 
-```{r cases, echo = FALSE, results = 'hide', dpi = 225, fig.width = 7.5, fig.height = 5, out.width = "100%", out.height = "100%"}
+```{r cases, echo = FALSE, results = 'hide', warning = FALSE, dpi = 225, fig.width = 7.5, fig.height = 5, out.width = "100%", out.height = "100%"}
+ggplot(data = daily[daily$key %in% c("Cumulative cases", "Total cases") & daily$table == "cases", ]) + 
+    geom_line(mapping = aes(x = date, y = daily_change_avg, group = key, color = key)) + 
+    labs(x = "", y = "") + 
+    scale_x_date(date_breaks="2 months", date_minor_breaks = "1 week", date_labels = "%b %Y") +
+    theme_classic() + 
+    theme(legend.position = "bottom", 
+          legend.title = element_blank(),
+          panel.grid.major.x = element_line(colour="lightgray", size = 0.33)) +
+    ggtitle("Average daily increase (over 7 days)")
 keys <- list(
-    list(c("Active cases", "Daily increase", "New cases (opencovid.ca)", "Average screening tests per day"), title = "New & Active cases & Testing"),
+    list(c("Active cases", "Daily increase", "New cases (opencovid.ca)", "Average screening tests per day"), title = "New & active cases & testing"),
     list(c("Cumulative cases (opencovid.ca)", "Cumulative cases", "Healed/resolved cases", "Total cases"), title = "Cumulative cases"),
     list(c("Deaths"), title = "Cumulative deaths")
 )
@@ -49,7 +58,7 @@ lapply(keys, function(selection) {
 
 # Réseaux locaux de services (RLS)
 
-## New cases: average daily increase over 7 days
+## Average daily increase
 
 ```{r rls_new, echo = FALSE, results = 'hide', warning = FALSE, dpi = 225, fig.width = 7.5, fig.height = 5, out.width = "100%", out.height = "100%"}
 keys <- list(
@@ -58,15 +67,15 @@ keys <- list(
 )
 lapply(keys, function(selection) {
     ggplot(data = daily[daily$key %in% selection[[1]] & daily$table == "rls", ]) + 
-    geom_line(mapping = aes(x = date, y = daily_change_avg, group = key, color = key)) + 
-    labs(x = "", y = "") + 
-    scale_x_date(date_breaks="2 months", date_minor_breaks = "1 week", date_labels = "%b %Y") +
-    scale_colour_discrete(breaks = selection[[1]]) +
-    theme_classic() + 
-    theme(legend.position = "bottom", 
-          legend.title = element_blank(),
-          panel.grid.major.x = element_line(colour="lightgray", size = 0.33)) +
-    ggtitle(selection$title)
+        geom_line(mapping = aes(x = date, y = daily_change_avg, group = key, color = key)) + 
+        labs(x = "", y = "") + 
+        scale_x_date(date_breaks="2 months", date_minor_breaks = "1 week", date_labels = "%b %Y") +
+        scale_colour_discrete(breaks = selection[[1]]) +
+        theme_classic() + 
+        theme(legend.position = "bottom", 
+              legend.title = element_blank(),
+              panel.grid.major.x = element_line(colour="lightgray", size = 0.33)) +
+        ggtitle(selection$title)
 })
 ```
 
