@@ -4,10 +4,10 @@ Oskar Timo Thoms
 
 -   [Outaouais: regional totals](#outaouais-regional-totals)
 -   [RLS](#rls)
-    -   [New (TBA) & active cases](#new-tba--active-cases)
+    -   [New \[TBA\] & active cases](#new-tba--active-cases)
     -   [Cumulative cases](#cumulative-cases)
 -   [Municipalities](#municipalities)
-    -   [New & active cases (TBA)](#new--active-cases-tba)
+    -   [New & active cases \[TBA\]](#new--active-cases-tba)
     -   [Cumulative cases](#cumulative-cases-1)
 -   [Method and caveats](#method-and-caveats)
 -   [Glossary](#glossary)
@@ -41,7 +41,7 @@ page in your web browser.
 
 # RLS
 
-## New (TBA) & active cases
+## New \[TBA\] & active cases
 
 <img src="README_files/figure-gfm/rls_new-1.png" width="100%" height="100%" /><img src="README_files/figure-gfm/rls_new-2.png" width="100%" height="100%" />
 
@@ -51,7 +51,7 @@ page in your web browser.
 
 # Municipalities
 
-## New & active cases (TBA)
+## New & active cases \[TBA\]
 
 ## Cumulative cases
 
@@ -108,7 +108,7 @@ Users of these data need to be aware of the following caveats:
 
 Last HTML source download: 2021-03-16 17:15:04
 
-Last dataset revision: 2021-03-17 08:25:24
+Last dataset revision: 2021-03-17 10:47:41
 
 # Glossary
 
@@ -124,4 +124,4 @@ Last dataset revision: 2021-03-17 08:25:24
 <!-- | Deaths                          | regional, reported                     | -->
 <!-- | Average screening tests per day | region, reported, per 6 or 7 days      | -->
 
-Page last revised: 2021-03-17 09:50:14
+Page last revised: 2021-03-17 10:55:05

@@ -21,18 +21,15 @@ It is difficult to find covid19 trend data over time at the local level for the 
 **Note**: If the figures below do not show the latest data, reload this page in your web browser.
 
 # Outaouais: regional totals
-
 <!-- ## New & active cases -->
-
 <!-- ## Cumulative cases & deaths  -->
-
 <!-- ## Testing -->
 
 ```{r cases, echo = FALSE, results = 'hide', dpi = 225, fig.width = 7.5, fig.height = 5, out.width = "100%", out.height = "100%"}
 keys <- list(
+    list(c("Active cases", "Daily increase", "New cases (opencovid.ca)", "Average screening tests per day"), title = "New & Active cases & Testing"),
     list(c("Cumulative cases (opencovid.ca)", "Cumulative cases", "Healed/resolved cases", "Total cases"), title = "Cumulative cases"),
-    list(c("Active cases", "Daily increase", "Deaths", "Average screening tests per day"), title = "Other key regional indicators"),
-    list(c("Daily increase", "New cases (opencovid.ca)"), title = "Comparing CISSS and opencovid.ca")
+    list(c("Deaths"), title = "Cumulative deaths")
 )
 lapply(keys, function(selection) {
     ggplot() +
@@ -52,7 +49,7 @@ lapply(keys, function(selection) {
 
 # RLS
 
-## New (TBA) & active cases
+## New [TBA] & active cases
 
 ```{r rls_new, echo = FALSE, results = 'hide', dpi = 225, fig.width = 7.5, fig.height = 5, out.width = "100%", out.height = "100%"}
 keys <- list(
@@ -64,7 +61,7 @@ lapply(keys, function(selection) {
     geom_line(mapping = aes(x = time, y = value, group = key, color = key)) + 
     labs(x = "", y = "") + 
     scale_x_datetime(date_breaks="1 month", date_minor_breaks = "1 week", date_labels = "%b %Y") +
-    scale_colour_discrete(breaks = paste(selection[[1]], "(active)"), labels = selection[[1]]) + 
+    scale_colour_discrete(breaks = paste(selection[[1]], "(active)"), labels = selection[[1]]) +
     theme_classic() + 
     theme(legend.position = "bottom", 
           legend.title = element_blank(),
@@ -92,7 +89,7 @@ lapply(keys, function(selection) {
 
 # Municipalities
 
-## New & active cases (TBA)
+## New & active cases [TBA]
 
 ## Cumulative cases
 
