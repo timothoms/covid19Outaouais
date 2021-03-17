@@ -7,7 +7,7 @@ Oskar Timo Thoms
     -   [New \[TBA\] & active cases](#new-tba--active-cases)
     -   [Cumulative cases](#cumulative-cases)
 -   [Municipalities](#municipalities)
-    -   [New & active cases \[TBA\]](#new--active-cases-tba)
+    -   [New cases \[TBA\]](#new-cases-tba)
     -   [Cumulative cases](#cumulative-cases-1)
 -   [Method and caveats](#method-and-caveats)
 -   [Glossary](#glossary)
@@ -51,7 +51,7 @@ page in your web browser.
 
 # Municipalities
 
-## New & active cases \[TBA\]
+## New cases \[TBA\]
 
 ## Cumulative cases
 
@@ -106,9 +106,9 @@ Users of these data need to be aware of the following caveats:
     this dataset must be aware that counts of 5 do not precisely reflect
     the actual situation at those levels, but refer to 1-5 cases.
 
-Last HTML source download: 2021-03-16 17:15:04
+Last HTML source download: 2021-03-17 11:00:03
 
-Last dataset revision: 2021-03-17 10:47:41
+Last dataset revision: 2021-03-17 11:00:37
 
 # Glossary
 
@@ -124,4 +124,4 @@ Last dataset revision: 2021-03-17 10:47:41
 <!-- | Deaths                          | regional, reported                     | -->
 <!-- | Average screening tests per day | region, reported, per 6 or 7 days      | -->
 
-Page last revised: 2021-03-17 10:55:05
+Page last revised: 2021-03-17 11:01:16
