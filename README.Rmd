@@ -53,8 +53,8 @@ lapply(keys, function(selection) {
 
 ```{r rls_new, echo = FALSE, results = 'hide', warning = FALSE, dpi = 225, fig.width = 7.5, fig.height = 5, out.width = "100%", out.height = "100%"}
 keys <- list(
-    list(c("Total", "RLS de Gatineau"), title = "Regional total & Gatineau"),
-    list(c("RLS des Collines-de-l'Outaouais", "RLS de la Vallée-de-la-Gatineau", "RLS de Papineau", "RLS du Pontiac"), title = "")
+    list(c("Total", "Total cases", "Total cases (RLS)", "RLS de Gatineau"), title = "Regional total & Gatineau"),
+    list(c("RLS des Collines-de-l'Outaouais", "RLS de la Vallée-de-la-Gatineau", "RLS de Papineau", "RLS du Pontiac"), title = "Other RLS")
 )
 lapply(keys, function(selection) {
     ggplot(data = daily[daily$key %in% selection[[1]] & daily$table == "rls", ]) + 

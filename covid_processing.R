@@ -94,6 +94,8 @@ covid <- lapply(covid_tables, function(table_name) {
     return(df)
 })
 
+lapply(covid, function(set) unique(set$key))
+
 # lapply(covid, function(set) set[str_detect(set$key, "534"), ])
 ### consistent labels
 covid <- lapply(covid, function(df) {
@@ -104,7 +106,9 @@ covid <- lapply(covid, function(df) {
     df$key[df$key %in% c("Healed cases", "Total number of healed cases in Outaouais", "Resolved cases")] <- "Healed/resolved cases"
     df$key[df$key %in% c("Active cases", "Total of active cases in Outaouais")] <- "Active cases"
     # df$key[df$key %in% c("Cumulative cases", "Total number of cases in Outaouais", "Total") & df$table == "cases"] <- "Cumulative cases"
-    df$key[df$key %in% c("Total number of cases in Outaouais")] <- "Total cases" # "Total"
+    df$key[df$key %in% c("Total number of cases in Outaouais", "Total") & df$table != "rls"] <- "Total cases"
+    df$key[df$key %in% c("Total number of cases in Outaouais") & df$table == "rls"] <- "Total cases"
+    df$key[df$key %in% c("Total") & df$table == "rls"] <- "Total cases (RLS)"
     df$key[df$key %in% c("Collines-de-l'Outaouais", "RLS des Collines-de-l'Outaouais") & df$table == "rls"] <- "RLS des Collines-de-l'Outaouais"
     df$key[df$key %in% c("Papineau", "RLS de Papineau") & df$table == "rls"] <- "RLS de Papineau"
     df$key[df$key %in% c("Pontiac", "RLS du Pontiac") & df$table == "rls"] <- "RLS du Pontiac"
@@ -118,7 +122,6 @@ covid <- lapply(covid, function(df) {
     df$key[df$key %in% c("Pontiac", "MRC du Pontiac") & df$table == "areas"] <- "MRC du Pontiac"
     df$key[df$key %in% c("Val-des-Bois", "Val-des-bois") & df$table == "areas"] <- "Val-des-Bois"
     df$key[df$key %in% c("L'Isle-aux-Allumettes", "L'Îsles-aux-Allumettes") & df$table == "areas"] <- "L'Isle-aux-Allumettes"
-    # df$key[df$key == "" % df$time <] <- "Thurso"
     df <- df[df$key != df$value, ]
     return(df)
 })
@@ -174,7 +177,7 @@ VisualCheck(keys = tapply(covid$key, covid$table, unique)[["cases"]], tab = "cas
 covid$value[covid$time > "2020-05-23" & covid$time < "2020-05-25" & covid$key == "Total cases" & covid$value == 4729] <- 479
 covid$value[covid$time > "2020-06-24" & covid$time < "2020-06-25" & covid$key == "RLS de Gatineau" & covid$value == 47] <- 497
 covid <- covid[!(covid$time > "2020-12-15" & covid$time < "2020-12-16" & covid$key == "RLS de Gatineau" & covid$value == 32172), ]
-VisualCheck(keys = c("Total cases", "Total", "RLS de Gatineau"), tab = "rls")
+VisualCheck(keys = c("Total cases", "Total cases (RLS)", "Total", "RLS de Gatineau"), tab = "rls")
 VisualCheck(keys = c("Deaths", "To be determined", "To be determined (active)"), tab = "rls")
 VisualCheck(keys = c("Active cases", "Total cases (active)", "Healed/resolved cases"), tab = "rls")
 VisualCheck(keys = c("RLS de Gatineau", "RLS de Gatineau (active)"), tab = "rls")
@@ -184,7 +187,7 @@ VisualCheck(keys = c("RLS du Pontiac", "RLS du Pontiac (active)"), tab = "rls") 
 VisualCheck(keys = c("RLS des Collines-de-l'Outaouais", "RLS des Collines-de-l'Outaouais (active)"), tab = "rls")
 VisualCheck(keys = c("RLS de la Vallée-de-la-Gatineau", "RLS de la Vallée-de-la-Gatineau (active)"), tab = "rls")
 # VisualCheck(keys = tapply(covid$key, covid$table, unique)[["areas"]], tab = "areas")
-covid$value[covid$time > "2020-05-09" & covid$time < "2020-05-11" & covid$key == "Total" & covid$value == 3334] <- 334
+covid$value[covid$time > "2020-05-09" & covid$time < "2020-05-11" & covid$key %in% c("Total", "Total cases") & covid$value == 3334] <- 334
 VisualCheck(keys = c("Total cases", "Total", "Gatineau"), tab = "areas")
 # VisualCheck(keys = tapply(covid$key, covid$table, unique)[["areas"]], tab = "areas", exclude = c("Total cases", "Gatineau", "To be determined"))
 dev.off()
@@ -214,7 +217,8 @@ close(file_connection)
 
 ### de-duplication and calculating change variables
 # sort(unique(covid$key))
-daily <- covid %>% arrange(key, time)
+daily <- covid[!covid$key %in% c("Average screening tests per day", "To be determined", "To be determined (active)", "Daily increase", "New cases (opencovid.ca)"), ]
+daily <- daily %>% arrange(key, time)
 daily$date <- as_date(daily$time)
 daily <- daily %>% group_by(table, key, date) %>% filter(time == max(time))
 # daily[duplicated(daily[, c("table", "key", "date")]), ]
@@ -223,13 +227,13 @@ daily <- daily %>% group_by(table, key, date) %>% filter(time == max(time))
 # daily %>% filter(key == "Deaths") %>% arrange(time) %>% print(n = Inf)
 # daily %>% filter(key == "Healed/resolved cases") %>% arrange(time) %>% print(n = Inf)
 # daily %>% filter(key == "Active cases") %>% arrange(time) %>% print(n = Inf)
-# daily %>% filter(key == "Total cases") %>% arrange(time) %>% print(n = Inf)
+# daily %>% filter(key %in% c("Total cases", "Total cases (RLS)")) %>% arrange(time) %>% print(n = Inf)
 # daily %>% filter(key == "Total") %>% arrange(time) %>% print(n = Inf)
-# daily %>% filter(key %in% c("Total", "Cumulative cases")) %>% arrange(time) %>% print(n = Inf)
+# daily %>% filter(key %in% c("Total", "Total cases", "Cumulative cases")) %>% arrange(time) %>% print(n = Inf)
 ## these are closely related and often the same but different aggregation:
 ## cumulative for entire region, total aggregation across RLS or MRC
-## "Total" sometimes different for RLS and municipalities;
-daily$table[daily$key %in% c("Deaths", "Healed/resolved cases", "Active cases", "Total cases") & daily$table %in% c("rls", "areas")] <- "cases"
+## "Total"/"Total cases (RLS)" sometimes different for RLS and municipalities;
+daily$table[daily$key %in% c("Deaths", "Healed/resolved cases", "Active cases") & daily$table %in% c("rls", "areas")] <- "cases" # , "Total cases"
 daily <- daily[, c("table", "key", "date", "value")]
 # not_to_calc_change <- c("New cases (opencovid.ca)", "Daily increase", "To be determined", "To be determined (active)")
 daily <- daily %>% arrange(table, key, date) %>% group_by(table, key) %>% mutate(previous_date = dplyr::lag(date))

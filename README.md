@@ -108,7 +108,7 @@ Users of these data need to be aware of the following caveats:
 
 Last HTML source download: 2021-03-17 11:00:03
 
-Last dataset revision: 2021-03-17 11:00:37
+Last dataset revision: 2021-03-17 14:55:43
 
 # Glossary
 
@@ -124,4 +124,4 @@ Last dataset revision: 2021-03-17 11:00:37
 <!-- | Deaths                          | regional, reported                     | -->
 <!-- | Average screening tests per day | region, reported, per 6 or 7 days      | -->
 
-Page last revised: 2021-03-17 12:08:23
+Page last revised: 2021-03-17 14:56:36
