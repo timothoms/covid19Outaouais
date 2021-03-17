@@ -3,12 +3,12 @@ Covid19 Situation in Outaouais
 Oskar Timo Thoms
 
 -   [Outaouais: regional totals](#outaouais-regional-totals)
--   [RLS](#rls)
-    -   [New \[TBA\] & active cases](#new-tba--active-cases)
+-   [Réseaux locaux de services (RLS)](#réseaux-locaux-de-services-rls)
+    -   [New cases: average daily increase over 7
+        days](#new-cases-average-daily-increase-over-7-days)
+    -   [Active cases](#active-cases)
     -   [Cumulative cases](#cumulative-cases)
--   [Municipalities](#municipalities)
-    -   [New cases \[TBA\]](#new-cases-tba)
-    -   [Cumulative cases](#cumulative-cases-1)
+-   [Municipalities: cumulative cases](#municipalities-cumulative-cases)
 -   [Method and caveats](#method-and-caveats)
 -   [Glossary](#glossary)
 
@@ -39,21 +39,21 @@ page in your web browser.
 
 <img src="README_files/figure-gfm/cases-1.png" width="100%" height="100%" /><img src="README_files/figure-gfm/cases-2.png" width="100%" height="100%" /><img src="README_files/figure-gfm/cases-3.png" width="100%" height="100%" />
 
-# RLS
+# Réseaux locaux de services (RLS)
 
-## New \[TBA\] & active cases
+## New cases: average daily increase over 7 days
 
 <img src="README_files/figure-gfm/rls_new-1.png" width="100%" height="100%" /><img src="README_files/figure-gfm/rls_new-2.png" width="100%" height="100%" />
+
+## Active cases
+
+<img src="README_files/figure-gfm/rls_active-1.png" width="100%" height="100%" /><img src="README_files/figure-gfm/rls_active-2.png" width="100%" height="100%" />
 
 ## Cumulative cases
 
 <img src="README_files/figure-gfm/rls-1.png" width="100%" height="100%" /><img src="README_files/figure-gfm/rls-2.png" width="100%" height="100%" />
 
-# Municipalities
-
-## New cases \[TBA\]
-
-## Cumulative cases
+# Municipalities: cumulative cases
 
 <img src="README_files/figure-gfm/areas-1.png" width="100%" height="100%" /><img src="README_files/figure-gfm/areas-2.png" width="100%" height="100%" /><img src="README_files/figure-gfm/areas-3.png" width="100%" height="100%" /><img src="README_files/figure-gfm/areas-4.png" width="100%" height="100%" /><img src="README_files/figure-gfm/areas-5.png" width="100%" height="100%" /><img src="README_files/figure-gfm/areas-6.png" width="100%" height="100%" /><img src="README_files/figure-gfm/areas-7.png" width="100%" height="100%" />
 
@@ -120,8 +120,8 @@ Last dataset revision: 2021-03-17 11:00:37
 <!-- | Active cases                    | relative, reported                     | -->
 <!-- | Healed/resolved cases           | regional, reported                     | -->
 <!-- | New cases / Daily increase      | regional/relative, reported/calculated | -->
-<!-- | Average daily change            | relative, calculated                   | -->
+<!-- | average daily increase over 7 days | relative, calculated                   | -->
 <!-- | Deaths                          | regional, reported                     | -->
 <!-- | Average screening tests per day | region, reported, per 6 or 7 days      | -->
 
-Page last revised: 2021-03-17 11:01:16
+Page last revised: 2021-03-17 12:08:23

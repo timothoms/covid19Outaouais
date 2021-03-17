@@ -47,15 +47,32 @@ lapply(keys, function(selection) {
 })
 ```
 
-# RLS
+# Réseaux locaux de services (RLS)
 
-## New [TBA] & active cases
+## New cases: average daily increase over 7 days
 
-```{r rls_new, echo = FALSE, results = 'hide', dpi = 225, fig.width = 7.5, fig.height = 5, out.width = "100%", out.height = "100%"}
+```{r rls_new, echo = FALSE, results = 'hide', warning = FALSE, dpi = 225, fig.width = 7.5, fig.height = 5, out.width = "100%", out.height = "100%"}
 keys <- list(
     list(c("Total", "RLS de Gatineau"), title = "Regional total & Gatineau"),
     list(c("RLS des Collines-de-l'Outaouais", "RLS de la Vallée-de-la-Gatineau", "RLS de Papineau", "RLS du Pontiac"), title = "")
 )
+lapply(keys, function(selection) {
+    ggplot(data = daily[daily$key %in% selection[[1]] & daily$table == "rls", ]) + 
+    geom_line(mapping = aes(x = date, y = daily_change_avg, group = key, color = key)) + 
+    labs(x = "", y = "") + 
+    scale_x_date(date_breaks="2 months", date_minor_breaks = "1 week", date_labels = "%b %Y") +
+    scale_colour_discrete(breaks = selection[[1]]) +
+    theme_classic() + 
+    theme(legend.position = "bottom", 
+          legend.title = element_blank(),
+          panel.grid.major.x = element_line(colour="lightgray", size = 0.33)) +
+    ggtitle(selection$title)
+})
+```
+
+## Active cases
+
+```{r rls_active, echo = FALSE, results = 'hide', dpi = 225, fig.width = 7.5, fig.height = 5, out.width = "100%", out.height = "100%"}
 lapply(keys, function(selection) {
     ggplot(data = covid[covid$key %in% paste(selection[[1]], "(active)") & covid$table == "rls", ]) + 
     geom_line(mapping = aes(x = time, y = value, group = key, color = key)) + 
@@ -87,11 +104,7 @@ lapply(keys, function(selection) {
 })
 ```
 
-# Municipalities
-
-## New & active cases [TBA]
-
-## Cumulative cases
+# Municipalities: cumulative cases
 
 ```{r areas, echo = FALSE, results = 'hide', dpi = 225, fig.width = 7.5, fig.height = 5, out.width = "100%", out.height = "100%"}
 keys <- list(
@@ -148,7 +161,7 @@ Last dataset revision: `r str_replace(read_file("data/data_update_time.txt"), "\
 <!-- | Active cases                    | relative, reported                     | -->
 <!-- | Healed/resolved cases           | regional, reported                     | -->
 <!-- | New cases / Daily increase      | regional/relative, reported/calculated | -->
-<!-- | Average daily change            | relative, calculated                   | -->
+<!-- | average daily increase over 7 days | relative, calculated                   | -->
 <!-- | Deaths                          | regional, reported                     | -->
 <!-- | Average screening tests per day | region, reported, per 6 or 7 days      | -->
 
