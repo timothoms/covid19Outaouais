@@ -4,8 +4,7 @@ Oskar Timo Thoms
 
 -   [Outaouais: regional totals](#outaouais-regional-totals)
 -   [Réseaux locaux de services (RLS)](#réseaux-locaux-de-services-rls)
-    -   [New cases: average daily increase over 7
-        days](#new-cases-average-daily-increase-over-7-days)
+    -   [Average daily increase](#average-daily-increase)
     -   [Active cases](#active-cases)
     -   [Cumulative cases](#cumulative-cases)
 -   [Municipalities: cumulative cases](#municipalities-cumulative-cases)
@@ -37,11 +36,11 @@ page in your web browser.
 <!-- ## Cumulative cases & deaths  -->
 <!-- ## Testing -->
 
-<img src="README_files/figure-gfm/cases-1.png" width="100%" height="100%" /><img src="README_files/figure-gfm/cases-2.png" width="100%" height="100%" /><img src="README_files/figure-gfm/cases-3.png" width="100%" height="100%" />
+<img src="README_files/figure-gfm/cases-1.png" width="100%" height="100%" /><img src="README_files/figure-gfm/cases-2.png" width="100%" height="100%" /><img src="README_files/figure-gfm/cases-3.png" width="100%" height="100%" /><img src="README_files/figure-gfm/cases-4.png" width="100%" height="100%" />
 
 # Réseaux locaux de services (RLS)
 
-## New cases: average daily increase over 7 days
+## Average daily increase
 
 <img src="README_files/figure-gfm/rls_new-1.png" width="100%" height="100%" /><img src="README_files/figure-gfm/rls_new-2.png" width="100%" height="100%" />
 
@@ -106,9 +105,9 @@ Users of these data need to be aware of the following caveats:
     this dataset must be aware that counts of 5 do not precisely reflect
     the actual situation at those levels, but refer to 1-5 cases.
 
-Last HTML source download: 2021-03-17 11:00:03
+Last HTML source download: 2021-03-17 17:15:03
 
-Last dataset revision: 2021-03-17 14:55:43
+Last dataset revision: 2021-03-17 17:15:39
 
 # Glossary
 
@@ -124,4 +123,4 @@ Last dataset revision: 2021-03-17 14:55:43
 <!-- | Deaths                          | regional, reported                     | -->
 <!-- | Average screening tests per day | region, reported, per 6 or 7 days      | -->
 
-Page last revised: 2021-03-17 14:56:36
+Page last revised: 2021-03-17 17:16:18
