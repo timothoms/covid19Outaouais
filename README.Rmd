@@ -11,76 +11,30 @@ library(tidyverse)
 library(lubridate)
 knitr::opts_chunk$set(echo = TRUE)
 Sys.setlocale(category = "LC_ALL", locale = "en_CA.UTF-8")
-```
-```{r data, include=FALSE}
 load("data/covid_local.RData")
+load("data/covid_local_daily.RData")
 load("data/municipalities.RData")
-keys <- list(
-    cases = list(
-        list(c("Cumulative cases (opencovid.ca)", "Cumulative cases", "Healed/resolved cases", "Total cases"), 
-             title = "Cumulative cases"),
-        list(c("Active cases", "Daily increase", "Deaths", "Average screening test per day"), 
-             title = "Other key regional indicators"),
-        list(c("Daily increase", "New cases (opencovid.ca)"), 
-             title = "Comparing CISSS and opencovid.ca")
-    ),
-    rls = list(
-        list(c("Total", "Total (active)", "RLS de Gatineau", "RLS de Gatineau (active)"), 
-             title = "Regional total & Gatineau"),
-        list(c("RLS des Collines-de-l'Outaouais", "RLS des Collines-de-l'Outaouais (active)"), 
-             title = "Collines"),
-        list(c("RLS de Papineau", "RLS de Papineau (active)"), 
-             title = "Papineau"),
-        list(c("RLS de la Vallée-de-la-Gatineau", "RLS de la Vallée-de-la-Gatineau (active)"), 
-             title = "Vallée-de-la-Gatineau"),
-        list(c("RLS du Pontiac", "RLS du Pontiac (active)"), 
-             title = "Pontiac")
-    ), 
-    areas = list(
-        list(c("Total cases", "Total", "Gatineau"), 
-             title = "Total & Gatineau"),
-        list(municipalities$municipality[municipalities$mrc == "Les Collines-de-l'Outaouais"], 
-             title = "MRC des Collines-de-l'Outaouais"),
-        list(c("Thurso", "Papineauville", "Saint-André-Avellin", "Chénéville","Ripon", "Montebello"), 
-             title = "MRC de Papineau"),
-        list(municipalities$municipality[municipalities$mrc == "Papineau" & !municipalities$municipality %in% c("Thurso", "Papineauville", "Saint-André-Avellin", "Chénéville","Ripon", "Montebello")], 
-             title = "MRC de Papineau (other)"),
-        list(c(municipalities$municipality[municipalities$mrc == "La Vallée-de-la-Gatineau" & municipalities$designation == "Ville"], "Messines", "Déléage"), 
-             title = "MRC de la Vallée-de-la-Gatineau (Villes & Messines & Déléage)"),
-        list(municipalities$municipality[municipalities$mrc == "La Vallée-de-la-Gatineau" & municipalities$designation != "Ville" & !municipalities$municipality %in% c("Messines", "Déléage")], 
-             title = "MRC de La Vallée-de-la-Gatineau (other)"),
-        list(municipalities$municipality[municipalities$mrc == "Pontiac"], 
-             title = "MRC de Pontiac")
-    )
-)
 ```
 
 It is difficult to find covid19 trend data over time at the local level for the Outaouais region. The [Quebec government](https://www.quebec.ca/en/health/health-issues/a-z/2019-coronavirus/situation-coronavirus-in-quebec/) shows summaries but only the last few days of trends for regions. [Quebec Public Health](https://www.inspq.qc.ca/covid-19/donnees) shows longer time series but only cumulative snapshots by region. The [COVID-19 Canada Open Data Working Group (opencovid.ca)](https://opencovid.ca/) collects official time series data at the individual, provincial and health region levels. None of these sources provide trend data below the regional level. [CISSS Outaouais](https://cisss-outaouais.gouv.qc.ca/language/en/covid19-en/) provides frequent (sometimes daily) snapshots by Réseaux locaux de services (RLS) and by municipality, but no trends. The present project provides local trend data based on these snapshots. Please note important caveats and data limitations at the bottom of this page.
  
-Note: If the figures below do not show the latest data, reload this page in your web browser.
+**Note**: If the figures below do not show the latest data, reload this page in your web browser.
 
 # Outaouais: regional totals
 
-## past 6 weeks
-```{r cases, echo = FALSE, results = 'hide', dpi = 225, fig.width = 7.5, fig.height = 5, out.width = "100%", out.height = "100%"}
-lapply(keys$cases, function(selection) {
-    ggplot() +
-        geom_line(data = covid[covid$key %in% selection[[1]] & covid$time > now() - days(42) & covid$table == "cases", ], mapping = aes(x = time, y = value, group = key, color = key)) + 
-        geom_line(data = covid[covid$key %in% selection[[1]] & covid$time > now() - days(42) & covid$table == "areas", ], mapping = aes(x = time, y = value, group = key, color = key)) + 
-        geom_line(data = covid[covid$key %in% selection[[1]] & covid$time > now() - days(42) & covid$table == "rls", ], mapping = aes(x = time, y = value, group = key, color = key)) + 
-        labs(x = "", y = "") + 
-        theme_classic() + 
-        scale_x_datetime(date_breaks = "1 week", date_labels = "%Y-%m-%d") +
-        theme(legend.position = "bottom", 
-              legend.title = element_blank(), 
-              panel.grid.major.x = element_line(colour="lightgray", size = 0.33)) + 
-        ggtitle(selection$title)
-})
-```
+<!-- ## New & active cases -->
 
-## past year
-```{r cases_year, echo = FALSE, results = 'hide', dpi = 225, fig.width = 7.5, fig.height = 5, out.width = "100%", out.height = "100%"}
-lapply(keys$cases, function(selection) {
+<!-- ## Cumulative cases & deaths  -->
+
+<!-- ## Testing -->
+
+```{r cases, echo = FALSE, results = 'hide', dpi = 225, fig.width = 7.5, fig.height = 5, out.width = "100%", out.height = "100%"}
+keys <- list(
+    list(c("Cumulative cases (opencovid.ca)", "Cumulative cases", "Healed/resolved cases", "Total cases"), title = "Cumulative cases"),
+    list(c("Active cases", "Daily increase", "Deaths", "Average screening tests per day"), title = "Other key regional indicators"),
+    list(c("Daily increase", "New cases (opencovid.ca)"), title = "Comparing CISSS and opencovid.ca")
+)
+lapply(keys, function(selection) {
     ggplot() +
         geom_line(data = covid[covid$key %in% selection[[1]] & covid$time > now() - days(365) & covid$table == "cases", ], mapping = aes(x = time, y = value, group = key, color = key)) + 
         geom_line(data = covid[covid$key %in% selection[[1]] & covid$time > now() - days(365) & covid$table == "areas", ], mapping = aes(x = time, y = value, group = key, color = key)) + 
@@ -88,6 +42,7 @@ lapply(keys$cases, function(selection) {
         labs(x = "", y = "") + 
         theme_classic() + 
         scale_x_datetime(date_breaks="2 months", date_minor_breaks = "1 week", date_labels = "%b %Y") +
+        # scale_x_datetime(date_breaks = "1 week", date_labels = "%Y-%m-%d") +
         theme(legend.position = "bottom", 
               legend.title = element_blank(), 
               panel.grid.major.x = element_line(colour="lightgray", size = 0.33)) + 
@@ -97,14 +52,36 @@ lapply(keys$cases, function(selection) {
 
 # RLS
 
-## Cumulative and active cases
+## New (TBA) & active cases
+
+```{r rls_new, echo = FALSE, results = 'hide', dpi = 225, fig.width = 7.5, fig.height = 5, out.width = "100%", out.height = "100%"}
+keys <- list(
+    list(c("Total", "RLS de Gatineau"), title = "Regional total & Gatineau"),
+    list(c("RLS des Collines-de-l'Outaouais", "RLS de la Vallée-de-la-Gatineau", "RLS de Papineau", "RLS du Pontiac"), title = "")
+)
+lapply(keys, function(selection) {
+    ggplot(data = covid[covid$key %in% paste(selection[[1]], "(active)") & covid$table == "rls", ]) + 
+    geom_line(mapping = aes(x = time, y = value, group = key, color = key)) + 
+    labs(x = "", y = "") + 
+    scale_x_datetime(date_breaks="1 month", date_minor_breaks = "1 week", date_labels = "%b %Y") +
+    scale_colour_discrete(breaks = paste(selection[[1]], "(active)"), labels = selection[[1]]) + 
+    theme_classic() + 
+    theme(legend.position = "bottom", 
+          legend.title = element_blank(),
+          panel.grid.major.x = element_line(colour="lightgray", size = 0.33)) +
+    ggtitle(selection$title)
+})
+```
+
+## Cumulative cases
 
 ```{r rls, echo = FALSE, results = 'hide', dpi = 225, fig.width = 7.5, fig.height = 5, out.width = "100%", out.height = "100%"}
-lapply(keys$rls, function(selection) {
+lapply(keys, function(selection) {
     ggplot(data = covid[covid$key %in% selection[[1]] & covid$table == "rls", ]) + 
     geom_line(mapping = aes(x = time, y = value, group = key, color = key)) + 
     labs(x = "", y = "") + 
     scale_x_datetime(date_breaks="2 months", date_minor_breaks = "1 week", date_labels = "%b %Y") +
+    scale_colour_discrete(breaks = selection[[1]]) + 
     theme_classic() + 
     theme(legend.position = "bottom", 
           legend.title = element_blank(),
@@ -115,10 +92,21 @@ lapply(keys$rls, function(selection) {
 
 # Municipalities
 
+## New & active cases (TBA)
+
 ## Cumulative cases
 
 ```{r areas, echo = FALSE, results = 'hide', dpi = 225, fig.width = 7.5, fig.height = 5, out.width = "100%", out.height = "100%"}
-lapply(keys$areas, function(selection) {
+keys <- list(
+    list(c("Total cases", "Total", "Gatineau"), title = "Total & Gatineau"),
+    list(municipalities$municipality[municipalities$mrc == "Les Collines-de-l'Outaouais"], title = "MRC des Collines-de-l'Outaouais"),
+    list(c("Thurso", "Papineauville", "Saint-André-Avellin", "Chénéville","Ripon", "Montebello"), title = "MRC de Papineau"),
+    list(municipalities$municipality[municipalities$mrc == "Papineau" & !municipalities$municipality %in% c("Thurso", "Papineauville", "Saint-André-Avellin", "Chénéville","Ripon", "Montebello")], title = "MRC de Papineau (other)"),
+    list(c(municipalities$municipality[municipalities$mrc == "La Vallée-de-la-Gatineau" & municipalities$designation == "Ville"], "Messines", "Déléage"), title = "MRC de la Vallée-de-la-Gatineau"),
+    list(municipalities$municipality[municipalities$mrc == "La Vallée-de-la-Gatineau" & municipalities$designation != "Ville" & !municipalities$municipality %in% c("Messines", "Déléage")], title = "MRC de La Vallée-de-la-Gatineau (other)"),
+    list(municipalities$municipality[municipalities$mrc == "Pontiac"], title = "MRC de Pontiac")
+)
+lapply(keys, function(selection) {
     ggplot(data = covid[covid$key %in% selection[[1]] & covid$table == "areas", ]) + 
         geom_line(mapping = aes(x = time, y = value, group = key, color = key)) + 
         labs(x = "", y = "") + 
@@ -141,7 +129,7 @@ Users of these data need to be aware of the following caveats:
 
 2. The date and time in the dataset refer to when the CISSS Outaouais website was accessed, not when cases occurred. 
 
-3. The trend data are not complete (i.e daily) for several reasons. First, I started regularly downloading the CISSS Outaouais source in fall 2020, and used the [Wayback Machine](https://archive.org/web/) to get earlier snapshots. Unfortunately, due to a nasty syncing glitch, I lost many of the earlier HTML files. (RStudio projects and Dropbox do not play well together; I learnt this the hard way, twice.) Second, the CISSS Outaouais site is not updated every day. Third, running the code from my personal computer means that the automatic download does not happen every day, either because the computer is turned off, or because my software for scheduling scripts has failed a few times. Since the snapshots include cumulative counts, this is not necessarily a problem, but it means that changes in case counts cannot always be precisely dated. 
+3. The trend data are not complete (i.e daily) for several reasons. First, I started regularly downloading the CISSS Outaouais source in fall 2020, and used the [Wayback Machine](https://archive.org/web/) to get earlier snapshots. Unfortunately, due to a nasty syncing glitch, I lost some HTML source files. (RStudio projects and Dropbox do not play well together; I learnt this the hard way, twice.) Second, the CISSS Outaouais site is not updated every day. Third, running the code from my personal computer means that the automatic download does not happen every day, either because the computer is turned off, or because my software for scheduling scripts has failed a few times. Since the snapshots include cumulative counts, this is not necessarily a problem, but it means that changes in case counts cannot always be precisely dated. 
 
 4. Not all the data available on the CISSS Outaouais site are currently included in the dataset.
 
@@ -156,5 +144,15 @@ Last dataset revision: `r str_replace(read_file("data/data_update_time.txt"), "\
 # Glossary
 
 **TBA**
+
+<!-- | Indicator(s)                    | Description                            | -->
+<!-- |---------------------------------|----------------------------------------| -->
+<!-- | Cumulative/Total cases          | relative, reported                     | -->
+<!-- | Active cases                    | relative, reported                     | -->
+<!-- | Healed/resolved cases           | regional, reported                     | -->
+<!-- | New cases / Daily increase      | regional/relative, reported/calculated | -->
+<!-- | Average daily change            | relative, calculated                   | -->
+<!-- | Deaths                          | regional, reported                     | -->
+<!-- | Average screening tests per day | region, reported, per 6 or 7 days      | -->
 
 Page last revised: `r now()`

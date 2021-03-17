@@ -3,12 +3,12 @@ Covid19 Situation in Outaouais
 Oskar Timo Thoms
 
 -   [Outaouais: regional totals](#outaouais-regional-totals)
-    -   [past 6 weeks](#past-6-weeks)
-    -   [past year](#past-year)
 -   [RLS](#rls)
-    -   [Cumulative and active cases](#cumulative-and-active-cases)
--   [Municipalities](#municipalities)
+    -   [New (TBA) & active cases](#new-tba--active-cases)
     -   [Cumulative cases](#cumulative-cases)
+-   [Municipalities](#municipalities)
+    -   [New & active cases (TBA)](#new--active-cases-tba)
+    -   [Cumulative cases](#cumulative-cases-1)
 -   [Method and caveats](#method-and-caveats)
 -   [Glossary](#glossary)
 
@@ -28,26 +28,30 @@ services (RLS) and by municipality, but no trends. The present project
 provides local trend data based on these snapshots. Please note
 important caveats and data limitations at the bottom of this page.
 
-Note: If the figures below do not show the latest data, reload this page
-in your web browser.
+**Note**: If the figures below do not show the latest data, reload this
+page in your web browser.
 
 # Outaouais: regional totals
 
-## past 6 weeks
+<!-- ## New & active cases -->
+<!-- ## Cumulative cases & deaths  -->
+<!-- ## Testing -->
 
 <img src="README_files/figure-gfm/cases-1.png" width="100%" height="100%" /><img src="README_files/figure-gfm/cases-2.png" width="100%" height="100%" /><img src="README_files/figure-gfm/cases-3.png" width="100%" height="100%" />
 
-## past year
-
-<img src="README_files/figure-gfm/cases_year-1.png" width="100%" height="100%" /><img src="README_files/figure-gfm/cases_year-2.png" width="100%" height="100%" /><img src="README_files/figure-gfm/cases_year-3.png" width="100%" height="100%" />
-
 # RLS
 
-## Cumulative and active cases
+## New (TBA) & active cases
 
-<img src="README_files/figure-gfm/rls-1.png" width="100%" height="100%" /><img src="README_files/figure-gfm/rls-2.png" width="100%" height="100%" /><img src="README_files/figure-gfm/rls-3.png" width="100%" height="100%" /><img src="README_files/figure-gfm/rls-4.png" width="100%" height="100%" /><img src="README_files/figure-gfm/rls-5.png" width="100%" height="100%" />
+<img src="README_files/figure-gfm/rls_new-1.png" width="100%" height="100%" /><img src="README_files/figure-gfm/rls_new-2.png" width="100%" height="100%" />
+
+## Cumulative cases
+
+<img src="README_files/figure-gfm/rls-1.png" width="100%" height="100%" /><img src="README_files/figure-gfm/rls-2.png" width="100%" height="100%" />
 
 # Municipalities
+
+## New & active cases (TBA)
 
 ## Cumulative cases
 
@@ -78,15 +82,15 @@ Users of these data need to be aware of the following caveats:
     First, I started regularly downloading the CISSS Outaouais source in
     fall 2020, and used the [Wayback Machine](https://archive.org/web/)
     to get earlier snapshots. Unfortunately, due to a nasty syncing
-    glitch, I lost many of the earlier HTML files. (RStudio projects and
-    Dropbox do not play well together; I learnt this the hard way,
-    twice.) Second, the CISSS Outaouais site is not updated every day.
-    Third, running the code from my personal computer means that the
-    automatic download does not happen every day, either because the
-    computer is turned off, or because my software for scheduling
-    scripts has failed a few times. Since the snapshots include
-    cumulative counts, this is not necessarily a problem, but it means
-    that changes in case counts cannot always be precisely dated.
+    glitch, I lost some HTML source files. (RStudio projects and Dropbox
+    do not play well together; I learnt this the hard way, twice.)
+    Second, the CISSS Outaouais site is not updated every day. Third,
+    running the code from my personal computer means that the automatic
+    download does not happen every day, either because the computer is
+    turned off, or because my software for scheduling scripts has failed
+    a few times. Since the snapshots include cumulative counts, this is
+    not necessarily a problem, but it means that changes in case counts
+    cannot always be precisely dated.
 
 4.  Not all the data available on the CISSS Outaouais site are currently
     included in the dataset.
@@ -104,10 +108,20 @@ Users of these data need to be aware of the following caveats:
 
 Last HTML source download: 2021-03-16 17:15:04
 
-Last dataset revision: 2021-03-16 17:15:38
+Last dataset revision: 2021-03-17 08:25:24
 
 # Glossary
 
 **TBA**
 
-Page last revised: 2021-03-16 17:16:22
+<!-- | Indicator(s)                    | Description                            | -->
+<!-- |---------------------------------|----------------------------------------| -->
+<!-- | Cumulative/Total cases          | relative, reported                     | -->
+<!-- | Active cases                    | relative, reported                     | -->
+<!-- | Healed/resolved cases           | regional, reported                     | -->
+<!-- | New cases / Daily increase      | regional/relative, reported/calculated | -->
+<!-- | Average daily change            | relative, calculated                   | -->
+<!-- | Deaths                          | regional, reported                     | -->
+<!-- | Average screening tests per day | region, reported, per 6 or 7 days      | -->
+
+Page last revised: 2021-03-17 09:50:14
