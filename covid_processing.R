@@ -99,7 +99,7 @@ covid <- lapply(covid_tables, function(table_name) {
 covid <- lapply(covid, function(df) {
     df$key <- str_replace(df$key, fixed("**"), "")
     df$key <- str_replace(df$key, fixed("*"), "")
-    df$key[df$key %in% c("Average screening test per day (last 6 days)", "Average screening test per day (last 7 days)", "Average screening test per day534", "Average screening test per day")] <- "Average screening test per day"
+    df$key[df$key %in% c("Average screening test per day (last 6 days)", "Average screening test per day (last 7 days)", "Average screening test per day534", "Average screening test per day")] <- "Average screening tests per day"
     df$key[df$key %in% c("Deaths", "Number of deaths")] <- "Deaths"
     df$key[df$key %in% c("Healed cases", "Total number of healed cases in Outaouais", "Resolved cases")] <- "Healed/resolved cases"
     df$key[df$key %in% c("Active cases", "Total of active cases in Outaouais")] <- "Active cases"
@@ -212,7 +212,7 @@ file_connection <-file("data/data_update_time.txt")
 writeLines(as.character(now()), file_connection)
 close(file_connection)
 
-### de-duplication for calculating change variables
+### de-duplication and calculating change variables
 # sort(unique(covid$key))
 daily <- covid %>% arrange(key, time)
 daily$date <- as_date(daily$time)
@@ -231,11 +231,12 @@ daily <- daily %>% group_by(table, key, date) %>% filter(time == max(time))
 ## "Total" sometimes different for RLS and municipalities;
 daily$table[daily$key %in% c("Deaths", "Healed/resolved cases", "Active cases", "Total cases") & daily$table %in% c("rls", "areas")] <- "cases"
 daily <- daily[, c("table", "key", "date", "value")]
-# unique(daily$key)
-not_to_calc_change <- c("New cases (opencovid.ca)", "Daily increase", "To be determined", "To be determined (active)")
-
-### ways to calculate rolling averages
-# data %>% dplyr::arrange(key, date) %>% dplyr::group_by(key) %>% dplyr::mutate(moving3 = zoo::rollmean(value, k = 3, fill = NA, align = "right"), moving7 = zoo::rollmean(value, k = 7, fill = NA, align = "right")) %>% dplyr::ungroup()
-# mean_run(x = data$value, k = 7, lag = 0, idx = as_date(data$date))
-
+# not_to_calc_change <- c("New cases (opencovid.ca)", "Daily increase", "To be determined", "To be determined (active)")
+daily <- daily %>% arrange(table, key, date) %>% group_by(table, key) %>% mutate(previous_date = dplyr::lag(date))
+daily <- daily %>% mutate(days_from_prev = as.integer(date - previous_date))
+daily <- daily %>% arrange(table, key, date) %>% group_by(table, key) %>% mutate(previous_value = dplyr::lag(value))
+daily <- daily %>% mutate(change_from_prev = value - previous_value)
+daily$previous_date <- daily$previous_value <- NULL
+daily <- daily %>% mutate(daily_change = round(change_from_prev / days_from_prev, 3))
+daily <- daily %>% arrange(table, key, date) %>% group_by(table, key) %>% mutate(daily_change_avg = runner::mean_run(x = daily_change, k = 7, lag = 0, idx = date)) %>% ungroup()
 save(daily, file = "data/covid_local_daily.RData")
