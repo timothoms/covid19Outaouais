@@ -183,7 +183,7 @@ VisualCheck(keys = c("Active cases", "Total cases (active)", "Healed/resolved ca
 VisualCheck(keys = c("RLS de Gatineau", "RLS de Gatineau (active)"), tab = "rls")
 VisualCheck(keys = c("RLS de Papineau", "RLS de Papineau (active)"), tab = "rls")
 covid <- covid[!(covid$time > "2021-01-06" & covid$time < "2021-01-07" & covid$key == "RLS du Pontiac" & covid$value == 0), ]
-VisualCheck(keys = c("RLS du Pontiac", "RLS du Pontiac (active)"), tab = "rls") ### FIX 1!
+VisualCheck(keys = c("RLS du Pontiac", "RLS du Pontiac (active)"), tab = "rls")
 VisualCheck(keys = c("RLS des Collines-de-l'Outaouais", "RLS des Collines-de-l'Outaouais (active)"), tab = "rls")
 VisualCheck(keys = c("RLS de la Vallée-de-la-Gatineau", "RLS de la Vallée-de-la-Gatineau (active)"), tab = "rls")
 # VisualCheck(keys = tapply(covid$key, covid$table, unique)[["areas"]], tab = "areas")
