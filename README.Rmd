@@ -137,6 +137,18 @@ lapply(keys, function(selection) {
 })
 ```
 
+# Glossary (TBA)
+
+<!-- | Indicator(s)                    | Description                            | -->
+<!-- |---------------------------------|----------------------------------------| -->
+<!-- | Cumulative / total cases        | relative, reported                     | -->
+<!-- | Active cases                    | relative, reported                     | -->
+<!-- | Healed / resolved cases         | regional, reported                     | -->
+<!-- | New cases / daily increase      | regional/relative, reported/calculated | -->
+<!-- | Average increase per day        | relative, calculated over 7 days       | -->
+<!-- | Deaths                          | regional, reported                     | -->
+<!-- | Average screening tests per day | regional, reported, per 6 or 7 days    | -->
+
 # Method and caveats
 
 The HTML source for the [CISSS Outaouais site](https://cisss-outaouais.gouv.qc.ca/language/en/covid19-en/) is downloaded daily, the tables are scraped and processed into a tidy dataset, to produce the figures on this site. The [opencovid.ca](https://opencovid.ca/) health region data are included for comparison. The R code for downloading and processing the data is available in this repository. (Daily automation is currently done with MacScheduler.)
@@ -155,20 +167,10 @@ Users of these data need to be aware of the following caveats:
 
 6. At the municipal and RLS levels, CISSS Outaouais does not report numbers of less than 6 precisely, likely for good privacy reasons. When "5 or less" are reported, I record this as 5 cases. Users of this dataset must be aware that counts of 5 do not precisely reflect the actual situation at those levels, but refer to 1-5 cases.
 
+Questions, concerns, and suggestions can be raised through GitHub Discussions.
+
 Last HTML source download: `r str_replace(read_file("websites/last_download_time.txt"), "\n", "")`
 
 Last dataset revision: `r str_replace(read_file("data/data_update_time.txt"), "\n", "")`
 
-# Glossary (TBA)
-
-<!-- | Indicator(s)                    | Description                            | -->
-<!-- |---------------------------------|----------------------------------------| -->
-<!-- | Cumulative / total cases        | relative, reported                     | -->
-<!-- | Active cases                    | relative, reported                     | -->
-<!-- | Healed / resolved cases         | regional, reported                     | -->
-<!-- | New cases / daily increase      | regional/relative, reported/calculated | -->
-<!-- | Average increase per day        | relative, calculated over 7 days       | -->
-<!-- | Deaths                          | regional, reported                     | -->
-<!-- | Average screening tests per day | regional, reported, per 6 or 7 days    | -->
-
-Page last revised: `r now()`
+Page revised: `r now()`
