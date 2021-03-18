@@ -1,6 +1,5 @@
 ---
 title: "Covid19 Situation in Outaouais"
-author: "Oskar Timo Thoms"
 output: 
   github_document: 
     toc: true
@@ -34,7 +33,7 @@ ggplot(data = daily[daily$key %in% c("Cumulative cases", "Total cases") & daily$
     theme(legend.position = "bottom", 
           legend.title = element_blank(),
           panel.grid.major.x = element_line(colour="lightgray", size = 0.33)) +
-    ggtitle("Average daily increase (over 7 days)")
+    ggtitle("Average increase per day (over 7 days)")
 keys <- list(
     list(c("Active cases", "Daily increase", "New cases (opencovid.ca)", "Average screening tests per day"), title = "New & active cases & testing"),
     list(c("Cumulative cases (opencovid.ca)", "Cumulative cases", "Healed/resolved cases", "Total cases"), title = "Cumulative cases"),
@@ -58,7 +57,7 @@ lapply(keys, function(selection) {
 
 # Réseaux locaux de services (RLS)
 
-## Average daily increase
+## Average increase per day
 
 ```{r rls_new, echo = FALSE, results = 'hide', warning = FALSE, dpi = 225, fig.width = 7.5, fig.height = 5, out.width = "100%", out.height = "100%"}
 keys <- list(
@@ -160,18 +159,16 @@ Last HTML source download: `r str_replace(read_file("websites/last_download_time
 
 Last dataset revision: `r str_replace(read_file("data/data_update_time.txt"), "\n", "")`
 
-# Glossary
-
-**TBA**
+# Glossary (TBA)
 
 <!-- | Indicator(s)                    | Description                            | -->
 <!-- |---------------------------------|----------------------------------------| -->
-<!-- | Cumulative/Total cases          | relative, reported                     | -->
+<!-- | Cumulative / total cases        | relative, reported                     | -->
 <!-- | Active cases                    | relative, reported                     | -->
-<!-- | Healed/resolved cases           | regional, reported                     | -->
-<!-- | New cases / Daily increase      | regional/relative, reported/calculated | -->
-<!-- | average daily increase over 7 days | relative, calculated                   | -->
+<!-- | Healed / resolved cases         | regional, reported                     | -->
+<!-- | New cases / daily increase      | regional/relative, reported/calculated | -->
+<!-- | Average increase per day        | relative, calculated over 7 days       | -->
 <!-- | Deaths                          | regional, reported                     | -->
-<!-- | Average screening tests per day | region, reported, per 6 or 7 days      | -->
+<!-- | Average screening tests per day | regional, reported, per 6 or 7 days    | -->
 
 Page last revised: `r now()`
