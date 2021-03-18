@@ -11,7 +11,7 @@ links <- list(
 )
 path <- "~/Documents/GitHub/covid19Outaouais/websites/"
 lapply(names(links), function(x) {
-    rvest::download_html(links[[x]], file = paste(path, x, "/", format(lubridate::now(), "%Y%m%d%H%M%S"), ".html", sep = ""))
+    download_html(links[[x]], file = paste(path, x, "/", format(lubridate::now(), "%Y%m%d%H%M%S"), ".html", sep = ""))
 })
 file_connection <-file(paste(path, "last_download_time.txt", sep = ""))
 writeLines(as.character(now()), file_connection)

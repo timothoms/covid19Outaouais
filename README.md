@@ -7,8 +7,8 @@ Covid19 Situation in Outaouais
     -   [Active cases](#active-cases)
     -   [Cumulative cases](#cumulative-cases)
 -   [Municipalities: cumulative cases](#municipalities-cumulative-cases)
--   [Glossary (TBA)](#glossary-tba)
 -   [Method and caveats](#method-and-caveats)
+-   [Glossary (TBA)](#glossary-tba)
 
 It is difficult to find covid19 trend data over time at the local level
 for the Outaouais region. The [Quebec
@@ -54,18 +54,6 @@ page in your web browser.
 # Municipalities: cumulative cases
 
 <img src="README_files/figure-gfm/areas-1.png" width="100%" height="100%" /><img src="README_files/figure-gfm/areas-2.png" width="100%" height="100%" /><img src="README_files/figure-gfm/areas-3.png" width="100%" height="100%" /><img src="README_files/figure-gfm/areas-4.png" width="100%" height="100%" /><img src="README_files/figure-gfm/areas-5.png" width="100%" height="100%" /><img src="README_files/figure-gfm/areas-6.png" width="100%" height="100%" /><img src="README_files/figure-gfm/areas-7.png" width="100%" height="100%" />
-
-# Glossary (TBA)
-
-<!-- | Indicator(s)                    | Description                            | -->
-<!-- |---------------------------------|----------------------------------------| -->
-<!-- | Cumulative / total cases        | relative, reported                     | -->
-<!-- | Active cases                    | relative, reported                     | -->
-<!-- | Healed / resolved cases         | regional, reported                     | -->
-<!-- | New cases / daily increase      | regional/relative, reported/calculated | -->
-<!-- | Average increase per day        | relative, calculated over 7 days       | -->
-<!-- | Deaths                          | regional, reported                     | -->
-<!-- | Average screening tests per day | regional, reported, per 6 or 7 days    | -->
 
 # Method and caveats
 
@@ -116,11 +104,20 @@ Users of these data need to be aware of the following caveats:
     this dataset must be aware that counts of 5 do not precisely reflect
     the actual situation at those levels, but refer to 1-5 cases.
 
-Questions, concerns, and suggestions can be raised through GitHub
-Discussions.
+Last HTML source download: 2021-03-18 11:14:47
 
-Last HTML source download: 2021-03-17 17:15:03
+Last dataset revision: 2021-03-18 11:17:45
 
-Last dataset revision: 2021-03-18 11:00:38
+# Glossary (TBA)
 
-Page revised: 2021-03-18 11:01:20
+<!-- | Indicator(s)                    | Description                            | -->
+<!-- |---------------------------------|----------------------------------------| -->
+<!-- | Cumulative / total cases        | relative, reported                     | -->
+<!-- | Active cases                    | relative, reported                     | -->
+<!-- | Healed / resolved cases         | regional, reported                     | -->
+<!-- | New cases / daily increase      | regional/relative, reported/calculated | -->
+<!-- | Average increase per day        | relative, calculated over 7 days       | -->
+<!-- | Deaths                          | regional, reported                     | -->
+<!-- | Average screening tests per day | regional, reported, per 6 or 7 days    | -->
+
+Page last revised: 2021-03-18 11:18:21
