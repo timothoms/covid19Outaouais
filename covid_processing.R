@@ -1,10 +1,4 @@
 library("tidyverse")
-library("lubridate")
-library("rvest")
-library("jsonlite")
-library("parallel")
-library("runner")
-
 Sys.setlocale(category = "LC_ALL", locale = "en_CA.UTF-8")
 
 links <- list(
@@ -25,9 +19,11 @@ ParseHTMLtables <- function(path) {
     ids <- str_replace(ids, ".html", "")
     files <- paste(path, files, sep = "")
     names(files) <- ids
-    tables <- mclapply(files, function(page) {
-        webpage <- read_html(page, encoding = "UTF-8")
-        tab <- tryCatch(webpage %>% html_nodes(css = "table") %>% html_table(fill = TRUE), error = function(x) return(NULL) )
+    tables <- parallel::mclapply(files, function(page) {
+        webpage <- rvest::read_html(page, encoding = "UTF-8")
+        tab <- tryCatch(webpage %>%
+            rvest::html_nodes(css = "table") %>%
+            rvest::html_table(fill = TRUE), error = function(x) return(NULL) )
         return(tab)
     })
     return(tables)
@@ -149,7 +145,7 @@ unique(municipalities$mrc)[!unique(municipalities$mrc) %in% unique(covid$key)]
 # covid[covid$key == "" & covid$time > "2020-09-28" & covid$time < "2020-10-02", ]
 # covid[covid$key == "" & covid$time > "2021-03-11" & covid$time < "2021-10-13", ]
 covid <- covid[covid$key != "", ] ## losing a few observations here because not labeled
-covid$time <- as_datetime(covid$time, tz = "America/Montreal")
+covid$time <- lubridate::as_datetime(covid$time, tz = "America/Montreal")
 covid$value <- str_replace(covid$value, fixed("**"), "")
 covid$value <- str_replace(covid$value, fixed("*"), "")
 covid <- covid[covid$value != "", ]
@@ -194,10 +190,10 @@ dev.off()
 
 # fromJSON("https://api.opencovid.ca/version")
 api_link <- "https://api.opencovid.ca/timeseries?stat=cases&loc=2407"
-opencovid <- fromJSON(api_link)
+opencovid <- jsonlite::fromJSON(api_link)
 opencovid <- opencovid$cases[, c("date_report", "health_region", "cases", "cumulative_cases")]
 names(opencovid) <- c("time", "key", "cases", "cumulative_cases")
-opencovid$time <- as_datetime(opencovid$time, tz = "America/Montreal", format = "%d-%m-%Y")
+opencovid$time <- lubridate::as_datetime(opencovid$time, tz = "America/Montreal", format = "%d-%m-%Y")
 opencovid <- opencovid[opencovid$time > "2020-03-14", ]
 new <- opencovid[, c("time", "key", "cases")]
 new$key <- "New cases (opencovid.ca)"
@@ -212,14 +208,14 @@ covid <- rbind(covid, opencovid)
 ### saving data
 save(covid, file = "data/covid_local.RData")
 file_connection <-file("data/data_update_time.txt")
-writeLines(as.character(now()), file_connection)
+writeLines(as.character(lubridate::now()), file_connection)
 close(file_connection)
 
 ### de-duplication and calculating change variables
 # sort(unique(covid$key))
 daily <- covid[!covid$key %in% c("Average screening tests per day", "To be determined", "To be determined (active)", "Daily increase", "New cases (opencovid.ca)"), ]
 daily <- daily %>% arrange(key, time)
-daily$date <- as_date(daily$time)
+daily$date <- lubridate::as_date(daily$time)
 daily <- daily %>% group_by(table, key, date) %>% filter(time == max(time))
 # daily[duplicated(daily[, c("table", "key", "date")]), ]
 # daily %>% filter(key == "To be determined") %>% arrange(time) %>% print(n = Inf)
