@@ -1,14 +1,14 @@
 ---
 title: "Covid19 Situation in Outaouais"
-output: 
-  github_document: 
+output:
+  github_document:
     toc: true
 ---
 
 ```{r setup, include=FALSE}
 library(tidyverse)
 library(lubridate)
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE, results = 'hide', warning = FALSE, fig.width = 7.5, fig.height = 5, out.width = "100%", out.height = "100%")
 Sys.setlocale(category = "LC_ALL", locale = "en_CA.UTF-8")
 load("data/covid_local.RData")
 load("data/covid_local_daily.RData")
@@ -16,7 +16,7 @@ load("data/municipalities.RData")
 ```
 
 It is difficult to find covid19 trend data over time at the local level for the Outaouais region. The [Quebec government](https://www.quebec.ca/en/health/health-issues/a-z/2019-coronavirus/situation-coronavirus-in-quebec/) shows summaries but only the last few days of trends for regions. [Quebec Public Health](https://www.inspq.qc.ca/covid-19/donnees) shows longer time series but only cumulative snapshots by region. The [COVID-19 Canada Open Data Working Group (opencovid.ca)](https://opencovid.ca/) collects official time series data at the individual, provincial and health region levels. None of these sources provide trend data below the regional level. [CISSS Outaouais](https://cisss-outaouais.gouv.qc.ca/language/en/covid19-en/) provides frequent (sometimes daily) snapshots by Réseaux locaux de services (RLS) and by municipality, but no trends. The present project provides local trend data based on these snapshots. Please note important caveats and data limitations at the bottom of this page.
- 
+
 **Note**: If the figures below do not show the latest data, reload this page in your web browser.
 
 # Outaouais: regional totals
@@ -24,13 +24,13 @@ It is difficult to find covid19 trend data over time at the local level for the 
 <!-- ## Cumulative cases & deaths  -->
 <!-- ## Testing -->
 
-```{r cases, echo = FALSE, results = 'hide', warning = FALSE, dpi = 225, fig.width = 7.5, fig.height = 5, out.width = "100%", out.height = "100%"}
-ggplot(data = daily[daily$key %in% c("Cumulative cases", "Total cases") & daily$table == "cases", ]) + 
-    geom_line(mapping = aes(x = date, y = daily_change_avg, group = key, color = key)) + 
-    labs(x = "", y = "") + 
+```{r cases}
+ggplot(data = daily[daily$key %in% c("Cumulative cases", "Total cases") & daily$table == "cases", ]) +
+    geom_line(mapping = aes(x = date, y = daily_change_avg, group = key, color = key)) +
+    labs(x = "", y = "") +
     scale_x_date(date_breaks="2 months", date_minor_breaks = "1 week", date_labels = "%b %Y") +
-    theme_classic() + 
-    theme(legend.position = "bottom", 
+    theme_classic() +
+    theme(legend.position = "bottom",
           legend.title = element_blank(),
           panel.grid.major.x = element_line(colour="lightgray", size = 0.33)) +
     ggtitle("Average increase per day (over 7 days)")
@@ -41,16 +41,16 @@ keys <- list(
 )
 lapply(keys, function(selection) {
     ggplot() +
-        geom_line(data = covid[covid$key %in% selection[[1]] & covid$time > now() - days(365) & covid$table == "cases", ], mapping = aes(x = time, y = value, group = key, color = key)) + 
-        geom_line(data = covid[covid$key %in% selection[[1]] & covid$time > now() - days(365) & covid$table == "areas", ], mapping = aes(x = time, y = value, group = key, color = key)) + 
-        geom_line(data = covid[covid$key %in% selection[[1]] & covid$time > now() - days(365) & covid$table == "rls", ], mapping = aes(x = time, y = value, group = key, color = key)) + 
-        labs(x = "", y = "") + 
-        theme_classic() + 
+        geom_line(data = covid[covid$key %in% selection[[1]] & covid$time > now() - days(365) & covid$table == "cases", ], mapping = aes(x = time, y = value, group = key, color = key)) +
+        geom_line(data = covid[covid$key %in% selection[[1]] & covid$time > now() - days(365) & covid$table == "areas", ], mapping = aes(x = time, y = value, group = key, color = key)) +
+        geom_line(data = covid[covid$key %in% selection[[1]] & covid$time > now() - days(365) & covid$table == "rls", ], mapping = aes(x = time, y = value, group = key, color = key)) +
+        labs(x = "", y = "") +
+        theme_classic() +
         scale_x_datetime(date_breaks="2 months", date_minor_breaks = "1 week", date_labels = "%b %Y") +
         # scale_x_datetime(date_breaks = "1 week", date_labels = "%Y-%m-%d") +
-        theme(legend.position = "bottom", 
-              legend.title = element_blank(), 
-              panel.grid.major.x = element_line(colour="lightgray", size = 0.33)) + 
+        theme(legend.position = "bottom",
+              legend.title = element_blank(),
+              panel.grid.major.x = element_line(colour="lightgray", size = 0.33)) +
         ggtitle(selection$title)
 })
 ```
@@ -59,19 +59,19 @@ lapply(keys, function(selection) {
 
 ## Average increase per day
 
-```{r rls_new, echo = FALSE, results = 'hide', warning = FALSE, dpi = 225, fig.width = 7.5, fig.height = 5, out.width = "100%", out.height = "100%"}
+```{r rls_new}
 keys <- list(
     list(c("Total", "Total cases", "Total cases (RLS)", "RLS de Gatineau"), title = "Regional total & Gatineau"),
     list(c("RLS des Collines-de-l'Outaouais", "RLS de la Vallée-de-la-Gatineau", "RLS de Papineau", "RLS du Pontiac"), title = "Other RLS")
 )
 lapply(keys, function(selection) {
-    ggplot(data = daily[daily$key %in% selection[[1]] & daily$table == "rls", ]) + 
-        geom_line(mapping = aes(x = date, y = daily_change_avg, group = key, color = key)) + 
-        labs(x = "", y = "") + 
+    ggplot(data = daily[daily$key %in% selection[[1]] & daily$table == "rls", ]) +
+        geom_line(mapping = aes(x = date, y = daily_change_avg, group = key, color = key)) +
+        labs(x = "", y = "") +
         scale_x_date(date_breaks="2 months", date_minor_breaks = "1 week", date_labels = "%b %Y") +
         scale_colour_discrete(breaks = selection[[1]]) +
-        theme_classic() + 
-        theme(legend.position = "bottom", 
+        theme_classic() +
+        theme(legend.position = "bottom",
               legend.title = element_blank(),
               panel.grid.major.x = element_line(colour="lightgray", size = 0.33)) +
         ggtitle(selection$title)
@@ -80,15 +80,15 @@ lapply(keys, function(selection) {
 
 ## Active cases
 
-```{r rls_active, echo = FALSE, results = 'hide', dpi = 225, fig.width = 7.5, fig.height = 5, out.width = "100%", out.height = "100%"}
+```{r rls_active}
 lapply(keys, function(selection) {
-    ggplot(data = covid[covid$key %in% paste(selection[[1]], "(active)") & covid$table == "rls", ]) + 
-    geom_line(mapping = aes(x = time, y = value, group = key, color = key)) + 
-    labs(x = "", y = "") + 
+    ggplot(data = covid[covid$key %in% paste(selection[[1]], "(active)") & covid$table == "rls", ]) +
+    geom_line(mapping = aes(x = time, y = value, group = key, color = key)) +
+    labs(x = "", y = "") +
     scale_x_datetime(date_breaks="1 month", date_minor_breaks = "1 week", date_labels = "%b %Y") +
     scale_colour_discrete(breaks = paste(selection[[1]], "(active)"), labels = selection[[1]]) +
-    theme_classic() + 
-    theme(legend.position = "bottom", 
+    theme_classic() +
+    theme(legend.position = "bottom",
           legend.title = element_blank(),
           panel.grid.major.x = element_line(colour="lightgray", size = 0.33)) +
     ggtitle(selection$title)
@@ -97,15 +97,15 @@ lapply(keys, function(selection) {
 
 ## Cumulative cases
 
-```{r rls, echo = FALSE, results = 'hide', dpi = 225, fig.width = 7.5, fig.height = 5, out.width = "100%", out.height = "100%"}
+```{r rls}
 lapply(keys, function(selection) {
-    ggplot(data = covid[covid$key %in% selection[[1]] & covid$table == "rls", ]) + 
-    geom_line(mapping = aes(x = time, y = value, group = key, color = key)) + 
-    labs(x = "", y = "") + 
+    ggplot(data = covid[covid$key %in% selection[[1]] & covid$table == "rls", ]) +
+    geom_line(mapping = aes(x = time, y = value, group = key, color = key)) +
+    labs(x = "", y = "") +
     scale_x_datetime(date_breaks="2 months", date_minor_breaks = "1 week", date_labels = "%b %Y") +
-    scale_colour_discrete(breaks = selection[[1]]) + 
-    theme_classic() + 
-    theme(legend.position = "bottom", 
+    scale_colour_discrete(breaks = selection[[1]]) +
+    theme_classic() +
+    theme(legend.position = "bottom",
           legend.title = element_blank(),
           panel.grid.major.x = element_line(colour="lightgray", size = 0.33)) +
     ggtitle(selection$title)
@@ -114,7 +114,7 @@ lapply(keys, function(selection) {
 
 # Municipalities: cumulative cases
 
-```{r areas, echo = FALSE, results = 'hide', dpi = 225, fig.width = 7.5, fig.height = 5, out.width = "100%", out.height = "100%"}
+```{r areas}
 keys <- list(
     list(c("Total cases", "Total", "Gatineau"), title = "Total & Gatineau"),
     list(municipalities$municipality[municipalities$mrc == "Les Collines-de-l'Outaouais"], title = "MRC des Collines-de-l'Outaouais"),
@@ -125,14 +125,14 @@ keys <- list(
     list(municipalities$municipality[municipalities$mrc == "Pontiac"], title = "MRC de Pontiac")
 )
 lapply(keys, function(selection) {
-    ggplot(data = covid[covid$key %in% selection[[1]] & covid$table == "areas", ]) + 
-        geom_line(mapping = aes(x = time, y = value, group = key, color = key)) + 
-        labs(x = "", y = "") + 
-        lims(y = c(0, NA)) + 
+    ggplot(data = covid[covid$key %in% selection[[1]] & covid$table == "areas", ]) +
+        geom_line(mapping = aes(x = time, y = value, group = key, color = key)) +
+        labs(x = "", y = "") +
+        lims(y = c(0, NA)) +
         scale_x_datetime(date_breaks="2 months", date_minor_breaks = "1 week", date_labels = "%b %Y") +
-        theme_classic() + 
-        theme(legend.title = element_blank(), 
-              panel.grid.major.x = element_line(colour="lightgray", size = 0.33)) + 
+        theme_classic() +
+        theme(legend.title = element_blank(),
+              panel.grid.major.x = element_line(colour="lightgray", size = 0.33)) +
         ggtitle(selection$title)
 })
 ```
@@ -157,9 +157,9 @@ Users of these data need to be aware of the following caveats:
 
 1. There is no guarantee of data accuracy. I am aggregating what CISSS Outaouais has been reporting over time. While I do try to correct obvious data input error, I have (so far) not implemented an automatic error detection process.
 
-2. The date and time in the dataset refer to when the CISSS Outaouais website was accessed, not when cases occurred. 
+2. The date and time in the dataset refer to when the CISSS Outaouais website was accessed, not when cases occurred.
 
-3. The trend data are not complete (i.e daily) for several reasons. First, I started regularly downloading the CISSS Outaouais source in fall 2020, and used the [Wayback Machine](https://archive.org/web/) to get earlier snapshots. Unfortunately, due to a nasty syncing glitch, I lost some HTML source files. (RStudio projects and Dropbox do not play well together; I learnt this the hard way, twice.) Second, the CISSS Outaouais site is not updated every day. Third, running the code from my personal computer means that the automatic download does not happen every day, either because the computer is turned off, or because my software for scheduling scripts has failed a few times. Since the snapshots include cumulative counts, this is not necessarily a problem, but it means that changes in case counts cannot always be precisely dated. 
+3. The trend data are not complete (i.e daily) for several reasons. First, I started regularly downloading the CISSS Outaouais source in fall 2020, and used the [Wayback Machine](https://archive.org/web/) to get earlier snapshots. Unfortunately, due to a nasty syncing glitch, I lost some HTML source files. (RStudio projects and Dropbox do not play well together; I learnt this the hard way, twice.) Second, the CISSS Outaouais site is not updated every day. Third, running the code from my personal computer means that the automatic download does not happen every day, either because the computer is turned off, or because my software for scheduling scripts has failed a few times. Since the snapshots include cumulative counts, this is not necessarily a problem, but it means that changes in case counts cannot always be precisely dated.
 
 4. Not all the data available on the CISSS Outaouais site are currently included in the dataset.
 
