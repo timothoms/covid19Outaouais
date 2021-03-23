@@ -2,12 +2,12 @@ Covid19 Situation in Outaouais
 ================
 
 -   [Outaouais: regional totals](#outaouais-regional-totals)
--   [Réseaux locaux de services (RLS)](#réseaux-locaux-de-services-rls)
+-   [Réseaux locaux de services](#réseaux-locaux-de-services)
     -   [Average increase per day](#average-increase-per-day)
     -   [Active cases](#active-cases)
     -   [Cumulative cases](#cumulative-cases)
 -   [Municipalities: cumulative cases](#municipalities-cumulative-cases)
--   [Glossary (TBA)](#glossary-tba)
+-   [Glossary](#glossary)
 -   [Method and caveats](#method-and-caveats)
 
 It is difficult to find covid19 trend data over time at the local level
@@ -37,7 +37,7 @@ page in your web browser.
 
 <img src="README_files/figure-gfm/cases-1.png" width="100%" height="100%" /><img src="README_files/figure-gfm/cases-2.png" width="100%" height="100%" /><img src="README_files/figure-gfm/cases-3.png" width="100%" height="100%" /><img src="README_files/figure-gfm/cases-4.png" width="100%" height="100%" />
 
-# Réseaux locaux de services (RLS)
+# Réseaux locaux de services
 
 ## Average increase per day
 
@@ -55,17 +55,17 @@ page in your web browser.
 
 <img src="README_files/figure-gfm/areas-1.png" width="100%" height="100%" /><img src="README_files/figure-gfm/areas-2.png" width="100%" height="100%" /><img src="README_files/figure-gfm/areas-3.png" width="100%" height="100%" /><img src="README_files/figure-gfm/areas-4.png" width="100%" height="100%" /><img src="README_files/figure-gfm/areas-5.png" width="100%" height="100%" /><img src="README_files/figure-gfm/areas-6.png" width="100%" height="100%" /><img src="README_files/figure-gfm/areas-7.png" width="100%" height="100%" />
 
-# Glossary (TBA)
+# Glossary
 
-<!-- | Indicator(s)                    | Description                            | -->
-<!-- |---------------------------------|----------------------------------------| -->
-<!-- | Cumulative / total cases        | relative, reported                     | -->
-<!-- | Active cases                    | relative, reported                     | -->
-<!-- | Healed / resolved cases         | regional, reported                     | -->
-<!-- | New cases / daily increase      | regional/relative, reported/calculated | -->
-<!-- | Average increase per day        | relative, calculated over 7 days       | -->
-<!-- | Deaths                          | regional, reported                     | -->
-<!-- | Average screening tests per day | regional, reported, per 6 or 7 days    | -->
+| Indicators                      | Description                                                                                            |
+|---------------------------------|--------------------------------------------------------------------------------------------------------|
+| Cumulative / total cases        | reported total number of cases of infections to date, aggregated at regional, RLS or municipal level   |
+| Active cases                    | total number minus numbers of deaths and healed or resolved cases, aggregated at regional or RLS level |
+| Healed / resolved cases         | reported number of resolved cases at regional level                                                    |
+| New cases / daily increase      | newly reported cases at the regional level                                                             |
+| Average increase per day        | average daily increase over last 7 days, calculated from available data                                |
+| Deaths                          | reported total number of deaths at the regional level                                                  |
+| Average screening tests per day | reported average daily number of covid19 tests performed over last 6-7 days                            |
 
 # Method and caveats
 
@@ -119,8 +119,8 @@ Users of these data need to be aware of the following caveats:
 Questions, concerns, and suggestions can be raised through GitHub
 Discussions.
 
-Last HTML source download: 2021-03-22 17:15:02
+Last HTML source download: 2021-03-23 11:00:07
 
-Last dataset revision: 2021-03-22 17:15:40
+Last dataset revision: 2021-03-23 11:00:39
 
-Page revised: 2021-03-22 17:16:22
+Page revised: 2021-03-23 11:01:16
