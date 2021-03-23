@@ -8,7 +8,9 @@ output:
 ```{r setup, include=FALSE}
 library(tidyverse)
 library(lubridate)
-knitr::opts_chunk$set(echo = FALSE, results = 'hide', warning = FALSE, fig.width = 7.5, fig.height = 5, out.width = "100%", out.height = "100%")
+knitr::knit_hooks$set(optipng = knitr::hook_optipng)
+knitr::knit_hooks$set(pngquant = knitr::hook_pngquant)
+knitr::opts_chunk$set(echo = FALSE, cache = FALSE, results = 'hide', warning = FALSE, dpi = 150, fig.width = 7, fig.height = 5, out.width = "100%", out.height = "100%", optipng = '-o7')
 Sys.setlocale(category = "LC_ALL", locale = "en_CA.UTF-8")
 load("data/covid_local.RData")
 load("data/covid_local_daily.RData")
@@ -55,7 +57,7 @@ lapply(keys, function(selection) {
 })
 ```
 
-# Réseaux locaux de services (RLS)
+# Réseaux locaux de services
 
 ## Average increase per day
 
@@ -137,17 +139,17 @@ lapply(keys, function(selection) {
 })
 ```
 
-# Glossary (TBA)
+# Glossary
 
-<!-- | Indicator(s)                    | Description                            | -->
-<!-- |---------------------------------|----------------------------------------| -->
-<!-- | Cumulative / total cases        | relative, reported                     | -->
-<!-- | Active cases                    | relative, reported                     | -->
-<!-- | Healed / resolved cases         | regional, reported                     | -->
-<!-- | New cases / daily increase      | regional/relative, reported/calculated | -->
-<!-- | Average increase per day        | relative, calculated over 7 days       | -->
-<!-- | Deaths                          | regional, reported                     | -->
-<!-- | Average screening tests per day | regional, reported, per 6 or 7 days    | -->
+| Indicators                      | Description                                                                                            |
+|---------------------------------|--------------------------------------------------------------------------------------------------------|
+| Cumulative / total cases        | reported total number of cases of infections to date, aggregated at regional, RLS or municipal level   |
+| Active cases                    | total number minus numbers of deaths and healed or resolved cases, aggregated at regional or RLS level |
+| Healed / resolved cases         | reported number of resolved cases at regional level                                                    |
+| New cases / daily increase      | newly reported cases at the regional level                                                             |
+| Average increase per day        | average daily increase over last 7 days, calculated from available data                                |
+| Deaths                          | reported total number of deaths at the regional level                                                  |
+| Average screening tests per day | reported average daily number of covid19 tests performed over last 6-7 days                            |
 
 # Method and caveats
 
