@@ -35,7 +35,7 @@ page in your web browser.
 <!-- ## Cumulative cases & deaths  -->
 <!-- ## Testing -->
 
-<img src="README_files/figure-gfm/cases-1.png" width="100%" height="100%" /><img src="README_files/figure-gfm/cases-2.png" width="100%" height="100%" /><img src="README_files/figure-gfm/cases-3.png" width="100%" height="100%" /><img src="README_files/figure-gfm/cases-4.png" width="100%" height="100%" />
+<img src="README_files/figure-gfm/cases-1.png" width="100%" height="100%" /><img src="README_files/figure-gfm/cases-2.png" width="100%" height="100%" /><img src="README_files/figure-gfm/cases-3.png" width="100%" height="100%" /><img src="README_files/figure-gfm/cases-4.png" width="100%" height="100%" /><img src="README_files/figure-gfm/cases-5.png" width="100%" height="100%" />
 
 # Réseaux locaux de services
 
@@ -119,8 +119,8 @@ Users of these data need to be aware of the following caveats:
 Questions, concerns, and suggestions can be raised through GitHub
 Discussions.
 
-Last HTML source download: 2021-03-23 11:00:07
+Last HTML source download: 2021-03-23 17:15:03
 
-Last dataset revision: 2021-03-23 11:00:39
+Last dataset revision: 2021-03-23 17:15:34
 
-Page revised: 2021-03-23 11:01:16
+Page revised: 2021-03-23 17:16:17
