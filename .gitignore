@@ -6,10 +6,4 @@
 **.snapshot
 ignore/
 data/pop/
-websites/local_sit_en/
-websites/local_sit_fr/
-websites/qc_sit_en/
-websites/qc_sit_fr/
-websites/qc_variants_fr/
-websites/schools_sit_en/
-websites/schools_sit_fr/
+**.RData
