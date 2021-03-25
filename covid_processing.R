@@ -1,6 +1,5 @@
 library("tidyverse")
 Sys.setlocale(category = "LC_ALL", locale = "en_CA.UTF-8")
-
 ParseHTMLtables <- function(path) {
     ids <- files <- dir(path)
     ids <- str_replace(ids, ".snapshot", "")
@@ -20,40 +19,36 @@ tables <- ParseHTMLtables(path = "websites/local_sit_en/")
 
 sort(unique(unlist(lapply(tables, length))))
 # unique(lapply(tables[unlist(lapply(tables, length)) == 2], function(set) names(set[[1]])))
-# lapply(tables[unlist(lapply(tables, length)) == 2], function(set) set[[1]])
-cases <- c(
-    lapply(tables[unlist(lapply(tables, length)) == 5], function(set) set[[1]]),
-    lapply(tables[unlist(lapply(tables, length)) == 6], function(set) set[[1]]),
-    lapply(tables[unlist(lapply(tables, length)) == 7], function(set) set[[1]]),
-    lapply(tables[unlist(lapply(tables, length)) == 8], function(set) set[[2]])
+covid <- list(
+    cases = c(
+        lapply(tables[unlist(lapply(tables, length)) == 5], function(set) set[[1]]),
+        lapply(tables[unlist(lapply(tables, length)) == 6], function(set) set[[1]]),
+        lapply(tables[unlist(lapply(tables, length)) == 7], function(set) set[[1]]),
+        lapply(tables[unlist(lapply(tables, length)) == 8], function(set) set[[2]])
+    ),
+    rls = c(
+        lapply(tables[unlist(lapply(tables, length)) == 3], function(set) set[[1]]),
+        lapply(tables[unlist(lapply(tables, length)) == 4], function(set) set[[1]]),
+        lapply(tables[unlist(lapply(tables, length)) == 5], function(set) set[[2]]),
+        lapply(tables[unlist(lapply(tables, length)) == 6], function(set) set[[2]]),
+        lapply(tables[unlist(lapply(tables, length)) == 7], function(set) set[[2]]),
+        lapply(tables[unlist(lapply(tables, length)) == 8], function(set) set[[3]])
+    ),
+    areas = c(
+        lapply(tables[unlist(lapply(tables, length)) == 2], function(set) set[[1]]),
+        lapply(tables[unlist(lapply(tables, length)) == 3], function(set) set[[2]]),
+        lapply(tables[unlist(lapply(tables, length)) == 4], function(set) set[[2]]),
+        lapply(tables[unlist(lapply(tables, length)) == 5], function(set) set[[3]]),
+        lapply(tables[unlist(lapply(tables, length)) == 6], function(set) set[[3]]),
+        lapply(tables[unlist(lapply(tables, length)) == 7], function(set) set[[3]]),
+        lapply(tables[unlist(lapply(tables, length)) == 8], function(set) set[[4]])
+    )
 )
-rls <- c(
-    lapply(tables[unlist(lapply(tables, length)) == 3], function(set) set[[1]]),
-    lapply(tables[unlist(lapply(tables, length)) == 4], function(set) set[[1]]),
-    lapply(tables[unlist(lapply(tables, length)) == 5], function(set) set[[2]]),
-    lapply(tables[unlist(lapply(tables, length)) == 6], function(set) set[[2]]),
-    lapply(tables[unlist(lapply(tables, length)) == 7], function(set) set[[2]]),
-    lapply(tables[unlist(lapply(tables, length)) == 8], function(set) set[[3]])
-)
-### territories, City or Municipality
-areas <- c(
-    lapply(tables[unlist(lapply(tables, length)) == 2], function(set) set[[1]]),
-    lapply(tables[unlist(lapply(tables, length)) == 3], function(set) set[[2]]),
-    lapply(tables[unlist(lapply(tables, length)) == 4], function(set) set[[2]]),
-    lapply(tables[unlist(lapply(tables, length)) == 5], function(set) set[[3]]),
-    lapply(tables[unlist(lapply(tables, length)) == 6], function(set) set[[3]]),
-    lapply(tables[unlist(lapply(tables, length)) == 7], function(set) set[[3]]),
-    lapply(tables[unlist(lapply(tables, length)) == 8], function(set) set[[4]])
-)
-unique(lapply(cases, names))
-unique(lapply(areas, names))
-unique(lapply(rls, names))
-covid <- list(cases = cases, rls = rls, areas = areas)
-
+lapply(covid, function(set) unique(lapply(set, names)))
 ### duplicate tables
-# lapply(covid, function(set) {
-#     paste(length(unique(set)), "/", length(set))
-# })
+lapply(covid, function(set) {
+    paste(length(unique(set)), "/", length(set))
+})
 
 FormatTable <- function(table_id, tables) {
     tab <- tables[[table_id]]
@@ -67,7 +62,8 @@ FormatTable <- function(table_id, tables) {
 }
 covid <- lapply(covid, function(set) lapply(names(set), FormatTable, tables = set))
 lapply(covid, function(set) unique(lapply(set, names)))
-length(covid$areas[unlist(lapply(covid$areas, function(df) sum(df$key == "")) > 0)]) ## missing labels, NEED TO FIX THESE
+## missing labels
+# covid$areas[unlist(lapply(covid$areas, function(df) sum(df$key == "")) > 0)]
 
 covid <- lapply(covid, function(set) do.call(rbind, set))
 covid <- lapply(covid, function(df) df[order(df$time), ])
@@ -79,9 +75,6 @@ covid <- lapply(covid_tables, function(table_name) {
 })
 
 lapply(covid, function(set) unique(set$key))
-
-# lapply(covid, function(set) set[str_detect(set$key, "534"), ])
-### consistent labels
 covid <- lapply(covid, function(df) {
     df$key <- str_replace(df$key, fixed("**"), "")
     df$key <- str_replace(df$key, fixed("*"), "")
@@ -89,7 +82,6 @@ covid <- lapply(covid, function(df) {
     df$key[df$key %in% c("Deaths", "Number of deaths")] <- "Deaths"
     df$key[df$key %in% c("Healed cases", "Total number of healed cases in Outaouais", "Resolved cases")] <- "Healed/resolved cases"
     df$key[df$key %in% c("Active cases", "Total of active cases in Outaouais")] <- "Active cases"
-    # df$key[df$key %in% c("Cumulative cases", "Total number of cases in Outaouais", "Total") & df$table == "cases"] <- "Cumulative cases"
     df$key[df$key %in% c("Total number of cases in Outaouais", "Total") & df$table != "rls"] <- "Total cases"
     df$key[df$key %in% c("Total number of cases in Outaouais") & df$table == "rls"] <- "Total cases"
     df$key[df$key %in% c("Total") & df$table == "rls"] <- "Total cases (RLS)"
@@ -111,7 +103,6 @@ covid <- lapply(covid, function(df) {
 })
 lapply(covid, function(set) sort(unique(set$key)))
 covid <- unique(do.call(rbind, covid))
-covid[covid$key == "", ] ## NEED TO FIX THESE
 
 ### active cases column
 table(covid$key[!is.na(covid$active)])
@@ -129,10 +120,7 @@ unique(covid$key)[!unique(covid$key) %in% unique(municipalities$municipality)]
 unique(covid$key)[str_detect(unique(covid$key), "MRC")]
 unique(municipalities$mrc)[!unique(municipalities$mrc) %in% unique(covid$key)]
 
-### cleaning
-# covid[covid$key == "" & covid$time > "2020-09-28" & covid$time < "2020-10-02", ]
-# covid[covid$key == "" & covid$time > "2021-03-11" & covid$time < "2021-10-13", ]
-covid <- covid[covid$key != "", ] ## losing a few observations here because not labeled
+# covid <- covid[covid$key != "", ] ## losing a few observations here because not labeled
 covid$time <- lubridate::as_datetime(covid$time, tz = "America/Montreal")
 covid$value <- str_replace(covid$value, fixed("**"), "")
 covid$value <- str_replace(covid$value, fixed("*"), "")
@@ -144,15 +132,21 @@ covid$value[covid$value %in% c("5 et moins", "5 or moins", "5 or less", "5 ou mo
 covid$value <- as.integer(covid$value)
 covid <- covid %>% arrange(time, key, table)
 
-### checks & fix extreme values that are likely due to input error
+### cleaning: checks & fix extreme values that are likely due to input error
 ### (still need a simple and consistent approach to error detection, perhaps from the time series methodological literature)
 VisualCheck <- function(keys, tab, exclude = NULL) {
     keys <- keys[!keys %in% exclude]
     ggplot(data = covid[covid$key %in% keys & covid$table == tab, ]) +
         geom_line(mapping = aes(x = time, y = value, group = key, color = key)) +
+        geom_point(data = covid[covid$key == "" & covid$table == tab, ], mapping = aes(x = time, y = value, group = key, color = key)) +
         theme_classic() + labs(x = "", y = "") +
         theme(legend.position = "bottom")
 }
+# check <- unique(covid$key)[unique(covid$key) %in% municipalities$municipality[municipalities$mrc == "Papineau"]]
+# covid[covid$key == "" & covid$time > "2020-09-28" & covid$time < "2020-10-02", ]
+# VisualCheck(keys = c("Montpellier"), tab = "areas")
+# as.data.frame(covid[covid$key %in% c("", "Montpellier") & covid$time >= "2021-03-10" & covid$time <= "2021-03-19", ])
+covid$key[covid$key == "" & covid$time >= "2021-03-10" & covid$time <= "2021-03-19" & covid$table == "areas"] <- "Montpellier"
 # VisualCheck(keys = tapply(covid$key, covid$table, unique)[["cases"]], tab = "cases")
 covid <- covid[!(covid$key == "Healed/resolved cases" & covid$time > "2020-10-31" & covid$time < "2020-11-03" & covid$value == 281), ]
 VisualCheck(keys = c("Healed/resolved cases", "Cumulative cases"), tab = "cases")
@@ -176,7 +170,7 @@ VisualCheck(keys = c("Total cases", "Total", "Gatineau"), tab = "areas")
 # VisualCheck(keys = tapply(covid$key, covid$table, unique)[["areas"]], tab = "areas", exclude = c("Total cases", "Gatineau", "To be determined"))
 dev.off()
 
-# fromJSON("https://api.opencovid.ca/version")
+# jsonlite::fromJSON("https://api.opencovid.ca/version")
 api_link <- "https://api.opencovid.ca/timeseries?stat=cases&loc=2407"
 opencovid <- jsonlite::fromJSON(api_link)
 opencovid <- opencovid$cases[, c("date_report", "health_region", "cases", "cumulative_cases")]
@@ -195,13 +189,14 @@ covid <- rbind(covid, opencovid)
 
 ### saving data
 save(covid, file = "data/covid_local.RData")
-file_connection <-file("data/data_update_time.txt")
+file_connection <- file("data/data_update_time.txt")
 writeLines(as.character(lubridate::now()), file_connection)
 close(file_connection)
 
 ### de-duplication and calculating change variables
 # sort(unique(covid$key))
-daily <- covid[!covid$key %in% c("Average screening tests per day", "To be determined", "To be determined (active)", "Daily increase", "New cases (opencovid.ca)"), ]
+exclude <- c(municipalities$municipality, "Average screening tests per day", "To be determined", "To be determined (active)", "Daily increase", "New cases (opencovid.ca)")
+daily <- covid[!covid$key %in% exclude, ]
 daily <- daily %>% arrange(key, time)
 daily$date <- lubridate::as_date(daily$time)
 daily <- daily %>% group_by(table, key, date) %>% filter(time == max(time))
@@ -219,7 +214,6 @@ daily <- daily %>% group_by(table, key, date) %>% filter(time == max(time))
 ## "Total"/"Total cases (RLS)" sometimes different for RLS and municipalities;
 daily$table[daily$key %in% c("Deaths", "Healed/resolved cases", "Active cases") & daily$table %in% c("rls", "areas")] <- "cases" # , "Total cases"
 daily <- daily[, c("table", "key", "date", "value")]
-# not_to_calc_change <- c("New cases (opencovid.ca)", "Daily increase", "To be determined", "To be determined (active)")
 daily <- daily %>% arrange(table, key, date) %>% group_by(table, key) %>% mutate(previous_date = dplyr::lag(date))
 daily <- daily %>% mutate(days_from_prev = as.integer(date - previous_date))
 daily <- daily %>% arrange(table, key, date) %>% group_by(table, key) %>% mutate(previous_value = dplyr::lag(value))
