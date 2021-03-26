@@ -1,7 +1,7 @@
 Covid19 Situation in Outaouais
 ================
 
--   [Outaouais: regional totals](#outaouais-regional-totals)
+-   [Outaouais region totals](#outaouais-region-totals)
 -   [Réseaux locaux de services](#réseaux-locaux-de-services)
     -   [Average increase per day](#average-increase-per-day)
     -   [Active cases](#active-cases)
@@ -29,27 +29,23 @@ important caveats and data limitations at the bottom of this page.
 **Note**: If the figures below do not show the latest data, reload this
 page in your web browser.
 
-# Outaouais: regional totals
+# Outaouais region totals
 
-<!-- ## New & active cases -->
-<!-- ## Cumulative cases & deaths  -->
-<!-- ## Testing -->
-
-<img src="README_files/figure-gfm/cases-1.png" width="100%" height="100%" /><img src="README_files/figure-gfm/cases-2.png" width="100%" height="100%" /><img src="README_files/figure-gfm/cases-3.png" width="100%" height="100%" /><img src="README_files/figure-gfm/cases-4.png" width="100%" height="100%" /><img src="README_files/figure-gfm/cases-5.png" width="100%" height="100%" />
+<img src="README_files/figure-gfm/cases-1.png" width="100%" height="100%" /><img src="README_files/figure-gfm/cases-2.png" width="100%" height="100%" /><img src="README_files/figure-gfm/cases-3.png" width="100%" height="100%" />
 
 # Réseaux locaux de services
 
 ## Average increase per day
 
-<img src="README_files/figure-gfm/rls_new-1.png" width="100%" height="100%" /><img src="README_files/figure-gfm/rls_new-2.png" width="100%" height="100%" />
+<img src="README_files/figure-gfm/rls_new-1.png" width="100%" height="100%" /><img src="README_files/figure-gfm/rls_new-2.png" width="100%" height="100%" /><img src="README_files/figure-gfm/rls_new-3.png" width="100%" height="100%" />
 
 ## Active cases
 
-<img src="README_files/figure-gfm/rls_active-1.png" width="100%" height="100%" /><img src="README_files/figure-gfm/rls_active-2.png" width="100%" height="100%" />
+<img src="README_files/figure-gfm/rls_active-1.png" width="100%" height="100%" /><img src="README_files/figure-gfm/rls_active-2.png" width="100%" height="100%" /><img src="README_files/figure-gfm/rls_active-3.png" width="100%" height="100%" />
 
 ## Cumulative cases
 
-<img src="README_files/figure-gfm/rls-1.png" width="100%" height="100%" /><img src="README_files/figure-gfm/rls-2.png" width="100%" height="100%" />
+<img src="README_files/figure-gfm/rls-1.png" width="100%" height="100%" /><img src="README_files/figure-gfm/rls-2.png" width="100%" height="100%" /><img src="README_files/figure-gfm/rls-3.png" width="100%" height="100%" />
 
 # Municipalities: cumulative cases
 
@@ -119,8 +115,8 @@ Users of these data need to be aware of the following caveats:
 Questions, concerns, and suggestions can be raised through GitHub
 Discussions.
 
-Last HTML source download: 2021-03-25 17:15:03
+Last HTML source download: 2021-03-26 11:00:03
 
-Last dataset revision: 2021-03-25 17:15:38
+Last dataset revision: 2021-03-26 11:00:42
 
-Page revised: 2021-03-25 17:16:17
+Page revised: 2021-03-26 11:01:29
