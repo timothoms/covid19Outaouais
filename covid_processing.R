@@ -194,7 +194,11 @@ covid <- rbind(covid, opencovid)
 
 ### de-duplication and calculating change variables
 # sort(unique(covid$key))
-exclude <- c(municipalities$municipality, "", "Average screening tests per day", "To be determined", "To be determined", "Daily increase", "New cases")
+exclude <- c(municipalities$municipality,
+             "", "Average screening tests per day",
+             "To be determined", "To be determined",
+             "Daily increase", "New cases (Outaouais)",
+             "Healed/resolved cases", "Total deaths")
 daily <- covid[!covid$key %in% exclude, ]
 daily <- daily %>% arrange(key, time)
 daily$date <- lubridate::as_date(daily$time)
@@ -222,6 +226,10 @@ daily <- daily %>% mutate(daily_change = round(change_from_prev / days_from_prev
 daily <- daily %>% arrange(table, key, date) %>% group_by(table, key) %>% mutate(daily_change_avg = runner::mean_run(x = daily_change, k = 7, lag = 0, idx = date)) %>% ungroup()
 # tapply(daily$key, daily$table, unique)
 sort(unique(unlist(tapply(daily$key, daily$table, unique))))
+daily$change_key <- daily$key
+daily$change_key <- str_replace(daily$change_key, "Total cases", "Average increase per day")
+daily$change_key <- str_replace(daily$change_key, "Active cases", "Average increase in active cases per day")
+sort(unique(unlist(tapply(daily$change_key, daily$table, unique))))
 
 ### time since previous
 covid <- covid %>% arrange(table, key, time) %>% group_by(table, key) %>% mutate(previous_time = dplyr::lag(time))
