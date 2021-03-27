@@ -1,6 +1,33 @@
 Covid19 Situation in Outaouais
 ================
 
+-   [Outaouais region totals](#outaouais-region-totals)
+    -   [Average increase](#average-increase)
+    -   [Cumulative cases](#cumulative-cases)
+    -   [opencovid.ca](#opencovidca)
+    -   [Active cases & testing &
+        deaths](#active-cases--testing--deaths)
+-   [Average increase by RLS](#average-increase-by-rls)
+    -   [Gatineau](#gatineau)
+    -   [Collines & Pontiac](#collines--pontiac)
+    -   [Papineau & Vallée](#papineau--vallée)
+-   [Active cases by RLS](#active-cases-by-rls)
+    -   [Gatineau](#gatineau-1)
+    -   [Collines & Pontiac](#collines--pontiac-1)
+    -   [Papineau & Vallée](#papineau--vallée-1)
+-   [Cumulative cases by RLS &
+    municipality](#cumulative-cases-by-rls--municipality)
+    -   [RLS](#rls)
+    -   [Total & Gatineau](#total--gatineau)
+    -   [Collines](#collines)
+    -   [Papineau](#papineau)
+    -   [Papineau (cont.)](#papineau-cont)
+    -   [Vallée](#vallée)
+    -   [Vallée (cont.)](#vallée-cont)
+    -   [Pontiac](#pontiac)
+-   [Glossary](#glossary)
+-   [Method and caveats](#method-and-caveats)
+
 It is difficult to find covid19 trend data over time at the local level
 for the Outaouais region. The [Quebec
 government](https://www.quebec.ca/en/health/health-issues/a-z/2019-coronavirus/situation-coronavirus-in-quebec/)
@@ -165,8 +192,8 @@ Users of these data need to be aware of the following caveats:
 Questions, concerns, and suggestions can be raised through GitHub
 Discussions.
 
-Last HTML source download: 2021-03-27 18:04:34
+Last HTML source download: 2021-03-27 19:03:55
 
-Last dataset revision: 2021-03-27 18:05:08
+Last dataset revision: 2021-03-27 19:04:26
 
-Page revised: 2021-03-27 18:05:47
+Page revised: 2021-03-27 19:05:02
