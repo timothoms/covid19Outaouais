@@ -3,7 +3,7 @@ title: "Covid19 Situation in Outaouais"
 output:
   html_document:
     toc: true
-    # keep_md: true
+    keep_md: true
 ---
 
 ```{r setup, include=FALSE}
@@ -11,7 +11,7 @@ library(tidyverse)
 library(lubridate)
 knitr::knit_hooks$set(optipng = knitr::hook_optipng)
 knitr::knit_hooks$set(pngquant = knitr::hook_pngquant)
-knitr::opts_chunk$set(echo = FALSE, cache = FALSE, results = 'hide', warning = FALSE, dpi = 150, fig.width = 7, fig.height = 5, out.width = "100%", out.height = "100%") # , optipng = '-o7'
+knitr::opts_chunk$set(echo = FALSE, cache = FALSE, results = 'hide', warning = FALSE, dpi = 150, fig.width = 7, fig.height = 5, out.width = "100%", out.height = "100%", optipng = '-o7')
 Sys.setlocale(category = "LC_ALL", locale = "en_CA.UTF-8")
 load("data/covid_local.RData")
 load("data/covid_local_daily.RData")
@@ -99,38 +99,68 @@ LocalFig <- function(keys, caption) {
     lims(y = c(0, NA)) + labs(x = "", y = "") + common_theme + 
     guides(colour = guide_legend(ncol = 4)) + ggtitle(caption)  
 }
+RLSdailyFig <- function(keys, caption) {
+  ggplot(data = daily[daily$change_key %in% keys & daily$table == "rls", ]) +
+    geom_line(mapping = aes(x = date, y = daily_change_avg, group = change_key, color = change_key)) +
+    scale_x_date(date_breaks="1 month", date_minor_breaks = "2 weeks", date_labels = "%b %Y") +
+    scale_colour_discrete(breaks = keys) +
+    lims(y = c(0, NA)) + labs(x = "", y = "") + common_theme + 
+    guides(colour = guide_legend(ncol = 3)) + ggtitle(caption)
+}
+RLSactiveFig <- function(keys, caption) {
+  ggplot(data = covid[covid$key %in% keys & covid$table == "rls_active", ]) +
+    geom_line(mapping = aes(x = time, y = value, group = key, color = key)) +
+    scale_x_datetime(date_breaks="1 month", date_minor_breaks = "2 weeks", date_labels = "%b %Y") +
+    scale_colour_discrete(breaks = keys, labels = keys) +
+    lims(y = c(0, NA)) + labs(x = "", y = "") + common_theme + 
+    guides(colour = guide_legend(ncol = 3)) + ggtitle(caption)
+}
 ```
 
-<!-- ### Average increase per day -->
-```{r rls_new, eval = FALSE}
-keys <- list(
-  list(c("Total", "Total cases", "Total cases (RLS)", "RLS de Gatineau"), title = "Regional total & Gatineau"),
-  list(c("RLS de la Vallée-de-la-Gatineau", "RLS de Papineau"), title = "Papineau & Vallée-de-la-Gatineau"),
-  list(c("RLS des Collines-de-l'Outaouais", "RLS du Pontiac"), title = "Collines & Pontiac")
-)
-lapply(keys, function(selection) {
-  ggplot(data = daily[daily$key %in% selection[[1]] & daily$table == "rls", ]) +
-    geom_line(mapping = aes(x = date, y = daily_change_avg, group = key, color = key)) +
-    lims(y = c(0, NA)) + labs(x = "", y = "") +
-    scale_x_date(date_breaks="1 month", date_minor_breaks = "2 weeks", date_labels = "%b %Y") +
-    scale_colour_discrete(breaks = selection[[1]]) +
-    common_theme + 
-    guides(colour = guide_legend(ncol = 3)) +
-    ggtitle(selection$title)
-})
+## Average increase by RLS {.tabset .tabset-fade .tabset-pills}
+
+### Gatineau
+
+```{r rls_new_gatineau}
+keys <- c("RLS de Gatineau")
+RLSdailyFig(keys = keys, caption = "Average increase per day")
 ```
-<!-- ### Active cases -->
-```{r rls_active, eval = FALSE}
-lapply(keys, function(selection) {
-  ggplot(data = covid[covid$key %in% selection[[1]] & covid$table == "rls_active", ]) +
-  geom_line(mapping = aes(x = time, y = value, group = key, color = key)) +
-  lims(y = c(0, NA)) + labs(x = "", y = "") +
-  scale_x_datetime(date_breaks="1 month", date_minor_breaks = "2 weeks", date_labels = "%b %Y") +
-  scale_colour_discrete(breaks = paste(selection[[1]], "(active)"), labels = selection[[1]]) +
-  common_theme + 
-  guides(colour = guide_legend(ncol = 3)) +
-  ggtitle(selection$title)
-})
+
+### Collines & Pontiac
+
+```{r rls_new_collines}
+keys <- c("RLS des Collines-de-l'Outaouais", "RLS du Pontiac")
+RLSdailyFig(keys = keys, caption = "Average increase per day")
+```
+
+### Papineau & Vallée
+
+```{r rls_new_vallee}
+keys <- c("RLS de la Vallée-de-la-Gatineau", "RLS de Papineau")
+RLSdailyFig(keys = keys, caption = "Average increase per day")
+```
+
+## Active cases by RLS {.tabset .tabset-fade .tabset-pills}
+
+### Gatineau
+
+```{r rls_active_gatineau}
+keys <- c("RLS de Gatineau")
+RLSactiveFig(keys = keys, caption = "Active cases")
+```
+
+### Collines & Pontiac
+
+```{r rls_active_collines}
+keys <- c("RLS des Collines-de-l'Outaouais", "RLS du Pontiac")
+RLSactiveFig(keys = keys, caption = "Active cases")
+```
+
+### Papineau & Vallée
+
+```{r rls_active_vallee}
+keys <- c("RLS de la Vallée-de-la-Gatineau", "RLS de Papineau")
+RLSactiveFig(keys = keys, caption = "Active cases")
 ```
 
 ## Cumulative cases by RLS & municipality {.tabset .tabset-fade .tabset-pills}
@@ -139,7 +169,9 @@ lapply(keys, function(selection) {
 
 ```{r rls_cumulative}
 # keys <- c("MRC de la Vallée-de-la-Gatineau", "MRC de Papineau", "MRC des Collines-de-l'Outaouais", "MRC du Pontiac")
-keys <- c("RLS de Gatineau", "RLS de la Vallée-de-la-Gatineau", "RLS de Papineau", "RLS des Collines-de-l'Outaouais", "RLS du Pontiac")
+keys <- c("RLS de Gatineau", 
+          "RLS de la Vallée-de-la-Gatineau", "RLS de Papineau", 
+          "RLS des Collines-de-l'Outaouais", "RLS du Pontiac")
 Fig(keys = keys, caption = "Réseaux locaux de services", tab = "rls")
 ```
 
