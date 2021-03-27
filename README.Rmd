@@ -1,9 +1,9 @@
 ---
 title: "Covid19 Situation in Outaouais"
 output:
+  github_document: default
   html_document:
     toc: true
-    keep_md: true
 ---
 
 ```{r setup, include=FALSE}
@@ -11,7 +11,7 @@ library(tidyverse)
 library(lubridate)
 knitr::knit_hooks$set(optipng = knitr::hook_optipng)
 knitr::knit_hooks$set(pngquant = knitr::hook_pngquant)
-knitr::opts_chunk$set(echo = FALSE, cache = FALSE, results = 'hide', warning = FALSE, dpi = 150, fig.width = 7, fig.height = 5, out.width = "100%", out.height = "100%", optipng = '-o7')
+knitr::opts_chunk$set(echo = FALSE, cache = FALSE, results = 'hide', warning = FALSE, dpi = 150, fig.width = 7, fig.height = 5, out.width = "100%", out.height = "100%") # , optipng = '-o7'
 Sys.setlocale(category = "LC_ALL", locale = "en_CA.UTF-8")
 load("data/covid_local.RData")
 load("data/covid_local_daily.RData")
