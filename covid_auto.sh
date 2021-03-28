@@ -11,8 +11,8 @@ sleep 20
 /usr/local/bin/Rscript -e 'Sys.setenv(RSTUDIO_PANDOC="/Applications/RStudio.app/Contents/MacOS/pandoc"); rmarkdown::render("index.Rmd", encoding = "UTF-8")' >> ignore/render.log 2>&1
 sleep 20
 
-# git add data/covid_local.RData
-# git add data/covid_local_daily.RData
+git add data/covid_local.RData
+git add data/covid_local_daily.RData
 git add data/data_update_time.txt
 git add websites/last_download_time.txt
 git add --force index.html
