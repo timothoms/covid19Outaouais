@@ -4,8 +4,6 @@ output:
   html_document:
     theme: darkly
     toc: true
-  github_document:
-    toc: true
 ---
 
 ```{r setup, include=FALSE}
@@ -13,17 +11,16 @@ library(tidyverse)
 library(lubridate)
 knitr::knit_hooks$set(optipng = knitr::hook_optipng)
 knitr::knit_hooks$set(pngquant = knitr::hook_pngquant)
-knitr::opts_chunk$set(echo = FALSE, cache = FALSE, results = 'hide', warning = FALSE, dpi = 120, fig.width = 7, fig.height = 5, out.width = "100%", out.height = "100%") #, optipng = '-o7'
+knitr::opts_chunk$set(echo = FALSE, cache = FALSE, results = 'hide', warning = FALSE)
+knitr::opts_chunk$set(dpi = 120, fig.width = 7, fig.height = 5, out.width = "100%", out.height = "100%")
+knitr::opts_chunk$set(optipng = '-o7')
 Sys.setlocale(category = "LC_ALL", locale = "en_CA.UTF-8")
 load("data/covid_local.RData")
 load("data/covid_local_daily.RData")
 load("data/municipalities.RData")
-# tapply(covid$key, covid$table, unique)
 ```
 
 It is difficult to find covid19 trend data over time at the local level for the Outaouais region. The [Quebec government](https://www.quebec.ca/en/health/health-issues/a-z/2019-coronavirus/situation-coronavirus-in-quebec/) shows summaries but only the last few days of trends for regions. [Quebec Public Health](https://www.inspq.qc.ca/covid-19/donnees) shows longer time series but only cumulative snapshots by region. The [COVID-19 Canada Open Data Working Group (opencovid.ca)](https://opencovid.ca/) collects official time series data at the individual, provincial and health region levels. None of these sources provide trend data below the regional level. [CISSS Outaouais](https://cisss-outaouais.gouv.qc.ca/language/en/covid19-en/) provides frequent (sometimes daily) snapshots by Réseaux locaux de services (RLS) and by municipality, but no trends. The present project provides local trend data based on these snapshots. Please note important caveats and data limitations at the bottom of this page.
-
-<!-- ## Glossary -->
 
 | Indicators                      | Description                                                                                            |
 |---------------------------------|--------------------------------------------------------------------------------------------------------|
@@ -246,7 +243,7 @@ LocalFig(c("RLS de Gatineau"))
 
 ## Method and caveats
 
-The HTML source for the [CISSS Outaouais site](https://cisss-outaouais.gouv.qc.ca/language/en/covid19-en/) is downloaded daily, the tables are scraped and processed into a tidy dataset, to produce the figures on this site. The [opencovid.ca](https://opencovid.ca/) health region data are included for comparison. The R code for downloading and processing the data is available in this repository. Daily automation is currently done with MacScheduler.
+The HTML source for the [CISSS Outaouais site](https://cisss-outaouais.gouv.qc.ca/language/en/covid19-en/) is downloaded daily, the tables are scraped and processed into a tidy dataset, to produce the figures on this site. The latest [opencovid.ca](https://opencovid.ca/) health region data are included for comparison. The source code for downloading and processing all data is available in the project [GitHub repository](https://github.com/timothoms/covid19Outaouais). Daily automation is currently done with MacScheduler.
 
 Users of these data need to be aware of the following caveats:
 
@@ -262,10 +259,12 @@ Users of these data need to be aware of the following caveats:
 
 6. At the municipal and RLS levels, CISSS Outaouais does not report numbers of less than 6 precisely, likely for good privacy reasons. When "5 or less" are reported, I record this as 5 cases. Users of this dataset must be aware that counts of 5 do not precisely reflect the actual situation at those levels, but refer to 1-5 cases.
 
-Questions, concerns, and suggestions can be raised through GitHub Discussions.
-
 Last HTML source download: `r str_replace(read_file("websites/last_download_time.txt"), "\n", "")`
 
 Last dataset revision: `r str_replace(read_file("data/data_update_time.txt"), "\n", "")`
 
-Page revised: `r now()`
+Last website update: `r now()`
+
+\  
+
+This website is maintained by Timo Thoms. Questions, concerns, and suggestions can be raised through [GitHub Discussions](https://github.com/timothoms/covid19Outaouais/discussions).
