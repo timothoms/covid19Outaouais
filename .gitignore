@@ -4,6 +4,6 @@
 .Ruserdata
 **.html
 **.snapshot
+**.RData
 ignore/
 data/pop/
-**.RData
