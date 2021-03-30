@@ -243,3 +243,39 @@ save(daily, file = "data/covid_local_daily.RData")
 file_connection <- file("data/data_update_time.txt")
 writeLines(as.character(lubridate::now()), file_connection)
 close(file_connection)
+
+### vaccination dataset
+link <- "https://cdn-contenu.quebec.ca/cdn-contenu/sante/documents/Problemes_de_sante/covid-19/csv/doses-vaccins.csv"
+new_vac <- readr::read_delim(link, delim = ";")
+new_vac$time <- lubridate::now()
+# new_vac$note <- "Total vaccine doses administered"
+names(new_vac)[1:2] <- c("key", "value")
+new_vac$flag <- stringr::str_sub(new_vac$key, 3, 5) == " - "
+new_vac$region_code[new_vac$flag] <- stringr::str_sub(new_vac$key[new_vac$flag], 1, 2)
+stringr::str_sub(new_vac$key[new_vac$flag], 1, 5) <-""
+new_vac <- new_vac[c("time", "key", "region_code", "value")]
+load("data/vaccination.RData", verbose = TRUE)
+vaccination <- rbind(vaccination, new_vac)
+vaccination <- vaccination %>% arrange(key, time)
+save(vaccination, file = "data/vaccination.RData")
+
+### school listings
+link <- "https://cdn-contenu.quebec.ca/cdn-contenu/education/coronavirus/Liste_ecole_DCOM.csv"
+new <- readr::read_delim(link, delim = ";")
+new$time <- lubridate::now()
+names(new)[1:4] <- c("region", "admin", "school", "code")
+new$region_code <- stringr::str_sub(new$region, 2, 3)
+new$region <- stringr::str_trim(new$region)
+new$admin <- stringr::str_trim(new$admin)
+stringr::str_sub(new$region, 1, 5) <- ""
+new$relisted <- stringr::str_detect(new$school, stringr::fixed("*"))
+new$school <- stringr::str_replace(new$school, stringr::fixed("*"), "")
+new$note[new$code == 1] <- "already on list, with new confirmed case(s) [pink]"
+new$note[new$code == 2] <- "relisted due to new confirmed case(s) [green*]"
+new$note[new$code == 3] <- "new listing due to new confirmed case(s) [green]"
+# table(new$note, new$relisted)
+new <- new[c("time", "region", "region_code", "admin", "school", "code", "note")]
+load("data/schools.RData", verbose = TRUE)
+schools <- rbind(schools, new)
+schools <- schools %>% arrange(region, admin, school, time)
+save(schools, file = "data/schools.RData")
