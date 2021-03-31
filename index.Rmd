@@ -4,6 +4,8 @@ output:
   html_document:
     theme: darkly
     toc: true
+params: 
+  optimize: FALSE
 ---
 
 ```{r setup, include=FALSE}
@@ -13,14 +15,23 @@ knitr::knit_hooks$set(optipng = knitr::hook_optipng)
 knitr::knit_hooks$set(pngquant = knitr::hook_pngquant)
 knitr::opts_chunk$set(echo = FALSE, cache = FALSE, results = 'hide', warning = FALSE)
 knitr::opts_chunk$set(dpi = 120, fig.width = 7, fig.height = 5, out.width = "100%", out.height = "100%")
-knitr::opts_chunk$set(optipng = '-o7')
+if(params$optimize) knitr::opts_chunk$set(optipng = '-o7')
 Sys.setlocale(category = "LC_ALL", locale = "en_CA.UTF-8")
 load("data/covid_local.RData")
 load("data/covid_local_daily.RData")
 load("data/municipalities.RData")
+load("data/vaccination.RData")
+load("data/municipalities.RData")
+pop_outaouais_2020 <- 401388
+vaccination <- vaccination %>% arrange(key, time)
+vaccination$date <- lubridate::as_date(vaccination$time)
+vaccination <- vaccination %>% group_by(key, date) %>% filter(time == max(time))
+vaccination <- vaccination[vaccination$key == "Outaouais", c("key", "date", "value")]
+# vaccination$value / pop_outaouais_2020 * 100
+vaccination$key <- paste("Doses administered in", vaccination$key)
 ```
 
-It is difficult to find covid19 trend data over time at the local level for the Outaouais region. The [Quebec government](https://www.quebec.ca/en/health/health-issues/a-z/2019-coronavirus/situation-coronavirus-in-quebec/) shows summaries but only the last few days of trends for regions. [Quebec Public Health](https://www.inspq.qc.ca/covid-19/donnees) shows longer time series but only cumulative snapshots by region. The [COVID-19 Canada Open Data Working Group (opencovid.ca)](https://opencovid.ca/) collects official time series data at the individual, provincial and health region levels. None of these sources provide trend data below the regional level. [CISSS Outaouais](https://cisss-outaouais.gouv.qc.ca/language/en/covid19-en/) provides frequent (sometimes daily) snapshots by Réseaux locaux de services (RLS) and by municipality, but no trends. The present project provides local trend data based on these snapshots. Please note important caveats and data limitations at the bottom of this page.
+It is difficult to find covid19 trend data over time at the local level for the Outaouais region. The [Quebec government](https://www.quebec.ca/en/health/health-issues/a-z/2019-coronavirus/situation-coronavirus-in-quebec/) shows summaries but only the last few days of trends for regions. [Quebec Public Health](https://www.inspq.qc.ca/covid-19/donnees) shows longer time series but only cumulative snapshots by region. The [COVID-19 Canada Open Data Working Group (opencovid.ca)](https://opencovid.ca/) collects official time series data at the individual, provincial and health region levels. None of these sources provide trend data below the regional level. [CISSS Outaouais](https://cisss-outaouais.gouv.qc.ca/language/en/covid19-en/) provides frequent (sometimes daily) snapshots by Réseaux locaux de services (RLS) and by municipality, but no trends. The present project provides local trend data based on these snapshots. **Please note important caveats and data limitations at the bottom of this page.**
 
 | Indicators                      | Description                                                                                            |
 |---------------------------------|--------------------------------------------------------------------------------------------------------|
@@ -43,16 +54,24 @@ common_theme <- theme_classic() +
 ```
 
 ```{r figure_functions}
-LocalFig <- function(keys) {
-  ggplot(data = covid[covid$key %in% keys & covid$table %in% c("areas", "rls"), ]) +
+LocalFig <- function(keys, tab = c("areas", "rls")) {
+  ggplot(data = covid[covid$key %in% keys & covid$table %in% tab, ]) +
     geom_line(mapping = aes(x = time, y = value, group = key, colour = key)) +
     scale_x_datetime(date_breaks="1 month", date_minor_breaks = "2 weeks", date_labels = "%b %Y") +
     # scale_colour_discrete(breaks = keys) +
     lims(y = c(0, NA)) + labs(x = "", y = "") + common_theme + 
     guides(colour = guide_legend(ncol = 4))
 }
-RLSdailyFig <- function(keys) {
-  ggplot(data = daily[daily$change_key %in% keys & daily$table == "rls", ]) +
+LayeredFig <- function(keys) {
+  ggplot(mapping = aes(x = time, y = value, group = key, color = key)) +
+    geom_line(data = covid[covid$key %in% keys & covid$time > now() - days(400) & covid$table == "cases", ]) +
+    geom_line(data = covid[covid$key %in% keys & covid$time > now() - days(400) & covid$table == "areas", ]) +
+    geom_line(data = covid[covid$key %in% keys & covid$time > now() - days(400) & covid$table == "rls", ]) +
+    scale_x_datetime(date_breaks="1 month", date_minor_breaks = "2 weeks", date_labels = "%b %Y") +
+    lims(y = c(0, NA)) + labs(x = "", y = "") + common_theme
+}
+DailyFig <- function(keys, tab = "rls") {
+  ggplot(data = daily[daily$change_key %in% keys & daily$table == tab, ]) +
     geom_line(mapping = aes(x = date, y = daily_change_avg, group = change_key, color = change_key)) +
     scale_x_date(date_breaks="1 month", date_minor_breaks = "2 weeks", date_labels = "%b %Y") +
     scale_colour_discrete(breaks = keys) +
@@ -74,109 +93,79 @@ RLSactiveFig <- function(keys) {
 ## Outaouais region totals {.tabset .tabset-fade .tabset-pills}
 
 ### Average increase
-
 ```{r cases_avg}
-keys <- c("Average increase per day (Outaouais)")
-ggplot(mapping = aes(x = date, y = daily_change_avg, group = change_key, color = change_key)) +
-  geom_line(data = daily[daily$change_key %in% keys & daily$table == "cases", ]) +
-  # geom_line(data = daily[daily$change_key %in% c("Average increase per day (RLS)") & daily$table == "rls", ]) +
-  # geom_line(data = daily[daily$change_key %in% c("Average increase per day (municipalities)") & daily$table == "areas", ]) +
-  scale_x_date(date_breaks = "1 month", date_minor_breaks = "2 weeks", date_labels = "%b %Y") +
-  lims(y = c(0, NA)) + labs(x = "", y = "") + common_theme
+DailyFig(c("Average increase per day (Outaouais)"), tab = "cases")
 ```
 
 ### Cumulative cases
-
 ```{r cases_cumulative}
-keys <- c("Healed/resolved cases", "Total cases (Outaouais)") # "Total cases (RLS)"
-ggplot(mapping = aes(x = time, y = value, group = key, color = key)) +
-  geom_line(data = covid[covid$key %in% keys & covid$time > now() - days(400) & covid$table == "cases", ]) +
-  geom_line(data = covid[covid$key %in% keys & covid$time > now() - days(400) & covid$table == "areas", ]) +
-  geom_line(data = covid[covid$key %in% keys & covid$time > now() - days(400) & covid$table == "rls", ]) +
-  scale_x_datetime(date_breaks="1 month", date_minor_breaks = "2 weeks", date_labels = "%b %Y") +
-  lims(y = c(0, NA)) + labs(x = "", y = "") + common_theme
+LayeredFig(c("Healed/resolved cases", "Total cases (Outaouais)")) # "Total cases (RLS)"
 ```
 
 ### Active cases & testing
-
 ```{r cases_other}
-keys <- c("Active cases", "Average screening tests per day")
-ggplot(mapping = aes(x = time, y = value, group = key, color = key)) +
-  geom_line(data = covid[covid$key %in% keys & covid$time > now() - days(400) & covid$table == "cases", ]) +
-  geom_line(data = covid[covid$key %in% keys & covid$time > now() - days(400) & covid$table == "areas", ]) +
-  geom_line(data = covid[covid$key %in% keys & covid$time > now() - days(400) & covid$table == "rls", ]) +
-  scale_x_datetime(date_breaks="1 month", date_minor_breaks = "2 weeks", date_labels = "%b %Y") +
-  lims(y = c(0, NA)) + labs(x = "", y = "") + common_theme
+LayeredFig(c("Active cases", "Average screening tests per day"))
 ```
 
 ### Deaths
-
 ```{r cases_deaths}
-keys <- c("Total deaths")
-ggplot(mapping = aes(x = time, y = value, group = key, color = key)) +
-  geom_line(data = covid[covid$key %in% keys & covid$time > now() - days(400) & covid$table == "cases", ]) +
-  geom_line(data = covid[covid$key %in% keys & covid$time > now() - days(400) & covid$table == "areas", ]) +
-  geom_line(data = covid[covid$key %in% keys & covid$time > now() - days(400) & covid$table == "rls", ]) +
-  scale_x_datetime(date_breaks="1 month", date_minor_breaks = "2 weeks", date_labels = "%b %Y") +
-  lims(y = c(0, NA)) + labs(x = "", y = "") + common_theme
+LayeredFig(c("Total deaths"))
 ```
 
-## OpenCovid.ca & comparison to Ottawa {.tabset .tabset-fade .tabset-pills}
+### Vaccination
+```{r vaccination}
+ggplot(data = vaccination) +
+  geom_line(mapping = aes(x = date, y = value, group = key, color = key)) +
+  scale_x_date(date_breaks="1 day") +
+  scale_y_continuous(name = "",
+    sec.axis = sec_axis(trans = ~ . / pop_outaouais_2020 * 100, name = "% of population")
+  ) +
+  labs(x = "", y = "") + theme_classic() +
+  theme(legend.position = "bottom", legend.title = element_blank())
+```
+
+## opencovid.ca (Outaouais and Ottawa) {.tabset .tabset-fade .tabset-pills}
 
 ### Average increase
-
 ```{r opencovid_avg}
-keys <- c("Average increase per day (Outaouais)", "Average increase per day (Ottawa)")
-ggplot(mapping = aes(x = date, y = daily_change_avg, group = change_key, color = change_key)) +
-  geom_line(data = daily[daily$change_key %in% keys & daily$table == "opencovid.ca", ]) +
-  scale_x_date(date_breaks = "1 month", date_minor_breaks = "2 weeks", date_labels = "%b %Y") +
-  lims(y = c(0, NA)) + labs(x = "", y = "") + common_theme
+DailyFig(c("Average increase per day (Outaouais)", "Average increase per day (Ottawa)"), tab = "opencovid.ca")
 ```
 
 ### Cumulative cases
-
 ```{r opencovid_total}
-keys <- c("Total cases (Outaouais)", "Total cases (Ottawa)")
-ggplot(mapping = aes(x = time, y = value, group = key, color = key)) +
-  geom_line(data = covid[covid$key %in% keys & covid$time > now() - days(400) & covid$table == "opencovid.ca", ]) +
-  scale_x_datetime(date_breaks="1 month", date_minor_breaks = "2 weeks", date_labels = "%b %Y") +
-  lims(y = c(0, NA)) + labs(x = "", y = "") + common_theme
+LocalFig(c("Total cases (Outaouais)", "Total cases (Ottawa)"), tab = c("opencovid.ca"))
 ```
 
 ### Deaths
 ```{r deaths_opencovid}
-keys <- c("Total deaths (Outaouais)", "Total deaths (Ottawa)")
-ggplot(mapping = aes(x = time, y = value, group = key, color = key)) +
-  geom_line(data = covid[covid$key %in% keys & covid$time > now() - days(400) & covid$table == "opencovid.ca", ]) +
-  scale_x_datetime(date_breaks="1 month", date_minor_breaks = "2 weeks", date_labels = "%b %Y") +
-  lims(y = c(0, NA)) + labs(x = "", y = "") + common_theme
+LocalFig(c("Total deaths (Outaouais)", "Total deaths (Ottawa)"), tab = c("opencovid.ca"))
 ```
 
 ## Average increase by Réseaux locaux de services {.tabset .tabset-fade .tabset-pills}
 
 ### Gatineau
 ```{r rls_new_gatineau}
-RLSdailyFig(c("RLS de Gatineau"))
+DailyFig(c("RLS de Gatineau"))
 ```
 
 ### Collines-de-l'Outaouais
 ```{r rls_new_collines}
-RLSdailyFig(c("RLS des Collines-de-l'Outaouais"))
+DailyFig(c("RLS des Collines-de-l'Outaouais"))
 ```
 
 ### Pontiac
 ```{r rls_new_pontiac}
-RLSdailyFig(c("RLS du Pontiac"))
+DailyFig(c("RLS du Pontiac"))
 ```
 
 ### Papineau
 ```{r rls_new_papineau}
-RLSdailyFig(c("RLS de Papineau"))
+DailyFig(c("RLS de Papineau"))
 ```
 
 ### Vallée-de-la-Gatineau
 ```{r rls_new_vallee}
-RLSdailyFig(c("RLS de la Vallée-de-la-Gatineau"))
+DailyFig(c("RLS de la Vallée-de-la-Gatineau"))
 ```
 
 ## Active cases by Réseaux locaux de services {.tabset .tabset-fade .tabset-pills}
@@ -278,6 +267,8 @@ Users of these data need to be aware of the following caveats:
 5. Over time, CISSS Outaouais has made changes to what it reports and how it labels indicators. While I fix some inconsistencies in labels, I do not reconcile closely related indicators. The figures show how reporting by CISSS Outaouais has changed.
 
 6. At the municipal and RLS levels, CISSS Outaouais does not report numbers of less than 6 precisely, likely for good privacy reasons. When "5 or less" are reported, I record this as 5 cases. Users of this dataset must be aware that counts of 5 do not precisely reflect the actual situation at those levels, but refer to 1-5 cases.
+
+7. Expressing vaccination doses as a percentage of the Outaouais population (in 2020) assumes that receivers of the vaccine are Outaouais residents **and** they have received one dose only. These strong assumptions may be reasonable early in the vaccination campaign, but less so as time progresses.  
 
 Last HTML source download: `r str_replace(read_file("websites/last_download_time.txt"), "\n", "")`
 
