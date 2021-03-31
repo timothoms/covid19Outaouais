@@ -12,14 +12,35 @@ save(municipalities, file = "../data/municipalities.RData")
 write_csv(municipalities, file = "../data/municipalities.csv")
 
 ### population size
-"https://statistique.quebec.ca/en/fichier/la-population-des-regions-administratives-des-mrc-et-des-municipalites-du-quebec-en-2019.pdf"
-"https://statistique.quebec.ca/en/document/population-and-age-and-sex-structure-municipalities"
-    "https://statistique.quebec.ca/en/fichier/excel-population-estimates-municipalities-quebec-2001-2020.xlsx"
-    "https://statistique.quebec.ca/en/fichier/excel-population-estimates-by-age-group-and-sex-municipalities-quebec-2001-to-2020.xlsx"
-"https://statistique.quebec.ca/fr/document/population-et-structure-par-age-et-sexe-municipalites-regionales-de-comte-mrc/tableau/estimations-de-la-population-des-mrc"
-    "https://statistique.quebec.ca/fr/fichier/excel-estimations-de-la-population-des-mrc-quebec-1996-2020.xlsx"
-"https://statistique.quebec.ca/en/produit/tableau/estimations-population-regions-administratives"
-    "https://statistique.quebec.ca/docs-ken/multimedia/RA_total.xlsx"
-"https://statistique.quebec.ca/fr/produit/tableau/estimations-population-regions-administratives-selon-age-sexe-age-median-age-moyen#tri_tertr=07&tri_pop=30"
-    "https://statistique.quebec.ca/docs-ken/multimedia/RA_age_et_gr_age_et_sexe_avec_total_Quebec.xlsx"
-# readxl::read_excel()
+links_pop <- list(
+  report = list(
+    file = "https://statistique.quebec.ca/en/fichier/la-population-des-regions-administratives-des-mrc-et-des-municipalites-du-quebec-en-2019.pdf"
+  ),
+  municipalities = list(
+    site = "https://statistique.quebec.ca/en/document/population-and-age-and-sex-structure-municipalities",
+    file = "https://statistique.quebec.ca/en/fichier/excel-population-estimates-municipalities-quebec-2001-2020.xlsx",
+    file_groups = "https://statistique.quebec.ca/en/fichier/excel-population-estimates-by-age-group-and-sex-municipalities-quebec-2001-to-2020.xlsx"
+  ),
+  mrc = list(
+    site = "https://statistique.quebec.ca/fr/document/population-et-structure-par-age-et-sexe-municipalites-regionales-de-comte-mrc/tableau/estimations-de-la-population-des-mrc",
+    file = "https://statistique.quebec.ca/fr/fichier/excel-estimations-de-la-population-des-mrc-quebec-1996-2020.xlsx"
+  ),
+  regions = list(
+    site = "https://statistique.quebec.ca/en/produit/tableau/estimations-population-regions-administratives",
+    file = "https://statistique.quebec.ca/docs-ken/multimedia/RA_total.xlsx"
+  ),
+  regions_age_sex = list(
+    site = "https://statistique.quebec.ca/fr/produit/tableau/estimations-population-regions-administratives-selon-age-sexe-age-median-age-moyen#tri_tertr=07&tri_pop=30",
+    file = "https://statistique.quebec.ca/docs-ken/multimedia/RA_age_et_gr_age_et_sexe_avec_total_Quebec.xlsx"
+  )
+)
+lapply(links_pop, names)
+
+
+# file.remove()
+# download.file(links_pop$municipalities$file, destfile = "temp.xlsx")
+# temp <- readxl::read_excel("temp.xlsx", skip = 2)
+# file.remove("temp.xlsx")
+
+
+
