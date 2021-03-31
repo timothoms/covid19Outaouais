@@ -26,10 +26,16 @@ common_theme <- theme_classic() +
     legend.position = "bottom",
     legend.title = element_blank(),
     panel.grid.minor.x = element_line(colour="lightgray", size = 0.25))
-LocalFig <- function(keys) {
+DailyFig <- function(keys) {
   ggplot(mapping = aes(x = date, y = daily_change_avg, group = change_key, color = change_key)) +
     geom_line(data = daily[daily$change_key %in% keys & daily$table == "opencovid.ca", ]) +
     scale_x_date(date_breaks = "1 month", date_minor_breaks = "2 weeks", date_labels = "%b %Y") +
+    lims(y = c(0, NA)) + labs(x = "", y = "") + common_theme
+}
+LocalFig <- function(keys) {
+  ggplot(mapping = aes(x = time, y = value, group = key, color = key)) +
+    geom_line(data = covid[covid$key %in% keys & covid$table == "opencovid.ca", ]) +
+    scale_x_datetime(date_breaks = "1 month", date_minor_breaks = "2 weeks", date_labels = "%b %Y") +
     lims(y = c(0, NA)) + labs(x = "", y = "") + common_theme
 }
 ```
@@ -38,7 +44,7 @@ LocalFig <- function(keys) {
 
 ### Average increase per day (over 7 days)
 ```{r opencovid_avg}
-LocalFig(c("Average increase per day (Toronto)"))
+DailyFig(c("Average increase per day (Toronto)"))
 ```
 
 ### Cumulative cases
@@ -53,9 +59,9 @@ LocalFig(c("Total deaths (Toronto)"))
 
 ##  
 
-If the figures do not show the latest data, reload this page in your web browser.
+Grid lines indicate Mondays. If the figures do not show the latest data, reload this page in your web browser.
 
-Last opencovid.ca API access: `r str_replace(read_file("data/api_access_time.txt"), "\n", "")`
+Last opencovid update: `r str_replace(read_file("data/opencovid_update_time.txt"), "\n", "")`
 
 Last website update: `r now()`
 

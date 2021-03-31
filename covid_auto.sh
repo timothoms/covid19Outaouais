@@ -15,6 +15,7 @@ sleep 20
 git add data/covid_local.RData
 git add data/covid_local_daily.RData
 git add data/data_update_time.txt
+git add data/opencovid_update_time.txt
 git add websites/last_download_time.txt
 git add --force index.html toronto.html
 git commit --message "automatic site update"
