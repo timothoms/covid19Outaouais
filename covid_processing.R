@@ -175,21 +175,37 @@ covid$value[covid$time > "2020-05-09" & covid$time < "2020-05-11" & covid$key %i
 # VisualCheck(keys = c("Total cases", "Total", "Gatineau"), tab = "areas")
 # VisualCheck(keys = tapply(covid$key, covid$table, unique)[["areas"]], tab = "areas", exclude = c("Total cases", "Gatineau", "To be determined"))
 
-# jsonlite::fromJSON("https://api.opencovid.ca/version")
-api_link <- "https://api.opencovid.ca/timeseries?stat=cases&loc=2407"
-opencovid <- jsonlite::fromJSON(api_link)
-opencovid <- opencovid$cases[, c("date_report", "health_region", "cases", "cumulative_cases")]
-names(opencovid) <- c("time", "key", "cases", "cumulative_cases")
+api_access<- jsonlite::fromJSON("https://api.opencovid.ca/version")[[1]]
+GetOpenCovid <- function(stat, loc) {
+  names(stat) <- stat
+  df <- lapply(stat, function (stat_code) {
+    tab <- lapply(loc, function(location_code) {
+      link <- paste("https://api.opencovid.ca/timeseries?stat=", stat_code, "&loc=", location_code, sep = "")
+      jsonlite::fromJSON(link)[[stat_code]]
+    })
+    tab <- do.call(rbind, tab)
+    names(tab)[stringr::str_detect(names(tab), "date")] <- "time"
+    key <- names(tab)[stringr::str_detect(names(tab), "cumulative_")]
+    key <- stringr::str_replace(key, "cumulative_", "")
+    names(tab)[stringr::str_detect(names(tab), "cumulative_")] <- "cumulative"
+    tab$key <- key
+    names(tab)[!names(tab) %in% c("province", "health_region", "key", "time", "cumulative")] <- "value"
+    return(tab[, c("province", "health_region", "key", "time", "value", "cumulative")])
+  })
+  do.call(rbind, df)
+}
+opencovid <- GetOpenCovid(stat = c("cases", "mortality"), loc = c(2407, 3551, 3595))
 opencovid$time <- lubridate::as_datetime(opencovid$time, tz = "America/Montreal", format = "%d-%m-%Y")
-opencovid <- opencovid[opencovid$time > "2020-03-14", ]
-new <- opencovid[, c("time", "key", "cases")]
-new$key <- "New cases (Outaouais)"
-names(new)[3] <- "value"
-opencovid <- opencovid[, c("time", "key", "cumulative_cases")]
-opencovid$key <- "Total cases (Outaouais)"
-names(opencovid)[3] <- "value"
+# opencovid <- opencovid[opencovid$time > "2020-03-14", ]
+new <- opencovid[, c("health_region", "time", "key", "value")]
+new$key <- paste("New", new$key)
+opencovid <- opencovid[, c("health_region", "time", "key", "cumulative")]
+opencovid$key <- paste("Total", opencovid$key)
+names(opencovid)[names(opencovid) == "cumulative"] <- "value"
 opencovid <- rbind(opencovid, new)
 opencovid$table <- "opencovid.ca"
+opencovid$key <- paste(opencovid$key, " (", opencovid$health_region, ")", sep = "")
+opencovid$health_region <- NULL
 covid <- rbind(covid, opencovid)
 
 ### de-duplication and calculating change variables
@@ -197,8 +213,12 @@ covid <- rbind(covid, opencovid)
 exclude <- c(municipalities$municipality,
              "", "Average screening tests per day",
              "To be determined", "To be determined",
-             "Daily increase", "New cases (Outaouais)",
-             "Healed/resolved cases", "Total deaths")
+             "Daily increase", "Healed/resolved cases",
+             "New cases (Ottawa)", "New cases (Outaouais)",
+             "New cases (Toronto)", "New deaths (Ottawa)",
+             "New deaths (Outaouais)", "New deaths (Toronto)",
+             "Total deaths", "Total deaths (Ottawa)",
+             "Total deaths (Outaouais)", "Total deaths (Toronto)")
 daily <- covid[!covid$key %in% exclude, ]
 daily <- daily %>% arrange(key, time)
 daily$date <- lubridate::as_date(daily$time)
@@ -242,6 +262,9 @@ save(covid, file = "data/covid_local.RData")
 save(daily, file = "data/covid_local_daily.RData")
 file_connection <- file("data/data_update_time.txt")
 writeLines(as.character(lubridate::now()), file_connection)
+close(file_connection)
+file_connection <- file("data/api_access_time.txt")
+writeLines(as.character(api_access), file_connection)
 close(file_connection)
 
 ### vaccination dataset
