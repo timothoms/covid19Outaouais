@@ -121,7 +121,8 @@ ggplot(data = vaccination) +
     sec.axis = sec_axis(trans = ~ . / pop_outaouais_2020 * 100, name = "% of population")
   ) +
   labs(x = "", y = "") + theme_classic() +
-  theme(legend.position = "bottom", legend.title = element_blank())
+  theme(axis.text.x = element_text(angle = 15, vjust = 1.0, hjust = 1.0),
+        legend.position = "bottom", legend.title = element_blank())
 ```
 
 ## opencovid.ca (Outaouais and Ottawa) {.tabset .tabset-fade .tabset-pills}
@@ -271,6 +272,8 @@ Users of these data need to be aware of the following caveats:
 7. Expressing vaccination doses as a percentage of the Outaouais population (in 2020) assumes that receivers of the vaccine are Outaouais residents **and** they have received one dose only. These strong assumptions may be reasonable early in the vaccination campaign, but less so as time progresses.  
 
 Last HTML source download: `r str_replace(read_file("websites/last_download_time.txt"), "\n", "")`
+
+Last opencovid update: `r str_replace(read_file("data/opencovid_update_time.txt"), "\n", "")`
 
 Last dataset revision: `r str_replace(read_file("data/data_update_time.txt"), "\n", "")`
 
