@@ -21,6 +21,13 @@ tables <- ParseHTMLtables(path = "websites/local_sit_en/")
 
 ### initial tables
 sort(unique(unlist(lapply(tables, length))))
+## cases: 5-1; 6-1; 7-1; 8-2
+## rls: 3-1; 4-1; 5-2; 6-2; 7-2; 8-3
+## areas: 2-1; 3-2; 4-2; 5-3; 6-3; 7-3; 8-4
+## seniors' residences details: 4-4; 6-6; 7-7; 8-8
+#### hospital facilities details: 5-5;
+## outbreak in facilities summary: 6-5; 7-6; 8-7
+#### hospitals summary: 2-2; 3-3; 4-3; 5-4; 6-4; 7-4; 7-5; 8-5; 8-6
 # unique(lapply(tables[unlist(lapply(tables, length)) == 2], function(set) names(set[[1]])))
 covid <- list(
   cases = c(
@@ -45,13 +52,32 @@ covid <- list(
     lapply(tables[unlist(lapply(tables, length)) == 6], function(set) set[[3]]),
     lapply(tables[unlist(lapply(tables, length)) == 7], function(set) set[[3]]),
     lapply(tables[unlist(lapply(tables, length)) == 8], function(set) set[[4]])
-  )
+  ),
+  hospital = c(
+    lapply(tables[unlist(lapply(tables, length)) == 2], function(set) set[[2]]),
+    lapply(tables[unlist(lapply(tables, length)) == 3], function(set) set[[3]]),
+    lapply(tables[unlist(lapply(tables, length)) == 4], function(set) set[[3]]),
+    lapply(tables[unlist(lapply(tables, length)) == 5], function(set) set[[4]]),
+    lapply(tables[unlist(lapply(tables, length)) == 6], function(set) set[[4]]),
+    lapply(tables[unlist(lapply(tables, length)) == 7], function(set) set[[4]]),
+    lapply(tables[unlist(lapply(tables, length)) == 7], function(set) set[[5]]),
+    lapply(tables[unlist(lapply(tables, length)) == 8], function(set) set[[5]]),
+    lapply(tables[unlist(lapply(tables, length)) == 8], function(set) set[[6]])
+  ),
+  facilities = lapply(tables[unlist(lapply(tables, length)) == 5], function(set) set[[5]])
 )
 lapply(covid, function(set) unique(lapply(set, names)))
 ## duplicate tables
 lapply(covid, function(set) {
   paste(length(unique(set)), "/", length(set))
 })
+
+# facilities <- covid$facilities
+# unique(lapply(facilities, names))
+# facilities <- lapply(names(facilities), function(table_id) {
+#
+# })
+# facilities[1]
 
 ### standardizing tables
 FormatTable <- function(table_id, tables) {
@@ -64,7 +90,7 @@ FormatTable <- function(table_id, tables) {
   if(!"active" %in% names(tab)) tab$active <- NA
   return(tab[, c("time", "key", "value", "active")])
 }
-covid <- lapply(covid, function(set) lapply(names(set), FormatTable, tables = set))
+covid <- lapply(covid[names(covid) != "facilities"], function(set) lapply(names(set), FormatTable, tables = set))
 lapply(covid, function(set) unique(lapply(set, names)))
 ## missing labels
 # covid$areas[unlist(lapply(covid$areas, function(df) sum(df$key == "")) > 0)]
@@ -89,6 +115,7 @@ covid <- lapply(covid, function(df) {
   df$key[df$key %in% c("Cumulative cases", "Total number of cases in Outaouais", "Total") & df$table == "areas"] <- "Total cases (municipalities)"
   df$key[df$key %in% c("To be determined", "To be determined0", "À déterminer")] <- "To be determined"
   df$key[df$key %in% c("Average screening test per day (last 6 days)", "Average screening test per day (last 7 days)", "Average screening test per day534", "Average screening test per day")] <- "Average screening tests per day"
+  df$key[df$key == "Number of deaths" & df$table == "hospital"] <- "Deaths"
   df$key[df$key %in% c("Deaths", "Number of deaths")] <- "Total deaths"
   df$key[df$key %in% c("Healed cases", "Total number of healed cases in Outaouais", "Resolved cases")] <- "Healed/resolved cases"
   df$key[df$key %in% c("Active cases", "Total of active cases in Outaouais")] <- "Active cases"
@@ -105,6 +132,20 @@ covid <- lapply(covid, function(df) {
   df$key[df$key %in% c("Val-des-Bois", "Val-des-bois") & df$table == "areas"] <- "Val-des-Bois"
   df$key[df$key %in% c("L'Isle-aux-Allumettes", "L'Îsles-aux-Allumettes") & df$table == "areas"] <- "L'Isle-aux-Allumettes"
   df <- df[df$key != df$value, ]
+  df$key <- str_replace(df$key, "Number of ", "")
+  df$key[df$key %in% c("hospitalizations at the designated COVID-19 centre (including intensive care patients)",
+                       "Hospitalizations at the designated COVID-19 center (including intensive care patients)")] <- "Hospitalizations"
+  df$key[df$key %in% c("People in intensive care at the designated COVID-19 centre",
+                       "Hospitalizations in the intensive care unit of the designated COVID-19 center")] <- "Hospitalizations in ICU"
+  df$key[df$key %in% c("employees with COVID-19 since the beginning of the pandemic",
+                       "employees affected by COVID-19")] <- "Hospital employees affected"
+  df$key[df$key %in% c("employees with COVID-19 recovered")] <- "Hospital employees recovered"
+  df$key[df$key %in% c("employees currently positive with COVID-19")] <- "Hospital employees currently positive"
+  df$key[df$key %in% c("employees in isolation (contact with positive case)")] <- "Hospital employees in isolation"
+  df$key[df$key %in% c("seniors' residences where there is an outbreak",
+                       "Total number of seniors' residences where there is an outbreak",
+                       "seniors' residences affected (CHSLD, private seniors' residences)")] <- "Seniors' residences with outbreaks"
+  df$key[df$key %in% c("seniors' residences where there is an active outbreak")] <- "Seniors' residences with active outbreaks"
   return(df)
 })
 lapply(covid, function(set) sort(unique(set$key)))
@@ -174,6 +215,7 @@ covid <- covid[!(covid$time > "2021-01-06" & covid$time < "2021-01-07" & covid$k
 covid$value[covid$time > "2020-05-09" & covid$time < "2020-05-11" & covid$key %in% c("Total", "Total cases", "Total cases (municipalities)") & covid$value == 3334] <- 334
 # VisualCheck(keys = c("Total cases", "Total", "Gatineau"), tab = "areas")
 # VisualCheck(keys = tapply(covid$key, covid$table, unique)[["areas"]], tab = "areas", exclude = c("Total cases", "Gatineau", "To be determined"))
+# VisualCheck(keys = c("Hospitalizations", "Hospitalizations in ICU"), tab = "hospital")
 
 api_access<- jsonlite::fromJSON("https://api.opencovid.ca/version")[[1]]
 GetOpenCovid <- function(stat, loc) {
@@ -218,7 +260,13 @@ exclude <- c(municipalities$municipality,
              "New cases (Toronto)", "New deaths (Ottawa)",
              "New deaths (Outaouais)", "New deaths (Toronto)",
              "Total deaths", "Total deaths (Ottawa)",
-             "Total deaths (Outaouais)", "Total deaths (Toronto)")
+             "Total deaths (Outaouais)", "Total deaths (Toronto)",
+             "Hospital employees affected",
+             "Hospital employees currently positive",
+             "Hospital employees in isolation",
+             "Hospital employees recovered",
+             "Seniors' residences with active outbreaks",
+             "Seniors' residences with outbreaks")
 daily <- covid[!covid$key %in% exclude, ]
 daily <- daily %>% arrange(key, time)
 daily$date <- lubridate::as_date(daily$time)
@@ -293,9 +341,9 @@ new$admin <- stringr::str_trim(new$admin)
 stringr::str_sub(new$region, 1, 5) <- ""
 new$relisted <- stringr::str_detect(new$school, stringr::fixed("*"))
 new$school <- stringr::str_replace(new$school, stringr::fixed("*"), "")
-new$note[new$code == 1] <- "already on list, with new confirmed case(s) [pink]"
-new$note[new$code == 2] <- "relisted due to new confirmed case(s) [green*]"
-new$note[new$code == 3] <- "new listing due to new confirmed case(s) [green]"
+new$note[new$code == 1] <- "reaffected listed school (pink)" # "already on list, with new confirmed case(s) [pink]"
+new$note[new$code == 2] <- "relisted newly affected school (green*)" # "relisted due to new confirmed case(s) [green*]"
+new$note[new$code == 3] <- "newly listed school (green)" # "new listing due to new confirmed case(s) [green]"
 # table(new$note, new$relisted)
 new <- new[c("time", "region", "region_code", "admin", "school", "code", "note")]
 load("data/schools.RData", verbose = TRUE)
