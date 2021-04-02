@@ -12,6 +12,6 @@ lapply(names(links), function(x) {
   xml2::download_html(links[[x]],
     file = here("websites", x, paste(format(lubridate::now(), "%Y%m%d%H%M%S"), ".html", sep = "")))
 })
-file_connection <- file(paste(path, "last_download_time.txt", sep = ""))
+file_connection <- file(here("websites", "last_download_time.txt"))
 writeLines(as.character(lubridate::now()), file_connection)
 close(file_connection)
