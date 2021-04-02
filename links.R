@@ -18,6 +18,9 @@ links <- list(
   can_vaccination    = "https://health-infobase.canada.ca/covid-19/vaccination-coverage/"
 )
 lapply(links, robotstxt::paths_allowed)
+robottexts <- lapply(links, robotstxt::get_robotstxt)
+robottexts <- lapply(robottexts, robotstxt::parse_robotstxt)
+lapply(robottexts, function(page) page$permissions)
 
 links_other <- list(
   qc_schools_pdf     = "https://cdn-contenu.quebec.ca/cdn-contenu/adm/min/education/publications-adm/covid-19/reseauScolaire_listeEcoles_ANG.pdf",
