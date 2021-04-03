@@ -5,7 +5,7 @@ output:
     theme: darkly
     toc: true
 params: 
-  optimize: TRUE
+  optimize: true
 ---
 
 ```{r setup, include=FALSE}
@@ -48,10 +48,13 @@ The present project provides local trend data based on these snapshots.
 | Average increase per day        | average daily increase over last 7 days, calculated from available data                                |
 | Total deaths                    | reported total number of deaths at the regional level                                                  |
 | Average screening tests per day | reported average daily number of covid19 tests performed over last 6-7 days                            |
+| Vaccination                     | Vaccine doses administered in the region (may not be Outaouais residents)                              |
 
 Grid lines indicate Mondays. 
 Where relevant, "rugs" indicate dates for which the data are available in the dataset.
 If the figures do not show the latest data, reload this page in your web browser.
+
+*April 3, 2021: Newly implemented layout changes to the CISSS website led to errors in yesterday's data update. These errors have now been fixed. Moreover, I have temporarily removed the hospitalization figure because CISSS Outaouais no longer reports these data. I will add historical covid19 hospitalization data provided by the province in the next few days.*
 
 ```{r prep}
 common_theme <- theme_classic() +
@@ -75,7 +78,7 @@ LayeredFig <- function(keys, rug = TRUE) {
   ggplot(mapping = aes(x = time, y = value, group = key, color = key)) +
     geom_line(data = covid[covid$key %in% keys & covid$table == "cases", ]) +
     geom_line(data = covid[covid$key %in% keys & covid$table == "areas", ]) +
-    geom_line(data = covid[covid$key %in% keys & covid$table == "rls", ]) +
+    # geom_line(data = covid[covid$key %in% keys & covid$table == "rls", ]) +
     {if(rug) geom_rug(data = covid[covid$key %in% keys & covid$table %in% c("cases", "areas", "rls"), ],
                       mapping = aes(x = time), sides = "b", colour = "black", length = unit(0.02, "npc"))} + 
     scale_x_datetime(date_breaks="1 month", date_minor_breaks = "2 weeks", date_labels = "%b %Y") +
@@ -126,9 +129,9 @@ LayeredFig(c("Active cases", "Average screening tests per day"))
 LayeredFig(c("Total deaths"))
 ```
 
-### Cases in hospitals
-```{r hospitals}
-LocalFig(c("Hospitalizations", "Hospitalizations in ICU"), tab = "hospital")
+<!-- ### Cases in hospitals -->
+```{r hospitals, eval = FALSE}
+LocalFig(c("Hospitalizations", "Hospitalizations in ICU"), tab = "cases")
 ```
 
 ### Vaccination
