@@ -18,9 +18,31 @@ ParseHTMLtables <- function(path) {
   return(tables)
 }
 tables <- ParseHTMLtables(path = "websites/local_sit_en/")
+## make sure to catch all tables, count them
+# sum(unlist(lapply(tables, length)))
+# unique(unlist(lapply(tables, function(set) lapply(set, names)), recursive = FALSE))
+# lapply(tables, function(set) lapply(set, function(tf) identical(names(tf), c("X1", "X2", "X3"))))
+covid <- list(
+  cases = lapply(tables, function(set) set[unlist(lapply(set, function(tf) identical(names(tf), c("X1", "X2"))))]),
+  hours = lapply(tables, function(set) set[unlist(lapply(set, function(tf) identical(names(tf), c("X1", "X2", "X3"))))]),
+  areas = lapply(tables, function(set) set[unlist(lapply(set, function(tf) names(tf)[1] %in% c("Territory", "City or Municipality", "City or municipality", "Ville ou Municipalité")))]),
+  rls = lapply(tables, function(set) set[unlist(lapply(set, function(tf) names(tf)[1] %in% c("Local service area (RLS)", "Réseaux locaux de services (RLS)")))]),
+  seniors = lapply(tables, function(set) set[unlist(lapply(set, function(tf) names(tf)[1] %in% c("Senior residence name")))]),
+  facilities = lapply(tables, function(set) set[unlist(lapply(set, function(tf) names(tf)[1] %in% c("Facilities name", "Facilities")))])
+)
+# sum(unlist(lapply(covid, function(toplevel) lapply(toplevel, length) )))
+covid <- lapply(covid, function(toplevel) {toplevel[lapply(toplevel, length) > 0]})
+# sum(unlist(lapply(covid, function(toplevel) lapply(toplevel, length) )))
+# lapply(covid, function(toplevel) sum(unlist(lapply(toplevel, function(set) length(set) > 1))))
+lapply(covid, function(toplevel) unique(unlist(lapply(toplevel, length))))
+lapply(covid, function(toplevel) unique(unlist(lapply(toplevel, class))))
+# covid <- lapply(covid, function(toplevel) lapply(toplevel, function(set) do.call(rbind, set)))
+covid$cases <- lapply(covid$cases, function(set) do.call(rbind, set))
+covid[-1] <- lapply(covid[-1], function(set) unlist(set, recursive = FALSE))
+covid$hours <- NULL
 
-### initial tables
-sort(unique(unlist(lapply(tables, length))))
+### this was the old way, superseded by more robust code above for sorting through the initial tables
+# sort(unique(unlist(lapply(tables, length))))
 ## cases: 5-1; 6-1; 7-1; 8-2
 ## rls: 3-1; 4-1; 5-2; 6-2; 7-2; 8-3
 ## areas: 2-1; 3-2; 4-2; 5-3; 6-3; 7-3; 8-4
@@ -29,55 +51,51 @@ sort(unique(unlist(lapply(tables, length))))
 ## outbreak in facilities summary: 6-5; 7-6; 8-7
 #### hospitals summary: 2-2; 3-3; 4-3; 5-4; 6-4; 7-4; 7-5; 8-5; 8-6
 # unique(lapply(tables[unlist(lapply(tables, length)) == 2], function(set) names(set[[1]])))
-covid <- list(
-  cases = c(
-    lapply(tables[unlist(lapply(tables, length)) == 5], function(set) set[[1]]),
-    lapply(tables[unlist(lapply(tables, length)) == 6], function(set) set[[1]]),
-    lapply(tables[unlist(lapply(tables, length)) == 7], function(set) set[[1]]),
-    lapply(tables[unlist(lapply(tables, length)) == 8], function(set) set[[2]])
-  ),
-  rls = c(
-    lapply(tables[unlist(lapply(tables, length)) == 3], function(set) set[[1]]),
-    lapply(tables[unlist(lapply(tables, length)) == 4], function(set) set[[1]]),
-    lapply(tables[unlist(lapply(tables, length)) == 5], function(set) set[[2]]),
-    lapply(tables[unlist(lapply(tables, length)) == 6], function(set) set[[2]]),
-    lapply(tables[unlist(lapply(tables, length)) == 7], function(set) set[[2]]),
-    lapply(tables[unlist(lapply(tables, length)) == 8], function(set) set[[3]])
-  ),
-  areas = c(
-    lapply(tables[unlist(lapply(tables, length)) == 2], function(set) set[[1]]),
-    lapply(tables[unlist(lapply(tables, length)) == 3], function(set) set[[2]]),
-    lapply(tables[unlist(lapply(tables, length)) == 4], function(set) set[[2]]),
-    lapply(tables[unlist(lapply(tables, length)) == 5], function(set) set[[3]]),
-    lapply(tables[unlist(lapply(tables, length)) == 6], function(set) set[[3]]),
-    lapply(tables[unlist(lapply(tables, length)) == 7], function(set) set[[3]]),
-    lapply(tables[unlist(lapply(tables, length)) == 8], function(set) set[[4]])
-  ),
-  hospital = c(
-    lapply(tables[unlist(lapply(tables, length)) == 2], function(set) set[[2]]),
-    lapply(tables[unlist(lapply(tables, length)) == 3], function(set) set[[3]]),
-    lapply(tables[unlist(lapply(tables, length)) == 4], function(set) set[[3]]),
-    lapply(tables[unlist(lapply(tables, length)) == 5], function(set) set[[4]]),
-    lapply(tables[unlist(lapply(tables, length)) == 6], function(set) set[[4]]),
-    lapply(tables[unlist(lapply(tables, length)) == 7], function(set) set[[4]]),
-    lapply(tables[unlist(lapply(tables, length)) == 7], function(set) set[[5]]),
-    lapply(tables[unlist(lapply(tables, length)) == 8], function(set) set[[5]]),
-    lapply(tables[unlist(lapply(tables, length)) == 8], function(set) set[[6]])
-  ),
-  facilities = lapply(tables[unlist(lapply(tables, length)) == 5], function(set) set[[5]])
-)
+# covid <- list(
+#   cases = c(
+#     lapply(tables[unlist(lapply(tables, length)) == 5], function(set) set[[1]]),
+#     lapply(tables[unlist(lapply(tables, length)) == 6], function(set) set[[1]]),
+#     lapply(tables[unlist(lapply(tables, length)) == 7], function(set) set[[1]]),
+#     lapply(tables[unlist(lapply(tables, length)) == 8], function(set) set[[2]])
+#   ),
+#   rls = c(
+#     lapply(tables[unlist(lapply(tables, length)) == 3], function(set) set[[1]]),
+#     lapply(tables[unlist(lapply(tables, length)) == 4], function(set) set[[1]]),
+#     lapply(tables[unlist(lapply(tables, length)) == 5], function(set) set[[2]]),
+#     lapply(tables[unlist(lapply(tables, length)) == 6], function(set) set[[2]]),
+#     lapply(tables[unlist(lapply(tables, length)) == 7], function(set) set[[2]]),
+#     lapply(tables[unlist(lapply(tables, length)) == 8], function(set) set[[3]])
+#   ),
+#   areas = c(
+#     lapply(tables[unlist(lapply(tables, length)) == 2], function(set) set[[1]]),
+#     lapply(tables[unlist(lapply(tables, length)) == 3], function(set) set[[2]]),
+#     lapply(tables[unlist(lapply(tables, length)) == 4], function(set) set[[2]]),
+#     lapply(tables[unlist(lapply(tables, length)) == 5], function(set) set[[3]]),
+#     lapply(tables[unlist(lapply(tables, length)) == 6], function(set) set[[3]]),
+#     lapply(tables[unlist(lapply(tables, length)) == 7], function(set) set[[3]]),
+#     lapply(tables[unlist(lapply(tables, length)) == 8], function(set) set[[4]])
+#   ),
+#   hospital = c(
+#     lapply(tables[unlist(lapply(tables, length)) == 2], function(set) set[[2]]),
+#     lapply(tables[unlist(lapply(tables, length)) == 3], function(set) set[[3]]),
+#     lapply(tables[unlist(lapply(tables, length)) == 4], function(set) set[[3]]),
+#     lapply(tables[unlist(lapply(tables, length)) == 5], function(set) set[[4]]),
+#     lapply(tables[unlist(lapply(tables, length)) == 6], function(set) set[[4]]),
+#     lapply(tables[unlist(lapply(tables, length)) == 7], function(set) set[[4]]),
+#     lapply(tables[unlist(lapply(tables, length)) == 7], function(set) set[[5]]),
+#     lapply(tables[unlist(lapply(tables, length)) == 8], function(set) set[[5]]),
+#     lapply(tables[unlist(lapply(tables, length)) == 8], function(set) set[[6]])
+#   ),
+#   facilities = lapply(tables[unlist(lapply(tables, length)) == 5], function(set) set[[5]])
+# )
+
 lapply(covid, function(set) unique(lapply(set, names)))
 ## duplicate tables
 lapply(covid, function(set) {
   paste(length(unique(set)), "/", length(set))
 })
-
-# facilities <- covid$facilities
-# unique(lapply(facilities, names))
-# facilities <- lapply(names(facilities), function(table_id) {
-#
-# })
-# facilities[1]
+## checking
+lapply(covid[c("cases", "areas", "rls")], function(toplevel) unique(lapply(toplevel, names)))
 
 ### standardizing tables
 FormatTable <- function(table_id, tables) {
@@ -90,7 +108,7 @@ FormatTable <- function(table_id, tables) {
   if(!"active" %in% names(tab)) tab$active <- NA
   return(tab[, c("time", "key", "value", "active")])
 }
-covid <- lapply(covid[names(covid) != "facilities"], function(set) lapply(names(set), FormatTable, tables = set))
+covid <- lapply(covid[c("cases", "areas", "rls")], function(set) lapply(names(set), FormatTable, tables = set))
 lapply(covid, function(set) unique(lapply(set, names)))
 ## missing labels
 # covid$areas[unlist(lapply(covid$areas, function(df) sum(df$key == "")) > 0)]
@@ -138,14 +156,18 @@ covid <- lapply(covid, function(df) {
   df$key[df$key %in% c("People in intensive care at the designated COVID-19 centre",
                        "Hospitalizations in the intensive care unit of the designated COVID-19 center")] <- "Hospitalizations in ICU"
   df$key[df$key %in% c("employees with COVID-19 since the beginning of the pandemic",
+                       "employees affected by COVID-19 since beginning of pandemic",
                        "employees affected by COVID-19")] <- "Hospital employees affected"
-  df$key[df$key %in% c("employees with COVID-19 recovered")] <- "Hospital employees recovered"
+  df$key[df$key %in% c("employees with COVID-19 recovered",
+                       "employees affected by COVID-19 healed")] <- "Hospital employees recovered"
   df$key[df$key %in% c("employees currently positive with COVID-19")] <- "Hospital employees currently positive"
   df$key[df$key %in% c("employees in isolation (contact with positive case)")] <- "Hospital employees in isolation"
   df$key[df$key %in% c("seniors' residences where there is an outbreak",
                        "Total number of seniors' residences where there is an outbreak",
-                       "seniors' residences affected (CHSLD, private seniors' residences)")] <- "Seniors' residences with outbreaks"
-  df$key[df$key %in% c("seniors' residences where there is an active outbreak")] <- "Seniors' residences with active outbreaks"
+                       "seniors' residences affected (CHSLD, private seniors' residences)",
+                       "Total number of facilitises where there is an outbreak")] <- "Facilities with outbreaks"
+  df$key[df$key %in% c("seniors' residences where there is an active outbreak",
+                       "facilitises where there is an active outbreak")] <- "Facilities with active outbreaks"
   return(df)
 })
 lapply(covid, function(set) sort(unique(set$key)))
@@ -215,7 +237,7 @@ covid <- covid[!(covid$time > "2021-01-06" & covid$time < "2021-01-07" & covid$k
 covid$value[covid$time > "2020-05-09" & covid$time < "2020-05-11" & covid$key %in% c("Total", "Total cases", "Total cases (municipalities)") & covid$value == 3334] <- 334
 # VisualCheck(keys = c("Total cases", "Total", "Gatineau"), tab = "areas")
 # VisualCheck(keys = tapply(covid$key, covid$table, unique)[["areas"]], tab = "areas", exclude = c("Total cases", "Gatineau", "To be determined"))
-# VisualCheck(keys = c("Hospitalizations", "Hospitalizations in ICU"), tab = "hospital")
+# VisualCheck(keys = c("Hospitalizations", "Hospitalizations in ICU"), tab = "cases")
 
 api_access<- jsonlite::fromJSON("https://api.opencovid.ca/version")[[1]]
 GetOpenCovid <- function(stat, loc) {
@@ -265,8 +287,9 @@ exclude <- c(municipalities$municipality,
              "Hospital employees currently positive",
              "Hospital employees in isolation",
              "Hospital employees recovered",
-             "Seniors' residences with active outbreaks",
-             "Seniors' residences with outbreaks")
+             "Facilities with active outbreaks",
+             "Facilities with outbreaks",
+             "Active outbreaks", "Ended outbreaks")
 daily <- covid[!covid$key %in% exclude, ]
 daily <- daily %>% arrange(key, time)
 daily$date <- lubridate::as_date(daily$time)

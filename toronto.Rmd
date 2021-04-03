@@ -4,7 +4,7 @@ output:
   html_document:
     theme: darkly
 params: 
-  optimize: FALSE
+  optimize: TRUE
 ---
 
 ```{r setup, include=FALSE}
@@ -57,9 +57,9 @@ LocalFig(c("Total cases (Toronto)"))
 LocalFig(c("Total deaths (Toronto)"))
 ```
 
-##  
+##
 
-Grid lines indicate Mondays. If the figures do not show the latest data, reload this page in your web browser.
+If the figures do not show the latest data, reload this page in your web browser.
 
 Last opencovid update: `r str_replace(read_file("data/opencovid_update_time.txt"), "\n", "")`
 
