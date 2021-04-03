@@ -239,7 +239,7 @@ covid$value[covid$time > "2020-05-09" & covid$time < "2020-05-11" & covid$key %i
 # VisualCheck(keys = tapply(covid$key, covid$table, unique)[["areas"]], tab = "areas", exclude = c("Total cases", "Gatineau", "To be determined"))
 # VisualCheck(keys = c("Hospitalizations", "Hospitalizations in ICU"), tab = "cases")
 
-api_access<- jsonlite::fromJSON("https://api.opencovid.ca/version")[[1]]
+opencovid_update<- jsonlite::fromJSON("https://api.opencovid.ca/version")[[1]]
 GetOpenCovid <- function(stat, loc) {
   names(stat) <- stat
   df <- lapply(stat, function (stat_code) {
@@ -334,8 +334,8 @@ save(daily, file = "data/covid_local_daily.RData")
 file_connection <- file("data/data_update_time.txt")
 writeLines(as.character(lubridate::now()), file_connection)
 close(file_connection)
-file_connection <- file("data/api_access_time.txt")
-writeLines(as.character(api_access), file_connection)
+file_connection <- file("data/opencovid_update_time.txt")
+writeLines(as.character(opencovid_update), file_connection)
 close(file_connection)
 
 ### vaccination dataset
