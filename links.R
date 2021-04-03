@@ -15,7 +15,9 @@ links <- list(
   qc_alert           = "https://www.quebec.ca/en/health/health-issues/a-z/2019-coronavirus/progressive-regional-alert-and-intervention-system/map-of-covid-19-alert-levels-by-region/",
   can_visual         = "https://health-infobase.canada.ca/covid-19/",
   can_data           = "https://www.canada.ca/en/public-health/services/diseases/coronavirus-disease-covid-19/epidemiological-economic-research-data.html",
-  can_vaccination    = "https://health-infobase.canada.ca/covid-19/vaccination-coverage/"
+  can_vaccination    = "https://health-infobase.canada.ca/covid-19/vaccination-coverage/",
+  qc_hospitalization = "https://www.donneesquebec.ca/recherche/dataset/covid-19-portrait-quotidien-des-hospitalisations/",
+  qc_cases_hist      = "https://www.donneesquebec.ca/recherche/dataset/covid-19-portrait-quotidien-des-cas-confirmes"
 )
 lapply(links, robotstxt::paths_allowed)
 robottexts <- lapply(links, robotstxt::get_robotstxt)
