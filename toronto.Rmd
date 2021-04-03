@@ -4,7 +4,7 @@ output:
   html_document:
     theme: darkly
 params: 
-  optimize: TRUE
+  optimize: false
 ---
 
 ```{r setup, include=FALSE}

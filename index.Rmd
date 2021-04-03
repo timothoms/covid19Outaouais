@@ -5,7 +5,7 @@ output:
     theme: darkly
     toc: true
 params: 
-  optimize: true
+  optimize: false
 ---
 
 ```{r setup, include=FALSE}
