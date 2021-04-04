@@ -57,8 +57,6 @@ Grid lines indicate Mondays.
 Where relevant, "rugs" indicate dates for which the data are available in the dataset.
 If the figures do not show the latest data, reload this page in your web browser.
 
-*April 3, 2021: Newly implemented layout changes to the CISSS website led to errors in yesterday's data update. These errors have been fixed.*
-
 ```{r prep}
 common_theme <- theme_classic() +
   theme(axis.text.x = element_text(angle = 15, vjust = 1.0, hjust = 1.0),
