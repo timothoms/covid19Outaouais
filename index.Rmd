@@ -27,6 +27,7 @@ vaccination$date <- lubridate::as_date(vaccination$time)
 vaccination <- vaccination %>% group_by(key, date) %>% filter(time == max(time))
 vaccination <- vaccination[vaccination$key == "Outaouais", c("key", "date", "value")]
 vaccination$key <- paste("Doses administered in", vaccination$key)
+load("data/hospitals.RData")
 ```
 
 It is difficult to find covid19 trend data over time at the local level for the Outaouais region. 
@@ -47,14 +48,16 @@ The present project provides local trend data based on these snapshots.
 | Healed / resolved cases         | reported number of resolved cases at regional level                                                    |
 | Average increase per day        | average daily increase over last 7 days, calculated from available data                                |
 | Total deaths                    | reported total number of deaths at the regional level                                                  |
-| Average screening tests per day | reported average daily number of covid19 tests performed over last 6-7 days                            |
+| Average screening tests per day | reported average daily number of covid-19 tests performed over last 6-7 days                           |
+| Hospitalizations                | reported active hospitalizations (excluding ICU) for confirmed covid-19 diagnosis                      |
+| Hospitalizations (ICU)          | reported active hospitalizations (in ICU) for confirmed covid-19 diagnosis                             |
 | Vaccination                     | Vaccine doses administered in the region (may not be Outaouais residents)                              |
 
 Grid lines indicate Mondays. 
 Where relevant, "rugs" indicate dates for which the data are available in the dataset.
 If the figures do not show the latest data, reload this page in your web browser.
 
-*April 3, 2021: Newly implemented layout changes to the CISSS website led to errors in yesterday's data update. These errors have now been fixed. Moreover, I have temporarily removed the hospitalization figure because CISSS Outaouais no longer reports these data. I will add historical covid19 hospitalization data provided by the province in the next few days.*
+*April 3, 2021: Newly implemented layout changes to the CISSS website led to errors in yesterday's data update. These errors have been fixed.*
 
 ```{r prep}
 common_theme <- theme_classic() +
@@ -129,9 +132,13 @@ LayeredFig(c("Active cases", "Average screening tests per day"))
 LayeredFig(c("Total deaths"))
 ```
 
-<!-- ### Cases in hospitals -->
-```{r hospitals, eval = FALSE}
-LocalFig(c("Hospitalizations", "Hospitalizations in ICU"), tab = "cases")
+### Hospitalization
+```{r hospitals}
+keys <- c("Hospitalizations", "Hospitalizations in ICU")
+ggplot(data = hospitals[hospitals$key %in% keys, ]) +
+  geom_line(mapping = aes(x = time, y = value, group = key, colour = key)) +
+  scale_x_datetime(date_breaks="1 month", date_minor_breaks = "2 weeks", date_labels = "%b %Y") +
+  lims(y = c(0, NA)) + labs(x = "", y = "") + common_theme
 ```
 
 ### Vaccination
@@ -275,7 +282,11 @@ LocalFig(c("RLS de Gatineau"))
 
 ## Method and caveats
 
-The HTML source for the [CISSS Outaouais site](https://cisss-outaouais.gouv.qc.ca/language/en/covid19-en/) is downloaded daily, the tables are scraped and processed into a tidy dataset, to produce the figures on this site. The latest [opencovid.ca](https://opencovid.ca/) health region data are included for comparison. The source code for downloading and processing all data is available in the project [GitHub repository](https://github.com/timothoms/covid19Outaouais). Daily automation is currently done with MacScheduler.
+The HTML source for the [CISSS Outaouais site](https://cisss-outaouais.gouv.qc.ca/language/en/covid19-en/) is downloaded daily, the tables are scraped and processed into a tidy dataset, to produce the figures on this site. 
+The latest [opencovid.ca](https://opencovid.ca/) health region data are included for comparison. 
+Historical hospitalization data come from the [Ministère de la Santé et des Services sociaux](https://www.donneesquebec.ca/recherche/dataset/covid-19-portrait-quotidien-des-hospitalisations).
+The source code for downloading and processing all data is available in the project [GitHub repository](https://github.com/timothoms/covid19Outaouais). 
+Daily automation is currently done with MacScheduler.
 
 Users of these data need to be aware of the following caveats:
 

@@ -18,6 +18,7 @@ ParseHTMLtables <- function(path) {
   return(tables)
 }
 tables <- ParseHTMLtables(path = "websites/local_sit_en/")
+
 ## make sure to catch all tables, count them
 # sum(unlist(lapply(tables, length)))
 # unique(unlist(lapply(tables, function(set) lapply(set, names)), recursive = FALSE))
@@ -352,6 +353,20 @@ load("data/vaccination.RData", verbose = TRUE)
 vaccination <- rbind(vaccination, new_vac)
 vaccination <- vaccination %>% arrange(key, time)
 save(vaccination, file = "data/vaccination.RData")
+
+### hospitalization
+link <- "https://msss.gouv.qc.ca/professionnels/statistiques/documents/covid19/COVID19_Qc_HistoHospit.csv"
+hospitals <- readr::read_csv(link)[, c("Date", "ACT_Hsi_RSS07", "ACT_Si_RSS07")]
+hospitals$time <- lubridate::as_datetime(hospitals$Date, tz = "America/Montreal", format = "%m/%d/%Y")
+icu <- hospitals[, c("time", "ACT_Si_RSS07")]
+names(icu) <- c("time", "value")
+icu$key <- "Hospitalizations in ICU"
+hospitals <- hospitals[, c("time", "ACT_Hsi_RSS07")]
+names(hospitals) <- c("time", "value")
+hospitals$key <- "Hospitalizations"
+hospitals <- rbind(hospitals, icu)
+hospitals <- hospitals %>% arrange(key, time)
+save(hospitals, file = "data/hospitals.RData")
 
 ### school listings
 link <- "https://cdn-contenu.quebec.ca/cdn-contenu/education/coronavirus/Liste_ecole_DCOM.csv"
