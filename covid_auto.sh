@@ -20,3 +20,5 @@ git add websites/last_download_time.txt
 git add --force index.html toronto.html
 git commit --message "automatic site update"
 git push origin main >> ignore/push.log 2>&1
+
+/usr/local/bin/Rscript covid_new.R
