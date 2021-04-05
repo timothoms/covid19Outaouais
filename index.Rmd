@@ -5,9 +5,9 @@ output:
     theme: darkly
     toc: true
     includes:
-      before_body: translate_fragment.html
+      before_body: translate.html
 params: 
-  optimize: false
+  optimize: true
 ---
 
 ```{r setup, include=FALSE}
@@ -309,7 +309,7 @@ Users of these data need to be aware of the following caveats:
 
 1. There is no guarantee of data accuracy. I am aggregating what CISSS Outaouais has been reporting over time. While I do try to correct obvious data input error, I have (so far) not implemented an automatic error detection process.
 
-2. The date and time in the dataset refer to when the CISSS Outaouais website was accessed, not when cases occurred.
+2. The date and time in the dataset refer to when the CISSS Outaouais page was accessed, not when cases occurred.
 
 3. The trend data are not complete (i.e daily) for several reasons. First, I started regularly downloading the CISSS Outaouais source in fall 2020, and used the [Wayback Machine](https://archive.org/web/) to get earlier snapshots. Unfortunately, due to a nasty syncing glitch, I lost some HTML source files. (RStudio projects and Dropbox do not play well together; I learnt this the hard way, twice.) Second, the CISSS Outaouais site is not updated every day. Third, running the code from my personal computer means that the automatic download does not happen every day, either because the computer is turned off, or because my software for scheduling scripts has failed a few times. Since the snapshots include cumulative counts, this is not necessarily a problem, but it means that changes in case counts cannot always be precisely dated.
 
@@ -331,8 +331,8 @@ Last opencovid update: `r str_replace(read_file("data/opencovid_update_time.txt"
 
 Last dataset revision: `r str_replace(read_file("data/data_update_time.txt"), "\n", "")`
 
-Last website update: `r now()`
+Last page update: `r now()`
 
 \  
 
-This website is maintained by Timo Thoms. Questions, concerns, and suggestions can be raised through [GitHub Discussions](https://github.com/timothoms/covid19Outaouais/discussions).
+This page is maintained by Timo Thoms. Questions, concerns, and suggestions can be raised through [GitHub Discussions](https://github.com/timothoms/covid19Outaouais/discussions).
