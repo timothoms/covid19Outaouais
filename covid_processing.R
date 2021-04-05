@@ -42,59 +42,13 @@ covid$cases <- lapply(covid$cases, function(set) do.call(rbind, set))
 covid[-1] <- lapply(covid[-1], function(set) unlist(set, recursive = FALSE))
 covid$hours <- NULL
 
-### this was the old way, superseded by more robust code above for sorting through the initial tables
-# sort(unique(unlist(lapply(tables, length))))
-## cases: 5-1; 6-1; 7-1; 8-2
-## rls: 3-1; 4-1; 5-2; 6-2; 7-2; 8-3
-## areas: 2-1; 3-2; 4-2; 5-3; 6-3; 7-3; 8-4
-## seniors' residences details: 4-4; 6-6; 7-7; 8-8
-#### hospital facilities details: 5-5;
-## outbreak in facilities summary: 6-5; 7-6; 8-7
-#### hospitals summary: 2-2; 3-3; 4-3; 5-4; 6-4; 7-4; 7-5; 8-5; 8-6
-# unique(lapply(tables[unlist(lapply(tables, length)) == 2], function(set) names(set[[1]])))
-# covid <- list(
-#   cases = c(
-#     lapply(tables[unlist(lapply(tables, length)) == 5], function(set) set[[1]]),
-#     lapply(tables[unlist(lapply(tables, length)) == 6], function(set) set[[1]]),
-#     lapply(tables[unlist(lapply(tables, length)) == 7], function(set) set[[1]]),
-#     lapply(tables[unlist(lapply(tables, length)) == 8], function(set) set[[2]])
-#   ),
-#   rls = c(
-#     lapply(tables[unlist(lapply(tables, length)) == 3], function(set) set[[1]]),
-#     lapply(tables[unlist(lapply(tables, length)) == 4], function(set) set[[1]]),
-#     lapply(tables[unlist(lapply(tables, length)) == 5], function(set) set[[2]]),
-#     lapply(tables[unlist(lapply(tables, length)) == 6], function(set) set[[2]]),
-#     lapply(tables[unlist(lapply(tables, length)) == 7], function(set) set[[2]]),
-#     lapply(tables[unlist(lapply(tables, length)) == 8], function(set) set[[3]])
-#   ),
-#   areas = c(
-#     lapply(tables[unlist(lapply(tables, length)) == 2], function(set) set[[1]]),
-#     lapply(tables[unlist(lapply(tables, length)) == 3], function(set) set[[2]]),
-#     lapply(tables[unlist(lapply(tables, length)) == 4], function(set) set[[2]]),
-#     lapply(tables[unlist(lapply(tables, length)) == 5], function(set) set[[3]]),
-#     lapply(tables[unlist(lapply(tables, length)) == 6], function(set) set[[3]]),
-#     lapply(tables[unlist(lapply(tables, length)) == 7], function(set) set[[3]]),
-#     lapply(tables[unlist(lapply(tables, length)) == 8], function(set) set[[4]])
-#   ),
-#   hospital = c(
-#     lapply(tables[unlist(lapply(tables, length)) == 2], function(set) set[[2]]),
-#     lapply(tables[unlist(lapply(tables, length)) == 3], function(set) set[[3]]),
-#     lapply(tables[unlist(lapply(tables, length)) == 4], function(set) set[[3]]),
-#     lapply(tables[unlist(lapply(tables, length)) == 5], function(set) set[[4]]),
-#     lapply(tables[unlist(lapply(tables, length)) == 6], function(set) set[[4]]),
-#     lapply(tables[unlist(lapply(tables, length)) == 7], function(set) set[[4]]),
-#     lapply(tables[unlist(lapply(tables, length)) == 7], function(set) set[[5]]),
-#     lapply(tables[unlist(lapply(tables, length)) == 8], function(set) set[[5]]),
-#     lapply(tables[unlist(lapply(tables, length)) == 8], function(set) set[[6]])
-#   ),
-#   facilities = lapply(tables[unlist(lapply(tables, length)) == 5], function(set) set[[5]])
-# )
-
 lapply(covid, function(set) unique(lapply(set, names)))
+
 ## duplicate tables
 lapply(covid, function(set) {
   paste(length(unique(set)), "/", length(set))
 })
+
 ## checking
 lapply(covid[c("cases", "areas", "rls")], function(toplevel) unique(lapply(toplevel, names)))
 
