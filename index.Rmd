@@ -13,7 +13,7 @@ library(tidyverse)
 library(lubridate)
 knitr::knit_hooks$set(optipng = knitr::hook_optipng)
 knitr::knit_hooks$set(pngquant = knitr::hook_pngquant)
-knitr::opts_chunk$set(echo = FALSE, cache = FALSE, results = 'hide', warning = FALSE)
+knitr::opts_chunk$set(echo = FALSE, cache = FALSE, results = 'hide', warning = FALSE, message = FALSE)
 knitr::opts_chunk$set(dpi = 120, fig.width = 7, fig.height = 5, out.width = "100%", out.height = "100%")
 if(params$optimize) knitr::opts_chunk$set(optipng = '-o7')
 Sys.setlocale(category = "LC_ALL", locale = "en_CA.UTF-8")
@@ -32,10 +32,11 @@ load("data/hospitals.RData")
 
 It is difficult to find covid-19 trend data over time at the local level for the Outaouais region. 
 The [Quebec government](https://www.quebec.ca/en/health/health-issues/a-z/2019-coronavirus/situation-coronavirus-in-quebec/) shows summaries but only the last few days of trends for regions.
-Quebec Public Health (INSPQ) shows only cumulative snapshots by region on its [website](https://www.inspq.qc.ca/covid-19/donnees), though detailed, complete historical data are available from INSPQ with deeper digging.
+[Quebec Public Health (INSPQ)](https://www.inspq.qc.ca/covid-19/donnees)
+shows only cumulative snapshots by region and by [Réseaux locaux de services](https://www.inspq.qc.ca/covid-19/donnees/par-region) (RLS), though detailed, complete historical data are available from INSPQ with deeper digging.
 The [COVID-19 Canada Open Data Working Group (opencovid.ca)](https://opencovid.ca/) provides official time series data at the provincial and health region levels.
 However, none of these sources provide trend data below the regional level.
-[CISSS Outaouais](https://cisss-outaouais.gouv.qc.ca/language/en/covid19-en/) provides frequent (sometimes daily) snapshots by Réseaux locaux de services (RLS) and by municipality, but again no trends.
+[CISSS Outaouais](https://cisss-outaouais.gouv.qc.ca/language/en/covid19-en/) provides frequent (sometimes daily) snapshots by RLS and by municipality, but again no trends.
 The present project provides local trend data based on these snapshots and some key regional indicators.
 
 **Please note the caveats and data limitations at the bottom of this page.**
@@ -77,25 +78,31 @@ LocalFig <- function(keys, tab = c("areas", "rls"), rug = TRUE,
     guides(colour = guide_legend(ncol = 4)) + 
     labs(x = "", y = "", caption = caption)
 }
-LayeredFig <- function(keys, rug = TRUE) {
+LayeredFig <- function(keys, rug = TRUE, per_pop = FALSE) {
   ggplot(mapping = aes(x = time, y = value, group = key, color = key)) +
     geom_line(data = covid[covid$key %in% keys & covid$table == "cases", ]) +
     geom_line(data = covid[covid$key %in% keys & covid$table == "areas", ]) +
     # geom_line(data = covid[covid$key %in% keys & covid$table == "rls", ]) +
+    {if(per_pop) scale_y_continuous(sec.axis = sec_axis(trans = ~ . / pop_outaouais_2020 * 100000, 
+                                                        name = "per 100,000 population (2020)"),
+                                    limits = c(0, NA)) else lims(y = c(0, NA)) } +
     {if(rug) geom_rug(data = covid[covid$key %in% keys & covid$table %in% c("cases", "areas", "rls"), ],
                       mapping = aes(x = time), sides = "b", colour = "black", length = unit(0.02, "npc"))} + 
     scale_x_datetime(date_breaks="1 month", date_minor_breaks = "2 weeks", date_labels = "%b %Y") +
-    lims(y = c(0, NA)) + common_theme + 
+    common_theme + 
     labs(x = "", y = "", caption = "Data source: cisss-outaouais.gouv.qc.ca/language/en/covid19-en/")
 }
-DailyFig <- function(keys, tab = "rls", rug = TRUE,
+DailyFig <- function(keys, tab = "rls", rug = TRUE, per_pop = FALSE,
                      caption = "Data source: cisss-outaouais.gouv.qc.ca/language/en/covid19-en/") {
   out <- ggplot(data = daily[daily$change_key %in% keys & daily$table == tab, ]) +
     geom_line(mapping = aes(x = date, y = daily_change_avg, group = change_key, color = change_key)) +
+    {if(per_pop) scale_y_continuous(sec.axis = sec_axis(trans = ~ . / pop_outaouais_2020 * 100000, 
+                                                        name = "per 100,000 population (2020)"),
+                                    limits = c(0, NA)) else lims(y = c(0, NA)) } +
     {if(rug) geom_rug(mapping = aes(x = date), sides = "b", length = unit(0.02, "npc"))} +
     scale_x_date(date_breaks="1 month", date_minor_breaks = "2 weeks", date_labels = "%b %Y") +
-    scale_colour_discrete(breaks = keys) +
-    lims(y = c(0, NA)) + common_theme + 
+    # scale_colour_discrete(breaks = keys) +
+    common_theme + 
     guides(colour = guide_legend(ncol = 3)) + 
     labs(x = "", y = "", caption = caption)
   return(out)
@@ -116,7 +123,7 @@ RLSactiveFig <- function(keys, rug = TRUE) {
 
 ### Average increase
 ```{r cases_avg}
-DailyFig(c("Average increase per day (Outaouais)"), tab = "cases")
+DailyFig(c("Average increase per day (Outaouais)"), tab = "cases", per_pop = TRUE)
 ```
 
 ### Cumulative cases
@@ -151,14 +158,15 @@ ggplot(data = vaccination) +
   scale_x_date(date_breaks="1 day") +
   scale_y_continuous(name = "",
     sec.axis = sec_axis(trans = ~ . / pop_outaouais_2020 * 100, name = "% of 2020 population")
-  ) + theme_classic() + common_theme + 
+  ) + 
+  theme_classic() + common_theme + 
   theme(plot.caption = element_text(size = rel(0.67))) +
   labs(x = "", y = "", caption = "Data source: www.quebec.ca/en/health/health-issues/a-z/2019-coronavirus/situation-coronavirus-in-quebec/covid-19-vaccination-data/")
 ```
 
 ## opencovid.ca (Outaouais and Ottawa) {.tabset .tabset-fade .tabset-pills}
 
-Visualizations of key covid-19 statistics for Ottawa, including projections and wastewater surveillance, are available at [613covid.ca](613covid.ca/).
+Visualizations of key covid-19 statistics for Ottawa, including projections and wastewater surveillance, are available at [613covid.ca](https://613covid.ca/).
 
 ### Average increase
 ```{r opencovid_avg}
@@ -305,7 +313,7 @@ Users of these data need to be aware of the following caveats:
 
 4. Not all the data available on the CISSS Outaouais site are currently included in the dataset.
 
-5. Over time, CISSS Outaouais has made changes to what it reports and how it labels indicators. While I fix some inconsistencies in labels, I do not reconcile closely related indicators. The figures show how reporting by CISSS Outaouais has changed.
+5. Over time, CISSS Outaouais has made changes to what it reports and how it labels indicators. While I fix some inconsistencies in labels, I do not reconcile closely related indicators. The figures show how reporting by CISSS Outaouais has changed (i.e when certain indicator are, or are not, reported).
 
 6. At the municipal and RLS levels, CISSS Outaouais does not report numbers of less than 6 precisely, likely for good privacy reasons. When "5 or less" are reported, I record this as 5 cases. Users of this dataset must be aware that counts of 5 do not precisely reflect the actual situation at those levels, but refer to 1-5 cases.
 
