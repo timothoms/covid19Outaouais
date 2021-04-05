@@ -22,7 +22,7 @@ schools <- rbind(schools, new)
 schools <- schools %>% arrange(region, admin, school, time)
 save(schools, file = "data/schools.RData")
 
-# snapshots: https://health-infobase.canada.ca/covid-19/covidtrends/?HR=1,2407,2415&mapOpen=false
+# mobility snapshots: https://health-infobase.canada.ca/covid-19/covidtrends/?HR=1,2407&mapOpen=false
 link <- "https://health-infobase.canada.ca/src/data/covidLive/covidTrends/mobility.csv"
 mobility_new <- readr::read_csv(link)
 load("data/mobility.RData")
