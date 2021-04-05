@@ -39,7 +39,7 @@ The [COVID-19 Canada Open Data Working Group (opencovid.ca)](https://opencovid.c
 None of these sources provide trend data below the regional level. 
 [CISSS Outaouais](https://cisss-outaouais.gouv.qc.ca/language/en/covid19-en/) provides frequent (sometimes daily) snapshots by Réseaux locaux de services (RLS) and by municipality, but no trends. 
 The present project provides local trend data based on these snapshots. 
-**Please note important caveats and data limitations at the bottom of this page.**
+**Please note the caveats and data limitations at the bottom of this page.**
 
 | Indicators                      | Description                                                                                            |
 |---------------------------------|--------------------------------------------------------------------------------------------------------|
@@ -82,7 +82,7 @@ LayeredFig <- function(keys, rug = TRUE) {
   ggplot(mapping = aes(x = time, y = value, group = key, color = key)) +
     geom_line(data = covid[covid$key %in% keys & covid$table == "cases", ]) +
     geom_line(data = covid[covid$key %in% keys & covid$table == "areas", ]) +
-    geom_line(data = covid[covid$key %in% keys & covid$table == "rls", ]) +
+    # geom_line(data = covid[covid$key %in% keys & covid$table == "rls", ]) +
     {if(rug) geom_rug(data = covid[covid$key %in% keys & covid$table %in% c("cases", "areas", "rls"), ],
                       mapping = aes(x = time), sides = "b", colour = "black", length = unit(0.02, "npc"))} + 
     scale_x_datetime(date_breaks="1 month", date_minor_breaks = "2 weeks", date_labels = "%b %Y") +
@@ -177,7 +177,7 @@ LocalFig(c("Total deaths (Outaouais)", "Total deaths (Ottawa)")
          , tab = c("opencovid.ca"), rug = FALSE, caption = "Data source: opencovid.ca/api/")
 ```
 
-## Average increase by Réseaux locaux de services {.tabset .tabset-fade .tabset-pills}
+## Average increase by RLS {.tabset .tabset-fade .tabset-pills}
 
 ### Gatineau
 ```{r rls_new_gatineau}
@@ -204,7 +204,7 @@ DailyFig(c("RLS de Papineau"))
 DailyFig(c("RLS de la Vallée-de-la-Gatineau"))
 ```
 
-## Active cases by Réseaux locaux de services {.tabset .tabset-fade .tabset-pills}
+## Active cases by RLS {.tabset .tabset-fade .tabset-pills}
 
 ### Gatineau
 ```{r rls_active_gatineau}
@@ -231,7 +231,7 @@ RLSactiveFig(c("RLS de Papineau"))
 RLSactiveFig(c("RLS de la Vallée-de-la-Gatineau"))
 ```
 
-## Cumulative cases by municipalities and Réseaux locaux de services {.tabset .tabset-fade .tabset-pills}
+## Cumulative cases by municipalities and RLS {.tabset .tabset-fade .tabset-pills}
 
 ### Total in municipalities & Gatineau
 ```{r areas_gatineau}
