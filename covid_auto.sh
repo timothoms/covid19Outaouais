@@ -14,6 +14,8 @@ sleep 20
 
 git add data/covid_local.RData
 git add data/covid_local_daily.RData
+git add data/hospitals.RData
+git add data/vaccination.RData
 git add data/data_update_time.txt
 git add data/opencovid_update_time.txt
 git add websites/last_download_time.txt
