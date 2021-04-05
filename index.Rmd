@@ -4,6 +4,8 @@ output:
   html_document:
     theme: darkly
     toc: true
+    includes:
+      before_body: translate_fragment.html
 params: 
   optimize: false
 ---
