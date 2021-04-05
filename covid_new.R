@@ -1,3 +1,6 @@
+library("tidyverse")
+Sys.setlocale(category = "LC_ALL", locale = "en_CA.UTF-8")
+
 ### school listings
 link <- "https://cdn-contenu.quebec.ca/cdn-contenu/education/coronavirus/Liste_ecole_DCOM.csv"
 new <- readr::read_delim(link, delim = ";")
