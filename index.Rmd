@@ -7,7 +7,7 @@ output:
     includes:
       before_body: translate.html
 params: 
-  optimize: true
+  optimize: false
 ---
 
 ```{r setup, include=FALSE}
