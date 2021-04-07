@@ -22,13 +22,19 @@ schools <- rbind(schools, new)
 schools <- schools %>% arrange(region, admin, school, time)
 save(schools, file = "data/schools.RData")
 
-# mobility snapshots: https://health-infobase.canada.ca/covid-19/covidtrends/?HR=1,2407&mapOpen=false
+### mobility snapshots
+### https://health-infobase.canada.ca/covid-19/covidtrends/?HR=1,2407&mapOpen=false
 link <- "https://health-infobase.canada.ca/src/data/covidLive/covidTrends/mobility.csv"
 mobility_new <- readr::read_csv(link)
 load("data/mobility.RData")
 mobility <- c(mobility, list(mobility_new))
 save(mobility, file = "data/mobility.RData")
 
-# complete historical: https://www.inspq.qc.ca/covid-19/donnees
-# link <- "https://www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv"
-# hist <- readr::read_csv(link)
+### RLS
+### https://www.inspq.qc.ca/covid-19/donnees/par-region
+link <- "https://www.inspq.qc.ca/sites/default/files/covid/donnees/tableau-rls-new.csv"
+rls_new <- readr::read_csv(link)
+rls_new$time <- lubridate::now()
+load("data/rls.RData")
+rls <- rbind(rls, rls_new)
+save(rls, file = "data/rls.RData")
