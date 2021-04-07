@@ -308,6 +308,23 @@ vaccination <- rbind(vaccination, new_vac)
 vaccination <- vaccination %>% arrange(key, time)
 save(vaccination, file = "data/vaccination.RData")
 
+### historical vaccination data
+### https://www.inspq.qc.ca/covid-19/donnees/vaccination
+# dictionary <- read_csv("data/inspq_dictionary.csv")
+# link <- "https://www.inspq.qc.ca/sites/default/files/covid/donnees/vaccination.csv"
+# vac_hist <- readr::read_csv(link)
+# vac_hist <- vac_hist[, names(vac_hist) %in% dictionary$key[dictionary$use == 1]]
+# print(unique(vac_hist[, c("Nom", "Regroupement")]), n = Inf)
+# vac_hist <- vac_hist[vac_hist$Nom == "07 - Outaouais", ]
+
+### complete historical
+### https://www.inspq.qc.ca/covid-19/donnees
+# link <- "https://www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv"
+# hist <- readr::read_csv(link)
+# hist <- hist[, names(hist) %in% dictionary$key[dictionary$use == 1]]
+# print(unique(hist[, c("Nom", "Regroupement")]), n = Inf)
+# hist <- hist[hist$Nom == "07 - Outaouais", ]
+
 ### hospitalization
 link <- "https://msss.gouv.qc.ca/professionnels/statistiques/documents/covid19/COVID19_Qc_HistoHospit.csv"
 hospitals <- readr::read_csv(link)[, c("Date", "ACT_Hsi_RSS07", "ACT_Si_RSS07")]
@@ -321,3 +338,9 @@ hospitals$key <- "Hospitalizations"
 hospitals <- rbind(hospitals, icu)
 hospitals <- hospitals %>% arrange(key, time)
 save(hospitals, file = "data/hospitals.RData")
+
+### timeline
+# link <- "https://www.inspq.qc.ca/covid-19/donnees/ligne-du-temps"
+# timeline <- xml2::read_html(link)
+# timeline <- rvest::html_table(timeline)
+# timeline <- do.call(rbind, timeline)
