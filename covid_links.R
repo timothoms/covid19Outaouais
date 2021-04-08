@@ -52,8 +52,3 @@ links_pop <- list(
   )
 )
 lapply(links_pop, names)
-
-# file.remove()
-# download.file(links_pop$municipalities$file, destfile = "temp.xlsx")
-# temp <- readxl::read_excel("temp.xlsx", skip = 2)
-# file.remove("temp.xlsx")

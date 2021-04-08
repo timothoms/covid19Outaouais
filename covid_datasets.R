@@ -1,0 +1,66 @@
+csvs <- list(
+  list(descr = "vaccination by RSS",
+       home ="https://www.inspq.qc.ca/covid-19/donnees/vaccination",
+       opencovid_uuid = "cd05c1af-a076-4434-8903-6fe548c8d2b0",
+       opencovid_dir = "qc/vaccination-by-rss-time-series/",
+       url = "https://www.inspq.qc.ca/sites/default/files/covid/donnees/vaccination.csv",
+       path = "vaccination",
+       file_name = "vaccination"
+  ),
+  list(descr = "vaccine doses by RSS",
+       opencovid_uuid = "cbbcc0ad-00bb-47d0-877e-32aa4509f9e9",
+       opencovid_dir = "qc/vaccine-doses-admin-by-rss/",
+       url = "https://cdn-contenu.quebec.ca/cdn-contenu/sante/documents/Problemes_de_sante/covid-19/csv/doses-vaccins.csv",
+       path = "vaccine_doses",
+       file_name = "doses-vaccins"
+  ),
+  list(descr = "time series by region and demographics",
+       home = "https://www.inspq.qc.ca/covid-19/donnees",
+       opencovid_uuid = "3b93b663-4b3f-43b4-a23d-cbf6d149d2c5",
+       opencovid_dir = "qc/covid-time-series-by-region-and-demographics/",
+       url = "https://www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv",
+       path = "inspq_hist",
+       file_name = "covid19-hist"
+  ),
+  list(descr = "summary, time series, and hospitalization",
+       opencovid_uuid = "b78d46c8-9a56-4b75-94c5-4ace36e014f5",
+       opencovid_dir = "qc/covid-data-charts-summary-time-series-hosp-by-age/",
+       url = "https://www.inspq.qc.ca/sites/default/files/covid/donnees/manual-data.csv",
+       path = "inspq_manual",
+       file_name = "manual-data"
+  ),
+  list(descr = "new cases by RSS and RLS",
+       opencovid_uuid = "d2ce9223-6771-4bf8-8666-bff848d89df9",
+       opencovid_dir = "qc/cases-by-rss-and-rls/",
+       url = "https://www.inspq.qc.ca/sites/default/files/covid/donnees/tableau-rls-new.csv",
+       path = "inspq_rss_rls",
+       file_name = "tableau-rls-new"
+  ),
+  list(descr = "covid data by age group and sex",
+       opencovid_uuid = "0be93853-74f7-4e0b-8fe5-59437d9f4741",
+       opencovid_dir = "qc/covid-data-by-age-and-sex/",
+       url = "https://www.inspq.qc.ca/sites/default/files/covid/donnees/PL_AGE_SEXE.csv",
+       path = "inspq_age_sex",
+       file_name = "PL_AGE_SEXE"
+  ),
+  list(descr = "list of schools",
+       opencovid_uuid = "d816b524-72d1-484d-9b6f-3f8effead9ed",
+       opencovid_dir = "qc/schools-list-of-schools-csv/",
+       url = "https://cdn-contenu.quebec.ca/cdn-contenu/education/coronavirus/Liste_ecole_DCOM.csv",
+       path = "schools_list",
+       file_name = "Liste_ecole_DCOM"
+  ),
+  list(descr = "daily hospitalizations by RSS and care unit",
+       opencovid_uuid = "f0c25e20-2a6c-4f9a-adc3-61b28ab97245",
+       opencovid_dir = "qc/daily-hosp-by-rss-and-care-unit/",
+       url = "https://msss.gouv.qc.ca/professionnels/statistiques/documents/covid19/COVID19_Qc_HistoHospit.csv",
+       path = "msss_hosp_rss",
+       file_name = "COVID19_Qc_HistoHospit"
+  ),
+  list(descr = "mobility by region",
+       home = "https://health-infobase.canada.ca/covid-19/covidtrends/?HR=1,2407&mapOpen=false",
+       url = "https://health-infobase.canada.ca/src/data/covidLive/covidTrends/mobility.csv",
+       path = "mobility",
+       file_name = "mobility"
+  )
+)
