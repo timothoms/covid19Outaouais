@@ -1,6 +1,6 @@
 link <- "https://www.mamh.gouv.qc.ca/repertoire-des-municipalites/fiche/region/07/"
 xml2::download_html(link, file = "websites/municipalities.html")
-file_connection <- file("websites/municipalities_download_time.txt")
+file_connection <- file("websites/download_time_municipalities.txt")
 writeLines(as.character(lubridate::now()), file_connection)
 close(file_connection)
 webpage <- read_html("websites/municipalities.html")
