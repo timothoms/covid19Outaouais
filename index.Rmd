@@ -24,11 +24,8 @@ load("data/covid_local_daily.RData")
 load("data/municipalities.RData")
 pop_outaouais_2020 <- 401388
 load("data/vaccination.RData")
-vaccination <- vaccination %>% arrange(key, time)
 vaccination$date <- lubridate::as_date(vaccination$time)
 vaccination <- vaccination %>% group_by(key, date) %>% filter(time == max(time))
-vaccination <- vaccination[vaccination$key == "Outaouais", c("key", "date", "value")]
-vaccination$key <- paste("Doses administered in", vaccination$key)
 load("data/hospitals.RData")
 ```
 
@@ -55,7 +52,7 @@ The present project provides local trend data based on these snapshots and some 
 | Hospitalizations (ICU)          | reported active hospitalizations (in ICU) for confirmed covid-19 diagnosis                             |
 | Vaccination                     | Vaccine doses administered in the region (may not be Outaouais residents)                              |
 
-Grid lines indicate Mondays. 
+<!-- Grid lines indicate Mondays.  -->
 Where relevant, "rugs" indicate dates for which the data are available in the dataset.
 If the figures do not show the latest data, reload this page in your web browser.
 
@@ -96,7 +93,7 @@ LayeredFig <- function(keys, rug = TRUE, per_pop = FALSE) {
 }
 DailyFig <- function(keys, tab = "rls", rug = TRUE, per_pop = FALSE,
                      caption = "Data source: cisss-outaouais.gouv.qc.ca/language/en/covid19-en/") {
-  out <- ggplot(data = daily[daily$change_key %in% keys & daily$table == tab, ]) +
+  ggplot(data = daily[daily$change_key %in% keys & daily$table == tab, ]) +
     geom_line(mapping = aes(x = date, y = daily_change_avg, group = change_key, color = change_key)) +
     {if(per_pop) scale_y_continuous(sec.axis = sec_axis(trans = ~ . / pop_outaouais_2020 * 100000, 
                                                         name = "per 100,000 population (2020)"),
@@ -107,7 +104,6 @@ DailyFig <- function(keys, tab = "rls", rug = TRUE, per_pop = FALSE,
     common_theme + 
     guides(colour = guide_legend(ncol = 3)) + 
     labs(x = "", y = "", caption = caption)
-  return(out)
 }
 RLSactiveFig <- function(keys, rug = TRUE) {
   ggplot(data = covid[covid$key %in% keys & covid$table == "rls_active", ]) +
@@ -157,8 +153,8 @@ ggplot(data = hospitals[hospitals$key %in% keys, ]) +
 ```{r vaccination}
 ggplot(data = vaccination) +
   geom_line(mapping = aes(x = date, y = value, group = key, color = key)) +
-  scale_x_date(date_breaks="1 day") +
-  scale_y_continuous(name = "",
+  scale_x_date(date_breaks ="2 weeks", date_labels = "%d %b %Y") +
+  scale_y_continuous(name = "", limits = c(0, NA),
     sec.axis = sec_axis(trans = ~ . / pop_outaouais_2020 * 100, name = "% of 2020 population")
   ) + 
   theme_classic() + common_theme + 
