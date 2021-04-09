@@ -126,8 +126,8 @@ schools$note[schools$code == 1] <- "reaffected listed school (pink)" # "already 
 schools$note[schools$code == 2] <- "relisted newly affected school (green*)" # "relisted due to new confirmed case(s) [green*]"
 schools$note[schools$code == 3] <- "newly listed school (green)" # "new listing due to new confirmed case(s) [green]"
 # table(schools$note, schools$relisted)
-schools <- schools[c("time", "region", "region_code", "admin", "school", "code", "note")]
 schools <- schools %>% arrange(region, admin, school, time)
+schools <- schools[schools$region == "Outaouais", c("time", "region", "admin", "school", "code", "note")]
 save(schools, file = "data/schools.RData")
 
 ### vaccination
@@ -158,7 +158,7 @@ vaccination$key <- stringr::str_replace(vaccination$key, fixed("-   "), " - ")
 vaccination$region_code <- as.integer(vaccination$region_code)
 stringr::str_sub(vaccination$key[!is.na(vaccination$region_code)], 1, 5) <-""
 # vaccination[, c("region_code", "key")] %>% arrange(region_code) %>% unique() %>% print(n = Inf)
-# vaccination$note <- "Total vaccine doses administered"
-vaccination <- vaccination[c("time", "region_code", "key", "value")]
 vaccination <- vaccination %>% arrange(key, time)
+vaccination <- vaccination[vaccination$key == "Outaouais", c("time", "key", "value")]
+vaccination$key <- "Total vaccine doses administered (Outaouais)"
 save(vaccination, file = "data/vaccination.RData")
