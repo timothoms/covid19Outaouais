@@ -294,20 +294,7 @@ close(file_connection)
 
 
 
-### vaccination
-link <- "https://cdn-contenu.quebec.ca/cdn-contenu/sante/documents/Problemes_de_sante/covid-19/csv/doses-vaccins.csv"
-new_vac <- readr::read_delim(link, delim = ";")
-new_vac$time <- lubridate::now()
-# new_vac$note <- "Total vaccine doses administered"
-names(new_vac)[1:2] <- c("key", "value")
-new_vac$flag <- stringr::str_sub(new_vac$key, 3, 5) == " - "
-new_vac$region_code[new_vac$flag] <- stringr::str_sub(new_vac$key[new_vac$flag], 1, 2)
-stringr::str_sub(new_vac$key[new_vac$flag], 1, 5) <-""
-new_vac <- new_vac[c("time", "key", "region_code", "value")]
-load("data/vaccination.RData", verbose = TRUE)
-vaccination <- rbind(vaccination, new_vac)
-vaccination <- vaccination %>% arrange(key, time)
-save(vaccination, file = "data/vaccination.RData")
+
 
 ### hospitalization
 link <- "https://msss.gouv.qc.ca/professionnels/statistiques/documents/covid19/COVID19_Qc_HistoHospit.csv"
