@@ -20,5 +20,7 @@ git add data/data_update_time.txt
 git add data/opencovid_update_time.txt
 git add websites/last_download_time.txt
 git add --force index.html toronto.html
-git commit --message "automatic site update"
+git commit --message "automatic update"
 git push origin main >> logs/push.log 2>&1
+
+/usr/local/bin/Rscript covid_processing_csvs.R
