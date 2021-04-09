@@ -321,6 +321,16 @@ Users of these data need to be aware of the following caveats:
 
 7. Expressing vaccination doses as a percentage of the Outaouais population (in 2020) assumes that receivers of the vaccine are Outaouais residents **and** they have received one dose only. These strong assumptions may be reasonable early in the vaccination campaign, but less so as time progresses.  
 
+<!-- ### Sources -->
+
+<!-- |-----------------------------------------------------------------------| -->
+<!-- | Centre intégré de santé et de services sociaux (CISSS) de l'Outaouais | -->
+<!-- | Gouvernement du Québec                                                | -->
+<!-- | Institut national de santé publique du Québec (INSPQ)                 | -->
+<!-- | Ministère de la Santé et des services sociaux (MSSS)                  | -->
+<!-- | COVID-19 Canada Open Data Working Group                               | -->
+<!-- |-----------------------------------------------------------------------| -->
+
 \  
 
 Updates usually occur after 5pm. 
