@@ -291,21 +291,3 @@ close(file_connection)
 file_connection <- file("data/opencovid_update_time.txt")
 writeLines(as.character(opencovid_update), file_connection)
 close(file_connection)
-
-
-
-
-
-### hospitalization
-link <- "https://msss.gouv.qc.ca/professionnels/statistiques/documents/covid19/COVID19_Qc_HistoHospit.csv"
-hospitals <- readr::read_csv(link)[, c("Date", "ACT_Hsi_RSS07", "ACT_Si_RSS07")]
-hospitals$time <- lubridate::as_datetime(hospitals$Date, tz = "America/Montreal", format = "%m/%d/%Y")
-icu <- hospitals[, c("time", "ACT_Si_RSS07")]
-names(icu) <- c("time", "value")
-icu$key <- "Hospitalizations in ICU"
-hospitals <- hospitals[, c("time", "ACT_Hsi_RSS07")]
-names(hospitals) <- c("time", "value")
-hospitals$key <- "Hospitalizations"
-hospitals <- rbind(hospitals, icu)
-hospitals <- hospitals %>% arrange(key, time)
-save(hospitals, file = "data/hospitals.RData")
