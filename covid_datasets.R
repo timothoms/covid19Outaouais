@@ -36,6 +36,7 @@ csvs <- list(
   list(descr = "new cases by RSS and RLS",
        opencovid_uuid = "d2ce9223-6771-4bf8-8666-bff848d89df9",
        opencovid_dir = "qc/cases-by-rss-and-rls/",
+       url_old = "https://www.inspq.qc.ca/sites/default/files/covid/donnees/tableau-rls.csv",
        url = "https://www.inspq.qc.ca/sites/default/files/covid/donnees/tableau-rls-new.csv",
        path = "inspq_rss_rls/",
        overwrite = FALSE,
