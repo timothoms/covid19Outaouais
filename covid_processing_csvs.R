@@ -40,7 +40,7 @@ vaccination$region_code <- stringr::str_sub(vaccination$key, 1, 2)
 vaccination <- vaccination %>% arrange(region_code)
 vaccination$key <- do.call(rbind, lapply(unique(vaccination$region_code), function(no) {
   set <- vaccination[vaccination$region_code == no, c("region_code", "key")]
-  set$key <- names(which(table(set$key) == max(table(set$key))))
+  set$key <- names(which(table(set$key) == max(table(set$key))))[1]
   return(set)
 }))$key
 vaccination$key <- stringr::str_replace(vaccination$key, fixed(" – "), " - ")
@@ -110,13 +110,13 @@ rls[, c("Cas", "Cas actifs", "Population")] <- lapply(rls[, c("Cas", "Cas actifs
 names(rls) <- c("time","rss_no", "rss", "rls_no", "rls", "cases", "active", "pop")
 rls$rss_no <- as.integer(rls$rss_no)
 rls$rls_no <- as.integer(rls$rls_no)
-rls$rss <- unlist(tapply(rls$rss, rls$rss_no, function(group) names(which(table(group) == max(table(group)))), simplify = FALSE), use.names = FALSE)[rls$rss_no]
+rls$rss <- unlist(tapply(rls$rss, rls$rss_no, function(group) names(which(table(group) == max(table(group))))[1], simplify = FALSE), use.names = FALSE)[rls$rss_no]
 # unique(rls[is.na(rls$rls_no), c("rls_no", "rls")])
 rls$rls_no[is.na(rls$rls_no)] <- as.integer(0)
 rls <- rls %>% arrange(rls_no)
 rls$rls <- do.call(rbind, lapply(unique(rls$rls_no), function(no) {
   set <- rls[rls$rls_no == no, c("rls_no", "rls")]
-  set$rls <- names(which(table(set$rls) == max(table(set$rls))))
+  set$rls <- names(which(table(set$rls) == max(table(set$rls))))[1]
   return(set)
 }))$rls
 rls$rss <- stringr::str_sub(rls$rss, 6, nchar(rls$rss))
@@ -151,7 +151,7 @@ avg <- lapply(c("new", "average"), function(var) {
   names(df) <- c("time", "key", "value", "table")
   df$table <- var
   if(var == "new") df$key <- str_replace(df$key, "Total", "New")
-  if(var == "average") df$key <- str_replace(df$key, "Total cases", "Average cases per day")
+  if(var == "average") df$key <- str_replace(df$key, "Total cases", "Average increase per day")
   return(df)
 })
 avg <- do.call(rbind, avg)
@@ -172,7 +172,8 @@ inspq <- lapply(names(inspq)[-1], function(var) {
   names(df) <- c("date", "value")
   df$value <- as.numeric(df$value)
   df$key <- dictionary$label[dictionary$key == var]
-  return(df[, c("key", "date", "value")])
+  df$table <- dictionary$category[dictionary$key == var]
+  return(df[, c("key", "date", "value", "table")])
 })
 inspq <- do.call(rbind, inspq)
 inspq <- inspq[!is.na(inspq$value), ]
@@ -189,12 +190,15 @@ vaccination <- lapply(names(vaccination)[-1], function(var) {
   names(df) <- c("date", "value")
   df$value <- as.numeric(df$value)
   df$key <- dictionary$label[dictionary$key == var]
-  return(df[, c("key", "date", "value")])
+  df$table <- dictionary$category[dictionary$key == var]
+  return(df[, c("key", "date", "value", "table")])
 })
 vaccination <- do.call(rbind, vaccination)
 vaccination <- vaccination[!is.na(vaccination$value), ]
 inspq <- rbind(inspq, vaccination)
-
-
-
+avg <- inspq[inspq$key %in% c("New cases"), ]
+avg <- avg %>% arrange(date) %>% group_by(key) %>% mutate(value = runner::mean_run(x = value, k = 7, lag = 0, idx = date)) %>% ungroup()
+avg$key <- "Average increase per day"
+avg$table <- "average"
+inspq <- rbind(inspq, avg)
 save(inspq, file = "data/inspq.RData")
