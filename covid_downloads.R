@@ -19,8 +19,15 @@ close(file_connection)
 
 source("covid_datasets.R")
 lapply(csvs, function(item) {
-  download.file(item$url,
-    destfile = here::here("csv", item$path, paste(item$file_name, "_", format(lubridate::now(), "%Y-%m-%d-%H-%M-%S"), ".csv", sep = "")))
+  if(item$overwrite) {
+    download.file(item$url,
+                  destfile = here::here("csv", item$path,
+                                        paste(item$file_name, ".csv", sep = "")))
+  } else {
+    download.file(item$url,
+                  destfile = here::here("csv", item$path,
+                                        paste(item$file_name, "_", format(lubridate::now(), "%Y-%m-%d-%H-%M-%S"), ".csv", sep = "")))
+  }
 })
 
 # link <- "https://www.inspq.qc.ca/covid-19/donnees/ligne-du-temps"
