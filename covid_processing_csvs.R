@@ -9,7 +9,7 @@ source("covid_datasets.R")
 hospitalization <- readr::read_csv("csv/msss_hosp_rss/COVID19_Qc_HistoHospit.csv")
 hospitalization <- hospitalization[, c("Date", "ACT_Hsi_RSS07", "ACT_Si_RSS07")]
 hospitalization$Date <- lubridate::as_date(hospitalization$Date, format = "%m/%d/%Y")
-indicators <- c(ACT_Hsi_RSS07 = "Hospitalizations (non-ICU)", ACT_Si_RSS07 = "Hospitalizations in ICU")
+indicators <- c(ACT_Hsi_RSS07 = "Active hospitalizations, non-ICU", ACT_Si_RSS07 = "Active hospitalizations, ICU")
 hospitalization <- lapply(names(indicators), function(var) {
   df <- hospitalization[, c("Date", var)]
   names(df) <- c("date", "value")

@@ -108,7 +108,7 @@ covid <- lapply(covid, function(df) {
   df$key[df$key %in% c("hospitalizations at the designated COVID-19 centre (including intensive care patients)",
                        "Hospitalizations at the designated COVID-19 center (including intensive care patients)")] <- "Hospitalizations"
   df$key[df$key %in% c("People in intensive care at the designated COVID-19 centre",
-                       "Hospitalizations in the intensive care unit of the designated COVID-19 center")] <- "Hospitalizations in ICU"
+                       "Hospitalizations in the intensive care unit of the designated COVID-19 center")] <- "Hospitalizations, ICU"
   df$key[df$key %in% c("employees with COVID-19 since the beginning of the pandemic",
                        "employees affected by COVID-19 since beginning of pandemic",
                        "employees affected by COVID-19")] <- "Hospital employees affected"
@@ -191,7 +191,7 @@ covid <- covid[!(covid$time > "2021-01-06" & covid$time < "2021-01-07" & covid$k
 covid$value[covid$time > "2020-05-09" & covid$time < "2020-05-11" & covid$key %in% c("Total", "Total cases", "Total cases (municipalities)") & covid$value == 3334] <- 334
 # VisualCheck(keys = c("Total cases", "Total", "Gatineau"), tab = "areas")
 # VisualCheck(keys = tapply(covid$key, covid$table, unique)[["areas"]], tab = "areas", exclude = c("Total cases", "Gatineau", "To be determined"))
-# VisualCheck(keys = c("Hospitalizations", "Hospitalizations in ICU"), tab = "cases")
+# VisualCheck(keys = c("Hospitalizations", "Hospitalizations, ICU"), tab = "cases")
 
 opencovid_update<- jsonlite::fromJSON("https://api.opencovid.ca/version")[[1]]
 GetOpenCovid <- function(stat, loc) {
