@@ -114,19 +114,25 @@ DailyFig <- function(keys,
     guides(colour = guide_legend(ncol = 3)) + 
     labs(x = "", y = "", caption = caption)
 }
-RegionFig <- function(df, second = NULL, bars = NULL,
-                      caption, pop = NULL, dlabels = "%b %Y",
-                      legend_cols = 3) {
-  ggplot(data = df[df$date > "2020-03-15", ]) +
+RegionFig <- function(df, 
+                      second = NULL, 
+                      bars = NULL, 
+                      caption, 
+                      pop = NULL, 
+                      dlabels = "%b %Y", 
+                      legend_cols = 3)
+{
+  ggplot(data = df[df$date > "2020-03-15", ],
+         mapping = aes(x = date, y = value, group = key, color = key)) +
     { if(!is.null(bars)) 
       geom_bar(data = bars[bars$date > "2020-03-15", ], 
-               mapping = aes(x = date, y = value),
-               stat = "identity", color = "gray", alpha = 1/20)
+               mapping = aes(fill = unique(bars$key)),
+               stat = "identity", color = "lightgray")
     } + 
-    geom_line(mapping = aes(x = date, y = value, group = key, color = key)) +
+    scale_fill_manual(labels = unique(bars$key), values = "lightgray") +
+    geom_line() +
     { if(!is.null(second)) 
-      geom_line(data = second[second$date > "2020-03-15", ],
-                mapping = aes(x = date, y = value, group = key, color = key))
+      geom_line(data = second[second$date > "2020-03-15", ])
     } + 
     scale_x_date(date_breaks = "1 month", date_minor_breaks = "2 weeks", date_labels = dlabels) +
     { if(!is.null(pop)) {
@@ -179,7 +185,8 @@ LocalFig <- function(keys,
 ```{r cases_avg}
 # DailyFig(c("Average increase per day (Outaouais)"), tab = "cases", per_pop = TRUE)
 RegionFig(df = inspq[inspq$key == "Average increase per day", ], 
-          bars = inspq[inspq$key == "New cases", ], pop = "per100k",
+          bars = inspq[inspq$key == "New cases", ], 
+          pop = "per100k",
           caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
 ```
 
