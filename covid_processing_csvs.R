@@ -196,9 +196,22 @@ vaccination <- lapply(names(vaccination)[-1], function(var) {
 vaccination <- do.call(rbind, vaccination)
 vaccination <- vaccination[!is.na(vaccination$value), ]
 inspq <- rbind(inspq, vaccination)
-avg <- inspq[inspq$key %in% c("New cases"), ]
-avg <- avg %>% arrange(date) %>% group_by(key) %>% mutate(value = runner::mean_run(x = value, k = 7, lag = 0, idx = date)) %>% ungroup()
-avg$key <- "Average increase per day"
-avg$table <- "average"
+to_calc <- c("New cases" = "Average increase per day",
+             "New hospitalizations" = "Average hospitalizations per day",
+             "New hospitalizations, non-ICU" = "Average hospitalizations (non-ICU) per day",
+             "New hospitalizations, ICU" = "Average ICU hospitalizations per day",
+             "Persons tested" = "Average testing per day",
+             "Persons tested positive" = "Average positive tests per day",
+             "Persons tested negative" = "Average negative tests per day",
+             "Test positivity (%)" = "Average test positivity (%)",
+             "Vaccine doses administered" = "Average vaccine doses administered")
+avg <- lapply(names(to_calc), function(var) {
+  df <- inspq[inspq$key == var, ]
+  df <- df %>% arrange(date) %>% group_by(key) %>% mutate(value = runner::mean_run(x = value, k = 7, lag = 0, idx = date)) %>% ungroup()
+  df$key <- to_calc[var]
+  df$table <- "average"
+  return(df)
+})
+avg <- do.call(rbind, avg)
 inspq <- rbind(inspq, avg)
 save(inspq, file = "data/inspq.RData")
