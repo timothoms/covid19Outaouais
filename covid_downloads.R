@@ -7,7 +7,8 @@ links <- list(
   qc_sit_en = "https://www.quebec.ca/en/health/health-issues/a-z/2019-coronavirus/situation-coronavirus-in-quebec/",
   qc_sit_fr = "https://www.quebec.ca/sante/problemes-de-sante/a-z/coronavirus-2019/situation-coronavirus-quebec/",
   schools_sit_en = "https://www.quebec.ca/en/health/health-issues/a-z/2019-coronavirus/highlights-public-private-school-systems/",
-  schools_sit_fr = "https://www.quebec.ca/sante/problemes-de-sante/a-z/coronavirus-2019/faits-saillants-covid-ecoles/"
+  schools_sit_fr = "https://www.quebec.ca/sante/problemes-de-sante/a-z/coronavirus-2019/faits-saillants-covid-ecoles/",
+  timeline = "https://www.inspq.qc.ca/covid-19/donnees/ligne-du-temps"
 )
 lapply(names(links), function(x) {
   xml2::download_html(links[[x]],
