@@ -72,12 +72,18 @@ schools$admin <- stringr::str_trim(schools$admin)
 stringr::str_sub(schools$region, 1, 5) <- ""
 schools$relisted <- stringr::str_detect(schools$school, stringr::fixed("*"))
 schools$school <- stringr::str_replace(schools$school, stringr::fixed("*"), "")
-schools$note[schools$code == 1] <- "reaffected listed school (pink)" # "already on list, with new confirmed case(s) [pink]"
-schools$note[schools$code == 2] <- "relisted newly affected school (green*)" # "relisted due to new confirmed case(s) [green*]"
-schools$note[schools$code == 3] <- "newly listed school (green)" # "new listing due to new confirmed case(s) [green]"
+schools$note[is.na(schools$code)] <- "previously listed"
+schools$note[schools$code == 1] <- "reaffected previously listed" # "already on list, with new confirmed case(s) [pink]"
+schools$note[schools$code == 2] <- "relisted newly affected" # "relisted due to new confirmed case(s) [green*]"
+schools$note[schools$code == 3] <- "newly listed" # "new listing due to new confirmed case(s) [green]"
 # table(schools$note, schools$relisted)
-schools <- schools %>% arrange(region, admin, school, time)
-schools <- schools[schools$region == "Outaouais", c("time", "region", "admin", "school", "code", "note")]
+schools$color_code[is.na(schools$code)] <- ""
+schools$color_code[schools$code == 1] <- "pink" # "already on list, with new confirmed case(s) [pink]"
+schools$color_code[schools$code == 2] <- "green*" # "relisted due to new confirmed case(s) [green*]"
+schools$color_code[schools$code == 3] <- "green" # "new listing due to new confirmed case(s) [green]"
+schools <- schools[schools$region == "Outaouais", c("admin", "time", "school", "note", "color_code")]
+schools <- schools %>% group_by(admin, school) %>% arrange(school, time)
+schools <- schools[!(is.na(schools$admin) & is.na(schools$school)), ]
 save(schools, file = "data/schools.RData")
 
 ### mobility snapshots
