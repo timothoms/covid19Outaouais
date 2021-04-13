@@ -200,5 +200,11 @@ csvs <- list(
        path = "deaths_daily/",
        overwrite = FALSE,
        file_name = "decesquotidien"
+  ),
+  list(descr = "measures in force",
+       url = "https://cdn-contenu.quebec.ca/cdn-contenu/sante/carte-paliers/data.csv",
+       path = "measures_in_force/",
+       overwrite = FALSE,
+       file_name = "data"
   )
 )
