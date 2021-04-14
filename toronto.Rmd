@@ -1,5 +1,5 @@
 ---
-title: "Covid19 Situation in Toronto (opencovid.ca)"
+title: "Covid19 Situation in Toronto"
 output:
   html_document:
     theme: darkly
@@ -18,29 +18,7 @@ if(params$optimize) knitr::opts_chunk$set(optipng = '-o7')
 Sys.setlocale(category = "LC_ALL", locale = "en_CA.UTF-8")
 load("data/covid_local.RData")
 load("data/covid_local_daily.RData")
-```
-
-```{r prep}
-common_theme <- theme_classic() +
-  theme(axis.text.x = element_text(angle = 15, vjust = 1.0, hjust = 1.0),
-    legend.position = "bottom",
-    legend.title = element_blank(),
-    panel.grid.minor.x = element_line(colour="lightgray", size = 0.25),
-    plot.caption = element_text(size = rel(0.67)))
-DailyFig <- function(keys) {
-  ggplot(mapping = aes(x = date, y = daily_change_avg, group = change_key, color = change_key)) +
-    geom_line(data = daily[daily$change_key %in% keys & daily$table == "opencovid.ca", ]) +
-    scale_x_date(date_breaks = "1 month", date_minor_breaks = "2 weeks", date_labels = "%b %Y") +
-    lims(y = c(0, NA)) + common_theme + 
-    labs(x = "", y = "", caption = "Data source: opencovid.ca/api/")
-}
-LocalFig <- function(keys) {
-  ggplot(mapping = aes(x = time, y = value, group = key, color = key)) +
-    geom_line(data = covid[covid$key %in% keys & covid$table == "opencovid.ca", ]) +
-    scale_x_datetime(date_breaks = "1 month", date_minor_breaks = "2 weeks", date_labels = "%b %Y") +
-    lims(y = c(0, NA)) + common_theme + 
-    labs(x = "", y = "", caption = "Data source: opencovid.ca/api/")
-}
+source("functions_figures.R")
 ```
 
 ## {.tabset .tabset-fade .tabset-pills}
@@ -56,16 +34,15 @@ LocalFig(c("Total cases (Toronto)"))
 ```
 
 ### Deaths
-```{r deaths_opencovid}
+```{r opencovid_deaths}
 LocalFig(c("Total deaths (Toronto)"))
 ```
 
 ##
+```{r, child = 'content/updates.md', eval = FALSE}
+```
 
-If the figures do not show the latest data, reload this page in your web browser.
+Last page update: `r now()`
 
-Last opencovid update: `r str_replace(read_file("data/opencovid_update_time.txt"), "\n", "")`
-
-Last website update: `r now()`
-
-This website is maintained by Timo Thoms.
+```{r, child = 'content/footer.md'}
+```
