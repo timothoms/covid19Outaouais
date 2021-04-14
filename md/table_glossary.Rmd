@@ -1,28 +1,26 @@
 ## Glossary 
 
-| Indicators               | Description                                                                                          |
-|--------------------------|------------------------------------------------------------------------------------------------------|
-| Active cases             | total number minus numbers of deaths and resolved cases, aggregated at regional or RLS level         |
-| Average increase per day | average daily increase in cases over last 7 days, calculated from available data                     |
-| Average testing per day  | reported average daily number of covid-19 tests performed over last 7 days                           |
-| Active hospitalizations  | reported active hospitalizations for confirmed covid-19 diagnosis                                    |
-| Resolved/recovered cases | reported number of resolved cases at regional level                                                  |
-| Total cases              | reported total number of cases of infections to date, aggregated at regional, RLS or municipal level |
-| Total deaths             | reported total number of deaths at the regional level                                                |
-| Vaccination              | Vaccine doses administered in the region (may not be Outaouais residents)                            |
-<!-- New cases -->
-<!-- Total Deaths -->
-<!-- RPA private seniors' residence  -->
-<!-- CHSLD Residential and long-term care centres  --> 
-<!-- other Ressource intermédiaire (RI)  -->
-<!-- Active hospitalizations -->
-<!-- New Hospitalizations -->
-<!-- Total hospitalizations -->
-<!-- Vaccine doses administered -->
-<!-- Total Vaccine doses administered -->
-<!-- Persons tested -->
-<!-- Average positive tests per day -->
-<!-- persons tested positive -->
-<!-- Test positivity  -->
-<!-- Average test positivity -->
-<!-- cumulative cases -->
+| Indicators                       | Description                                                                                          |
+|----------------------------------|------------------------------------------------------------------------------------------------------|
+| Active cases                     | total number minus numbers of deaths and resolved cases, aggregated at regional or RLS level         |
+| Active hospitalizations          | reported active hospitalizations for confirmed covid-19 diagnosis                                    |
+| Average increase per day         | average daily increase in cases over last 7 days, calculated from available data                     |
+| Average positive tests per day   |                                                                                                      |
+| Average testing per day          | reported average daily number of covid-19 tests performed over last 7 days                           |
+| Average test positivity          |                                                                                                      |
+| Cumulative cases                 |                                                                                                      |
+| New cases                        |                                                                                                      |
+| New Hospitalizations             |                                                                                                      |
+| Persons tested                   |                                                                                                      |
+| Persons tested positive          |                                                                                                      |
+| Resolved/recovered cases         | reported number of resolved cases at regional level                                                  |
+| Test positivity                  |                                                                                                      |
+| Total cases                      | reported total number of cases of infections to date, aggregated at regional, RLS or municipal level |
+| Total deaths                     | reported total number of deaths at the regional level                                                |
+| Total deaths (CHSLD)             | reported total number of deaths in residential and long-term care centres in the region              |
+| Total Deaths (home & unknown)    | reported total number of deaths in homes and unknown locations in the region                         |
+| Total deaths (other)             | reported total number of deaths in RIs and other facilities in the region                            |
+| Total deaths (RPA)               | reported total number of deaths in private seniors' residences in the region                         |
+| Total hospitalizations           |                                                                                                      |
+| Total Vaccine doses administered | cumulative vaccine doses administered in the region (may not be Outaouais residents)                 |
+| Vaccine doses administered       | daily vaccine doses administered in the region (may not be Outaouais residents)                      |
