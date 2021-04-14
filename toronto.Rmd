@@ -51,10 +51,10 @@ LocalFig(keys = c("Total deaths (Toronto)"),
 ```
 
 ##
-```{r, child = 'content/updates.md', eval = FALSE}
+```{r, child = 'md/updates.md', eval = FALSE}
 ```
 
 Last page update: `r now()`
 
-```{r, child = 'content/footer.md'}
+```{r, child = 'md/footer.md'}
 ```

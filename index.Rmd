@@ -6,7 +6,7 @@ output:
     toc: true
     toc_depth: 1
     includes:
-      before_body: content/translate.html
+      before_body: html/translate.html
 params: 
   optimize: false
 ---
@@ -38,7 +38,7 @@ pop_outaouais_2020 <- 401388
 source("functions_figures.R")
 ```
 
-```{r, child = 'content/index_intro.md'}
+```{r, child = 'md/index_intro.md'}
 ```
 
 # Outaouais region totals {.tabset .tabset-fade .tabset-pills}
@@ -99,7 +99,7 @@ RegionFig(df = inspq[inspq$key %in% c("Vaccine doses administered", "Total vacci
 
 # Outaouais & Ottawa (opencovid.ca) {.tabset .tabset-fade .tabset-pills}
 
-```{r, child = 'content/note_ottawa.md'}
+```{r, child = 'md/note_ottawa.md'}
 ```
 
 ## Average increase
@@ -281,10 +281,10 @@ LocalFig(municipalities$municipality[municipalities$mrc == "Pontiac"])
 
 # Information on this site {.tabset .tabset-pills}
 
-```{r, child = 'content/index_notes.md'}
+```{r, child = 'md/index_notes.md'}
 ```
 
-```{r, child = 'content/updates.md'}
+```{r, child = 'md/updates.md'}
 ```
 
 <!-- Last HTML download: `r str_replace(read_file("websites/last_download_time.txt"), "\n", "")` -->
@@ -293,14 +293,14 @@ Last data revision: `r str_replace(read_file("data/data_update_time.txt"), "\n",
 
 Last page update: `r now()`
 
-```{r, child = 'content/table_glossary.md'}
+```{r, child = 'md/table_glossary.md'}
 ```
 
-```{r, child = 'content/table_sources.md'}
+```{r, child = 'md/table_sources.md'}
 ```
 
-```{r, child = 'content/disclaimer.md'}
+```{r, child = 'md/disclaimer.md'}
 ```
 
-```{r, child = 'content/footer.md'}
+```{r, child = 'md/footer.md'}
 ```

@@ -6,7 +6,7 @@ output:
     toc: true
     toc_depth: 1
     includes:
-      before_body: content/translate.html
+      before_body: html/translate.html
 params: 
   optimize: false
 ---
@@ -64,7 +64,7 @@ schools$school <- str_trim(schools$school)
 source("functions_figures.R")
 ```
 
-```{r, child = 'content/schools_intro.md', eval = FALSE}
+```{r, child = 'md/schools_intro.md', eval = FALSE}
 ```
 
 # Schools with confirmed cases {.tabset .tabset-fade .tabset-pills}
@@ -101,16 +101,16 @@ SchoolsFig(c("École privée"))
 
 # Information on this site {.tabset .tabset-pills}
 
-```{r, child = 'content/schools_notes.md', eval = FALSE}
+```{r, child = 'md/schools_notes.md', eval = FALSE}
 ```
 
-```{r, child = 'content/updates.md', eval = FALSE}
+```{r, child = 'md/updates.md', eval = FALSE}
 ```
 
 Last data update: `r str_replace(read_file("data/data_update_time.txt"), "\n", "")`
 
-```{r, child = 'content/disclaimer.md', eval = FALSE}
+```{r, child = 'md/disclaimer.md', eval = FALSE}
 ```
 
-```{r, child = 'content/footer.md'}
+```{r, child = 'md/footer.md'}
 ```
