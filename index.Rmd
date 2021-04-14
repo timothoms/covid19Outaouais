@@ -6,7 +6,7 @@ output:
     toc: true
     toc_depth: 1
     includes:
-      before_body: translate.html
+      before_body: content/translate.html
 params: 
   optimize: false
 ---
@@ -34,24 +34,17 @@ vaccination <- vaccination %>%
 pop_outaouais_2020 <- 401388
 ```
 
-It is difficult to find covid-19 trend data over time at the local level for the Outaouais region. 
-The [Quebec government](https://www.quebec.ca/en/health/health-issues/a-z/2019-coronavirus/situation-coronavirus-in-quebec/) shows summaries but only the last few days of trends for regions.
-The Quebec Public Health agency [(Institut national de santé publique du Québec, INSPQ)](https://www.inspq.qc.ca/covid-19/donnees)
-shows only cumulative snapshots by region and by [Réseaux locaux de services (RLS)](https://www.inspq.qc.ca/covid-19/donnees/par-region), though detailed, complete historical data are available from INSPQ with some digging.
-The [COVID-19 Canada Open Data Working Group (CCODWG, opencovid.ca)](https://opencovid.ca/) provides time series data at the provincial and health region levels collected from official sources.
-However, none of these sources provide trend data below the regional level.
-The [Centre intégré de santé et de services sociaux (CISSS) de l'Outaouais](https://cisss-outaouais.gouv.qc.ca/language/en/covid19-en/) provides frequent (sometimes daily) snapshots by RLS and by municipality, but no trends.
-The present project provides local trend data based on these snapshots, and key regional indicators based on the most complete publicly available data.
-
-**Please note the caveats at the bottom of this page.**
-
-<!-- - [Schools](schools.html) -->
+```{r, child = 'content/index_intro.md'}
+```
 
 ```{r figure_functions}
 common_theme <- theme_classic() +
   theme(axis.text.x = element_text(angle = 15, vjust = 1.0, hjust = 1.0),
-        legend.position = "bottom",
+        axis.title = element_blank(),
+        legend.position = "top",
         legend.title = element_blank(),
+        # legend.text = element_text(size = rel(0.67)),
+        legend.margin = margin(0, 0, 0, 0),
         panel.grid.minor.x = element_line(colour="lightgray", size = 0.25),
         plot.caption = element_text(size = rel(0.67)))
 LayeredFig <- function(keys, 
@@ -59,6 +52,7 @@ LayeredFig <- function(keys,
                        per_pop = FALSE,
                        caption = "Data source: cisss-outaouais.gouv.qc.ca/language/en/covid19-en/"
 ){
+  caption <- paste("Last day in dataset: ", format(max(covid$time), "%b %d"), ". ", caption, sep = "")
   ggplot(mapping = aes(x = time, y = value, group = key, color = key)) +
     geom_line(data = covid[covid$key %in% keys & covid$table == "cases", ]) +
     geom_line(data = covid[covid$key %in% keys & covid$table == "areas", ]) +
@@ -84,7 +78,9 @@ DailyFig <- function(keys,
                      per_pop = FALSE,
                      caption = "Data source: cisss-outaouais.gouv.qc.ca/language/en/covid19-en/"
 ){
-  ggplot(data = daily[daily$change_key %in% keys & daily$table == tab, ]) +
+  df <- daily[daily$change_key %in% keys & daily$table == tab, ]
+  caption <- paste("Last day in dataset: ", format(max(df$date), "%b %d"), ". ", caption, sep = "")
+  ggplot(data = df) +
     geom_line(mapping = aes(x = date, y = daily_change_avg, group = change_key, color = change_key)) +
     { if(per_pop) 
       scale_y_continuous(sec.axis = sec_axis(trans = ~ . / pop_outaouais_2020 * 100000, 
@@ -107,6 +103,7 @@ RegionFig <- function(df,
                       dlabels = "%b %Y", 
                       legend_cols = 3)
 {
+  caption <- paste("Last day in dataset: ", format(max(df$date), "%b %d"), ". ", caption, sep = "")
   ggplot(data = df[df$date > "2020-03-15", ],
          mapping = aes(x = date, y = value, group = key, color = key)) +
     { if(!is.null(bars)) 
@@ -137,6 +134,7 @@ RegionFig <- function(df,
     labs(x = "", y = "", caption = caption)
 }
 RLSFig <- function(df, caption, legend_cols = 2) {
+  # caption <- paste("Last day in dataset: ", format(max(df$time), "%b %d"), ". ", caption, sep = "")
   ggplot(data = df) +
     geom_line(mapping = aes(x = time, y = value, group = key, color = key)) +
     scale_x_datetime(date_breaks = "1 month", date_minor_breaks = "2 weeks", date_labels = "%b %Y") +
@@ -150,7 +148,9 @@ LocalFig <- function(keys,
                      legend_cols = 4,
                      caption = "Data source: cisss-outaouais.gouv.qc.ca/language/en/covid19-en/"
 ){
-  ggplot(data = covid[covid$key %in% keys & covid$table %in% tab, ]) +
+  df <- covid[covid$key %in% keys & covid$table %in% tab, ]
+  caption <- paste("Last day in dataset: ", format(max(df$time), "%b %d"), ". ", caption, sep = "")
+  ggplot(data = df) +
     geom_line(mapping = aes(x = time, y = value, group = key, colour = key)) +
     { if(rug) 
       geom_rug(mapping = aes(x = time), sides = "b", length = unit(0.02, "npc")) 
@@ -166,7 +166,7 @@ LocalFig <- function(keys,
 
 # Outaouais region totals {.tabset .tabset-fade .tabset-pills}
 
-## Average increase in cases
+## New cases
 ```{r cases_avg}
 ## DailyFig(c("Average increase per day (Outaouais)"), tab = "cases", per_pop = TRUE)
 RegionFig(df = inspq[inspq$key == "Average increase per day", ], 
@@ -196,28 +196,6 @@ RegionFig(df = inspq[inspq$key %in% c("Total deaths", "Total deaths (CHSLD)", "T
           caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
 ```
 
-## Testing
-```{r testing}
-## LayeredFig(c("Average screening tests per day"))
-RegionFig(df = inspq[inspq$key %in% c("Average testing per day"), ],
-          bars = inspq[inspq$key %in% c("Persons tested"), ],
-          caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
-```
-
-## Positive tests
-```{r positive}
-RegionFig(df = inspq[inspq$key %in% c("Average positive tests per day"), ], 
-          bars = inspq[inspq$key %in% c("Persons tested positive"), ],
-          caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
-```
-
-## Test positivity
-```{r positivity}
-RegionFig(df = inspq[inspq$key %in% c("Average test positivity (%)"), ], 
-          bars = inspq[inspq$key %in% c("Test positivity (%)"), ], 
-          caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
-```
-
 ## Hospitalizations
 ```{r hospitalization}
 RegionFig(df = hospitalization[hospitalization$key %in% c("Active hospitalizations, non-ICU", "Active hospitalizations, ICU"), ],
@@ -242,7 +220,8 @@ RegionFig(df = inspq[inspq$key %in% c("Vaccine doses administered", "Total vacci
 
 # opencovid.ca (Outaouais & Ottawa) {.tabset .tabset-fade .tabset-pills}
 
-Visualizations of key covid-19 statistics for Ottawa, including projections and wastewater surveillance, are available at [613covid.ca](https://613covid.ca/).
+```{r, child = 'content/note_ottawa.md'}
+```
 
 ## Average increase
 ```{r opencovid_avg}
@@ -263,6 +242,30 @@ LocalFig(c("Total cases (Outaouais)", "Total cases (Ottawa)"),
 LocalFig(c("Total deaths (Outaouais)", "Total deaths (Ottawa)"), 
          tab = c("opencovid.ca"), rug = FALSE, 
          caption = "Data source: opencovid.ca/api/")
+```
+
+# Testing in Outaouais {.tabset .tabset-fade .tabset-pills}
+
+## Daily Tests
+```{r testing}
+## LayeredFig(c("Average screening tests per day"))
+RegionFig(df = inspq[inspq$key %in% c("Average testing per day"), ],
+          bars = inspq[inspq$key %in% c("Persons tested"), ],
+          caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
+```
+
+## Positive tests
+```{r positive}
+RegionFig(df = inspq[inspq$key %in% c("Average positive tests per day"), ], 
+          bars = inspq[inspq$key %in% c("Persons tested positive"), ],
+          caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
+```
+
+## Test positivity
+```{r positivity}
+RegionFig(df = inspq[inspq$key %in% c("Average test positivity (%)"), ], 
+          bars = inspq[inspq$key %in% c("Test positivity (%)"), ], 
+          caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
 ```
 
 # Average increase & cumulative cases by RLS {.tabset .tabset-fade .tabset-pills}
@@ -396,93 +399,26 @@ LocalFig(municipalities$municipality[municipalities$mrc == "Pontiac"])
 
 # Information on this site {.tabset .tabset-pills}
 
-## Method & Caveats
+```{r, child = 'content/index_notes.md'}
+```
 
-The HTML source for the [CISSS Outaouais site](https://cisss-outaouais.gouv.qc.ca/language/en/covid19-en/) is accessed daily, the tables are scraped and processed into a tidy dataset, to produce the local figures on this site. 
-For the regional and RLS levels, various official datasets are downloaded daily from Quebec government and INSPQ sites. 
-Some historical hospitalization data come from the [Ministère de la Santé et des Services sociaux (MSSS)](https://www.donneesquebec.ca/recherche/dataset/covid-19-portrait-quotidien-des-hospitalisations).
-The latest [opencovid.ca](https://opencovid.ca/) health region data are included for comparison. 
-The source code for downloading and processing all data, and the resulting datasets, are available in the project [GitHub repository](https://github.com/timothoms/covid19Outaouais). 
-Daily automation is currently done with MacScheduler.
+```{r, child = 'content/updates.md'}
+```
 
-Users of the CISSS Outaouais (local) data need to be aware of the following caveats:
-
-1. There is no guarantee of data accuracy. I am aggregating what CISSS Outaouais has been reporting over time. While I do try to correct obvious data input error, I have (so far) not implemented an automatic error detection process.
-
-2. The date and time in the dataset refer to when the CISSS Outaouais page was accessed, not when cases occurred.
-
-3. The trend data are not complete (i.e daily) for several reasons. First, I started regularly downloading the CISSS Outaouais source in fall 2020, and used the [Wayback Machine](https://archive.org/web/) to get earlier snapshots. Unfortunately, due to a nasty syncing glitch, I lost some HTML source files. (RStudio projects and Dropbox do not play well together; I learnt this the hard way, twice.) Second, the CISSS Outaouais site is not updated every day. Third, running the code from my personal computer means that the automatic download does not happen every day, either because the computer is turned off, or because my software for scheduling scripts has failed a few times. Since the snapshots include cumulative counts, this is not necessarily a problem, but it means that changes in local case counts cannot always be precisely dated. In the figures of local data, "rugs" indicate dates for which the data are available.
-
-<!-- 4. Not all the data available on the CISSS Outaouais site are currently included in the dataset. -->
-
-<!-- 5. Over time, CISSS Outaouais has made changes to what it reports and how it labels indicators. While I fix some inconsistencies in labels, I do not reconcile closely related indicators. The figures show how reporting by CISSS Outaouais has changed (i.e when certain indicator are, or are not, reported). -->
-
-<!-- 6. At the municipal and RLS levels,  -->
-
-4. At the local level, CISSS Outaouais does not report numbers of less than 6 precisely, likely for good privacy reasons. When "5 or less" are reported, I record this as 5 cases. Users of this dataset must be aware that counts of 5 do not precisely reflect the actual situation at those levels, but refer to 1-5 cases.
-
-Further: 
-
-5. Expressing vaccination doses as a percentage of the Outaouais population (in 2020) assumes that receivers of the vaccine are Outaouais residents **and** that they have received one dose only. These strong assumptions may be reasonable early in the vaccination campaign, but less so as time progresses.
-
-Updates of this page usually occur after 5pm. 
-If the figures do not show the latest data, reload this page in your web browser.
-
-Last HTML source download: `r str_replace(read_file("websites/last_download_time.txt"), "\n", "")`
-
-Last opencovid.ca update: `r str_replace(read_file("data/opencovid_update_time.txt"), "\n", "")`
+<!-- Last HTML download: `r str_replace(read_file("websites/last_download_time.txt"), "\n", "")` -->
 
 Last data revision: `r str_replace(read_file("data/data_update_time.txt"), "\n", "")`
 
 Last page update: `r now()`
 
-## Glossary 
+```{r, child = 'content/table_glossary.md'}
+```
 
-| Indicators                 | Description                                                                                          |
-|----------------------------|------------------------------------------------------------------------------------------------------|
-| Active cases               | total number minus numbers of deaths and resolved cases, aggregated at regional or RLS level         |
-| Average increase per day   | average daily increase in cases over last 7 days, calculated from available data                     |
-| Average testing per day    | reported average daily number of covid-19 tests performed over last 6-7 days                         |
-| Hospitalizations (non-ICU) | reported active hospitalizations (excluding ICU) for confirmed covid-19 diagnosis                    |
-| Hospitalizations (ICU)     | reported active hospitalizations (in ICU) for confirmed covid-19 diagnosis                           |
-| Resolved/recovered cases   | reported number of resolved cases at regional level                                                  |
-| Total cases                | reported total number of cases of infections to date, aggregated at regional, RLS or municipal level |
-| Total deaths               | reported total number of deaths at the regional level                                                |
-| Vaccination                | Vaccine doses administered in the region (may not be Outaouais residents)                            |
+```{r, child = 'content/table_sources.md'}
+```
 
-## Data sources for Outaouais & Quebec
+```{r, child = 'content/disclaimer.md'}
+```
 
-| Organization                                  | Sites                                                                                                                                                              |
-|-----------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| CISSS Outaouais                               | https://cisss-outaouais.gouv.qc.ca/covid-19/                                                                                                                       |
-| Gouvernement du Québec                        | https://www.quebec.ca/sante/problemes-de-sante/a-z/coronavirus-2019/situation-coronavirus-quebec/                                                                  |
-|                                               | https://www.quebec.ca/sante/problemes-de-sante/a-z/coronavirus-2019/situation-coronavirus-quebec/donnees-sur-la-vaccination-covid-19/                              |
-|                                               | https://www.quebec.ca/sante/problemes-de-sante/a-z/coronavirus-2019/faits-saillants-covid-ecoles/                                                                  |
-|                                               | https://www.quebec.ca/sante/problemes-de-sante/a-z/coronavirus-2019/liste-des-cas-de-covid-19-dans-les-ecoles/                                                     |
-|                                               | https://www.quebec.ca/sante/problemes-de-sante/a-z/coronavirus-2019/systeme-alertes-regionales-et-intervention-graduelle/cartes-paliers-alerte-covid-19-par-region |
-| INSPQ                                         | https://www.inspq.qc.ca/covid-19/donnees                                                                                                                           |
-|                                               | https://www.inspq.qc.ca/covid-19/donnees/vaccination/                                                                                                              |
-|                                               | https://www.inspq.qc.ca/covid-19/donnees/variants                                                                                                                  |
-|                                               | https://www.inspq.qc.ca/covid-19/donnees/ligne-du-temps                                                                                                            |
-| MSSS                                          | https://www.donneesquebec.ca/recherche/dataset/covid-19-portrait-quotidien-des-hospitalisations                                                                    |
-|                                               | https://www.donneesquebec.ca/recherche/dataset/covid-19-portrait-quotidien-des-cas-confirmes                                                                       |
-| Government of Canada                          | https://health-infobase.canada.ca/covid-19/                                                                                                                        |
-|                                               | https://health-infobase.canada.ca/covid-19/vaccination-coverage/                                                                                                   |
-| CCODWG (opencovid.ca)                         | https://opencovid.ca/api/                                                                                                                                          |
-
-## Disclaimer
-
-Please read this disclaimer ("disclaimer") carefully before using this website (the “Site”). All information provided on the Site is merely for general informational and educational purposes. It does not contain, and is not a substitute for, professional advice. 
-
-Under no circumstance shall I have any liability to you for any loss or damage of any kind incurred as a result of the use of the site or reliance on any information provided on the site. Your use of the site and your reliance on any information on the site is solely at your own risk. 
-
-While the information on the Site has been verified to the best of my abilities, I cannot guarantee that there are no mistakes or errors. All information on the Site is provided in good faith, however I make no representation or warranty of any kind, express or implied, regarding the accuracy, adequacy, validity, reliability, availability or completeness of any information on the Site.
-
-I reserve the right to change this policy at any given time, in which case this disclaimer will be updated.
-
-# {.unlisted .unnumbered}
-
-\ 
-
-This page is maintained by Timo Thoms. 
-Questions, concerns, and suggestions can be raised through [GitHub Discussions](https://github.com/timothoms/covid19Outaouais/discussions).
+```{r, child = 'content/footer.md'}
+```

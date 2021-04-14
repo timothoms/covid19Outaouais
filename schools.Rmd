@@ -6,7 +6,7 @@ output:
     toc: true
     toc_depth: 1
     includes:
-      before_body: translate.html
+      before_body: content/translate.html
 params: 
   optimize: false
 ---
@@ -20,6 +20,9 @@ knitr::opts_chunk$set(echo = FALSE, cache = FALSE, results = 'hide', warning = F
 knitr::opts_chunk$set(dpi = 120, fig.width = 7, fig.height = 5, out.width = "100%", out.height = "100%")
 if(params$optimize) knitr::opts_chunk$set(optipng = '-o7')
 Sys.setlocale(category = "LC_ALL", locale = "en_CA.UTF-8")
+```
+
+```{r data}
 load("data/municipalities.RData")
 pop_outaouais_2020 <- 401388
 load("data/schools.RData")
@@ -53,9 +56,8 @@ schools$school <- str_trim(schools$school)
 # unique(schools$school[str_detect(schools$school, "blah")])
 ```
 
-**Please note the caveats at the bottom of this page.**
-
-<!-- - [Schools](schools.html) -->
+```{r, child = 'content/schools_intro.md', eval = FALSE}
+```
 
 ```{r figure_functions}
 common_theme <- theme_classic() +
@@ -82,11 +84,12 @@ SchoolsFig <- function(admin) {
     ) + 
     scale_x_datetime(date_breaks = "2 weeks", date_labels = "%d %b %Y") +
     guides(colour = guide_legend(ncol = 4)) + 
-    labs(x = "", y = "") + common_theme  
+    labs(x = "", y = "", caption = "Data source: www.quebec.ca/sante/problemes-de-sante/a-z/coronavirus-2019/liste-des-cas-de-covid-19-dans-les-ecoles/") + 
+    common_theme  
 }
 ```
 
-# Schools with cases by Outaouais School Board {.tabset .tabset-fade .tabset-pills}
+# Schools with confirmed cases {.tabset .tabset-fade .tabset-pills}
 
 ## CSS des Draveurs
 ```{r draveurs}
@@ -120,53 +123,16 @@ SchoolsFig(c("École privée"))
 
 # Information on this site {.tabset .tabset-pills}
 
-## Method & Caveats
+```{r, child = 'content/schools_notes.md', eval = FALSE}
+```
 
-The HTML source for the [CISSS Outaouais site](https://cisss-outaouais.gouv.qc.ca/language/en/covid19-en/) is accessed daily, the tables are scraped and processed into a tidy dataset, to produce the local figures on this site. 
-For the regional and RLS levels, various official datasets are downloaded daily from Quebec government and INSPQ sites. 
-Some historical hospitalization data come from the [Ministère de la Santé et des Services sociaux (MSSS)](https://www.donneesquebec.ca/recherche/dataset/covid-19-portrait-quotidien-des-hospitalisations).
-The latest [opencovid.ca](https://opencovid.ca/) health region data are included for comparison. 
-The source code for downloading and processing all data, and the resulting datasets, are available in the project [GitHub repository](https://github.com/timothoms/covid19Outaouais). 
-Daily automation is currently done with MacScheduler.
-
-Users of these data need to be aware of the following caveats:
-
-1. ...
-
-Updates of this page usually occur after 5pm. 
-If the figures do not show the latest data, reload this page in your web browser.
+```{r, child = 'content/updates.md', eval = FALSE}
+```
 
 Last data update: `r str_replace(read_file("data/data_update_time.txt"), "\n", "")`
 
-Last page update: `r now()`
+```{r, child = 'content/disclaimer.md', eval = FALSE}
+```
 
-## Glossary 
-
-| Indicators                 | Description                                                                                          |
-|----------------------------|------------------------------------------------------------------------------------------------------|
-| Active cases               | total number minus numbers of deaths and resolved cases, aggregated at regional or RLS level         |
-| Average increase per day   | average daily increase in cases over last 7 days, calculated from available data                     |
-| Average testing per day    | reported average daily number of covid-19 tests performed over last 6-7 days                         |
-| Hospitalizations (non-ICU) | reported active hospitalizations (excluding ICU) for confirmed covid-19 diagnosis                    |
-| Hospitalizations (ICU)     | reported active hospitalizations (in ICU) for confirmed covid-19 diagnosis                           |
-| Resolved/recovered cases   | reported number of resolved cases at regional level                                                  |
-| Total cases                | reported total number of cases of infections to date, aggregated at regional, RLS or municipal level |
-| Total deaths               | reported total number of deaths at the regional level                                                |
-| Vaccination                | Vaccine doses administered in the region (may not be Outaouais residents)                            |
-
-## Disclaimer
-
-Please read this disclaimer ("disclaimer") carefully before using this website (the “Site”). All information provided on the Site is merely for general informational and educational purposes. It does not contain, and is not a substitute for, professional advice. 
-
-Under no circumstance shall I have any liability to you for any loss or damage of any kind incurred as a result of the use of the site or reliance on any information provided on the site. Your use of the site and your reliance on any information on the site is solely at your own risk. 
-
-While the information on the Site has been verified to the best of my abilities, I cannot guarantee that there are no mistakes or errors. All information on the Site is provided in good faith, however I make no representation or warranty of any kind, express or implied, regarding the accuracy, adequacy, validity, reliability, availability or completeness of any information on the Site.
-
-I reserve the right to change this policy at any given time, in which case this disclaimer will be updated.
-
-# {.unlisted .unnumbered}
-
-\ 
-
-This page is maintained by Timo Thoms. 
-Questions, concerns, and suggestions can be raised through [GitHub Discussions](https://github.com/timothoms/covid19Outaouais/discussions).
+```{r, child = 'content/footer.md'}
+```
