@@ -12,10 +12,13 @@ library(tidyverse)
 library(lubridate)
 knitr::knit_hooks$set(optipng = knitr::hook_optipng)
 knitr::knit_hooks$set(pngquant = knitr::hook_pngquant)
-knitr::opts_chunk$set(echo = FALSE, cache = FALSE, results = 'hide', warning = FALSE)
-knitr::opts_chunk$set(dpi = 120, fig.width = 7, fig.height = 5, out.width = "100%", out.height = "100%")
+knitr::opts_chunk$set(echo = FALSE, cache = FALSE, 
+                      results = 'hide', warning = FALSE)
+knitr::opts_chunk$set(dpi = 120, fig.width = 7, fig.height = 5, 
+                      out.width = "100%", out.height = "100%")
 if(params$optimize) knitr::opts_chunk$set(optipng = '-o7')
 Sys.setlocale(category = "LC_ALL", locale = "en_CA.UTF-8")
+options(scipen = 100000)
 load("data/covid_local.RData")
 load("data/covid_local_daily.RData")
 source("functions_figures.R")
@@ -25,17 +28,26 @@ source("functions_figures.R")
 
 ### Average increase per day (over 7 days)
 ```{r opencovid_avg}
-DailyFig(c("Average increase per day (Toronto)"))
+DailyFig(keys = c("Average increase per day (Toronto)"),
+         tab = "opencovid.ca", 
+         rug = FALSE, 
+         caption = "Data source: opencovid.ca/api/")
 ```
 
 ### Cumulative cases
 ```{r opencovid_total}
-LocalFig(c("Total cases (Toronto)"))
+LocalFig(keys = c("Total cases (Toronto)"),
+         tab = "opencovid.ca",
+         rug = FALSE, 
+         caption = "Data source: opencovid.ca/api/")
 ```
 
 ### Deaths
 ```{r opencovid_deaths}
-LocalFig(c("Total deaths (Toronto)"))
+LocalFig(keys = c("Total deaths (Toronto)"),
+         tab = "opencovid.ca",
+         rug = FALSE, 
+         caption = "Data source: opencovid.ca/api/")
 ```
 
 ##

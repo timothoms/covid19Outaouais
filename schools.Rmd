@@ -16,15 +16,17 @@ library(tidyverse)
 library(lubridate)
 knitr::knit_hooks$set(optipng = knitr::hook_optipng)
 knitr::knit_hooks$set(pngquant = knitr::hook_pngquant)
-knitr::opts_chunk$set(echo = FALSE, cache = FALSE, results = 'hide', warning = FALSE, message = FALSE)
-knitr::opts_chunk$set(dpi = 120, fig.width = 7, fig.height = 5, out.width = "100%", out.height = "100%")
+knitr::opts_chunk$set(echo = FALSE, cache = FALSE, 
+                      results = 'hide', warning = FALSE, message = FALSE)
+knitr::opts_chunk$set(dpi = 120, fig.width = 7, fig.height = 5, 
+                      out.width = "100%", out.height = "100%")
 if(params$optimize) knitr::opts_chunk$set(optipng = '-o7')
 Sys.setlocale(category = "LC_ALL", locale = "en_CA.UTF-8")
 ```
 
 ```{r data}
-load("data/municipalities.RData")
-pop_outaouais_2020 <- 401388
+# load("data/municipalities.RData")
+# pop_outaouais_2020 <- 401388
 load("data/schools.RData")
 # tapply(schools$school, schools$admin, function(x) length(unique(x)))
 # table(schools[, c("note", "color_code")])
@@ -43,50 +45,26 @@ schools$school <- str_replace(schools$school, "école", "É.")
 schools$school <- str_replace(schools$school, "School", "S.")
 schools$school <- str_replace(schools$school, "Shcool", "S.")
 schools$school <- str_replace(schools$school, "Education", "Ed.")
-schools$school <- str_replace(schools$school, "Centre de formation professionnelle des métiers", "CFP")
-schools$school <- str_replace(schools$school, "Centre de formation professionnelle", "CFP")
+schools$school <- str_replace(schools$school, 
+                              "Centre de formation professionnelle des métiers", 
+                              "CFP")
+schools$school <- str_replace(schools$school, 
+                              "Centre de formation professionnelle", 
+                              "CFP")
 schools$school <- str_replace(schools$school, "Centre", "C.")
 schools$school <- str_replace(schools$school, " de l'Outaouais", "\nde l'Outaouais")
 schools$school <- str_replace(schools$school, "Collège ", "Collège\n")
 schools$school <- str_replace(schools$school, ", pavillon ", ", ")
-schools$school[schools$admin == "Centre de services scolaire des Hauts-Bois-de-l'Outaouais"] <- 
-    str_replace(schools$school[schools$admin == "Centre de services scolaire des Hauts-Bois-de-l'Outaouais"], fixed(", "), ",\n")
+board <- "Centre de services scolaire des Hauts-Bois-de-l'Outaouais"
+schools$school[schools$admin == board] <- 
+  str_replace(schools$school[schools$admin == board], fixed(", "), ",\n")
 schools$school <- str_replace(schools$school, fixed(" ("), "\n(")
 schools$school <- str_trim(schools$school)
 # unique(schools$school[str_detect(schools$school, "blah")])
+source("functions_figures.R")
 ```
 
 ```{r, child = 'content/schools_intro.md', eval = FALSE}
-```
-
-```{r figure_functions}
-common_theme <- theme_classic() +
-  theme(axis.text.x = element_text(angle = 15, vjust = 1.0, hjust = 1.0),
-        axis.title = element_blank(),
-        legend.position = "top",
-        legend.title = element_blank(),
-        legend.text = element_text(size = rel(0.67)),
-        legend.margin = margin(0, 0, 0, 0),
-        # legend.box.margin = margin(-10, -10, -10, -10),
-        panel.grid.minor.x = element_line(colour="lightgray", size = 0.25),
-        # plot.margin = unit(c(5, 5, 5, 5), "pt"),
-        plot.caption = element_text(size = rel(0.67)))
-SchoolsFig <- function(admin) {
-  ggplot(data = schools[schools$admin %in% admin, ],
-         aes(x = time, y = school)) +
-    geom_point(mapping = aes(x = time, y = school, group = note, colour = note), size = 0.75) +
-    # geom_segment(mapping = aes(x = time, xend = lead(time), y = school, yend = school, group = note, colour = note)) +
-    scale_color_manual(values = c("newly listed" = "darkgreen",
-                                  "previously listed" = "darkgray",
-                                  "reaffected previously listed" = "red",
-                                  "relisted newly affected" = "green"),
-                       breaks = c("newly listed", "previously listed", "reaffected previously listed", "relisted newly affected")
-    ) + 
-    scale_x_datetime(date_breaks = "2 weeks", date_labels = "%d %b %Y") +
-    guides(colour = guide_legend(ncol = 4)) + 
-    labs(x = "", y = "", caption = "Data source: www.quebec.ca/sante/problemes-de-sante/a-z/coronavirus-2019/liste-des-cas-de-covid-19-dans-les-ecoles/") + 
-    common_theme  
-}
 ```
 
 # Schools with confirmed cases {.tabset .tabset-fade .tabset-pills}
