@@ -82,8 +82,12 @@ schools$color_code[schools$code == 1] <- "pink" # "already on list, with new con
 schools$color_code[schools$code == 2] <- "green*" # "relisted due to new confirmed case(s) [green*]"
 schools$color_code[schools$code == 3] <- "green" # "new listing due to new confirmed case(s) [green]"
 schools <- schools[schools$region == "Outaouais", c("admin", "time", "school", "note", "color_code")]
-schools <- schools %>% group_by(admin, school) %>% arrange(school, time)
+schools <- schools %>% group_by(admin, school) %>% arrange(admin, school, time)
 schools <- schools[!(is.na(schools$admin) & is.na(schools$school)), ]
+schools$date <- lubridate::as_date(schools$time)
+schools <- schools %>% group_by(admin, school, date) %>% filter(time == max(time))
+schools <-schools[, c("admin", "school","date", "note", "color_code")]
+schools <- schools %>% group_by(admin, school) %>% arrange(admin, school, date)
 save(schools, file = "data/schools.RData")
 
 ### mobility snapshots

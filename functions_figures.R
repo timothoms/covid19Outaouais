@@ -132,16 +132,16 @@ RLSFig <- function(df, caption, legend_cols = 2) {
 
 SchoolsFig <- function(admin) {
   ggplot(data = schools[schools$admin %in% admin, ],
-         aes(x = time, y = school)) +
-    geom_point(mapping = aes(x = time, y = school, group = note, colour = note), size = 0.75) +
-    # geom_segment(mapping = aes(x = time, xend = lead(time), y = school, yend = school, group = note, colour = note)) +
+         aes(x = date, y = school)) +
+    geom_point(mapping = aes(x = date, y = school, group = note, colour = note), size = 0.75) +
+    # geom_segment(mapping = aes(x = date, xend = lead(date), y = school, yend = school, group = note, colour = note)) +
     scale_color_manual(values = c("newly listed" = "darkgreen",
                                   "previously listed" = "darkgray",
                                   "reaffected previously listed" = "red",
                                   "relisted newly affected" = "green"),
                        breaks = c("newly listed", "previously listed", "reaffected previously listed", "relisted newly affected")
     ) +
-    scale_x_datetime(date_breaks = "2 weeks", date_labels = "%d %b %Y") +
+    scale_x_date(date_breaks = "2 weeks", date_labels = "%d %b %Y") +
     guides(colour = guide_legend(ncol = 4)) +
     labs(x = "", y = "", caption = "Data source: www.quebec.ca/sante/problemes-de-sante/a-z/coronavirus-2019/liste-des-cas-de-covid-19-dans-les-ecoles/") +
     common_theme +
