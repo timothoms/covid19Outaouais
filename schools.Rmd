@@ -12,16 +12,7 @@ params:
 ---
 
 ```{r setup, include=FALSE}
-library(tidyverse)
-library(lubridate)
-knitr::knit_hooks$set(optipng = knitr::hook_optipng)
-knitr::knit_hooks$set(pngquant = knitr::hook_pngquant)
-knitr::opts_chunk$set(echo = FALSE, cache = FALSE, 
-                      results = 'hide', warning = FALSE, message = FALSE)
-knitr::opts_chunk$set(dpi = 120, fig.width = 7, fig.height = 5, 
-                      out.width = "100%", out.height = "100%")
-if(params$optimize) knitr::opts_chunk$set(optipng = '-o7')
-Sys.setlocale(category = "LC_ALL", locale = "en_CA.UTF-8")
+source("setup.R")
 ```
 
 ```{r data}
@@ -64,10 +55,12 @@ schools$school <- str_trim(schools$school)
 source("functions_figures.R")
 ```
 
-```{r, child = 'md/schools_intro.md', eval = FALSE}
+```{r, child = 'md/schools_intro.md'}
 ```
 
 # Schools with confirmed cases {.tabset .tabset-fade .tabset-pills}
+
+<!-- Schools with confirmed cases -->
 
 ## CSS des Draveurs
 ```{r draveurs}
@@ -101,15 +94,15 @@ SchoolsFig(c("École privée"))
 
 # Information on this site {.tabset .tabset-pills}
 
-```{r, child = 'md/schools_notes.md', eval = FALSE}
+```{r, child = 'md/schools_notes.md'}
 ```
 
-```{r, child = 'md/updates.md', eval = FALSE}
+```{r, child = 'md/updates.md'}
 ```
 
 Last data update: `r str_replace(read_file("data/data_update_time.txt"), "\n", "")`
 
-```{r, child = 'md/disclaimer.md', eval = FALSE}
+```{r, child = 'md/disclaimer.md'}
 ```
 
 ```{r, child = 'md/footer.md'}
