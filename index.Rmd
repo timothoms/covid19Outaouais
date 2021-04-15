@@ -281,13 +281,14 @@ LocalFig(municipalities$municipality[municipalities$mrc == "Pontiac"])
 
 # Information on this site {.tabset .tabset-pills}
 
+```{r, child = 'md/index_caveats.md'}
+```
+
 ```{r, child = 'md/index_notes.md'}
 ```
 
 ```{r, child = 'md/updates.md'}
 ```
-
-<!-- Last HTML download: `r str_replace(read_file("websites/last_download_time.txt"), "\n", "")` -->
 
 Last data revision: `r str_replace(read_file("data/data_update_time.txt"), "\n", "")`
 
