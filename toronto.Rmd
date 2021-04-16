@@ -8,10 +8,10 @@ params:
 ---
 
 ```{r setup, include=FALSE}
-source("setup.R")
+source("R/setup.R")
 load("data/covid_local.RData")
 load("data/covid_local_daily.RData")
-source("functions_figures.R")
+source("R/functions_figures.R")
 ```
 
 ## {.tabset .tabset-fade .tabset-pills}

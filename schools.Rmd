@@ -1,6 +1,6 @@
 ---
 title: "Covid19 Situation in Outaouais Schools"
-output:
+output: 
   html_document:
     theme: darkly
     toc: true
@@ -12,7 +12,7 @@ params:
 ---
 
 ```{r setup, include=FALSE}
-source("setup.R")
+source("R/setup.R")
 ```
 
 ```{r data}
@@ -52,6 +52,7 @@ schools$school[schools$admin == board] <-
 schools$school <- str_replace(schools$school, fixed(" ("), "\n(")
 schools$school <- str_trim(schools$school)
 # unique(schools$school[str_detect(schools$school, "blah")])
+schools <- schools %>% arrange(admin, schools, date)
 source("functions_figures.R")
 ```
 
