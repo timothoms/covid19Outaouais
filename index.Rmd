@@ -12,7 +12,7 @@ params:
 ---
 
 ```{r setup, include=FALSE}
-source("setup.R")
+source("R/setup.R")
 load("data/covid_local.RData")
 load("data/covid_local_daily.RData")
 load("data/municipalities.RData")
@@ -25,7 +25,7 @@ vaccination <- vaccination %>%
   mutate(date = lubridate::as_date(vaccination$time)) %>% 
   group_by(key, date) %>% filter(time == max(time)) 
 pop_outaouais_2020 <- 401388
-source("functions_figures.R")
+source("R/functions_figures.R")
 ```
 
 ```{r, child = 'md/index_intro.md'}
@@ -284,7 +284,7 @@ Last data revision: `r str_replace(read_file("data/data_update_time.txt"), "\n",
 
 Last page update: `r now()`
 
-```{r, child = 'md/table_glossary.Rmd'}
+```{r, child = 'md/table_glossary.Rmd', eval = FALSE}
 ```
 
 ```{r, child = 'md/table_sources.Rmd'}
