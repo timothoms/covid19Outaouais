@@ -1,10 +1,10 @@
 ## Glossary 
 
-|                                  | Description                                                                                          |
-|----------------------------------|------------------------------------------------------------------------------------------------------|
+|                                  | Description |
+|----------------------------------|-------------|
 | Active cases                     | total number minus numbers of deaths and resolved cases, aggregated at regional or RLS level         |
 
-The number of active cases is the number of confirmed cases that have not yet recovered or have died. Active cases contribute to the spread of the disease in the population.
+the number of confirmed cases that have not recovered or have died. Active cases contribute to the spread of the disease in the population.
 
 | Active hospitalizations          | reported active hospitalizations for confirmed covid-19 diagnosis                                    |
 

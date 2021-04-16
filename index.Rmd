@@ -284,10 +284,10 @@ Last page update: `r now()`
 ```{r, child = 'md/index_caveats.md'}
 ```
 
-```{r, child = 'md/table_glossary.Rmd', eval = FALSE}
+```{r, child = 'md/table_glossary.md', eval = FALSE}
 ```
 
-```{r, child = 'md/table_sources.Rmd'}
+```{r, child = 'md/table_sources.md'}
 ```
 
 ```{r, child = 'md/disclaimer.md'}
