@@ -271,9 +271,6 @@ LocalFig(municipalities$municipality[municipalities$mrc == "Pontiac"])
 
 # Information on this site {.tabset .tabset-pills}
 
-```{r, child = 'md/index_caveats.md'}
-```
-
 ```{r, child = 'md/index_notes.md'}
 ```
 
@@ -283,6 +280,9 @@ LocalFig(municipalities$municipality[municipalities$mrc == "Pontiac"])
 Last data revision: `r str_replace(read_file("data/data_update_time.txt"), "\n", "")`
 
 Last page update: `r now()`
+
+```{r, child = 'md/index_caveats.md'}
+```
 
 ```{r, child = 'md/table_glossary.Rmd', eval = FALSE}
 ```
