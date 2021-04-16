@@ -10,8 +10,13 @@ library("aws.s3")
 source("covid_datasets.R")
 csvs <- csvs[unlist(lapply(csvs, function(item) "opencovid_dir" %in% names(item)))]
 csvs <- csvs[!unlist(lapply(csvs, function(item) item$overwrite))]
+csvs <- lapply(csvs, function(item) {
+  item$file_ext <- "csv"
+  return(item)
+})
+source("covid_datasets_pdfs.R")
 
-download <- lapply(csvs, function(item) {
+download <- lapply(xxx, function(item) {
   cat("\n", item$opencovid_dir)
   files <- aws.s3::get_bucket(bucket = "data.opencovid.ca",
                               prefix = paste("archive/", item$opencovid_dir, sep = ""),
@@ -22,7 +27,7 @@ download <- lapply(csvs, function(item) {
   lapply(files, function(file) {
     cat(".")
     download.file(paste("http://data.opencovid.ca/", file, sep = ""),
-                  destfile = paste("csv/", stringr::str_replace(file, paste("archive/", item$opencovid_dir, sep = ""), item$path), sep = ""))
+                  destfile = paste(item$file_ext, "/", stringr::str_replace(file, paste("archive/", item$opencovid_dir, sep = ""), item$path), sep = ""))
   })
   return(files)
 })
