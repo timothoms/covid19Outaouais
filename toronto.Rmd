@@ -16,7 +16,7 @@ source("R/functions_figures.R")
 
 ## {.tabset .tabset-fade .tabset-pills}
 
-### Average increase per day (over 7 days)
+### Average increase per day
 ```{r opencovid_avg}
 DailyFig(keys = c("Average increase per day (Toronto)"),
          tab = "opencovid.ca", 
@@ -41,7 +41,7 @@ LocalFig(keys = c("Total deaths (Toronto)"),
 ```
 
 ##
-```{r, child = 'md/updates.md', eval = FALSE}
+```{r, child = 'md/updates.md'}
 ```
 
 Last page update: `r now()`
