@@ -142,6 +142,7 @@ SchoolsFig <- function(admin) {
                        breaks = c("newly listed", "previously listed", "reaffected previously listed", "relisted newly affected")
     ) +
     scale_x_date(date_breaks = "2 weeks", date_labels = "%d %b %Y") +
+    scale_y_discrete(limits = rev) +
     guides(colour = guide_legend(ncol = 4)) +
     labs(x = "", y = "", caption = "Data source: www.quebec.ca/sante/problemes-de-sante/a-z/coronavirus-2019/liste-des-cas-de-covid-19-dans-les-ecoles/") +
     common_theme +
