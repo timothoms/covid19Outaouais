@@ -31,6 +31,9 @@ source("R/functions_figures.R")
 ```{r, child = 'md/index_intro.md'}
 ```
 
+```{r, child = 'md/note_ottawa.md'}
+```
+
 # Outaouais region totals {.tabset .tabset-fade .tabset-pills}
 
 ## New cases
@@ -54,6 +57,28 @@ RegionFig(df = inspq[inspq$key %in% c("Active cases"), ],
 ```{r cases_cumulative}
 ## LayeredFig(c("Healed/resolved cases", "Total cases (Outaouais)")) # "Total cases (RLS)"
 RegionFig(df = inspq[inspq$key %in% c("Total cases", "Total recovered cases"), ], 
+          caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
+```
+
+## Daily Tests
+```{r testing}
+## LayeredFig(c("Average screening tests per day"))
+RegionFig(df = inspq[inspq$key %in% c("Average testing per day"), ],
+          bars = inspq[inspq$key %in% c("Persons tested"), ],
+          caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
+```
+
+## Positive tests
+```{r positive}
+RegionFig(df = inspq[inspq$key %in% c("Average positive tests per day"), ], 
+          bars = inspq[inspq$key %in% c("Persons tested positive"), ],
+          caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
+```
+
+## Test positivity
+```{r positivity}
+RegionFig(df = inspq[inspq$key %in% c("Average test positivity (%)"), ], 
+          bars = inspq[inspq$key %in% c("Test positivity (%)"), ], 
           caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
 ```
 
@@ -87,12 +112,7 @@ RegionFig(df = inspq[inspq$key %in% c("Vaccine doses administered", "Total vacci
           caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
 ```
 
-# Outaouais & Ottawa (opencovid.ca) {.tabset .tabset-fade .tabset-pills}
-
-```{r, child = 'md/note_ottawa.md'}
-```
-
-## Average increase
+## Outaouais & Ottawa (opencovid.ca)
 ```{r opencovid_avg}
 DailyFig(c("Average increase per day (Outaouais)", "Average increase per day (Ottawa)"), 
          tab = "opencovid.ca", 
@@ -100,47 +120,15 @@ DailyFig(c("Average increase per day (Outaouais)", "Average increase per day (Ot
          caption = "Data source: opencovid.ca/api/")
 ```
 
-## Cumulative cases
-```{r opencovid_total}
+<!-- ## Cumulative cases, Outaouais & Ottawa (opencovid.ca) -->
+```{r opencovid_total, eval = FALSE}
 LocalFig(c("Total cases (Outaouais)", "Total cases (Ottawa)"), 
          tab = c("opencovid.ca"), 
          rug = FALSE, 
          caption = "Data source: opencovid.ca/api/")
 ```
 
-## Deaths
-```{r deaths_opencovid}
-LocalFig(c("Total deaths (Outaouais)", "Total deaths (Ottawa)"), 
-         tab = c("opencovid.ca"), 
-         rug = FALSE, 
-         caption = "Data source: opencovid.ca/api/")
-```
-
-# Testing in Outaouais {.tabset .tabset-fade .tabset-pills}
-
-## Daily Tests
-```{r testing}
-## LayeredFig(c("Average screening tests per day"))
-RegionFig(df = inspq[inspq$key %in% c("Average testing per day"), ],
-          bars = inspq[inspq$key %in% c("Persons tested"), ],
-          caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
-```
-
-## Positive tests
-```{r positive}
-RegionFig(df = inspq[inspq$key %in% c("Average positive tests per day"), ], 
-          bars = inspq[inspq$key %in% c("Persons tested positive"), ],
-          caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
-```
-
-## Test positivity
-```{r positivity}
-RegionFig(df = inspq[inspq$key %in% c("Average test positivity (%)"), ], 
-          bars = inspq[inspq$key %in% c("Test positivity (%)"), ], 
-          caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
-```
-
-# Average increase & cumulative cases by RLS {.tabset .tabset-fade .tabset-pills}
+# Average increase by RLS {.tabset .tabset-fade .tabset-pills}
 
 ## Gatineau & Outaouais
 ```{r rls_avg_gatineau}
@@ -177,14 +165,14 @@ RLSFig(df = rls[rls$key == "RLS de la Vallée-de-la-Gatineau" & rls$table == "av
        caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/tableau-rls-new.csv")
 ```
 
-## Cumulative, Gatineau
-```{r rls_cumulative_gatineau}
+<!-- ## Cumulative, Gatineau -->
+```{r rls_cumulative_gatineau, eval = FALSE}
 RLSFig(df = rls[rls$key %in% c("Total cases (Outaouais)", "RLS de Grande-Rivière - Hull - Gatineau") & rls$table == "cases", ], 
        caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/tableau-rls-new.csv")
 ```
 
-## Cumulative, other
-```{r rls_cumulative_other}
+<!-- ## Cumulative, other -->
+```{r rls_cumulative_other, eval = FALSE}
 RLSFig(df = rls[rls$key %in% c("RLS des Collines-de-l'Outaouais", "RLS du Pontiac", "RLS de la Vallée-de-la-Lièvre et de la Petite Nation", "RLS de la Vallée-de-la-Gatineau") & rls$table == "cases", ], 
        caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/tableau-rls-new.csv")
 ```
