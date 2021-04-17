@@ -3,7 +3,7 @@ library("parallel")
 Sys.setlocale(category = "LC_ALL", locale = "en_CA.UTF-8")
 
 source("covid_datasets.R")
-# unlist(lapply(csvs, function(item) paste("csv/", item$path, item$file_name, sep = "")))
+# unlist(lapply(datasets, function(item) paste("csv/", item$path, item$file_name, sep = "")))
 
 ### hospitalization
 hospitalization <- readr::read_csv("csv/msss_hosp_rss/COVID19_Qc_HistoHospit.csv")

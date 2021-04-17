@@ -19,6 +19,8 @@ writeLines(as.character(lubridate::now()), file_connection)
 close(file_connection)
 
 source("covid_datasets.R")
+csvs <- datasets[unlist(lapply(datasets, function(item) item$download_daily ))]
+
 lapply(csvs, function(item) {
   if(item$overwrite) {
     download.file(item$url,

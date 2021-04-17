@@ -6,17 +6,12 @@
 # HTTPS: https://data.opencovid.ca.s3.amazonaws.com/archive/can/epidemiology-update-2/covid19-download_2020-11-04_23-38.csv
 
 library("aws.s3")
-
 source("covid_datasets.R")
-csvs <- csvs[unlist(lapply(csvs, function(item) "opencovid_dir" %in% names(item)))]
-csvs <- csvs[!unlist(lapply(csvs, function(item) item$overwrite))]
-csvs <- lapply(csvs, function(item) {
-  item$file_ext <- "csv"
-  return(item)
-})
-source("covid_datasets_pdfs.R")
+# csvs <- datasets[unlist(lapply(datasets, function(item) item$file_ext == "csv"))]
+datasets <- datasets[unlist(lapply(datasets, function(item) "opencovid_dir" %in% names(item)))]
+datasets <- datasets[!unlist(lapply(datasets, function(item) item$overwrite))]
 
-download <- lapply(xxx, function(item) {
+download <- lapply(datasets, function(item) {
   cat("\n", item$opencovid_dir)
   files <- aws.s3::get_bucket(bucket = "data.opencovid.ca",
                               prefix = paste("archive/", item$opencovid_dir, sep = ""),
