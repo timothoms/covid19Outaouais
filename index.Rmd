@@ -133,47 +133,58 @@ LocalFig(c("Total cases (Outaouais)", "Total cases (Ottawa)"),
 ## Gatineau & Outaouais
 ```{r rls_avg_gatineau}
 ## DailyFig(c("RLS de Gatineau"))
-RLSFig(df = rls[rls$key %in% c("Average increase per day (Outaouais)", "Active cases (Outaouais)", "RLS de Grande-Rivière - Hull - Gatineau") & rls$table == "average", ], 
+LocalFig(df = rls[rls$key %in% c("Average increase per day (Outaouais)", "Active cases (Outaouais)", "RLS de Grande-Rivière - Hull - Gatineau") & rls$table == "average", ], 
+       rug = FALSE, 
+       note_last_day = FALSE,
        caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/tableau-rls-new.csv")
 ```
 
 ## Collines
 ```{r rls_avg_collines}
 ## DailyFig(c("RLS des Collines-de-l'Outaouais"))
-RLSFig(df = rls[rls$key == "RLS des Collines-de-l'Outaouais" & rls$table == "average", ], 
+LocalFig(df = rls[rls$key == "RLS des Collines-de-l'Outaouais" & rls$table == "average", ], 
+       rug = FALSE, 
+       note_last_day = FALSE,
        caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/tableau-rls-new.csv")
 ```
 
 ## Pontiac
 ```{r rls_avg_pontiac}
 ## DailyFig(c("RLS du Pontiac"))
-RLSFig(df = rls[rls$key == "RLS du Pontiac" & rls$table == "average", ], 
+LocalFig(df = rls[rls$key == "RLS du Pontiac" & rls$table == "average", ], 
+       rug = FALSE, 
+       note_last_day = FALSE,
        caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/tableau-rls-new.csv")
 ```
 
 ## Papineau
 ```{r rls_avg_papineau}
 ## DailyFig(c("RLS de Papineau"))
-RLSFig(df = rls[rls$key == "RLS de la Vallée-de-la-Lièvre et de la Petite Nation" & rls$table == "average", ], 
+LocalFig(df = rls[rls$key == "RLS de la Vallée-de-la-Lièvre et de la Petite Nation" & rls$table == "average", ], 
+       rug = FALSE, 
+       note_last_day = FALSE,
        caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/tableau-rls-new.csv")
 ```
 
 ## Vallée
 ```{r rls_avg_vallee}
 ## DailyFig(c("RLS de la Vallée-de-la-Gatineau"))
-RLSFig(df = rls[rls$key == "RLS de la Vallée-de-la-Gatineau" & rls$table == "average", ], 
+LocalFig(df = rls[rls$key == "RLS de la Vallée-de-la-Gatineau" & rls$table == "average", ], 
+       rug = FALSE, 
+       note_last_day = FALSE,
        caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/tableau-rls-new.csv")
 ```
 
-<!-- ## Cumulative, Gatineau -->
 ```{r rls_cumulative_gatineau, eval = FALSE}
-RLSFig(df = rls[rls$key %in% c("Total cases (Outaouais)", "RLS de Grande-Rivière - Hull - Gatineau") & rls$table == "cases", ], 
+LocalFig(df = rls[rls$key %in% c("Total cases (Outaouais)", "RLS de Grande-Rivière - Hull - Gatineau") & rls$table == "cases", ], 
+       rug = FALSE, 
+       note_last_day = FALSE,
        caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/tableau-rls-new.csv")
 ```
-
-<!-- ## Cumulative, other -->
 ```{r rls_cumulative_other, eval = FALSE}
-RLSFig(df = rls[rls$key %in% c("RLS des Collines-de-l'Outaouais", "RLS du Pontiac", "RLS de la Vallée-de-la-Lièvre et de la Petite Nation", "RLS de la Vallée-de-la-Gatineau") & rls$table == "cases", ], 
+LocalFig(df = rls[rls$key %in% c("RLS des Collines-de-l'Outaouais", "RLS du Pontiac", "RLS de la Vallée-de-la-Lièvre et de la Petite Nation", "RLS de la Vallée-de-la-Gatineau") & rls$table == "cases", ], 
+       rug = FALSE, 
+       note_last_day = FALSE,
        caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/tableau-rls-new.csv")
 ```
 
@@ -181,36 +192,41 @@ RLSFig(df = rls[rls$key %in% c("RLS des Collines-de-l'Outaouais", "RLS du Pontia
 
 ## Gatineau & Outaouais
 ```{r rls_active_gatineau}
-## LocalFig(c("RLS de Gatineau"), tab = c("rls_active"), legend_cols = 3)
-RLSFig(df = rls[rls$key %in% c("Active cases (Outaouais)", "RLS de Grande-Rivière - Hull - Gatineau") & rls$table == "active", ], 
+LocalFig(df = rls[rls$key %in% c("Active cases (Outaouais)", "RLS de Grande-Rivière - Hull - Gatineau") & rls$table == "active", ], 
+       rug = FALSE, 
+       note_last_day = FALSE,
        caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/tableau-rls-new.csv")
 ```
 
 ## Collines
 ```{r rls_active_collines}
-## LocalFig(c("RLS des Collines-de-l'Outaouais"), tab = c("rls_active"), legend_cols = 3)
-RLSFig(df = rls[rls$key == "RLS des Collines-de-l'Outaouais" & rls$table == "active", ], 
+LocalFig(df = rls[rls$key == "RLS des Collines-de-l'Outaouais" & rls$table == "active", ], 
+       rug = FALSE, 
+       note_last_day = FALSE,
        caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/tableau-rls-new.csv")
 ```
 
 ## Pontiac
 ```{r rls_pontiac}
-## LocalFig(c("RLS du Pontiac"), tab = c("rls_active"), legend_cols = 3)
-RLSFig(df = rls[rls$key == "RLS du Pontiac" & rls$table == "active", ], 
+LocalFig(df = rls[rls$key == "RLS du Pontiac" & rls$table == "active", ], 
+       rug = FALSE, 
+       note_last_day = FALSE,
        caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/tableau-rls-new.csv")
 ```
 
 ## Papineau
 ```{r rls_active_papineau}
-## LocalFig(c("RLS de Papineau"), tab = c("rls_active"), legend_cols = 3)
-RLSFig(df = rls[rls$key == "RLS de la Vallée-de-la-Lièvre et de la Petite Nation" & rls$table == "active", ], 
+LocalFig(df = rls[rls$key == "RLS de la Vallée-de-la-Lièvre et de la Petite Nation" & rls$table == "active", ], 
+       rug = FALSE, 
+       note_last_day = FALSE,
        caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/tableau-rls-new.csv")
 ```
 
 ## Vallée
 ```{r rls_active_vallee}
-## LocalFig(c("RLS de la Vallée-de-la-Gatineau"), tab = c("rls_active"), legend_cols = 3)
-RLSFig(df = rls[rls$key == "RLS de la Vallée-de-la-Gatineau" & rls$table == "active", ], 
+LocalFig(df = rls[rls$key == "RLS de la Vallée-de-la-Gatineau" & rls$table == "active", ], 
+       rug = FALSE, 
+       note_last_day = FALSE,
        caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/tableau-rls-new.csv")
 ```
 

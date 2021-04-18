@@ -62,12 +62,13 @@ LayeredFig <- function(keys,
 
 LocalFig <- function(keys,
                      tab = c("areas", "rls"),
+                     df = covid[covid$key %in% keys & covid$table %in% tab, ],
                      rug = TRUE,
                      legend_cols = 4,
-                     caption = "Data source: cisss-outaouais.gouv.qc.ca/language/en/covid19-en/"
+                     caption = "Data source: cisss-outaouais.gouv.qc.ca/language/en/covid19-en/",
+                     note_last_day = TRUE
 ){
-  df <- covid[covid$key %in% keys & covid$table %in% tab, ]
-  caption <- paste("Last day in dataset: ", format(max(df$time), "%b %d"), ". ", caption, sep = "")
+  if(note_last_day) caption <- paste("Last day in dataset: ", format(max(df$time), "%b %d"), ". ", caption, sep = "")
   ggplot(data = df) +
     geom_line(mapping = aes(x = time, y = value, group = key, colour = key)) +
     { if(rug)
@@ -115,16 +116,6 @@ RegionFig <- function(df,
 
     } else lims(y = c(0, NA))
     } +
-    common_theme +
-    guides(colour = guide_legend(ncol = legend_cols)) +
-    labs(x = "", y = "", caption = caption)
-}
-
-RLSFig <- function(df, caption, legend_cols = 2) {
-  # caption <- paste("Last day in dataset: ", format(max(df$time), "%b %d"), ". ", caption, sep = "")
-  ggplot(data = df) +
-    geom_line(mapping = aes(x = time, y = value, group = key, color = key)) +
-    scale_x_datetime(date_breaks = "1 month", date_minor_breaks = "2 weeks", date_labels = "%b %Y") +
     common_theme +
     guides(colour = guide_legend(ncol = legend_cols)) +
     labs(x = "", y = "", caption = caption)
