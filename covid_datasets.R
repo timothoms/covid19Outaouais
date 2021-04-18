@@ -1,16 +1,44 @@
+links <- list(
+  local_sit_en       = "https://cisss-outaouais.gouv.qc.ca/language/en/covid19-en/",
+  local_sit_fr       = "https://cisss-outaouais.gouv.qc.ca/covid-19/",
+  local_sit_defunct  = "https://cisss-outaouais.gouv.qc.ca/language/en/18907-2/",
+  qc_sit_en          = "https://www.quebec.ca/en/health/health-issues/a-z/2019-coronavirus/situation-coronavirus-in-quebec/",
+  qc_sit_fr          = "https://www.quebec.ca/sante/problemes-de-sante/a-z/coronavirus-2019/situation-coronavirus-quebec/",
+  qc_public_health   = "https://www.inspq.qc.ca/covid-19/donnees",
+  qc_variants_fr     = "https://www.inspq.qc.ca/covid-19/donnees/variants",
+  qc_vaccinations_en = "https://www.quebec.ca/en/health/health-issues/a-z/2019-coronavirus/situation-coronavirus-in-quebec/covid-19-vaccination-data/",
+  qc_vaccinations_fr = "https://www.quebec.ca/sante/problemes-de-sante/a-z/coronavirus-2019/situation-coronavirus-quebec/donnees-sur-la-vaccination-covid-19/",
+  schools_sit_en     = "https://www.quebec.ca/en/health/health-issues/a-z/2019-coronavirus/highlights-public-private-school-systems/",
+  schools_sit_fr     = "https://www.quebec.ca/sante/problemes-de-sante/a-z/coronavirus-2019/faits-saillants-covid-ecoles/",
+  qc_schools_list_en = "https://www.quebec.ca/en/health/health-issues/a-z/2019-coronavirus/list-schools-reporting-covid-19-cases/",
+  qc_schools_list_fr = "https://www.quebec.ca/sante/problemes-de-sante/a-z/coronavirus-2019/liste-des-cas-de-covid-19-dans-les-ecoles/",
+  qc_alert           = "https://www.quebec.ca/en/health/health-issues/a-z/2019-coronavirus/progressive-regional-alert-and-intervention-system/map-of-covid-19-alert-levels-by-region/",
+  can_visual         = "https://health-infobase.canada.ca/covid-19/",
+  can_data           = "https://www.canada.ca/en/public-health/services/diseases/coronavirus-disease-covid-19/epidemiological-economic-research-data.html",
+  can_vaccination    = "https://health-infobase.canada.ca/covid-19/vaccination-coverage/",
+  qc_hospitalization = "https://www.donneesquebec.ca/recherche/dataset/covid-19-portrait-quotidien-des-hospitalisations/",
+  qc_cases_hist      = "https://www.donneesquebec.ca/recherche/dataset/covid-19-portrait-quotidien-des-cas-confirmes"
+)
+# lapply(links, robotstxt::paths_allowed)
+# robottexts <- lapply(links, robotstxt::get_robotstxt)
+# robottexts <- lapply(robottexts, robotstxt::parse_robotstxt)
+# lapply(robottexts, function(page) page$permissions)
+
 datasets <- list(
   list(descr = "vaccination by RSS",
-       where = "QC",
        download_daily = TRUE,
-       home ="https://www.inspq.qc.ca/covid-19/donnees/vaccination",
-       opencovid_uuid = "cd05c1af-a076-4434-8903-6fe548c8d2b0",
-       opencovid_dir = "qc/vaccination-by-rss-time-series/",
-       url = "https://www.inspq.qc.ca/sites/default/files/covid/donnees/vaccination.csv",
-       path = "vaccination/",
-       overwrite = TRUE,
        file_ext = "csv",
-       file_name = "vaccination"
+       file_name = "vaccination",
+       home ="https://www.inspq.qc.ca/covid-19/donnees/vaccination",
+       opencovid_dir = "qc/vaccination-by-rss-time-series/",
+       opencovid_uuid = "cd05c1af-a076-4434-8903-6fe548c8d2b0",
+       overwrite = TRUE,
+       path = "vaccination/",
+       url = "https://www.inspq.qc.ca/sites/default/files/covid/donnees/vaccination.csv",
+       where = "QC"
   ),
+
+
   list(descr = "vaccine doses by RSS",
        where = "QC",
        download_daily = TRUE,
@@ -354,444 +382,423 @@ datasets <- list(
        url = "https://statistique.quebec.ca/en/fichier/excel-population-estimates-by-age-group-and-sex-municipalities-quebec-2001-to-2020.xlsx",
        file_ext ="xlsx"
   ),
+### ON >
+  list(descr = "Vaccine Data in Ontario",
+       download_daily = FALSE,
+       file_ext = "csv",
+       file_name = "vaccine_doses",
+       home = "https://data.ontario.ca/dataset/covid-19-vaccine-data-in-ontario",
+       opencovid_dir = "on/vaccine-data",
+       opencovid_uuid = "170057c4-3231-4f15-9438-2165c5438dda",
+       url = "https://data.ontario.ca/dataset/752ce2b7-c15a-4965-a3dc-397bf405e7cc/resource/8a89caa9-511c-4568-af89-7f2174b4378c/download/vaccine_doses.csv",
+       where = "ON"
+  ),
+  list(descr = "Schools with active COVID-19 cases",
+       download_daily = FALSE,
+       file_ext = "csv",
+       file_name = "schoolsactivecovid",
+       home = "https://data.ontario.ca/dataset/summary-of-cases-in-schools",
+       opencovid_dir = "on/schools-active",
+       opencovid_uuid = "e7889f26-f53a-4b6e-bf7f-abcc0f3809a3",
+       url = "https://data.ontario.ca/dataset/b1fef838-8784-4338-8ef9-ae7cfd405b41/resource/8b6d22e2-7065-4b0f-966f-02640be366f2/download/schoolsactivecovid.csv",
+       where = "ON"
+  ),
+### FROM HERE >
   list(
-    where = "ON",
     download_daily = FALSE,
+    file_ext = "csv",
     home = "https://data.ontario.ca/dataset/covid-19-cases-in-hospital-and-icu-by-ontario-health-region",
     url = "https://data.ontario.ca/dataset/8f3a449b-bde5-4631-ada6-8bd94dbc7d15/resource/e760480e-1f95-4634-a923-98161cfb02fa/download/region_hospital_icu_covid_data.csv",
-    file_ext = "csv"
+    where = "ON"
   ),
   list(
-    where = "ON",
     download_daily = FALSE,
+    file_ext = "csv",
     home = "https://data.ontario.ca/dataset/ontario-covid-19-zones",
     url = "https://data.ontario.ca/dataset/cbb4d08c-4e56-4b07-9db6-48335241b88a/resource/ce9f043d-f0d4-40f0-9b96-4c8a83ded3f6/download/response_framework.csv",
-    file_ext = "csv"
+    where = "ON"
   ),
   list(
-    where = "ON",
     download_daily = FALSE,
-    home = "https://data.ontario.ca/dataset/covid-19-vaccine-data-in-ontario",
-    url = "https://data.ontario.ca/dataset/752ce2b7-c15a-4965-a3dc-397bf405e7cc/resource/8a89caa9-511c-4568-af89-7f2174b4378c/download/vaccine_doses.csv",
-    file_ext = "csv"
-  ),
-  list(
-    where = "ON",
-    download_daily = FALSE,
+    file_ext = "csv",
     home = "https://data.ontario.ca/dataset/status-of-covid-19-cases-in-ontario",
     url = "https://data.ontario.ca/dataset/f4f86e54-872d-43f8-8a86-3892fd3cb5e6/resource/8a88fe6d-d8fb-41a3-9d04-f0550a44999f/download/daily_change_in_cases_by_phu.csv",
-    file_ext = "csv"
+    where = "ON"
   ),
   list(
-    where = "ON",
     download_daily = FALSE,
+    file_ext = "csv",
     home = "https://data.ontario.ca/dataset/ontario-covid-19-testing-metrics-by-public-health-unit-phu",
     url = "https://data.ontario.ca/dataset/a2dfa674-a173-45b3-9964-1e3d2130b40f/resource/07bc0e21-26b5-4152-b609-c1958cb7b227/download/testing_metrics_by_phu.csv",
-    file_ext = "csv"
+    where = "ON"
   ),
   list(
-    where = "ON",
     download_daily = FALSE,
+    file_ext = "csv",
     home = "https://data.ontario.ca/dataset/status-of-covid-19-cases-in-ontario-by-public-health-unit-phu",
     url = "https://data.ontario.ca/dataset/1115d5fe-dd84-4c69-b5ed-05bf0c0a0ff9/resource/d1bfe1ad-6575-4352-8302-09ca81f7ddfc/download/cases_by_status_and_phu.csv",
-    file_ext = "csv"
+    where = "ON"
   ),
   list(
-    where = "ON",
     download_daily = FALSE,
+    file_ext = "csv",
     home = "https://data.ontario.ca/dataset/summary-of-cases-in-schools",
     url = "https://data.ontario.ca/dataset/b1fef838-8784-4338-8ef9-ae7cfd405b41/resource/7fbdbb48-d074-45d9-93cb-f7de58950418/download/schoolcovidsummary.csv",
-    file_ext = "csv"
+    where = "ON"
   ),
   list(
-    where = "ON",
     download_daily = FALSE,
-    home = "https://data.ontario.ca/dataset/summary-of-cases-in-schools",
-    url = "https://data.ontario.ca/dataset/b1fef838-8784-4338-8ef9-ae7cfd405b41/resource/8b6d22e2-7065-4b0f-966f-02640be366f2/download/schoolsactivecovid.csv",
-    file_ext = "csv"
-  ),
-  list(
-    where = "ON",
-    download_daily = FALSE,
+    file_ext = "csv",
     home = "https://open.ottawa.ca/datasets/covid-19-cases-and-deaths-in-ottawa",
     url = "https://opendata.arcgis.com/datasets/6bfe7832017546e5b30c5cc6a201091b_0.csv",
-    file_ext = "csv"
+    where = "ON"
   ),
   list(
-    where = "ON",
     download_daily = FALSE,
+    file_ext = "csv",
     home = "https://open.ottawa.ca/datasets/covid-19-ottawa-residents-tested",
     url = "https://opendata.arcgis.com/datasets/26c902bf1da44d3d90b099392b544b81_0.csv",
-    file_ext = "csv"
-  )
-)
-
-links <- list(
-  local_sit_en       = "https://cisss-outaouais.gouv.qc.ca/language/en/covid19-en/",
-  local_sit_fr       = "https://cisss-outaouais.gouv.qc.ca/covid-19/",
-  local_sit_defunct  = "https://cisss-outaouais.gouv.qc.ca/language/en/18907-2/",
-  qc_sit_en          = "https://www.quebec.ca/en/health/health-issues/a-z/2019-coronavirus/situation-coronavirus-in-quebec/",
-  qc_sit_fr          = "https://www.quebec.ca/sante/problemes-de-sante/a-z/coronavirus-2019/situation-coronavirus-quebec/",
-  qc_public_health   = "https://www.inspq.qc.ca/covid-19/donnees",
-  qc_variants_fr     = "https://www.inspq.qc.ca/covid-19/donnees/variants",
-  qc_vaccinations_en = "https://www.quebec.ca/en/health/health-issues/a-z/2019-coronavirus/situation-coronavirus-in-quebec/covid-19-vaccination-data/",
-  qc_vaccinations_fr = "https://www.quebec.ca/sante/problemes-de-sante/a-z/coronavirus-2019/situation-coronavirus-quebec/donnees-sur-la-vaccination-covid-19/",
-  schools_sit_en     = "https://www.quebec.ca/en/health/health-issues/a-z/2019-coronavirus/highlights-public-private-school-systems/",
-  schools_sit_fr     = "https://www.quebec.ca/sante/problemes-de-sante/a-z/coronavirus-2019/faits-saillants-covid-ecoles/",
-  qc_schools_list_en = "https://www.quebec.ca/en/health/health-issues/a-z/2019-coronavirus/list-schools-reporting-covid-19-cases/",
-  qc_schools_list_fr = "https://www.quebec.ca/sante/problemes-de-sante/a-z/coronavirus-2019/liste-des-cas-de-covid-19-dans-les-ecoles/",
-  qc_alert           = "https://www.quebec.ca/en/health/health-issues/a-z/2019-coronavirus/progressive-regional-alert-and-intervention-system/map-of-covid-19-alert-levels-by-region/",
-  can_visual         = "https://health-infobase.canada.ca/covid-19/",
-  can_data           = "https://www.canada.ca/en/public-health/services/diseases/coronavirus-disease-covid-19/epidemiological-economic-research-data.html",
-  can_vaccination    = "https://health-infobase.canada.ca/covid-19/vaccination-coverage/",
-  qc_hospitalization = "https://www.donneesquebec.ca/recherche/dataset/covid-19-portrait-quotidien-des-hospitalisations/",
-  qc_cases_hist      = "https://www.donneesquebec.ca/recherche/dataset/covid-19-portrait-quotidien-des-cas-confirmes"
-)
-# lapply(links, robotstxt::paths_allowed)
-# robottexts <- lapply(links, robotstxt::get_robotstxt)
-# robottexts <- lapply(robottexts, robotstxt::parse_robotstxt)
-# lapply(robottexts, function(page) page$permissions)
-
-
-
-
-
-
-
-to_sort <- list(
-  list(
-    id_name = "ON - Confirmed positive cases of COVID19 in Ontario",
-    uuid = "921649fa-c6c0-43af-a112-23760da4d622",
-    url = "https://data.ontario.ca/dataset/f4112442-bdc8-45d2-be3c-12efae72fb27/resource/455fd63b-603d-4608-8216-7d8647f43350/download/conposcovidloc.csv",
-    dir_parent = "on",
-    dir_file = "confirmed-positive-cases",
-    file_name = "conposcovidloc",
-    file_ext = "csv"
+    where = "ON"
   ),
   list(
-    id_name = "ON - Status of COVID-19 cases in Ontario",
-    uuid = "a8b1be1a-561a-47f5-9456-c553ea5b2279",
-    url = "https://data.ontario.ca/dataset/f4f86e54-872d-43f8-8a86-3892fd3cb5e6/resource/ed270bb8-340b-41f9-a7c6-e8ef587e6d11/download/covidtesting.csv",
-    dir_parent = "on",
-    dir_file = "status-of-cases",
-    file_name = "covidtesting",
-    file_ext = "csv"
-  ),
-  list(
-    id_name = "ON - Status of COVID-19 cases in Ontario by Public Health Unit (PHU)",
-    uuid = "73fffd44-fbad-4de8-8d32-00cc5ae180a6",
-    url = "https://data.ontario.ca/dataset/1115d5fe-dd84-4c69-b5ed-05bf0c0a0ff9/resource/d1bfe1ad-6575-4352-8302-09ca81f7ddfc/download/cases_by_status_and_phu.csv",
-    dir_parent = "on",
-    dir_file = "status-of-cases-by-phu",
-    file_name = "cases_by_status_and_phu",
-    file_ext = "csv"
-  ),
-  list(
-    id_name = "ON - Ontario COVID-19 testing metrics by Public Health Unit (PHU)",
-    uuid = "16ccd67e-fa64-488a-b58b-5d8e2870f09c",
-    url = "https://data.ontario.ca/dataset/a2dfa674-a173-45b3-9964-1e3d2130b40f/resource/07bc0e21-26b5-4152-b609-c1958cb7b227/download/testing_metrics_by_phu.csv",
-    dir_parent = "on",
-    dir_file = "testing-metrics-by-phu",
-    file_name = "testing_metrics_by_phu",
-    file_ext = "csv"
-  ),
-  list(
-    id_name = "ON - Ontario COVID-19 testing percent positive by age group",
-    uuid = "bfab2b25-1588-4be8-b1c8-2d655db4d18a",
-    url = "https://data.ontario.ca/dataset/ab5f4a2b-7219-4dc7-9e4d-aa4036c5bf36/resource/05214a0d-d8d9-4ea4-8d2a-f6e3833ba471/download/percent_positive_by_agegrp.csv",
-    dir_parent = "on",
-    dir_file = "percent-positive-by-age-group",
-    file_name = "percent_positive_by_agegrp",
-    file_ext = "csv"
-  ),
-  list(
-    id_name = "ON - COVID-19 hospital metrics in Ontario by Local Health Integration Network (LHIN) regions",
-    uuid = "4b214c24-8542-4d26-a850-b58fc4ef6a30",
-    url = "https://data.ontario.ca/dataset/8f3a449b-bde5-4631-ada6-8bd94dbc7d15/resource/e760480e-1f95-4634-a923-98161cfb02fa/download/lhin_hospital_icu_covid_data.csv",
-    dir_parent = "on",
-    dir_file = "hosp-icu-by-lhin",
-    file_name = "lhin_hospital_icu_covid_data",
-    file_ext = "csv"
-  ),
-  list(
-    id_name = "ON - Effective reproduction number (Re) for COVID-19 in Ontario",
-    uuid = "a3a39ddf-d676-4acd-843a-cf8e0927b18b",
-    url = "https://data.ontario.ca/dataset/8da73272-8078-4cbd-ae35-1b5c60c57796/resource/1ffdf824-2712-4f64-b7fc-f8b2509f9204/download/effective_reproduction_number_ontario.csv",
-    dir_parent = "on",
-    dir_file = "effective-reproduction-number",
-    file_name = "effective_reproduction_number_ontario",
-    file_ext = "csv"
-  ),
-  list(
-    id_name = "ON - Ongoing outbreaks",
-    uuid = "c40ee593-226d-4ccd-ba56-cd426435f286",
-    url = "https://data.ontario.ca/dataset/5472ffc1-88e2-48ca-bc9f-4aa249c1298d/resource/66d15cce-bfee-4f91-9e6e-0ea79ec52b3d/download/ongoing_outbreaks.csv",
-    dir_parent = "on",
-    dir_file = "ongoing-outbreaks",
-    file_name = "ongoing_outbreaks",
-    file_ext = "csv"
-  ),
-  list(
-    id_name = "ON - Summary of cases associated with outbreaks",
-    uuid = "a0002ffe-0b39-4af2-956e-90e97914f39c",
-    url = "https://data.ontario.ca/dataset/5472ffc1-88e2-48ca-bc9f-4aa249c1298d/resource/d5d8f478-765c-4246-b8a7-c3b13a4a1a41/download/outbreak_cases.csv",
-    dir_parent = "on",
-    dir_file = "summary-outbreak-cases",
-    file_name = "outbreak_cases",
-    file_ext = "csv"
-  ),
-  list(
-    id_name = "ON - Testing of inmates in provincial correctional institutions",
-    uuid = "8f287d14-c338-4d13-b355-734395b858ef",
-    url = "https://data.ontario.ca/dataset/c4022f0f-6f3d-4e16-bd28-5312333a4bac/resource/d0d6ccc7-fc60-4a18-ac96-7f9493e9f10e/download/inmatetesting.csv",
-    dir_parent = "on",
-    dir_file = "correctional-institutions-inmates-testing",
-    file_name = "inmatetesting",
-    file_ext = "csv"
-  ),
-  list(
-    id_name = "ON - Status of cases in provincial correctional institutions",
-    uuid = "a22a3149-ebf8-4b6b-9236-d10abaa4e124",
-    url = "https://data.ontario.ca/dataset/ecb75ea0-8b72-4f46-a14a-9bd54841d6ab/resource/1f95eda9-53b5-448e-abe0-afc0b71581ed/download/correctionsinmatecases.csv",
-    dir_parent = "on",
-    dir_file = "correctional-institutions-status",
-    file_name = "correctionsinmatecases",
-    file_ext = "csv"
-  ),
-  list(
-    id_name = "ON - Long term care homes: Summary data",
-    uuid = "16c19059-2174-42d5-964c-8ecdb771c746",
-    url = "https://data.ontario.ca/dataset/42df36df-04a0-43a9-8ad4-fac5e0e22244/resource/0f8b343e-fc28-4ca5-9aab-c3a1d2c919f1/download/ltccovidsummary.csv",
-    dir_parent = "on",
-    dir_file = "long-term-care-home-summary",
-    file_name = "ltccovidsummary",
-    file_ext = "csv"
-  ),
-  list(
-    id_name = "ON - Long term care homes: Active outbreaks",
-    uuid = "f202c761-6828-4365-8bc1-c26ef1a07d21",
-    url = "https://data.ontario.ca/dataset/42df36df-04a0-43a9-8ad4-fac5e0e22244/resource/4b64488a-0523-4ebb-811a-fac2f07e6d59/download/activeltcoutbreak.csv",
-    dir_parent = "on",
-    dir_file = "long-term-care-home-active",
-    file_name = "activeltcoutbreak",
-    file_ext = "csv"
-  ),
-  list(
-    id_name = "ON - Long term care homes: Resolved outbreaks",
-    uuid = "ffe727f6-141e-4ccb-8e27-cd5de25c0659",
-    url = "https://data.ontario.ca/dataset/42df36df-04a0-43a9-8ad4-fac5e0e22244/resource/0cf2f01e-d4e1-48ed-8027-2133d059ec8b/download/resolvedltc.csv",
-    dir_parent = "on",
-    dir_file = "long-term-care-home-resolved",
-    file_name = "resolvedltc",
-    file_ext = "csv"
-  ),
-  list(
-    id_name = "ON - Schools: Summary of cases in schools",
-    uuid = "8faa37ca-607e-4b6f-a929-c9d2961fb2ee",
-    url = "https://data.ontario.ca/dataset/b1fef838-8784-4338-8ef9-ae7cfd405b41/resource/7fbdbb48-d074-45d9-93cb-f7de58950418/download/schoolcovidsummary.csv",
-    dir_parent = "on",
-    dir_file = "schools-summary",
-    file_name = "schoolcovidsummary",
-    file_ext = "csv"
-  ),
-  list(
-    id_name = "ON - Schools: Schools with active COVID-19 cases",
-    uuid = "e7889f26-f53a-4b6e-bf7f-abcc0f3809a3",
-    url = "https://data.ontario.ca/dataset/b1fef838-8784-4338-8ef9-ae7cfd405b41/resource/8b6d22e2-7065-4b0f-966f-02640be366f2/download/schoolsactivecovid.csv",
-    dir_parent = "on",
-    dir_file = "schools-active",
-    file_name = "schoolsactivecovid",
-    file_ext = "csv"
-  ),
-  list(
-    id_name = "ON - Schools: Cases in school board partners",
-    uuid = "087b1997-bc4c-4565-ad4b-d83e7df711c8",
-    url = "https://data.ontario.ca/dataset/b1fef838-8784-4338-8ef9-ae7cfd405b41/resource/245479eb-db0a-4ec4-97af-459d61da0801/download/schoolpartnersactivecovid.csv",
-    dir_parent = "on",
-    dir_file = "school-board-partners",
-    file_name = "schoolpartnersactivecovid",
-    file_ext = "csv"
-  ),
-  list(
-    id_name = "ON - Licensed child care settings: Summary of cases in licensed child care settings",
-    uuid = "fdcb84e3-e677-42d7-82d2-0b0dd9c7c9c2",
-    url = "https://data.ontario.ca/dataset/5bf54477-6147-413f-bab0-312f06fcb388/resource/74f9ac9f-7ca8-4860-b2c3-189a2c25e30c/download/lccovidsummary.csv",
-    dir_parent = "on",
-    dir_file = "licensed-child-care-settings-summary",
-    file_name = "lccovidsummary",
-    file_ext = "csv"
-  ),
-  list(
-    id_name = "ON - Licensed child care settings: Licensed child care centres and agencies with active COVID-19 cases",
-    uuid = "aa5bf1cf-4c3a-4a1b-ae09-7b6b78bcee66",
-    url = "https://data.ontario.ca/dataset/5bf54477-6147-413f-bab0-312f06fcb388/resource/eee282d3-01e6-43ac-9159-4ba694757aea/download/lccactivecovid.csv",
-    dir_parent = "on",
-    dir_file = "licensed-child-care-settings-active",
-    file_name = "lccactivecovid",
-    file_ext = "csv"
-  ),
-  list(
-    id_name = "ON - COVID-19 Vaccine Data in Ontario",
-    uuid = "170057c4-3231-4f15-9438-2165c5438dda",
-    url = "https://data.ontario.ca/dataset/752ce2b7-c15a-4965-a3dc-397bf405e7cc/resource/8a89caa9-511c-4568-af89-7f2174b4378c/download/vaccine_doses.csv",
-    dir_parent = "on",
-    dir_file = "vaccine-data",
-    file_name = "vaccine_doses",
-    file_ext = "csv"
-  ),
-  list(
-    id_name = "ON - ICES dashboard percent positivity by FSA",
-    uuid = "bceb2acd-68d3-443f-8b0a-0f16fc80c54f",
-    url = "https://www.ices.on.ca/~/media/Files/COVID-19/ICES-COVID19-Testing-Data-FSA-percent-positivity.ashx?la=en-CA",
-    dir_parent = "on",
-    dir_file = "ices-percent-positivity-by-fsa",
-    file_name = "ICES-COVID19-Testing-Data-FSA-percent-positivity",
-    file_ext = "xlsx"
-  ),
-  list(
-    id_name = "ON - ICES dashboard percent positivity by age group and Public Health Unit (PHU)",
-    uuid = "3f89584e-9189-4477-9a1b-06b6522a63b2",
-    url = "https://www.ices.on.ca/~/media/Files/COVID-19/ICES-COVID19-Testing-Data_PHUxAge-Groups-percent-positivity.ashx?la=en-CA",
-    dir_parent = "on",
-    dir_file = "ices-percent-positivity-by-age-group-and-phu",
-    file_name = "ICES-COVID19-Testing-Data_PHUxAge-Groups-percent-positivity",
-    file_ext = "xlsx"
-  ),
-  list(
-    id_name = "ON - ICES dashboard vaccine coverage estimates for selected age groups by FSA",
-    uuid = "cd168371-86f5-41f3-9555-580cd50f9b3a",
-    url = "https://www.ices.on.ca/~/media/Files/COVID-19/ICES-COVID19-Vaccination-Data-by-FSA.ashx?la=en-CA",
-    dir_parent = "on",
-    dir_file = "ices-vaccine-coverage-by-age-group-and-fsa",
-    file_name = "ICES-COVID19-Vaccination-Data-by-FSA",
-    file_ext = "xlsx"
-  ),
-  list(
-    id_name = "ON - City of Toronto Daily Status of COVID-19 Cases",
-    uuid = "ebad185e-9706-44f4-921e-fc89d5cfa334",
-    url = "https://docs.google.com/spreadsheets/d/11KF1DuN5tntugNc10ogQDzFnW05ruzLH/export?format=xlsx&id=11KF1DuN5tntugNc10ogQDzFnW05ruzLH",
-    dir_parent = "on",
-    dir_file = "toronto-daily-status",
-    file_name = "CityofToronto_COVID-19_Daily_Public_Reporting",
-    file_ext = "xlsx"
-  ),
-  list(
-    id_name = "ON - City of Toronto COVID-19 Summary",
-    uuid = "4ded4df6-924f-44c2-be9d-6f6943975e04",
-    url = "https://docs.google.com/spreadsheets/d/1euhrML0rkV_hHF1thiA0G5vSSeZCqxHY/export?format=xlsx&id=1euhrML0rkV_hHF1thiA0G5vSSeZCqxHY",
-    dir_parent = "on",
-    dir_file = "toronto-covid-summary",
-    file_name = "CityofToronto_COVID-19_Data",
-    file_ext = "xlsx"
-  ),
-  list(
-    id_name = "ON - City of Toronto COVID-19 Neighbourhood Case Data",
-    uuid = "74c30b74-c6cc-46c5-a9cb-e60d2552c8dc",
-    url = "https://docs.google.com/spreadsheets/d/1jzH64LvFQ-UsDibXO0MOtvjbL2CvnV3N/export?format=xlsx&id=1jzH64LvFQ-UsDibXO0MOtvjbL2CvnV3N",
-    dir_parent = "on",
-    dir_file = "toronto-neighbourhood-data",
-    file_name = "CityofToronto_COVID-19_NeighbourhoodData",
-    file_ext = "xlsx"
-  ),
-  list(
-    id_name = "ON - City of Toronto COVID-19 Neighbourhood Testing Data",
-    uuid = "5a9aa1a4-b8fd-423b-a2eb-a8a0c6dd9549",
-    url = "https://docs.google.com/spreadsheets/d/1xI6ckKQIOt_RNCuI0HXs7WJsgqFP015c/export?format=xlsx&id=1xI6ckKQIOt_RNCuI0HXs7WJsgqFP015c",
-    dir_parent = "on",
-    dir_file = "toronto-neighbourhood-test-data",
-    file_name = "CityofToronto_COVID-19_Testing",
-    file_ext = "xlsx"
-  ),
-  list(
-    id_name = "ON - City of Toronto COVID-19 Monitoring Dashboard",
-    uuid = "185b115b-efa6-4bcc-a396-fe5cd673fa32",
-    url = "https://docs.google.com/spreadsheets/d/1-7j48S_KQY-I-4Qu3N3lsEOALXON2StG/export?format=xlsx&id=1-7j48S_KQY-I-4Qu3N3lsEOALXON2StG",
-    dir_parent = "on",
-    dir_file = "toronto-monitoring-dashboard",
-    file_name = "CityofToronto_COVID-19_RecoveryData",
-    file_ext = "xlsx"
-  ),
-  list(
-    id_name = "ON - COVID-19 Cases in Toronto",
-    uuid = "50e54f16-6676-4e69-b398-df9483ba56cc",
-    url = "https://ckan0.cf.opendata.inter.prod-toronto.ca/download_resource/e5bf35bc-e681-43da-b2ce-0242d00922ad?format=csv",
-    dir_parent = "on",
-    dir_file = "toronto-cases",
-    file_name = "COVID19_cases",
+    descr = "Confirmed positive cases of COVID19 in Ontario",
+    download_daily = FALSE,
     file_ext = "csv",
+    file_name = "conposcovidloc",
+    opencovid_dir = "on/confirmed-positive-cases",
+    opencovid_uuid = "921649fa-c6c0-43af-a112-23760da4d622",
+    url = "https://data.ontario.ca/dataset/f4112442-bdc8-45d2-be3c-12efae72fb27/resource/455fd63b-603d-4608-8216-7d8647f43350/download/conposcovidloc.csv",
+    where = "ON"
+  ),
+  list(
+    descr = "Status of COVID-19 cases in Ontario",
+    download_daily = FALSE,
+    file_ext = "csv",
+    file_name = "covidtesting",
+    opencovid_dir = "on/status-of-cases",
+    opencovid_uuid = "a8b1be1a-561a-47f5-9456-c553ea5b2279",
+    url = "https://data.ontario.ca/dataset/f4f86e54-872d-43f8-8a86-3892fd3cb5e6/resource/ed270bb8-340b-41f9-a7c6-e8ef587e6d11/download/covidtesting.csv",
+    where = "ON"
+  ),
+  list(
+    descr = "Status of COVID-19 cases in Ontario by Public Health Unit (PHU)",
+    download_daily = FALSE,
+    file_ext = "csv",
+    file_name = "cases_by_status_and_phu",
+    opencovid_dir = "on/status-of-cases-by-phu",
+    opencovid_uuid = "73fffd44-fbad-4de8-8d32-00cc5ae180a6",
+    url = "https://data.ontario.ca/dataset/1115d5fe-dd84-4c69-b5ed-05bf0c0a0ff9/resource/d1bfe1ad-6575-4352-8302-09ca81f7ddfc/download/cases_by_status_and_phu.csv",
+    where = "ON"
+  ),
+  list(
+    descr = "Ontario COVID-19 testing metrics by Public Health Unit (PHU)",
+    download_daily = FALSE,
+    file_ext = "csv",
+    file_name = "testing_metrics_by_phu",
+    opencovid_dir = "on/testing-metrics-by-phu",
+    opencovid_uuid = "16ccd67e-fa64-488a-b58b-5d8e2870f09c",
+    url = "https://data.ontario.ca/dataset/a2dfa674-a173-45b3-9964-1e3d2130b40f/resource/07bc0e21-26b5-4152-b609-c1958cb7b227/download/testing_metrics_by_phu.csv",
+    where = "ON"
+  ),
+  list(
+    descr = "Ontario COVID-19 testing percent positive by age group",
+    download_daily = FALSE,
+    file_ext = "csv",
+    file_name = "percent_positive_by_agegrp",
+    opencovid_dir = "on/percent-positive-by-age-group",
+    opencovid_uuid = "bfab2b25-1588-4be8-b1c8-2d655db4d18a",
+    url = "https://data.ontario.ca/dataset/ab5f4a2b-7219-4dc7-9e4d-aa4036c5bf36/resource/05214a0d-d8d9-4ea4-8d2a-f6e3833ba471/download/percent_positive_by_agegrp.csv",
+    where = "ON"
+  ),
+  list(
+    descr = "COVID-19 hospital metrics in Ontario by Local Health Integration Network (LHIN) regions",
+    download_daily = FALSE,
+    file_ext = "csv",
+    file_name = "lhin_hospital_icu_covid_data",
+    opencovid_dir = "on/hosp-icu-by-lhin",
+    opencovid_uuid = "4b214c24-8542-4d26-a850-b58fc4ef6a30",
+    url = "https://data.ontario.ca/dataset/8f3a449b-bde5-4631-ada6-8bd94dbc7d15/resource/e760480e-1f95-4634-a923-98161cfb02fa/download/lhin_hospital_icu_covid_data.csv",
+    where = "ON"
+  ),
+  list(
+    descr = "Effective reproduction number (Re) for COVID-19 in Ontario",
+    download_daily = FALSE,
+    file_ext = "csv",
+    file_name = "effective_reproduction_number_ontario",
+    opencovid_dir = "on/effective-reproduction-number",
+    opencovid_uuid = "a3a39ddf-d676-4acd-843a-cf8e0927b18b",
+    url = "https://data.ontario.ca/dataset/8da73272-8078-4cbd-ae35-1b5c60c57796/resource/1ffdf824-2712-4f64-b7fc-f8b2509f9204/download/effective_reproduction_number_ontario.csv",
+    where = "ON"
+  ),
+  list(
+    descr = "Ongoing outbreaks",
+    download_daily = FALSE,
+    file_ext = "csv",
+    file_name = "ongoing_outbreaks",
+    opencovid_dir = "on/ongoing-outbreaks",
+    opencovid_uuid = "c40ee593-226d-4ccd-ba56-cd426435f286",
+    url = "https://data.ontario.ca/dataset/5472ffc1-88e2-48ca-bc9f-4aa249c1298d/resource/66d15cce-bfee-4f91-9e6e-0ea79ec52b3d/download/ongoing_outbreaks.csv",
+    where = "ON"
+  ),
+  list(
+    descr = "Summary of cases associated with outbreaks",
+    download_daily = FALSE,
+    file_ext = "csv",
+    file_name = "outbreak_cases",
+    opencovid_dir = "on/summary-outbreak-cases",
+    opencovid_uuid = "a0002ffe-0b39-4af2-956e-90e97914f39c",
+    url = "https://data.ontario.ca/dataset/5472ffc1-88e2-48ca-bc9f-4aa249c1298d/resource/d5d8f478-765c-4246-b8a7-c3b13a4a1a41/download/outbreak_cases.csv",
+    where = "ON"
+  ),
+  list(
+    descr = "Testing of inmates in provincial correctional institutions",
+    download_daily = FALSE,
+    file_ext = "csv",
+    file_name = "inmatetesting",
+    opencovid_dir = "on/correctional-institutions-inmates-testing",
+    opencovid_uuid = "8f287d14-c338-4d13-b355-734395b858ef",
+    url = "https://data.ontario.ca/dataset/c4022f0f-6f3d-4e16-bd28-5312333a4bac/resource/d0d6ccc7-fc60-4a18-ac96-7f9493e9f10e/download/inmatetesting.csv",
+    where = "ON"
+  ),
+  list(
+    descr = "Status of cases in provincial correctional institutions",
+    download_daily = FALSE,
+    file_ext = "csv",
+    file_name = "correctionsinmatecases",
+    opencovid_dir = "on/correctional-institutions-status",
+    opencovid_uuid = "a22a3149-ebf8-4b6b-9236-d10abaa4e124",
+    url = "https://data.ontario.ca/dataset/ecb75ea0-8b72-4f46-a14a-9bd54841d6ab/resource/1f95eda9-53b5-448e-abe0-afc0b71581ed/download/correctionsinmatecases.csv",
+    where = "ON"
+  ),
+  list(
+    descr = "Long term care homes: Summary data",
+    download_daily = FALSE,
+    file_ext = "csv",
+    file_name = "ltccovidsummary",
+    opencovid_dir = "on/long-term-care-home-summary",
+    opencovid_uuid = "16c19059-2174-42d5-964c-8ecdb771c746",
+    url = "https://data.ontario.ca/dataset/42df36df-04a0-43a9-8ad4-fac5e0e22244/resource/0f8b343e-fc28-4ca5-9aab-c3a1d2c919f1/download/ltccovidsummary.csv",
+    where = "ON"
+  ),
+  list(
+    descr = "Long term care homes: Active outbreaks",
+    download_daily = FALSE,
+    file_ext = "csv",
+    file_name = "activeltcoutbreak",
+    opencovid_dir = "on/long-term-care-home-active",
+    opencovid_uuid = "f202c761-6828-4365-8bc1-c26ef1a07d21",
+    url = "https://data.ontario.ca/dataset/42df36df-04a0-43a9-8ad4-fac5e0e22244/resource/4b64488a-0523-4ebb-811a-fac2f07e6d59/download/activeltcoutbreak.csv",
+    where = "ON"
+  ),
+  list(
+    descr = "Long term care homes: Resolved outbreaks",
+    download_daily = FALSE,
+    file_ext = "csv",
+    file_name = "resolvedltc",
+    opencovid_dir = "on/long-term-care-home-resolved",
+    opencovid_uuid = "ffe727f6-141e-4ccb-8e27-cd5de25c0659",
+    url = "https://data.ontario.ca/dataset/42df36df-04a0-43a9-8ad4-fac5e0e22244/resource/0cf2f01e-d4e1-48ed-8027-2133d059ec8b/download/resolvedltc.csv",
+    where = "ON"
+  ),
+  list(
+    descr = "Schools: Summary of cases in schools",
+    download_daily = FALSE,
+    file_ext = "csv",
+    file_name = "schoolcovidsummary",
+    opencovid_dir = "on/schools-summary",
+    opencovid_uuid = "8faa37ca-607e-4b6f-a929-c9d2961fb2ee",
+    url = "https://data.ontario.ca/dataset/b1fef838-8784-4338-8ef9-ae7cfd405b41/resource/7fbdbb48-d074-45d9-93cb-f7de58950418/download/schoolcovidsummary.csv",
+    where = "ON"
+  ),
+  list(
+    descr = "Schools: Cases in school board partners",
+    download_daily = FALSE,
+    file_ext = "csv",
+    file_name = "schoolpartnersactivecovid",
+    opencovid_dir = "on/school-board-partners",
+    opencovid_uuid = "087b1997-bc4c-4565-ad4b-d83e7df711c8",
+    url = "https://data.ontario.ca/dataset/b1fef838-8784-4338-8ef9-ae7cfd405b41/resource/245479eb-db0a-4ec4-97af-459d61da0801/download/schoolpartnersactivecovid.csv",
+    where = "ON"
+  ),
+  list(
+    descr = "Licensed child care settings: Summary of cases in licensed child care settings",
+    download_daily = FALSE,
+    file_ext = "csv",
+    file_name = "lccovidsummary",
+    opencovid_dir = "on/licensed-child-care-settings-summary",
+    opencovid_uuid = "fdcb84e3-e677-42d7-82d2-0b0dd9c7c9c2",
+    url = "https://data.ontario.ca/dataset/5bf54477-6147-413f-bab0-312f06fcb388/resource/74f9ac9f-7ca8-4860-b2c3-189a2c25e30c/download/lccovidsummary.csv",
+    where = "ON"
+  ),
+  list(
+    descr = "Licensed child care settings: Licensed child care centres and agencies with active COVID-19 cases",
+    download_daily = FALSE,
+    file_ext = "csv",
+    file_name = "lccactivecovid",
+    opencovid_dir = "on/licensed-child-care-settings-active",
+    opencovid_uuid = "aa5bf1cf-4c3a-4a1b-ae09-7b6b78bcee66",
+    url = "https://data.ontario.ca/dataset/5bf54477-6147-413f-bab0-312f06fcb388/resource/eee282d3-01e6-43ac-9159-4ba694757aea/download/lccactivecovid.csv",
+    where = "ON"
+  ),
+  list(
+    descr = "ICES dashboard percent positivity by FSA",
+    download_daily = FALSE,
+    file_name = "ICES-COVID19-Testing-Data-FSA-percent-positivity",
+    opencovid_dir = "on/ices-percent-positivity-by-fsa",
+    opencovid_uuid = "bceb2acd-68d3-443f-8b0a-0f16fc80c54f",
+    url = "https://www.ices.on.ca/~/media/Files/COVID-19/ICES-COVID19-Testing-Data-FSA-percent-positivity.ashx?la=en-CA",
+    file_ext = "xlsx"
+  ),
+  list(
+    descr = "ICES dashboard percent positivity by age group and Public Health Unit (PHU)",
+    download_daily = FALSE,
+    file_name = "ICES-COVID19-Testing-Data_PHUxAge-Groups-percent-positivity",
+    opencovid_dir = "on/ices-percent-positivity-by-age-group-and-phu",
+    opencovid_uuid = "3f89584e-9189-4477-9a1b-06b6522a63b2",
+    url = "https://www.ices.on.ca/~/media/Files/COVID-19/ICES-COVID19-Testing-Data_PHUxAge-Groups-percent-positivity.ashx?la=en-CA",
+    file_ext = "xlsx"
+  ),
+  list(
+    descr = "ICES dashboard vaccine coverage estimates for selected age groups by FSA",
+    download_daily = FALSE,
+    file_name = "ICES-COVID19-Vaccination-Data-by-FSA",
+    opencovid_dir = "on/ices-vaccine-coverage-by-age-group-and-fsa",
+    opencovid_uuid = "cd168371-86f5-41f3-9555-580cd50f9b3a",
+    url = "https://www.ices.on.ca/~/media/Files/COVID-19/ICES-COVID19-Vaccination-Data-by-FSA.ashx?la=en-CA",
+    file_ext = "xlsx"
+  ),
+  list(
+    descr = "City of Toronto Daily Status of COVID-19 Cases",
+    download_daily = FALSE,
+    file_name = "CityofToronto_COVID-19_Daily_Public_Reporting",
+    opencovid_dir = "on/toronto-daily-status",
+    opencovid_uuid = "ebad185e-9706-44f4-921e-fc89d5cfa334",
+    url = "https://docs.google.com/spreadsheets/d/11KF1DuN5tntugNc10ogQDzFnW05ruzLH/export?format=xlsx&id=11KF1DuN5tntugNc10ogQDzFnW05ruzLH",
+    file_ext = "xlsx"
+  ),
+  list(
+    descr = "City of Toronto COVID-19 Summary",
+    download_daily = FALSE,
+    file_name = "CityofToronto_COVID-19_Data",
+    opencovid_dir = "on/toronto-covid-summary",
+    opencovid_uuid = "4ded4df6-924f-44c2-be9d-6f6943975e04",
+    url = "https://docs.google.com/spreadsheets/d/1euhrML0rkV_hHF1thiA0G5vSSeZCqxHY/export?format=xlsx&id=1euhrML0rkV_hHF1thiA0G5vSSeZCqxHY",
+    file_ext = "xlsx"
+  ),
+  list(
+    descr = "City of Toronto COVID-19 Neighbourhood Case Data",
+    download_daily = FALSE,
+    file_name = "CityofToronto_COVID-19_NeighbourhoodData",
+    opencovid_dir = "on/toronto-neighbourhood-data",
+    opencovid_uuid = "74c30b74-c6cc-46c5-a9cb-e60d2552c8dc",
+    url = "https://docs.google.com/spreadsheets/d/1jzH64LvFQ-UsDibXO0MOtvjbL2CvnV3N/export?format=xlsx&id=1jzH64LvFQ-UsDibXO0MOtvjbL2CvnV3N",
+    file_ext = "xlsx"
+  ),
+  list(
+    descr = "City of Toronto COVID-19 Neighbourhood Testing Data",
+    download_daily = FALSE,
+    file_name = "CityofToronto_COVID-19_Testing",
+    opencovid_dir = "on/toronto-neighbourhood-test-data",
+    opencovid_uuid = "5a9aa1a4-b8fd-423b-a2eb-a8a0c6dd9549",
+    url = "https://docs.google.com/spreadsheets/d/1xI6ckKQIOt_RNCuI0HXs7WJsgqFP015c/export?format=xlsx&id=1xI6ckKQIOt_RNCuI0HXs7WJsgqFP015c",
+    file_ext = "xlsx"
+  ),
+  list(
+    descr = "City of Toronto COVID-19 Monitoring Dashboard",
+    download_daily = FALSE,
+    file_name = "CityofToronto_COVID-19_RecoveryData",
+    opencovid_dir = "on/toronto-monitoring-dashboard",
+    opencovid_uuid = "185b115b-efa6-4bcc-a396-fe5cd673fa32",
+    url = "https://docs.google.com/spreadsheets/d/1-7j48S_KQY-I-4Qu3N3lsEOALXON2StG/export?format=xlsx&id=1-7j48S_KQY-I-4Qu3N3lsEOALXON2StG",
+    file_ext = "xlsx"
+  ),
+  list(
+    descr = "COVID-19 Cases in Toronto",
+    download_daily = FALSE,
+    file_ext = "csv",
+    file_name = "COVID19_cases",
+    opencovid_dir = "on/toronto-cases",
+    opencovid_uuid = "50e54f16-6676-4e69-b398-df9483ba56cc",
+    url = "https://ckan0.cf.opendata.inter.prod-toronto.ca/download_resource/e5bf35bc-e681-43da-b2ce-0242d00922ad?format=csv",
     day_to_run = "2"
   ),
   list(
-    id_name = "ON - Ottawa Demographics and Source of Infection for Cases, Deaths, and Hospitalizations",
-    uuid = "d8d4cbc6-d0a5-4544-ad3e-5a3c3060f973",
-    url = "https://www.arcgis.com/sharing/rest/content/items/6bfe7832017546e5b30c5cc6a201091b/data",
-    dir_parent = "on",
-    dir_file = "ottawa-cases-deaths-hosp-demographics-source-of-infection",
+    descr = "Ottawa Demographics and Source of Infection for Cases, Deaths, and Hospitalizations",
+    download_daily = FALSE,
+    file_ext = "csv",
     file_name = "COVID-19_Cases_and_Deaths_Ottawa_EN",
-    file_ext = "csv"
+    opencovid_dir = "on/ottawa-cases-deaths-hosp-demographics-source-of-infection",
+    opencovid_uuid = "d8d4cbc6-d0a5-4544-ad3e-5a3c3060f973",
+    url = "https://www.arcgis.com/sharing/rest/content/items/6bfe7832017546e5b30c5cc6a201091b/data",
+    where = "ON"
   ),
   list(
-    id_name = "ON - Ottawa Outbreaks in Healthcare Institutions, Childcare, Summer Camps, and Educational Establishments",
-    uuid = "80f9ccf4-f98f-458f-828b-c5564f8ae244",
-    url = "https://www.arcgis.com/sharing/rest/content/items/5b24f70482fe4cf1824331d89483d3d3/data",
-    dir_parent = "on",
-    dir_file = "ottawa-outbreaks-healthcare-childcare-camps-schools",
+    descr = "Ottawa Outbreaks in Healthcare Institutions, Childcare, Summer Camps, and Educational Establishments",
+    download_daily = FALSE,
+    file_ext = "csv",
     file_name = "COVID-19_Institutional_Outbreaks",
-    file_ext = "csv"
+    opencovid_dir = "on/ottawa-outbreaks-healthcare-childcare-camps-schools",
+    opencovid_uuid = "80f9ccf4-f98f-458f-828b-c5564f8ae244",
+    url = "https://www.arcgis.com/sharing/rest/content/items/5b24f70482fe4cf1824331d89483d3d3/data",
+    where = "ON"
   ),
   list(
-    id_name = "ON - Ottawa Community Outbreaks",
-    uuid = "199bc3a8-2583-4572-b0fb-806c0eddc60b",
+    descr = "Ottawa Community Outbreaks",
+    download_daily = FALSE,
+    file_ext = "csv",
+    file_name = "COVID-19_Community_Outbreaks_in_Ottawa",
+    opencovid_dir = "on/ottawa-community-outbreaks",
+    opencovid_uuid = "199bc3a8-2583-4572-b0fb-806c0eddc60b",
     url = "https://opendata.arcgis.com/datasets/0df365456c254fbc942fe3d85c3dbf83_0.csv",
-    dir_parent = "on",
-    dir_file = "ottawa-community-outbreaks",
-    file_name = "COVID-19_Community_Outbreaks_in_Ottawa",
-    file_ext = "csv"
+    where = "ON"
   ),
   list(
-    id_name = "ON - Ottawa Community Outbreaks (JSON)",
-    uuid = "741f0e92-7841-43f2-8fb1-194e35457aaf",
-    url = "https://opendata.arcgis.com/datasets/0df365456c254fbc942fe3d85c3dbf83_0/FeatureServer/0/query?outFields=*&where=1%3D1",
-    dir_parent = "on",
-    dir_file = "ottawa-community-outbreaks-json",
+    descr = "Ottawa Community Outbreaks (JSON)",
+    download_daily = FALSE,
     file_name = "COVID-19_Community_Outbreaks_in_Ottawa",
+    opencovid_dir = "on/ottawa-community-outbreaks-json",
+    opencovid_uuid = "741f0e92-7841-43f2-8fb1-194e35457aaf",
+    url = "https://opendata.arcgis.com/datasets/0df365456c254fbc942fe3d85c3dbf83_0/FeatureServer/0/query?outFields=*&where=1%3D1",
     file_ext = "json"
   ),
   list(
-    id_name = "ON - Ottawa Weekly Rates",
-    uuid = "4e356f14-9cb0-4404-bf99-d9916286ac33",
-    url = "https://www.arcgis.com/sharing/rest/content/items/734a327141b14a55b666953c9141abf3/data",
-    dir_parent = "on",
-    dir_file = "ottawa-weekly-rates",
+    descr = "Ottawa Weekly Rates",
+    download_daily = FALSE,
+    file_ext = "csv",
     file_name = "COVID-19_Weekly_Cases_and_Rates_by_Age_in_Ottawa_EN",
-    file_ext = "csv"
+    opencovid_dir = "on/ottawa-weekly-rates",
+    opencovid_uuid = "4e356f14-9cb0-4404-bf99-d9916286ac33",
+    url = "https://www.arcgis.com/sharing/rest/content/items/734a327141b14a55b666953c9141abf3/data",
+    where = "ON"
   ),
   list(
-    id_name = "ON - Ottawa Estimated Reproduction Number in Ottawa",
-    uuid = "8eb16d5a-9de4-4b76-ac37-ece0f5ac2bff",
-    url = "https://www.arcgis.com/sharing/rest/content/items/d010a848b6e54f4990d60a202f2f2f99/data",
-    dir_parent = "on",
-    dir_file = "ottawa-estimated-rt",
+    descr = "Ottawa Estimated Reproduction Number in Ottawa",
+    download_daily = FALSE,
+    file_ext = "csv",
     file_name = "EN_-_Covid-19_Reproduction_Number,_R(t)",
-    file_ext = "csv"
+    opencovid_dir = "on/ottawa-estimated-rt",
+    opencovid_uuid = "8eb16d5a-9de4-4b76-ac37-ece0f5ac2bff",
+    url = "https://www.arcgis.com/sharing/rest/content/items/d010a848b6e54f4990d60a202f2f2f99/data",
+    where = "ON"
   ),
   list(
-    id_name = "ON - Ottawa Testing - Ottawa Residents",
-    uuid = "e1a76cbe-3a1f-49fc-aa56-f09292eafb35",
-    url = "https://www.arcgis.com/sharing/rest/content/items/26c902bf1da44d3d90b099392b544b81/data",
-    dir_parent = "on",
-    dir_file = "ottawa-residents-tested",
+    descr = "Ottawa Testing - Ottawa Residents",
+    download_daily = FALSE,
+    file_ext = "csv",
     file_name = "COVID-19_Ottawa_Residents_Tested_EN",
-    file_ext = "csv"
+    opencovid_dir = "on/ottawa-residents-tested",
+    opencovid_uuid = "e1a76cbe-3a1f-49fc-aa56-f09292eafb35",
+    url = "https://www.arcgis.com/sharing/rest/content/items/26c902bf1da44d3d90b099392b544b81/data",
+    where = "ON"
   ),
   list(
-    id_name = "ON - Ottawa Data tables for Public COVID-19 Maps",
-    uuid = "c561f688-bf5d-4997-b8af-ea60df901a57",
-    url = "https://www.arcgis.com/sharing/rest/content/items/ae347819064d45489ed732306f959a7e/data",
-    dir_parent = "on",
-    dir_file = "ottawa-wards-cases-cumulative",
+    descr = "Ottawa Data tables for Public COVID-19 Maps",
+    download_daily = FALSE,
+    file_ext = "csv",
     file_name = "COVID19_MapPublic_DataTables_EN",
-    file_ext = "csv"
+    opencovid_dir = "on/ottawa-wards-cases-cumulative",
+    opencovid_uuid = "c561f688-bf5d-4997-b8af-ea60df901a57",
+    url = "https://www.arcgis.com/sharing/rest/content/items/ae347819064d45489ed732306f959a7e/data",
+    where = "ON"
   )
 )
-
