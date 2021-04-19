@@ -1,51 +1,20 @@
 ## Glossary 
 
+These definitions are based on 
+
 |                                  | Description |
 |----------------------------------|-------------|
-| Active cases                     | total number minus numbers of deaths and resolved cases, aggregated at regional or RLS level         |
+| Active cases                     | The number of confirmed cases that have not recovered or have died, aggregated at regional or RLS level. Active cases contribute to the spread of infections. |
+| Active hospitalizations          | The number of people currently in hospital with a covid-19 diagnosis, including people who received their leave during the day. |
+| Average increase per day         | Average daily increase in cases over last 7 days, calculated from available data; this eliminates day-to-day fluctuations and emphasises longer-term trends. (Official soources give the average of events of the selected day, the 3 previous days and the 3 following days, which produces the same line as the one used here, but shifted back by 3 days.) |
+| Average positive tests per day   | TBA |
+| Average testing per day          | Average daily number of covid-19 tests performed over last 7 days |
+| Average test positivity          | Average daily positive (confirmed) test results as a proportion of all tests carried out, expressed as percentage. |
+| Cumulative cases                 | Total cases to date |
+| New cases                        | Newly reported confirmed cases, including laboratory confirmed cases and epidemiologically linked cases, which are defined as "[corresponding] to a person who has developed compatible symptoms while having had a high-risk exposure with a laboratory-confirmed case." (INSPQ data do not include clinical cases.) |
+| New Hospitalizations             | TBA |
 
-the number of confirmed cases that have not recovered or have died. Active cases contribute to the spread of the disease in the population.
-
-| Active hospitalizations          | reported active hospitalizations for confirmed covid-19 diagnosis                                    |
-
-Current (active) hospitalizations
-
-    Current hospitalizations correspond to the number of people currently in hospital with a diagnosis of COVID-19.
-    Data on current hospitalizations includes regular hospitalizations and those in intensive care.
-    The people who received their leave during the analysis day are counted.
-
-
-| Average increase per day         | average daily increase in cases over last 7 days, calculated from available data                     |
-
-
-
-The 7-day moving average corresponds to the average number of events (case or death) of the selected day, the 3 previous days and the 3 following days. It eliminates the fluctuations observed every day and emphasizes the longer-term trend.
-
-
-| Average positive tests per day   | TBA                                                                                                  |
-| Average testing per day          | reported average daily number of covid-19 tests performed over last 7 days                           |
-| Average test positivity          | TBA                                                                                                  |
-
-confirmed cases: Confirmed cases include laboratory confirmed cases and epidemiologically linked cases. A case confirmed by an epidemiological link corresponds to a person who has developed compatible symptoms while having had a high-risk exposure with a laboratory-confirmed case. Note that clinical cases are excluded from the data published on the INSPQ website.
-About the graphics:
-
-    The number of confirmed cases per day (depending on the reporting date) is reviewed daily and retroactively.
-
-    The number of confirmed cases per day (according to the date of declaration) is always underestimated for the most recent days due to a delay between the moment of the declaration of the case and the entry of the information in the system. 'information. The days most affected by this delay are presented in a gray area.
-
-Local service networks (RLS)
-
-A masking is applied to the data of the RLS which have 1 to 4 cases.
-
-The total of confirmed cases in a health region does not always equal the sum of cases in the RLS due to unknown values, entry errors or transfers between regions. We cannot therefore deduce the hidden numbers.
-
-
-| Cumulative cases                 | TBA                                                                                                  |
-| New cases                        | TBA                                                                                                  |
-| New Hospitalizations             | TBA                                                                                                  |
-
-Incidental hospitalizations (news)
-
+Incidental hospitalizations (new)
     Incident hospitalizations correspond to the number of people newly admitted to the hospital.
     Data on incidental hospitalizations include regular hospitalizations and those in intensive care.
     Incident hospitalizations include all cases of COVID admitted to hospitals, whether confirmed (with primary diagnosis) or provisional (with secondary diagnosis). However, it is not possible to distinguish a patient hospitalized for COVID from a patient with COVID hospitalized for something else. Since the data is corrected daily, a patient's status could be changed based on new information about their hospitalization and would be adjusted retroactively. For example, a patient initially admitted with COVID could be removed from the system later.
@@ -108,9 +77,7 @@ For all other cases (including healthcare workers), whose status is missing or "
 The most recent of the following dates is used:
 
     Date of discharge from hospital.
-
 OR
-
     10 days after the date of collection.
     28 days after the date of collection for people aged 80 and over, residents in CHSLDs or people with an “immunosuppressed” risk factor.
 
@@ -119,9 +86,7 @@ OR
 The most recent of the following dates is used:
 
     Date of discharge from hospital.
-
 OR
-
     21 days after the date of collection.
     28 days after the date of collection for people aged 80 and over, residents in CHSLDs or people with an “immunosuppressed” risk factor.
 
@@ -159,6 +124,10 @@ About the chart:
 
 
 | Total cases                      | reported total number of cases of infections to date, aggregated at regional, RLS or municipal level |
+
+Local service networks (RLS):
+The total of confirmed cases in a health region does not always equal the sum of cases in the RLS due to unknown values, entry errors or transfers between regions. We cannot therefore deduce the hidden numbers.
+
 | Total deaths                     | reported total number of deaths at the regional level                                                |
 | Total deaths (CHSLD)             | reported total number of deaths in residential and long-term care centres in the region              |
 | Total Deaths (home & unknown)    | reported total number of deaths in homes and unknown locations in the region                         |
@@ -174,40 +143,4 @@ The “Cumulative hospitalizations” tile on the “  By region  ” page shows
 
 
 
-
-The COVID-19 data in Quebec page presents data according to two types of date: the actual date of the event (date of declaration, death, sample analysis or hospital admission) and the date known as "Reported" for the tiles at the top of the page.
-Actual dates of the event
-
-All data using the "actual date of the event", whether it is the date of notification of the cases, the date of death, the date of analysis of the sample or the date of admission for hospitalizations, are data revised daily and retroactively.
-
-Since there is a delay between the event and its recording in the information system, the evolution data presented by actual dates of events are always underestimated in the most recent days, in particular. especially for cases, deaths and hospitalizations. Due to the delay in entering information and events with a missing date in the system, the cumulative number of events according to the actual date is always lower than the cumulative number according to the reported date ("official report" announced by the government in the "Confirmed cases", "Death" and "Recovered" tiles of the COVID-19 data in Quebec main page).
-
-All the adjustments to the data, such as for example the removal of duplicates, the modifications of living environments or the corrections of the age of a deceased person, are made retroactively on the data by actual dates of events. Thus, the adjustments made in the information system, such as catching up in the entry of death data, will have little impact on the epidemic curve since the affected cases generally spread over a certain period of time.
-
-For all these reasons, data using the actual date of the event presents a better picture of reality than those using the reported date.
-Declaration date
-
-The date of declaration of a case corresponds to
-
-    the date of receipt of the declaration by the Regional Directorate of Public Health or, if absent,
-    the date of the epidemiological investigation or, if absent,
-    the date of entry into the information system.
-
-Date of death
-
-Date entered in the death certificate, which corresponds to the moment when the death was certified by a doctor.
-Date of admission
-
-Date of admission to hospital.
-Test result date
-
-Date on which the test result is recorded in the laboratory information system.
-Date of sample analysis
-
-Date on which the sample was analyzed by a laboratory. The analysis can be done on the same day as the sample is taken or within a few days depending on the capacity of the laboratories.
-Date reported
-
-Data by reported date is the data newly entered into the system that is released on government balance sheets every day. These data are cumulative and do not take into account the actual date on which the event took place. For example, among the new deaths shown in brackets in the tiles, some may have occurred several days before. For details on the time of death, see:  https://www.quebec.ca/sante/problemes-de-sante/az/coronavirus-2019/situation-coronavirus-quebec(the link is external).
-
-Data using the reported date is only shown in the Confirmed Cases, Deaths, and Recovered Persons tiles at the top of the COVID-19 Data in Quebec main page . Data by reported date is more affected by adjustments or corrections than data presented by actual event date. For example, a removal of duplicates in the system will affect the data by date reported on the day following the correction date.
 
