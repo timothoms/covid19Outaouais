@@ -25,9 +25,9 @@ load("data/schools.RData")
 schools$school <- str_replace(schools$school, 
   "École Cité Étudiante de la Haute-Gatineau", 
   "École Cité Étudiante\nde la Haute-Gatineau")
-schools$school <- str_replace(schools$school, 
-  "École Cœur de la Gatineau, pavillon St-Nom-de-Marie", 
-  "École Cœur de la Gatineau, pavillon St-Nom-de-Marie")
+# schools$school <- str_replace(schools$school, 
+  # "École Cœur de la Gatineau, pavillon St-Nom-de-Marie", 
+  # "École Cœur de la Gatineau, pavillon St-Nom-de-Marie")
 schools$school <- str_replace(schools$school, 
   "Centre d'éducation des Adultes, programme FIS maison amitié de Maniwaki", 
   "Centre d'éducation des Adultes,\nprogramme FIS maison\namitié de Maniwaki")

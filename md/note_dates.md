@@ -2,12 +2,8 @@
 
 
 
-
-
 Local service networks (RLS):
 The total of confirmed cases in a health region does not always equal the sum of cases in the RLS due to unknown values, entry errors or transfers between regions. We cannot therefore deduce the hidden numbers.
-
-
 
 
 The COVID-19 data in Quebec page presents data according to two types of date: the actual date of the event (date of declaration, death, sample analysis or hospital admission) and the date known as "Reported" for the tiles at the top of the page.
@@ -48,18 +44,11 @@ Data using the reported date is only shown in the Confirmed Cases, Deaths, and R
 
 
 
-
-
-
-
     The number of confirmed cases per day (depending on the reporting date) is reviewed daily and retroactively.
 
     The number of confirmed cases per day (according to the date of declaration) is always underestimated for the most recent days due to a delay between the moment of the declaration of the case and the entry of the information in the system. 'information. The days most affected by this delay are presented in a gray area.
 
-
     The number of incidental hospitalizations may be lower for the most recent days due to a delay in entering the information. The days most affected by this delay are presented in a gray area.
     The number of incidental hospitalizations by date of admission is revised daily and retroactively.
 
-
-
-
+The extraction of data from the laboratories is done at noon and covers the day preceding the date of extraction. Thus, the data in the graph is presented with a day of delay compared to other data disseminated on the web. For example, data webcast on November 3 at 11 am are those of the 1 st  November (taken at noon on November 2).
