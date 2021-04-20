@@ -1,35 +1,25 @@
 ## Glossary 
 
-These definitions are based on 
+These definitions are based on information on the [CISSS Outaouais](https://cisss-outaouais.gouv.qc.ca/language/en/covid19-en/) and [INSPQ methodology](https://www.inspq.qc.ca/covid-19/donnees/methodologie) pages. 
 
 |                                  | Description |
 |----------------------------------|-------------|
-| Active cases                     | The number of confirmed cases that have not recovered or have died, aggregated at regional or RLS level. Active cases contribute to the spread of infections. |
-| Active hospitalizations          | The number of people currently in hospital with a covid-19 diagnosis, including people who received their leave during the day. |
+| Active cases                     | Number of confirmed cases that have not recovered or have died, aggregated at regional or RLS level. Active cases contribute to the spread of infections. |
+| Active hospitalizations          | Number of people currently in hospital with a covid-19 diagnosis, including people who received their leave during the day. |
 | Average increase per day         | Average daily increase in cases over last 7 days, calculated from available data; this eliminates day-to-day fluctuations and emphasises longer-term trends. (Official soources give the average of events of the selected day, the 3 previous days and the 3 following days, which produces the same line as the one used here, but shifted back by 3 days.) |
 | Average positive tests per day   | TBA |
 | Average testing per day          | Average daily number of covid-19 tests performed over last 7 days |
 | Average test positivity          | Average daily positive (confirmed) test results as a proportion of all tests carried out, expressed as percentage. |
-| Cumulative cases                 | Total cases to date |
+| Cumulative cases                 | Total cases to date since the start of the pandemic. |
 | New cases                        | Newly reported confirmed cases, including laboratory confirmed cases and epidemiologically linked cases, which are defined as "[corresponding] to a person who has developed compatible symptoms while having had a high-risk exposure with a laboratory-confirmed case." (INSPQ data do not include clinical cases.) |
-| New Hospitalizations             | TBA |
+| New Hospitalizations             | Number of people newly admitted to the hospital. |
 
-Incidental hospitalizations (new)
-    Incident hospitalizations correspond to the number of people newly admitted to the hospital.
-    Data on incidental hospitalizations include regular hospitalizations and those in intensive care.
     Incident hospitalizations include all cases of COVID admitted to hospitals, whether confirmed (with primary diagnosis) or provisional (with secondary diagnosis). However, it is not possible to distinguish a patient hospitalized for COVID from a patient with COVID hospitalized for something else. Since the data is corrected daily, a patient's status could be changed based on new information about their hospitalization and would be adjusted retroactively. For example, a patient initially admitted with COVID could be removed from the system later.
     An inpatient who is first admitted to general care (excluding intensive care), then transferred to intensive care, will only be counted once and his date of admission will remain the same. The information will be adjusted retroactively.
     The hospitals considered are general and specialized care hospitals offering acute care.
     Hospitalizations are broken down according to the health region of the patient's residence and not according to the region where the hospital is located.
 
-About the graphics:
-
-    The number of incidental hospitalizations may be lower for the most recent days due to a delay in entering the information. The days most affected by this delay are presented in a gray area.
-    The number of incidental hospitalizations by date of admission is revised daily and retroactively.
-    
-| Persons tested                   | TBA                                                                                                  |
-
-People tested
+| Persons tested                   | TBA |
 
 The extraction of data from the laboratories is done the day before the release date at noon. The data in Chart 4.1 released on the web on November 3 at 11 a.m. are the cumulative data of test persons entered into the system until November 2 at noon.
 
@@ -48,10 +38,8 @@ About the chart:
             On November 3, it will be removed from the cumulative number of disabled people and added to the cumulative number of confirmed cases.
             On November 10 and March 2, nothing changes, this person will still be included in the accumulation of confirmed cases and excluded from the accumulation of disabled people.
 
-| Persons tested positive          | TBA                                                                                                  |
-| Resolved/recovered cases         | reported number of resolved cases at regional level                                                  |
-
-
+| Persons tested positive          | TBA |
+| Resolved/recovered cases         | reported number of resolved cases at regional level |
 
 The criteria that allow a person to be considered “recovered” are determined by expert committees on the basis of scientific knowledge. A person is considered recovered when they meet the criteria for lifting isolation as described in the guide Measures for the management of cases and contacts in the community.(the link is external). These criteria are revised as needed, depending on the state of knowledge on the duration of the contagiousness of COVID. For example, from August 28, 2020, the lifting of isolation has been increased from 14 to 10 days for home cases and from 21 to 28 days for immunosuppressed cases.
 
@@ -101,7 +89,7 @@ Notes:
 
     When a case is “Recovered” in the data system but the restore date is missing, then the algorithm is used to estimate that date.
 
-| Test positivity                  | TBA                                                                                                  |
+| Test positivity                  | TBA |
 
 Percentage of positivity
 
@@ -122,25 +110,12 @@ About the chart:
         On November 10, his negative result will be excluded from the invalidated cases and from the calculation of the positivity rate (because the date of the negative test is included in the infectious episode of 90 days).
         On March 2, 2020, his negative result will be included in the invalidated cases and in the calculation of the positivity rate (since the 90 infectious days have passed).
 
-
-| Total cases                      | reported total number of cases of infections to date, aggregated at regional, RLS or municipal level |
-
-Local service networks (RLS):
-The total of confirmed cases in a health region does not always equal the sum of cases in the RLS due to unknown values, entry errors or transfers between regions. We cannot therefore deduce the hidden numbers.
-
-| Total deaths                     | reported total number of deaths at the regional level                                                |
-| Total deaths (CHSLD)             | reported total number of deaths in residential and long-term care centres in the region              |
-| Total Deaths (home & unknown)    | reported total number of deaths in homes and unknown locations in the region                         |
-| Total deaths (other)             | reported total number of deaths in RIs and other facilities in the region                            |
-| Total deaths (RPA)               | reported total number of deaths in private seniors' residences in the region                         |
-| Total hospitalizations           | TBA                                                                                                  |
-
-The “Cumulative hospitalizations” tile on the “  By region  ” page shows the cumulative number of new hospitalizations (incidental hospitalizations) since the start of the pandemic.
-
-| Total Vaccine doses administered | cumulative vaccine doses administered in the region (may not be Outaouais residents)                 |
-| Vaccine doses administered       | daily vaccine doses administered in the region (may not be Outaouais residents)                      |
-
-
-
-
-
+| Total cases                      | Cumulative number of cases of infections to date, aggregated at regional, RLS or municipal level. |
+| Total deaths                     | Cumulative number of deaths at the regional level. |
+| Total deaths (CHSLD)             | Cumulative number of deaths in residential and long-term care centres in the region. |
+| Total Deaths (home & unknown)    | Cumulative number of deaths in homes and unknown locations in the region. |
+| Total deaths (other)             | Cumulative number of deaths in RIs and other facilities in the region. |
+| Total deaths (RPA)               | Cumulative number of deaths in private seniors' residences in the region. |
+| Total hospitalizations           | Cumulative number of new hospitalizations. |
+| Total Vaccine doses administered | Cumulative vaccine doses administered in the region (may not be Outaouais residents). |
+| Vaccine doses administered       | Daily vaccine doses administered in the region (may not be Outaouais residents). |
