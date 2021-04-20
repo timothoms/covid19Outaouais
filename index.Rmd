@@ -85,7 +85,7 @@ RegionFig(df = inspq[inspq$key %in% c("Average test positivity (%)"), ],
 ## Deaths
 ```{r cases_deaths}
 ## LayeredFig(c("Total deaths"))
-RegionFig(df = inspq[inspq$key %in% c("Total deaths", "Total deaths (CHSLD)", "Total deaths (RPA)", "Total deaths (other)"), ], 
+RegionFig(df = inspq[inspq$key %in% c("Total deaths", "Total deaths (CHSLD)", "Total deaths (RPA)", "Total deaths (home & unknown)", "Total deaths (other)"), ], 
           caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
 ```
 
@@ -120,19 +120,10 @@ DailyFig(c("Average increase per day (Outaouais)", "Average increase per day (Ot
          caption = "Data source: opencovid.ca/api/")
 ```
 
-<!-- ## Cumulative cases, Outaouais & Ottawa (opencovid.ca) -->
-```{r opencovid_total, eval = FALSE}
-LocalFig(c("Total cases (Outaouais)", "Total cases (Ottawa)"), 
-         tab = c("opencovid.ca"), 
-         rug = FALSE, 
-         caption = "Data source: opencovid.ca/api/")
-```
-
 # Average increase by RLS {.tabset .tabset-fade .tabset-pills}
 
 ## Gatineau & Outaouais
 ```{r rls_avg_gatineau}
-## DailyFig(c("RLS de Gatineau"))
 LocalFig(df = rls[rls$key %in% c("Average increase per day (Outaouais)", "Active cases (Outaouais)", "RLS de Grande-Rivière - Hull - Gatineau") & rls$table == "average", ], 
        rug = FALSE, 
        note_last_day = FALSE,
@@ -141,7 +132,6 @@ LocalFig(df = rls[rls$key %in% c("Average increase per day (Outaouais)", "Active
 
 ## Collines
 ```{r rls_avg_collines}
-## DailyFig(c("RLS des Collines-de-l'Outaouais"))
 LocalFig(df = rls[rls$key == "RLS des Collines-de-l'Outaouais" & rls$table == "average", ], 
        rug = FALSE, 
        note_last_day = FALSE,
@@ -150,7 +140,6 @@ LocalFig(df = rls[rls$key == "RLS des Collines-de-l'Outaouais" & rls$table == "a
 
 ## Pontiac
 ```{r rls_avg_pontiac}
-## DailyFig(c("RLS du Pontiac"))
 LocalFig(df = rls[rls$key == "RLS du Pontiac" & rls$table == "average", ], 
        rug = FALSE, 
        note_last_day = FALSE,
@@ -159,7 +148,6 @@ LocalFig(df = rls[rls$key == "RLS du Pontiac" & rls$table == "average", ],
 
 ## Papineau
 ```{r rls_avg_papineau}
-## DailyFig(c("RLS de Papineau"))
 LocalFig(df = rls[rls$key == "RLS de la Vallée-de-la-Lièvre et de la Petite Nation" & rls$table == "average", ], 
        rug = FALSE, 
        note_last_day = FALSE,
@@ -168,21 +156,14 @@ LocalFig(df = rls[rls$key == "RLS de la Vallée-de-la-Lièvre et de la Petite Na
 
 ## Vallée
 ```{r rls_avg_vallee}
-## DailyFig(c("RLS de la Vallée-de-la-Gatineau"))
 LocalFig(df = rls[rls$key == "RLS de la Vallée-de-la-Gatineau" & rls$table == "average", ], 
        rug = FALSE, 
        note_last_day = FALSE,
        caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/tableau-rls-new.csv")
 ```
 
-```{r rls_cumulative_gatineau, eval = FALSE}
-LocalFig(df = rls[rls$key %in% c("Total cases (Outaouais)", "RLS de Grande-Rivière - Hull - Gatineau") & rls$table == "cases", ], 
-       rug = FALSE, 
-       note_last_day = FALSE,
-       caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/tableau-rls-new.csv")
-```
-```{r rls_cumulative_other, eval = FALSE}
-LocalFig(df = rls[rls$key %in% c("RLS des Collines-de-l'Outaouais", "RLS du Pontiac", "RLS de la Vallée-de-la-Lièvre et de la Petite Nation", "RLS de la Vallée-de-la-Gatineau") & rls$table == "cases", ], 
+```{r rls_cumulative, eval = FALSE}
+LocalFig(df = rls[rls$key %in% c("Total cases (Outaouais)", "RLS de Grande-Rivière - Hull - Gatineau", "RLS des Collines-de-l'Outaouais", "RLS du Pontiac", "RLS de la Vallée-de-la-Lièvre et de la Petite Nation", "RLS de la Vallée-de-la-Gatineau") & rls$table == "cases", ], 
        rug = FALSE, 
        note_last_day = FALSE,
        caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/tableau-rls-new.csv")
@@ -281,7 +262,7 @@ LocalFig(municipalities$municipality[municipalities$mrc == "Pontiac"])
 ```{r, child = 'md/updates.md'}
 ```
 
-Last data revision: `r str_replace(read_file("data/data_update_time.txt"), "\n", "")`
+Last data update: `r str_replace(read_file("data/data_update_time.txt"), "\n", "")`
 
 Last page update: `r now()`
 

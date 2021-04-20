@@ -101,6 +101,8 @@ SchoolsFig(c("École privée"))
 
 Last data update: `r str_replace(read_file("data/data_update_time.txt"), "\n", "")`
 
+Last page update: `r now()`
+
 ```{r, child = 'md/disclaimer.md'}
 ```
 
