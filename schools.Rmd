@@ -46,6 +46,9 @@ schools$school <- str_replace(schools$school, "Centre", "C.")
 schools$school <- str_replace(schools$school, " de l'Outaouais", "\nde l'Outaouais")
 schools$school <- str_replace(schools$school, "Collège ", "Collège\n")
 schools$school <- str_replace(schools$school, ", pavillon ", ", ")
+schools$school <- str_replace(schools$school, 
+                              "Service régional de la formation professionnelle et du service aux entreprises Réseautact", 
+                              "SRFP Réseautact")
 board <- "Centre de services scolaire des Hauts-Bois-de-l'Outaouais"
 schools$school[schools$admin == board] <- 
   str_replace(schools$school[schools$admin == board], fixed(", "), ",\n")
