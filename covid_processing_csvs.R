@@ -85,7 +85,7 @@ schools <- schools[schools$region == "Outaouais", c("admin", "time", "school", "
 schools <- schools %>% group_by(admin, school) %>% arrange(admin, school, time)
 schools <- schools[!(is.na(schools$admin) & is.na(schools$school)), ]
 schools$date <- lubridate::as_date(schools$time)
-schools <- schools %>% group_by(admin, school, date) %>% filter(time == max(time))
+schools <- schools %>% group_by(admin, school, date) %>% filter(time == min(time))
 schools <-schools[, c("admin", "school","date", "note", "color_code")]
 schools <- schools %>% group_by(admin, school) %>% arrange(admin, school, date)
 save(schools, file = "data/schools.RData")
