@@ -31,9 +31,6 @@ source("R/functions_figures.R")
 ```{r, child = 'md/index_intro.md'}
 ```
 
-```{r, child = 'md/note_ottawa.md'}
-```
-
 # Outaouais region totals {.tabset .tabset-fade .tabset-pills}
 
 ## New cases
