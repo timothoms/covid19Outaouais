@@ -1,6 +1,6 @@
 common_theme <- theme_classic() +
   theme(axis.text.x = element_text(angle = 15, vjust = 1.0, hjust = 1.0),
-        axis.title = element_blank(),
+        axis.title.x = element_blank(),
         legend.position = "top",
         legend.title = element_blank(),
         # legend.text = element_text(size = rel(0.67)),
@@ -30,6 +30,7 @@ DailyFig <- function(keys,
     } +
     scale_x_date(date_breaks="1 month", date_minor_breaks = "2 weeks", date_labels = "%b %Y") +
     common_theme +
+    theme(panel.grid.major.y = element_line(colour="lightgray", size = 0.25)) +
     guides(colour = guide_legend(ncol = 3)) +
     labs(x = "", y = "", caption = caption)
 }
@@ -57,6 +58,7 @@ LayeredFig <- function(keys,
     } +
     scale_x_datetime(date_breaks="1 month", date_minor_breaks = "2 weeks", date_labels = "%b %Y") +
     common_theme +
+    theme(panel.grid.major.y = element_line(colour="lightgray", size = 0.25)) +
     labs(x = "", y = "", caption = caption)
 }
 
@@ -78,6 +80,7 @@ LocalFig <- function(keys,
     # scale_colour_discrete(breaks = keys, labels = keys) +
     lims(y = c(0, NA)) +
     common_theme +
+    theme(panel.grid.major.y = element_line(colour="lightgray", size = 0.25)) +
     guides(colour = guide_legend(ncol = legend_cols)) +
     labs(x = "", y = "", caption = caption)
 }
@@ -117,6 +120,7 @@ RegionFig <- function(df,
     } else lims(y = c(0, NA))
     } +
     common_theme +
+    theme(panel.grid.major.y = element_line(colour="lightgray", size = 0.25)) +
     guides(colour = guide_legend(ncol = legend_cols)) +
     labs(x = "", y = "", caption = caption)
 }
