@@ -16,8 +16,6 @@ source("R/setup.R")
 ```
 
 ```{r data}
-# load("data/municipalities.RData")
-# pop_outaouais_2020 <- 401388
 load("data/schools.RData")
 # tapply(schools$school, schools$admin, function(x) length(unique(x)))
 # table(schools[, c("note", "color_code")])
