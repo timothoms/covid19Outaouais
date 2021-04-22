@@ -39,11 +39,11 @@ LayeredFig <- function(keys,
                        per_pop = FALSE,
                        caption = "Data source: cisss-outaouais.gouv.qc.ca/language/en/covid19-en/"
 ){
-  caption <- paste("Last day in dataset: ", format(max(covid$time), "%b %d"), ". ", caption, sep = "")
+  caption <- paste("Last day in dataset: ", format(max(cisss$time), "%b %d"), ". ", caption, sep = "")
   ggplot(mapping = aes(x = time, y = value, group = key, color = key)) +
-    geom_line(data = covid[covid$key %in% keys & covid$table == "cases", ]) +
-    geom_line(data = covid[covid$key %in% keys & covid$table == "areas", ]) +
-    # geom_line(data = covid[covid$key %in% keys & covid$table == "rls", ]) +
+    geom_line(data = cisss[cisss$key %in% keys & cisss$table == "cases", ]) +
+    geom_line(data = cisss[cisss$key %in% keys & cisss$table == "areas", ]) +
+    # geom_line(data = cisss[cisss$key %in% keys & cisss$table == "rls", ]) +
     { if(per_pop)
       scale_y_continuous(sec.axis = sec_axis(trans = ~ . / pop_outaouais_2020 * 100000,
                                              name = "per 100,000 population (2020)"),
@@ -52,7 +52,7 @@ LayeredFig <- function(keys,
         lims(y = c(0, NA))
     } +
     { if(rug)
-      geom_rug(data = covid[covid$key %in% keys & covid$table %in% c("cases", "areas", "rls"), ],
+      geom_rug(data = cisss[cisss$key %in% keys & cisss$table %in% c("cases", "areas", "rls"), ],
                mapping = aes(x = time), sides = "b", colour = "black", length = unit(0.02, "npc"))
     } +
     scale_x_datetime(date_breaks="1 month", date_minor_breaks = "2 weeks", date_labels = "%b %Y") +
@@ -62,7 +62,7 @@ LayeredFig <- function(keys,
 
 LocalFig <- function(keys,
                      tab = c("areas", "rls"),
-                     df = covid[covid$key %in% keys & covid$table %in% tab, ],
+                     df = cisss[cisss$key %in% keys & cisss$table %in% tab, ],
                      rug = TRUE,
                      legend_cols = 4,
                      caption = "Data source: cisss-outaouais.gouv.qc.ca/language/en/covid19-en/",

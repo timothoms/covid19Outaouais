@@ -13,8 +13,8 @@ params:
 
 ```{r setup, include=FALSE}
 source("R/setup.R")
-load("data/covid_local.RData")
-load("data/covid_local_daily.RData")
+load("data/cisss.RData")
+load("data/cisss_daily.RData")
 load("data/municipalities.RData")
 load("data/hospitalization.RData")
 load("data/inspq.RData")

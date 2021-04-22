@@ -14,8 +14,8 @@ sleep 10
 /usr/local/bin/Rscript -e 'Sys.setenv(RSTUDIO_PANDOC="/Applications/RStudio.app/Contents/MacOS/pandoc", PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"); rmarkdown::render("toronto.Rmd", encoding = "UTF-8", params = list(optimize = TRUE))'
 sleep 10
 
-git add data/covid_local.RData
-git add data/covid_local_daily.RData
+git add data/cisss.RData
+git add data/cisss_daily.RData
 git add data/vaccination.RData
 git add data/hospitalization.RData
 git add data/inspq.RData
