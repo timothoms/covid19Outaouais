@@ -28,7 +28,7 @@ DailyFig <- function(keys,
     { if(rug)
       geom_rug(mapping = aes(x = date), sides = "b", length = unit(0.02, "npc"))
     } +
-    scale_x_date(date_breaks="1 month", date_minor_breaks = "2 weeks", date_labels = "%b %Y") +
+    scale_x_date(date_breaks="1 month", date_minor_breaks = "2 weeks", date_labels = "%b %Y", expand = c(0, 5)) +
     common_theme +
     theme(panel.grid.major.y = element_line(colour="lightgray", size = 0.25)) +
     guides(colour = guide_legend(ncol = 3)) +
@@ -56,7 +56,7 @@ LayeredFig <- function(keys,
       geom_rug(data = cisss[cisss$key %in% keys & cisss$table %in% c("cases", "areas", "rls"), ],
                mapping = aes(x = time), sides = "b", colour = "black", length = unit(0.02, "npc"))
     } +
-    scale_x_datetime(date_breaks="1 month", date_minor_breaks = "2 weeks", date_labels = "%b %Y") +
+    scale_x_datetime(date_breaks="1 month", date_minor_breaks = "2 weeks", date_labels = "%b %Y", expand = c(0, 259200)) +
     common_theme +
     theme(panel.grid.major.y = element_line(colour="lightgray", size = 0.25)) +
     labs(x = "", y = "", caption = caption)
@@ -76,7 +76,7 @@ LocalFig <- function(keys,
     { if(rug)
       geom_rug(mapping = aes(x = time), sides = "b", length = unit(0.02, "npc"))
     } +
-    scale_x_datetime(date_breaks = "1 month", date_minor_breaks = "2 weeks", date_labels = "%b %Y") +
+    scale_x_datetime(date_breaks = "1 month", date_minor_breaks = "2 weeks", date_labels = "%b %Y", expand = c(0, 259200)) +
     # scale_colour_discrete(breaks = keys, labels = keys) +
     lims(y = c(0, NA)) +
     common_theme +
@@ -106,7 +106,7 @@ RegionFig <- function(df,
     { if(!is.null(second))
       geom_line(data = second[second$date > "2020-03-15", ])
     } +
-    scale_x_date(date_breaks = "1 month", date_minor_breaks = "2 weeks", date_labels = dlabels) +
+    scale_x_date(date_breaks = "1 month", date_minor_breaks = "2 weeks", date_labels = dlabels, expand = c(0, 5)) +
     { if(!is.null(pop)) {
       if(pop == "percent") {
         p <- list(denom = 100, label = "% of 2020 population")
@@ -136,7 +136,7 @@ SchoolsFig <- function(admin) {
                                   "relisted newly affected" = "green"),
                        breaks = c("newly listed", "previously listed", "reaffected previously listed", "relisted newly affected")
     ) +
-    scale_x_date(date_breaks = "2 weeks", date_labels = "%d %b %Y") +
+    scale_x_date(date_breaks = "2 weeks", date_minor_breaks = "1 week", date_labels = "%d %b %Y", expand = c(0, 2)) +
     scale_y_discrete(limits = rev) +
     guides(colour = guide_legend(ncol = 4)) +
     labs(x = "", y = "", caption = "Data source: www.quebec.ca/sante/problemes-de-sante/a-z/coronavirus-2019/liste-des-cas-de-covid-19-dans-les-ecoles/") +
