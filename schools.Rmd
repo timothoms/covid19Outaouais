@@ -20,6 +20,7 @@ load("data/schools.RData")
 # tapply(schools$school, schools$admin, function(x) length(unique(x)))
 # table(schools[, c("note", "color_code")])
 # unique(schools$school)
+# unique(schools$school[nchar(schools$school) > quantile(nchar(schools$school), probs = seq(0, 1, 0.05)[20])])
 schools$school <- str_replace(schools$school, 
   "École Cité Étudiante de la Haute-Gatineau", 
   "École Cité Étudiante\nde la Haute-Gatineau")
@@ -34,6 +35,8 @@ schools$school <- str_replace(schools$school, "école", "É.")
 schools$school <- str_replace(schools$school, "School", "S.")
 schools$school <- str_replace(schools$school, "Shcool", "S.")
 schools$school <- str_replace(schools$school, "Education", "Ed.")
+schools$school <- str_replace(schools$school, "Éducation", "Éd.")
+schools$school <- str_replace(schools$school, "éducation", "Éd.")
 schools$school <- str_replace(schools$school, 
                               "Centre de formation professionnelle des métiers", 
                               "CFP")
