@@ -1,6 +1,7 @@
 common_theme <- theme_classic() +
   theme(axis.text.x = element_text(angle = 15, vjust = 1.0, hjust = 1.0),
         axis.title.x = element_blank(),
+        axis.title.y.left = element_blank(),
         legend.position = "top",
         legend.title = element_blank(),
         # legend.text = element_text(size = rel(0.67)),
@@ -141,5 +142,6 @@ SchoolsFig <- function(admin) {
     guides(colour = guide_legend(ncol = 4)) +
     labs(x = "", y = "", caption = "Data source: www.quebec.ca/sante/problemes-de-sante/a-z/coronavirus-2019/liste-des-cas-de-covid-19-dans-les-ecoles/") +
     common_theme +
-    theme(legend.text = element_text(size = rel(0.67)))
+    theme(legend.text = element_text(size = rel(0.67)),
+          axis.title.y = element_blank())
 }

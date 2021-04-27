@@ -88,8 +88,8 @@ RegionFig(df = inspq[inspq$key %in% c("Total deaths", "Total deaths (CHSLD)", "T
 
 ## Hospitalizations
 ```{r hospitalization}
-RegionFig(df = hospitalization[hospitalization$key %in% c("Active hospitalizations, non-ICU", "Active hospitalizations, ICU"), ],
-          second = inspq[inspq$key %in% c("New hospitalizations, non-ICU", "New hospitalizations, ICU"), ], 
+RegionFig(second = hospitalization[hospitalization$key %in% c("Active hospitalizations, non-ICU", "Active hospitalizations, ICU"), ],
+          df = inspq[inspq$key %in% c("New hospitalizations"), ], 
           caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv &\n www.donneesquebec.ca/recherche/dataset/covid-19-portrait-quotidien-des-hospitalisations")
 ```
 
