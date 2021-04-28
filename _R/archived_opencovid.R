@@ -22,7 +22,7 @@ download <- lapply(datasets, function(item) {
   lapply(files, function(file) {
     cat(".")
     download.file(paste("http://data.opencovid.ca/", file, sep = ""),
-                  destfile = paste(item$file_ext, "/", stringr::str_replace(file, paste("archive/", item$opencovid_dir, sep = ""), item$path), sep = ""))
+                  destfile = paste("_", item$file_ext, "/", stringr::str_replace(file, paste("archive/", item$opencovid_dir, sep = ""), item$path), sep = ""))
   })
   return(files)
 })
