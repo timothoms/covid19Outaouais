@@ -20,6 +20,6 @@ output:
     theme: darkly
     highlight: pygments
     includes:
-      before_body: "_html/translate.html"
+      after_body: "_html/translate.html"
 editor_options:
   chunk_output_type: console
