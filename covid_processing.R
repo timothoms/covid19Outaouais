@@ -17,7 +17,7 @@ ParseHTMLtables <- function(path) {
   })
   return(tables)
 }
-tables <- ParseHTMLtables(path = "websites/local_sit_en/")
+tables <- ParseHTMLtables(path = "_websites/local_sit_en/")
 
 ## make sure to catch all tables, count them
 # sum(unlist(lapply(tables, length)))
@@ -137,7 +137,7 @@ to_add$table <- paste(to_add$table, "active", sep = "_")
 cisss <- rbind(cisss, to_add)
 
 ### checks on labels
-load("data/municipalities.RData")
+load("_data/municipalities.RData")
 unique(municipalities$municipality)[!unique(municipalities$municipality) %in% unique(cisss$key)]
 unique(cisss$key)[!unique(cisss$key) %in% unique(municipalities$municipality)]
 unique(cisss$key)[str_detect(unique(cisss$key), "MRC")]
@@ -282,12 +282,12 @@ cisss <- cisss[, c("table", "time", "prev",  "key", "value")]
 # tapply(cisss$key, cisss$table, unique)
 
 ### saving data
-save(cisss, file = "data/cisss.RData")
-save(daily, file = "data/cisss_daily.RData")
-# save(opencovid, file = "data/opencovid.RData")
-file_connection <- file("data/data_update_time.txt")
+save(cisss, file = "_data/cisss.RData")
+save(daily, file = "_data/cisss_daily.RData")
+# save(opencovid, file = "_data/opencovid.RData")
+file_connection <- file("_data/data_update_time.txt")
 writeLines(as.character(lubridate::now()), file_connection)
 close(file_connection)
-file_connection <- file("data/opencovid_update_time.txt")
+file_connection <- file("_data/opencovid_update_time.txt")
 writeLines(as.character(opencovid_update), file_connection)
 close(file_connection)

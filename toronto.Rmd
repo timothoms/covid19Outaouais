@@ -1,17 +1,14 @@
 ---
 title: "Covid19 Situation in Toronto"
-output:
-  html_document:
-    theme: darkly
-params: 
-  optimize: false
+params:
+  optimize: true
 ---
 
 ```{r setup, include=FALSE}
-source("R/setup.R")
-load("data/cisss.RData")
-load("data/cisss_daily.RData")
-source("R/functions_figures.R")
+source("_R/setup.R")
+source("_R/functions_figures.R")
+load("_data/cisss.RData")
+load("_data/cisss_daily.RData")
 ```
 
 ## {.tabset .tabset-fade .tabset-pills}
@@ -41,10 +38,10 @@ LocalFig(keys = c("Total deaths (Toronto)"),
 ```
 
 ##
-```{r, child = 'md/updates.md'}
+```{r, child = "_md/updates.md"}
 ```
 
 Last page update: `r now()`
 
-```{r, child = 'md/footer.md'}
+```{r, child = "_md/footer.md"}
 ```

@@ -1,22 +1,16 @@
 ---
 title: "Covid19 Situation in Outaouais Schools"
-output: 
-  html_document:
-    theme: darkly
-    toc: true
-    toc_depth: 1
-    includes:
-      before_body: html/translate.html
 params: 
-  optimize: false
+  optimize: true
 ---
 
 ```{r setup, include=FALSE}
-source("R/setup.R")
+source("_R/setup.R")
+source("_R/functions_figures.R")
 ```
 
 ```{r data}
-load("data/schools.RData")
+load("_data/schools.RData")
 # tapply(schools$school, schools$admin, function(x) length(unique(x)))
 # table(schools[, c("note", "color_code")])
 # unique(schools$school)
@@ -60,10 +54,9 @@ schools$school <- str_replace(schools$school, fixed(" ("), "\n(")
 schools$school <- str_trim(schools$school)
 # unique(schools$school[str_detect(schools$school, "blah")])
 schools <- schools %>% arrange(admin, schools, date)
-source("R/functions_figures.R")
 ```
 
-```{r, child = 'md/schools_intro.md'}
+```{r, child = "_md/schools_intro.md"}
 ```
 
 # Schools with confirmed cases {.tabset .tabset-fade .tabset-pills}
@@ -100,18 +93,18 @@ SchoolsFig(c("École privée"))
 
 # Information on this site {.tabset .tabset-pills}
 
-```{r, child = 'md/schools_notes.md'}
+```{r, child = "_md/schools_notes.md"}
 ```
 
-```{r, child = 'md/updates.md'}
+```{r, child = "_md/updates.md"}
 ```
 
-Last data update: `r str_replace(read_file("data/data_update_time.txt"), "\n", "")`
+Last data update: `r str_replace(read_file("_data/data_update_time.txt"), "\n", "")`
 
 Last page update: `r now()`
 
-```{r, child = 'md/disclaimer.md'}
+```{r, child = "_md/disclaimer.md"}
 ```
 
-```{r, child = 'md/footer.md'}
+```{r, child = "_md/footer.md"}
 ```

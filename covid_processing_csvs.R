@@ -3,10 +3,10 @@ library("parallel")
 Sys.setlocale(category = "LC_ALL", locale = "en_CA.UTF-8")
 
 source("covid_datasets.R")
-# unlist(lapply(datasets, function(item) paste("csv/", item$path, item$file_name, sep = "")))
+# unlist(lapply(datasets, function(item) paste("_csv/", item$path, item$file_name, sep = "")))
 
 ### hospitalization
-hospitalization <- readr::read_csv("csv/msss_hosp_rss/COVID19_Qc_HistoHospit.csv")
+hospitalization <- readr::read_csv("_csv/msss_hosp_rss/COVID19_Qc_HistoHospit.csv")
 hospitalization <- hospitalization[, c("Date", "ACT_Hsi_RSS07", "ACT_Si_RSS07")]
 hospitalization$Date <- lubridate::as_date(hospitalization$Date, format = "%m/%d/%Y")
 indicators <- c(ACT_Hsi_RSS07 = "Active hospitalizations, non-ICU", ACT_Si_RSS07 = "Active hospitalizations, ICU")
@@ -18,11 +18,11 @@ hospitalization <- lapply(names(indicators), function(var) {
 })
 hospitalization <- do.call(rbind, hospitalization)
 hospitalization <- hospitalization %>% arrange(key, date)
-save(hospitalization, file = "data/hospitalization.RData")
+save(hospitalization, file = "_data/hospitalization.RData")
 
 ### vaccination
-vaccination <- mclapply(dir("csv/vaccine_doses/"), function(file) {
-  df <- readr::read_delim(paste("csv/vaccine_doses/", file, sep = ""), delim = ";")
+vaccination <- mclapply(dir("_csv/vaccine_doses/"), function(file) {
+  df <- readr::read_delim(paste("_csv/vaccine_doses/", file, sep = ""), delim = ";")
   names(df) <- c("key", "value")
   time <- file
   time <- stringr::str_replace(time, "doses-vaccins_", "")
@@ -51,11 +51,11 @@ stringr::str_sub(vaccination$key[!is.na(vaccination$region_code)], 1, 5) <-""
 vaccination <- vaccination %>% arrange(key, time)
 vaccination <- vaccination[vaccination$key == "Outaouais", c("time", "key", "value")]
 vaccination$key <- "Total vaccine doses administered (Outaouais)"
-save(vaccination, file = "data/vaccination.RData")
+save(vaccination, file = "_data/vaccination.RData")
 
 ### school listings
-schools <- mclapply(dir("csv/schools_list/"), function(file) {
-  df <- readr::read_delim(paste("csv/schools_list/", file, sep = ""), delim = ";")
+schools <- mclapply(dir("_csv/schools_list/"), function(file) {
+  df <- readr::read_delim(paste("_csv/schools_list/", file, sep = ""), delim = ";")
   df <- df[, c("Régions", "Centres de services scolaires/Commissions scolaires/Écoles privées", "Écoles", "Particularités")]
   names(df) <- c("region", "admin", "school", "code")
   time <- file
@@ -88,18 +88,18 @@ schools$date <- lubridate::as_date(schools$time)
 schools <- schools %>% group_by(admin, school, date) %>% filter(time == min(time))
 schools <-schools[, c("admin", "school","date", "note", "color_code")]
 schools <- schools %>% group_by(admin, school) %>% arrange(admin, school, date)
-save(schools, file = "data/schools.RData")
+save(schools, file = "_data/schools.RData")
 
 ### mobility snapshots
-# mobility <- lapply(dir("csv/mobility/"), function(file) {
-#   readr::read_csv(paste("csv/mobility/", file, sep = ""))
+# mobility <- lapply(dir("_csv/mobility/"), function(file) {
+#   readr::read_csv(paste("_csv/mobility/", file, sep = ""))
 # })
 # mobility <- do.call(rbind, mobility)
 # table(mobility$health_care_region)
 
 ### RLS
-rls <- mclapply(dir("csv/inspq_rss_rls/"), function(file) {
-  df <- readr::read_csv(paste("csv/inspq_rss_rls/", file, sep = ""))
+rls <- mclapply(dir("_csv/inspq_rss_rls/"), function(file) {
+  df <- readr::read_csv(paste("_csv/inspq_rss_rls/", file, sep = ""))
   if(!"Cas actifs" %in% names(df)) df$'Cas actifs' <- NA
   time <- file
   time <- stringr::str_replace(time, "tableau-rls-new_", "")
@@ -166,11 +166,11 @@ avg <- lapply(c("new", "average"), function(var) {
 })
 avg <- do.call(rbind, avg)
 rls <- rbind(rls, avg)
-save(rls, file = "data/rls.RData")
+save(rls, file = "_data/rls.RData")
 
 ### complete historical case data
-dictionary <- readr::read_csv("data/inspq_dictionary.csv")
-inspq <- readr::read_csv("csv/inspq_hist/covid19-hist.csv")
+dictionary <- readr::read_csv("_data/inspq_dictionary.csv")
+inspq <- readr::read_csv("_csv/inspq_hist/covid19-hist.csv")
 inspq <- inspq[, names(inspq) %in% dictionary$key[dictionary$use == 1]]
 # print(unique(inspq[, c("Nom", "Regroupement")]), n = Inf)
 inspq <- inspq[inspq$Nom == "07 - Outaouais", ]
@@ -189,7 +189,7 @@ inspq <- do.call(rbind, inspq)
 inspq <- inspq[!is.na(inspq$value), ]
 
 ### historical vaccination data
-vaccination <- readr::read_csv("csv/vaccination/vaccination.csv")
+vaccination <- readr::read_csv("_csv/vaccination/vaccination.csv")
 vaccination <- vaccination[, names(vaccination) %in% dictionary$key[dictionary$use == 1]]
 vaccination <- vaccination[vaccination$Nom == "07 - Outaouais", ]
 vaccination$Nom <- vaccination$Regroupement <- NULL
@@ -224,4 +224,4 @@ avg <- lapply(names(to_calc), function(var) {
 })
 avg <- do.call(rbind, avg)
 inspq <- rbind(inspq, avg)
-save(inspq, file = "data/inspq.RData")
+save(inspq, file = "_data/inspq.RData")

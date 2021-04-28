@@ -1,0 +1,25 @@
+name: "covid19Outaouais"
+output_dir: "docs"
+author: "Oskar Timo Thoms"
+exclude: ["README.md", "*.sh"]
+type: inverse
+navbar:
+  title: "covid19Outaouais"
+  left:
+  - text: "Situation"
+    href: index.html
+  - text: "Schools"
+    href: schools.html
+output:
+  html_document:
+    toc: true
+    toc_depth: 1
+    df_print: "paged"
+    fig_width: 8
+    fig_height: 8
+    theme: darkly
+    highlight: pygments
+    includes:
+      before_body: "_html/translate.html"
+editor_options:
+  chunk_output_type: console

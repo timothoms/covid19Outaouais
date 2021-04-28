@@ -1,34 +1,27 @@
 ---
 title: "Covid19 Situation in Outaouais"
-output:
-  html_document:
-    theme: darkly
-    toc: true
-    toc_depth: 1
-    includes:
-      before_body: html/translate.html
 params: 
-  optimize: false
+  optimize: true
 ---
 
 ```{r setup, include=FALSE}
-source("R/setup.R")
-load("data/cisss.RData")
-load("data/cisss_daily.RData")
-load("data/municipalities.RData")
-load("data/hospitalization.RData")
-load("data/inspq.RData")
-load("data/rls.RData")
+source("_R/setup.R")
+source("_R/functions_figures.R")
+load("_data/cisss.RData")
+load("_data/cisss_daily.RData")
+load("_data/municipalities.RData")
+load("_data/hospitalization.RData")
+load("_data/inspq.RData")
+load("_data/rls.RData")
 rls <- rls %>% arrange(key, time)
-load("data/vaccination.RData")
+load("_data/vaccination.RData")
 vaccination <- vaccination %>% 
   mutate(date = lubridate::as_date(vaccination$time)) %>% 
   group_by(key, date) %>% filter(time == max(time)) 
 pop_outaouais_2020 <- 401388
-source("R/functions_figures.R")
 ```
 
-```{r, child = 'md/index_intro.md'}
+```{r, child = "_md/index_intro.md"}
 ```
 
 # Outaouais region totals {.tabset .tabset-fade .tabset-pills}
@@ -253,27 +246,27 @@ LocalFig(municipalities$municipality[municipalities$mrc == "Pontiac"])
 
 # Information on this site {.tabset .tabset-pills}
 
-```{r, child = 'md/index_notes.md'}
+```{r, child = "_md/index_notes.md"}
 ```
 
-```{r, child = 'md/updates.md'}
+```{r, child = "_md/updates.md"}
 ```
 
-Last data update: `r str_replace(read_file("data/data_update_time.txt"), "\n", "")`
+Last data update: `r str_replace(read_file("_data/data_update_time.txt"), "\n", "")`
 
 Last page update: `r now()`
 
-```{r, child = 'md/index_caveats.md'}
+```{r, child = "_md/index_caveats.md"}
 ```
 
-```{r, child = 'md/table_glossary.md'}
+```{r, child = "_md/table_glossary.md"}
 ```
 
-```{r, child = 'md/table_sources.md'}
+```{r, child = "_md/table_sources.md"}
 ```
 
-```{r, child = 'md/disclaimer.md'}
+```{r, child = "_md/disclaimer.md"}
 ```
 
-```{r, child = 'md/footer.md'}
+```{r, child = "_md/footer.md"}
 ```

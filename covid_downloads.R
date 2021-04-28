@@ -12,9 +12,9 @@ links <- list(
 )
 lapply(names(links), function(x) {
   xml2::download_html(links[[x]],
-    file = here("websites", x, paste(format(lubridate::now(), "%Y%m%d%H%M%S"), ".html", sep = "")))
+    file = here("_websites", x, paste(format(lubridate::now(), "%Y%m%d%H%M%S"), ".html", sep = "")))
 })
-file_connection <- file(here("websites", "last_download_time.txt"))
+file_connection <- file(here("_websites", "last_download_time.txt"))
 writeLines(as.character(lubridate::now()), file_connection)
 close(file_connection)
 
@@ -24,11 +24,11 @@ csvs <- datasets[unlist(lapply(datasets, function(item) item$download_daily ))]
 lapply(csvs, function(item) {
   if(item$overwrite) {
     download.file(item$url,
-                  destfile = here::here("csv", item$path,
+                  destfile = here::here("_csv", item$path,
                                         paste(item$file_name, ".csv", sep = "")))
   } else {
     download.file(item$url,
-                  destfile = here::here("csv", item$path,
+                  destfile = here::here("_csv", item$path,
                                         paste(item$file_name, "_", format(lubridate::now(), "%Y-%m-%d-%H-%M-%S"), ".csv", sep = "")))
   }
 })
