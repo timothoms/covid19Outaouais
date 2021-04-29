@@ -1,7 +1,7 @@
 ---
 title: "Cumulative cases by municipalities"
 params: 
-  optimize: false
+  optimize: true
 ---
 
 ```{r setup, include=FALSE}

@@ -24,7 +24,7 @@ navbar:
       href: intro.html
     - text: "Data notes"
       href: notes_data.html
-    - text: "Note on school listings"
+    - text: "School listings"
       href: notes_schools.html
     - text: "Caveats"
       href: caveats.html

@@ -1,7 +1,7 @@
 ---
 title: "Covid19 Situation in Outaouais"
 params: 
-  optimize: false
+  optimize: true
 ---
 
 ```{r setup, include=FALSE}

@@ -4,7 +4,7 @@ title: "Caveats"
 
 \  
 
-Users of the data presented here need to be aware of the following caveats: 
+Users of the data presented on this site need to be aware of the following caveats: 
 
 1. While I strive to include the most recent and complete available data, there is no guarantee of data accuracy. I am aggregating what official sources have been reporting over time. I do try to correct obvious data input error in the local data, but I have not implemented an automatic error detection process.
 
