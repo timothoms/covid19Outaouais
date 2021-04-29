@@ -1,7 +1,7 @@
 ---
 title: "Covid19 Situation in Outaouais Schools"
 params: 
-  optimize: true
+  optimize: false
 ---
 
 ```{r setup, include=FALSE}
@@ -56,55 +56,38 @@ schools$school <- str_trim(schools$school)
 schools <- schools %>% arrange(admin, schools, date)
 ```
 
-```{r, child = "_md/schools_intro.md"}
-```
+## {.tabset .tabset-fade .tabset-pills}
 
-# Schools with confirmed cases {.tabset .tabset-fade .tabset-pills}
-
-## CSS des Draveurs
+### CSS des Draveurs
 ```{r draveurs}
 SchoolsFig(c("Centre de services scolaire des Draveurs"))
 ```
 
-## CSS des Portages-de-l'Outaouais
+### CSS des Portages-de-l'Outaouais
 ```{r portages}
 SchoolsFig(c("Centre de services scolaire des Portages-de-l'Outaouais"))
 ```
 
-## Western Québec School Board
+### Western Québec School Board
 ```{r anglo}
 SchoolsFig(c("Commission scolaire Western Québec"))
 ```
 
-## CSS au Cœur-des-Vallées
+### CSS au Cœur-des-Vallées
 ```{r vallees}
 SchoolsFig(c("Centre de services scolaire au Cœur-des-Vallées"))
 ```
 
-## CSS des Hauts-Bois-de-l'Outaouais
+### CSS des Hauts-Bois-de-l'Outaouais
 ```{r hauts_bois}
 SchoolsFig(c("Centre de services scolaire des Hauts-Bois-de-l'Outaouais"))
 ```
 
-## École privée
+### École privée
 ```{r privee}
 SchoolsFig(c("École privée"))
 ```
 
-# Information on this site {.tabset .tabset-pills}
-
-```{r, child = "_md/schools_notes.md"}
-```
-
-```{r, child = "_md/updates.md"}
-```
+## 
 
 Last data update: `r str_replace(read_file("_data/data_update_time.txt"), "\n", "")`
-
-Last page update: `r now()`
-
-```{r, child = "_md/disclaimer.md"}
-```
-
-```{r, child = "_md/footer.md"}
-```

@@ -1,0 +1,68 @@
+---
+title: "Cumulative cases by municipalities"
+params: 
+  optimize: false
+---
+
+```{r setup, include=FALSE}
+source("_R/setup.R")
+source("_R/functions_figures.R")
+load("_data/cisss.RData")
+load("_data/cisss_daily.RData")
+load("_data/municipalities.RData")
+load("_data/hospitalization.RData")
+load("_data/inspq.RData")
+load("_data/rls.RData")
+load("_data/vaccination.RData")
+vaccination <- vaccination %>% 
+  mutate(date = lubridate::as_date(vaccination$time)) %>% 
+  group_by(key, date) %>% filter(time == max(time)) 
+pop_outaouais_2020 <- 401388
+```
+
+## {.tabset .tabset-fade .tabset-pills}
+
+### Total & Gatineau
+```{r areas_gatineau}
+LocalFig(c("Gatineau", "Total cases (municipalities)"))
+```
+
+### Collines
+```{r areas_collines}
+LocalFig(municipalities$municipality[municipalities$mrc == "Les Collines-de-l'Outaouais"])
+```
+
+### Papineau
+```{r areas_papineau}
+exclude_papineau <- c("Thurso", "Papineauville", "Saint-André-Avellin", "Chénéville","Ripon", "Montebello")
+LocalFig(keys = exclude_papineau)
+```
+
+### Papineau (<20)
+```{r areas_papineau_cont}
+LocalFig(municipalities$municipality[municipalities$mrc == "Papineau" & 
+                                     !municipalities$municipality %in% exclude_papineau])
+```
+
+### Vallée
+```{r areas_vallee}
+exclude_vallee <- c("Messines", "Déléage", "Bouchette")
+LocalFig(c(municipalities$municipality[municipalities$mrc == "La Vallée-de-la-Gatineau" & 
+                                       municipalities$designation == "Ville"], exclude_vallee))
+```
+
+### Vallée (<20)
+```{r areas_vallee_cont}
+LocalFig(municipalities$municipality[municipalities$mrc == "La Vallée-de-la-Gatineau" & 
+                                     municipalities$designation != "Ville" & 
+                                     !municipalities$municipality %in% exclude_vallee])
+```
+
+### Pontiac
+```{r areas_pontiac}
+LocalFig(municipalities$municipality[municipalities$mrc == "Pontiac"])
+```
+
+##
+
+Last data update: `r str_replace(read_file("_data/data_update_time.txt"), "\n", "")`

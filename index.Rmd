@@ -1,7 +1,7 @@
 ---
 title: "Covid19 Situation in Outaouais"
 params: 
-  optimize: true
+  optimize: false
 ---
 
 ```{r setup, include=FALSE}
@@ -9,11 +9,9 @@ source("_R/setup.R")
 source("_R/functions_figures.R")
 load("_data/cisss.RData")
 load("_data/cisss_daily.RData")
-load("_data/municipalities.RData")
 load("_data/hospitalization.RData")
 load("_data/inspq.RData")
 load("_data/rls.RData")
-rls <- rls %>% arrange(key, time)
 load("_data/vaccination.RData")
 vaccination <- vaccination %>% 
   mutate(date = lubridate::as_date(vaccination$time)) %>% 
@@ -21,88 +19,85 @@ vaccination <- vaccination %>%
 pop_outaouais_2020 <- 401388
 ```
 
-```{r, child = "_md/index_intro.md"}
-```
+## {.tabset .tabset-fade .tabset-pills}
 
-# Outaouais region totals {.tabset .tabset-fade .tabset-pills}
-
-## New cases
+### New cases
 ```{r cases_avg}
-## DailyFig(c("Average increase per day (Outaouais)"), tab = "cases", per_pop = TRUE)
+### DailyFig(c("Average increase per day (Outaouais)"), tab = "cases", per_pop = TRUE)
 RegionFig(df = inspq[inspq$key == "Average increase per day", ], 
           bars = inspq[inspq$key == "New cases", ], 
           pop = "per100k",
           caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
 ```
 
-## Active cases
+### Active cases
 ```{r cases_active}
-## LayeredFig(c("Active cases"))
+### LayeredFig(c("Active cases"))
 RegionFig(df = inspq[inspq$key %in% c("Active cases"), ], 
           pop = "per100k", 
           caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
 ```
 
-## Cumulative cases
+### Cumulative cases
 ```{r cases_cumulative}
-## LayeredFig(c("Healed/resolved cases", "Total cases (Outaouais)")) # "Total cases (RLS)"
+### LayeredFig(c("Healed/resolved cases", "Total cases (Outaouais)")) # "Total cases (RLS)"
 RegionFig(df = inspq[inspq$key %in% c("Total cases", "Total recovered cases"), ], 
           caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
 ```
 
-## Daily Tests
+### Daily Tests
 ```{r testing}
-## LayeredFig(c("Average screening tests per day"))
+### LayeredFig(c("Average screening tests per day"))
 RegionFig(df = inspq[inspq$key %in% c("Average testing per day"), ],
           bars = inspq[inspq$key %in% c("Persons tested"), ],
           caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
 ```
 
-## Positive tests
+### Positive tests
 ```{r positive}
 RegionFig(df = inspq[inspq$key %in% c("Average positive tests per day"), ], 
           bars = inspq[inspq$key %in% c("Persons tested positive"), ],
           caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
 ```
 
-## Test positivity
+### Test positivity
 ```{r positivity}
 RegionFig(df = inspq[inspq$key %in% c("Average test positivity (%)"), ], 
           bars = inspq[inspq$key %in% c("Test positivity (%)"), ], 
           caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
 ```
 
-## Deaths
+### Deaths
 ```{r cases_deaths}
-## LayeredFig(c("Total deaths"))
+### LayeredFig(c("Total deaths"))
 RegionFig(df = inspq[inspq$key %in% c("Total deaths", "Total deaths (CHSLD)", "Total deaths (RPA)", "Total deaths (home & unknown)", "Total deaths (other)"), ], 
           caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
 ```
 
-## Hospitalizations
+### Hospitalizations
 ```{r hospitalization}
 RegionFig(second = hospitalization[hospitalization$key %in% c("Active hospitalizations, non-ICU", "Active hospitalizations, ICU"), ],
           df = inspq[inspq$key %in% c("New hospitalizations"), ], 
           caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv &\n www.donneesquebec.ca/recherche/dataset/covid-19-portrait-quotidien-des-hospitalisations")
 ```
 
-## Total hospitalizations
+### Total hospitalizations
 ```{r hospitalizations}
 RegionFig(df = inspq[inspq$key %in% c("Total hospitalizations, non-ICU", "Total hospitalizations, ICU", "Total hospitalizations"), ], 
           caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
 ```
 
-## Vaccination
+### Vaccination
 ```{r vaccination}
-## RegionFig(df = vaccination,
-##         caption = "Data source: www.quebec.ca/en/health/health-issues/a-z/2019-coronavirus/situation-coronavirus-in-quebec/covid-19-vaccination-data/")
+### RegionFig(df = vaccination,
+###         caption = "Data source: www.quebec.ca/en/health/health-issues/a-z/2019-coronavirus/situation-coronavirus-in-quebec/covid-19-vaccination-data/")
 RegionFig(df = inspq[inspq$key %in% c("Vaccine doses administered", "Total vaccine doses administered"), ], 
           pop = "percent", 
           dlabels = "%d %b %Y",
           caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
 ```
 
-## Outaouais & Ottawa (opencovid.ca)
+### Outaouais & Ottawa (opencovid.ca)
 ```{r opencovid_avg}
 DailyFig(c("Average increase per day (Outaouais)", "Average increase per day (Ottawa)"), 
          tab = "opencovid.ca", 
@@ -110,163 +105,6 @@ DailyFig(c("Average increase per day (Outaouais)", "Average increase per day (Ot
          caption = "Data source: opencovid.ca/api/")
 ```
 
-# Average increase by RLS {.tabset .tabset-fade .tabset-pills}
-
-## Gatineau & Outaouais
-```{r rls_avg_gatineau}
-LocalFig(df = rls[rls$key %in% c("Average increase per day (Outaouais)", "Active cases (Outaouais)", "RLS de Grande-Rivière - Hull - Gatineau") & rls$table == "average", ], 
-       rug = FALSE, 
-       note_last_day = FALSE,
-       caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/tableau-rls-new.csv")
-```
-
-## Collines
-```{r rls_avg_collines}
-LocalFig(df = rls[rls$key == "RLS des Collines-de-l'Outaouais" & rls$table == "average", ], 
-       rug = FALSE, 
-       note_last_day = FALSE,
-       caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/tableau-rls-new.csv")
-```
-
-## Pontiac
-```{r rls_avg_pontiac}
-LocalFig(df = rls[rls$key == "RLS du Pontiac" & rls$table == "average", ], 
-       rug = FALSE, 
-       note_last_day = FALSE,
-       caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/tableau-rls-new.csv")
-```
-
-## Papineau
-```{r rls_avg_papineau}
-LocalFig(df = rls[rls$key == "RLS de la Vallée-de-la-Lièvre et de la Petite Nation" & rls$table == "average", ], 
-       rug = FALSE, 
-       note_last_day = FALSE,
-       caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/tableau-rls-new.csv")
-```
-
-## Vallée
-```{r rls_avg_vallee}
-LocalFig(df = rls[rls$key == "RLS de la Vallée-de-la-Gatineau" & rls$table == "average", ], 
-       rug = FALSE, 
-       note_last_day = FALSE,
-       caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/tableau-rls-new.csv")
-```
-
-```{r rls_cumulative, eval = FALSE}
-LocalFig(df = rls[rls$key %in% c("Total cases (Outaouais)", "RLS de Grande-Rivière - Hull - Gatineau", "RLS des Collines-de-l'Outaouais", "RLS du Pontiac", "RLS de la Vallée-de-la-Lièvre et de la Petite Nation", "RLS de la Vallée-de-la-Gatineau") & rls$table == "cases", ], 
-       rug = FALSE, 
-       note_last_day = FALSE,
-       caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/tableau-rls-new.csv")
-```
-
-# Active cases by RLS {.tabset .tabset-fade .tabset-pills}
-
-## Gatineau & Outaouais
-```{r rls_active_gatineau}
-LocalFig(df = rls[rls$key %in% c("Active cases (Outaouais)", "RLS de Grande-Rivière - Hull - Gatineau") & rls$table == "active", ], 
-       rug = FALSE, 
-       note_last_day = FALSE,
-       caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/tableau-rls-new.csv")
-```
-
-## Collines
-```{r rls_active_collines}
-LocalFig(df = rls[rls$key == "RLS des Collines-de-l'Outaouais" & rls$table == "active", ], 
-       rug = FALSE, 
-       note_last_day = FALSE,
-       caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/tableau-rls-new.csv")
-```
-
-## Pontiac
-```{r rls_pontiac}
-LocalFig(df = rls[rls$key == "RLS du Pontiac" & rls$table == "active", ], 
-       rug = FALSE, 
-       note_last_day = FALSE,
-       caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/tableau-rls-new.csv")
-```
-
-## Papineau
-```{r rls_active_papineau}
-LocalFig(df = rls[rls$key == "RLS de la Vallée-de-la-Lièvre et de la Petite Nation" & rls$table == "active", ], 
-       rug = FALSE, 
-       note_last_day = FALSE,
-       caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/tableau-rls-new.csv")
-```
-
-## Vallée
-```{r rls_active_vallee}
-LocalFig(df = rls[rls$key == "RLS de la Vallée-de-la-Gatineau" & rls$table == "active", ], 
-       rug = FALSE, 
-       note_last_day = FALSE,
-       caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/tableau-rls-new.csv")
-```
-
-# Cumulative cases by municipalities {.tabset .tabset-fade .tabset-pills}
-
-## Total & Gatineau
-```{r areas_gatineau}
-LocalFig(c("Gatineau", "Total cases (municipalities)"))
-```
-
-## Collines
-```{r areas_collines}
-LocalFig(municipalities$municipality[municipalities$mrc == "Les Collines-de-l'Outaouais"])
-```
-
-## Papineau
-```{r areas_papineau}
-exclude_papineau <- c("Thurso", "Papineauville", "Saint-André-Avellin", "Chénéville","Ripon", "Montebello")
-LocalFig(keys = exclude_papineau)
-```
-
-## Papineau (<20)
-```{r areas_papineau_cont}
-LocalFig(municipalities$municipality[municipalities$mrc == "Papineau" & 
-                                     !municipalities$municipality %in% exclude_papineau])
-```
-
-## Vallée
-```{r areas_vallee}
-exclude_vallee <- c("Messines", "Déléage", "Bouchette")
-LocalFig(c(municipalities$municipality[municipalities$mrc == "La Vallée-de-la-Gatineau" & 
-                                       municipalities$designation == "Ville"], exclude_vallee))
-```
-
-## Vallée (<20)
-```{r areas_vallee_cont}
-LocalFig(municipalities$municipality[municipalities$mrc == "La Vallée-de-la-Gatineau" & 
-                                     municipalities$designation != "Ville" & 
-                                     !municipalities$municipality %in% exclude_vallee])
-```
-
-## Pontiac
-```{r areas_pontiac}
-LocalFig(municipalities$municipality[municipalities$mrc == "Pontiac"])
-```
-
-# Information on this site {.tabset .tabset-pills}
-
-```{r, child = "_md/index_notes.md"}
-```
-
-```{r, child = "_md/updates.md"}
-```
+##
 
 Last data update: `r str_replace(read_file("_data/data_update_time.txt"), "\n", "")`
-
-Last page update: `r now()`
-
-```{r, child = "_md/index_caveats.md"}
-```
-
-```{r, child = "_md/table_glossary.md"}
-```
-
-```{r, child = "_md/table_sources.md"}
-```
-
-```{r, child = "_md/disclaimer.md"}
-```
-
-```{r, child = "_md/footer.md"}
-```

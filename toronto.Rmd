@@ -1,7 +1,7 @@
 ---
 title: "Covid19 Situation in Toronto"
 params:
-  optimize: true
+  optimize: false
 ---
 
 ```{r setup, include=FALSE}
@@ -38,10 +38,5 @@ LocalFig(keys = c("Total deaths (Toronto)"),
 ```
 
 ##
-```{r, child = "_md/updates.md"}
-```
 
-Last page update: `r now()`
-
-```{r, child = "_md/footer.md"}
-```
+Last data update: `r str_replace(read_file("_data/data_update_time.txt"), "\n", "")`
