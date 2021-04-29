@@ -166,6 +166,7 @@ avg <- lapply(c("new", "average"), function(var) {
 })
 avg <- do.call(rbind, avg)
 rls <- rbind(rls, avg)
+rls <- rls %>% arrange(key, time)
 save(rls, file = "_data/rls.RData")
 
 ### complete historical case data
