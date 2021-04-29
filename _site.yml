@@ -36,33 +36,33 @@ navbar:
       href: https://cisss-outaouais.gouv.qc.ca/covid-19/
     - text: "Institut national de santé publique"
       menu:
-      - text: "cases"
+      - text: "- cases"
         href: https://www.inspq.qc.ca/covid-19/donnees/
-      - text: "vaccination"
+      - text: "- vaccination"
         href: https://www.inspq.qc.ca/covid-19/donnees/vaccination/
-      - text: "variants"
+      - text: "- variants"
         href: https://www.inspq.qc.ca/covid-19/donnees/variants/
-      - text: "timeline"
+      - text: "- timeline"
         href: https://www.inspq.qc.ca/covid-19/donnees/ligne-du-temps/
     - text: "Ministère de la Santé et des Services Sociaux"
       menu:
-      - text: "cases"
+      - text: "- cases"
         href: https://www.donneesquebec.ca/recherche/dataset/covid-19-portrait-quotidien-des-cas-confirmes/
-      - text: "hospitalizations"
+      - text: "- hospitalizations"
         href: https://www.donneesquebec.ca/recherche/dataset/covid-19-portrait-quotidien-des-hospitalisations/
     - text: "Gouvernement du Québec"
       menu:
-      - text: situation
+      - text: "- situation"
         href: https://www.quebec.ca/sante/problemes-de-sante/a-z/coronavirus-2019/situation-coronavirus-quebec/
-      - text: vaccination
+      - text: "- vaccination"
         href: https://www.quebec.ca/sante/problemes-de-sante/a-z/coronavirus-2019/situation-coronavirus-quebec/donnees-sur-la-vaccination-covid-19/
-      - text: schools
+      - text: "- schools"
         href: https://www.quebec.ca/sante/problemes-de-sante/a-z/coronavirus-2019/faits-saillants-covid-ecoles/) / [school list](https://www.quebec.ca/sante/problemes-de-sante/a-z/coronavirus-2019/liste-des-cas-de-covid-19-dans-les-ecoles/) / [zones](https://www.quebec.ca/sante/problemes-de-sante/a-z/coronavirus-2019/systeme-alertes-regionales-et-intervention-graduelle/cartes-paliers-alerte-covid-19-par-region
     - text: "Government of Canada"
       menu:
-      - text: "cases"
+      - text: "- cases"
         href: https://health-infobase.canada.ca/covid-19/
-      - text: "vaccination"
+      - text: "- vaccination"
         href: https://health-infobase.canada.ca/covid-19/vaccination-coverage/
     - text: "opencovid.ca"
       href: https://opencovid.ca/
