@@ -68,6 +68,10 @@ navbar:
       href: https://opencovid.ca/
     - text: "Ottawa COVID-19 (613covid.ca)"
       href: https://613covid.ca/
+    - text: "Open Ottawa"
+      href: https://open.ottawa.ca/search?q=covid
+    - text: "Ottawa Public Health COVID-19 Dashboard"
+      href: https://www.ottawapublichealth.ca/en/reports-research-and-statistics/daily-covid19-dashboard.aspx
   right:
   - text: "Disclaimer"
     href: disclaimer.html
