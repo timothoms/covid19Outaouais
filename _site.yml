@@ -58,20 +58,35 @@ navbar:
         href: https://www.quebec.ca/sante/problemes-de-sante/a-z/coronavirus-2019/situation-coronavirus-quebec/donnees-sur-la-vaccination-covid-19/
       - text: "- schools"
         href: https://www.quebec.ca/sante/problemes-de-sante/a-z/coronavirus-2019/faits-saillants-covid-ecoles/) / [school list](https://www.quebec.ca/sante/problemes-de-sante/a-z/coronavirus-2019/liste-des-cas-de-covid-19-dans-les-ecoles/) / [zones](https://www.quebec.ca/sante/problemes-de-sante/a-z/coronavirus-2019/systeme-alertes-regionales-et-intervention-graduelle/cartes-paliers-alerte-covid-19-par-region
+    - text: "--------------------"
     - text: "Government of Canada"
       menu:
       - text: "- cases"
-        href: https://health-infobase.canada.ca/covid-19/
+        href: https://health-infobase.canada.ca/covid-19/epidemiological-summary-covid-19-cases.html
       - text: "- vaccination"
         href: https://health-infobase.canada.ca/covid-19/vaccination-coverage/
     - text: "opencovid.ca"
       href: https://opencovid.ca/
+    - text: "-----------------------------"
     - text: "Ottawa COVID-19 (613covid.ca)"
       href: https://613covid.ca/
     - text: "Open Ottawa"
       href: https://open.ottawa.ca/search?q=covid
     - text: "Ottawa Public Health COVID-19 Dashboard"
       href: https://www.ottawapublichealth.ca/en/reports-research-and-statistics/daily-covid19-dashboard.aspx
+    - text: "Ontario Data Catalogue"
+      href: https://data.ontario.ca/dataset?keywords_en=COVID-19
+    - text: "-----------------------------"
+    - text: "WHO"
+      href: https://covid19.who.int/
+    - text: "JHU CSSE"
+      href: https://github.com/CSSEGISandData/COVID-19
+    - text: "ECDC"
+      href: https://www.ecdc.europa.eu/en/geographical-distribution-2019-ncov-cases
+    - text: "EpiForecasts"
+      href: https://epiforecasts.io/covid/
+    - text: "The Covid Tracking Project (US)"
+      href: https://covidtracking.com/
   right:
   - text: "Disclaimer"
     href: disclaimer.html
