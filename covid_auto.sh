@@ -13,6 +13,6 @@ sleep 10
 git add _data/*.RData
 git add _data/*.txt
 git add _websites/last_download_time.txt
-git add --force docs/*.*
+git add --force docs/\*
 git commit --message "automatic update"
 git push origin main >> _ignore/push.log 2>&1
