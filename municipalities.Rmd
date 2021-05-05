@@ -10,14 +10,6 @@ source("_R/functions_figures.R")
 load("_data/cisss.RData")
 load("_data/cisss_daily.RData")
 load("_data/municipalities.RData")
-load("_data/hospitalization.RData")
-load("_data/inspq.RData")
-load("_data/rls.RData")
-load("_data/vaccination.RData")
-vaccination <- vaccination %>% 
-  mutate(date = lubridate::as_date(vaccination$time)) %>% 
-  group_by(key, date) %>% filter(time == max(time)) 
-pop_outaouais_2020 <- 401388
 ```
 
 ## {.tabset .tabset-fade .tabset-pills}

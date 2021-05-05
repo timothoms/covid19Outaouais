@@ -7,11 +7,8 @@ params:
 ```{r setup, include=FALSE}
 source("_R/setup.R")
 source("_R/functions_figures.R")
-load("_data/cisss.RData")
-load("_data/cisss_daily.RData")
 load("_data/hospitalization.RData")
 load("_data/inspq.RData")
-load("_data/rls.RData")
 load("_data/vaccination.RData")
 vaccination <- vaccination %>% 
   mutate(date = lubridate::as_date(vaccination$time)) %>% 
