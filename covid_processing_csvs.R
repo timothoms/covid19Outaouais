@@ -87,7 +87,7 @@ schools <- schools[!(is.na(schools$admin) & is.na(schools$school)), ]
 schools$date <- lubridate::as_date(schools$time)
 schools <- schools %>% group_by(admin, school, date) %>% filter(time == min(time))
 schools <-schools[, c("admin", "school","date", "note", "color_code")]
-schools <- schools %>% group_by(admin, school) %>% arrange(admin, school, date)
+# schools <- schools %>% group_by(admin, school) %>% arrange(admin, school, date)
 # table(schools[, c("note", "color_code")])
 # tapply(schools$school, schools$admin, function(x) length(unique(x)))
 schools$admin[schools$admin == "Centre de services scolaire au C\u009cur-des-Vallées"] <- "Centre de services scolaire au Cœur-des-Vallées"
