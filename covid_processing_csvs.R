@@ -88,6 +88,49 @@ schools$date <- lubridate::as_date(schools$time)
 schools <- schools %>% group_by(admin, school, date) %>% filter(time == min(time))
 schools <-schools[, c("admin", "school","date", "note", "color_code")]
 schools <- schools %>% group_by(admin, school) %>% arrange(admin, school, date)
+schools$admin[schools$admin == "Centre de services scolaire au C\u009cur-des-Vallées"] <- "Centre de services scolaire au Cœur-des-Vallées"
+schools$school <- str_replace(schools$school,
+                              "École Cité Étudiante de la Haute-Gatineau",
+                              "École Cité Étudiante\nde la Haute-Gatineau")
+schools$school <- str_replace(schools$school,
+                              "Centre d'éducation des adultes Portages-de-l'Outaouais",
+                              "Centre d'éducation des adultes")
+# schools$school <- str_replace(schools$school,
+# "École Cœur de la Gatineau, pavillon St-Nom-de-Marie",
+# "École Cœur de la Gatineau, pavillon St-Nom-de-Marie")
+schools$school <- str_replace(schools$school,
+                              "Centre d'éducation des Adultes, programme FIS maison amitié de Maniwaki",
+                              "Centre d'éducation des Adultes,\nprogramme FIS maison\namitié de Maniwaki")
+schools$school <- str_replace(schools$school, "École", "É.")
+schools$school <- str_replace(schools$school, "école", "É.")
+schools$school <- str_replace(schools$school, "School", "S.")
+schools$school <- str_replace(schools$school, "Shcool", "S.")
+schools$school <- str_replace(schools$school, "Education", "Ed.")
+schools$school <- str_replace(schools$school, "Éducation", "Éd.")
+schools$school <- str_replace(schools$school, "éducation", "Éd.")
+schools$school <- str_replace(schools$school,
+                              "Centre de formation professionnelle des métiers",
+                              "CFP")
+schools$school <- str_replace(schools$school,
+                              "Centre de formation professionnelle",
+                              "CFP")
+schools$school <- str_replace(schools$school, "Centre", "C.")
+schools$school <- str_replace(schools$school, " de l'Outaouais", "\nde l'Outaouais")
+schools$school <- str_replace(schools$school, "Collège ", "Collège\n")
+schools$school <- str_replace(schools$school, ", pavillon ", ", ")
+schools$school <- str_replace(schools$school,
+                              "Service régional de la formation professionnelle et du service aux entreprises Réseautact",
+                              "SRFP Réseautact")
+board <- "Centre de services scolaire des Hauts-Bois-de-l'Outaouais"
+schools$school[schools$admin == board] <-
+  str_replace(schools$school[schools$admin == board], fixed(", "), ",\n")
+schools$school <- str_replace(schools$school, fixed(" ("), "\n(")
+schools$school <- str_trim(schools$school)
+# unique(schools$school[str_detect(schools$school, "blah")])
+# tapply(schools$school, schools$admin, function(x) length(unique(x)))
+# table(schools[, c("note", "color_code")])
+# unique(schools$school)
+# unique(schools$school[nchar(schools$school) > quantile(nchar(schools$school), probs = seq(0, 1, 0.05)[20])])
 save(schools, file = "_data/schools.RData")
 
 ### mobility snapshots
