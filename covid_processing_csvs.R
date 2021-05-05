@@ -87,7 +87,6 @@ schools <- schools[!(is.na(schools$admin) & is.na(schools$school)), ]
 schools$date <- lubridate::as_date(schools$time)
 schools <- schools %>% group_by(admin, school, date) %>% filter(time == min(time))
 schools <-schools[, c("admin", "school","date", "note", "color_code")]
-<<<<<<< HEAD
 # schools <- schools %>% group_by(admin, school) %>% arrange(admin, school, date)
 # table(schools[, c("note", "color_code")])
 # tapply(schools$school, schools$admin, function(x) length(unique(x)))
@@ -135,10 +134,6 @@ schools$school <- str_trim(schools$school)
 # unique(schools$school)
 # unique(schools$school[str_detect(schools$school, "blah")])
 schools <- schools %>% arrange(admin, school, date)
-||||||| 1e12cfd
-schools <- schools %>% group_by(admin, school) %>% arrange(admin, school, date)
-=======
-schools <- schools %>% group_by(admin, school) %>% arrange(admin, school, date)
 schools$admin[schools$admin == "Centre de services scolaire au C\u009cur-des-Vallées"] <- "Centre de services scolaire au Cœur-des-Vallées"
 schools$school <- str_replace(schools$school,
                               "École Cité Étudiante de la Haute-Gatineau",
@@ -182,7 +177,6 @@ schools$school <- str_trim(schools$school)
 # table(schools[, c("note", "color_code")])
 # unique(schools$school)
 # unique(schools$school[nchar(schools$school) > quantile(nchar(schools$school), probs = seq(0, 1, 0.05)[20])])
->>>>>>> f17efaf03572010959071d22242af11891bc91b7
 save(schools, file = "_data/schools.RData")
 
 ### mobility snapshots
