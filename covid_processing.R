@@ -106,8 +106,10 @@ cisss <- lapply(cisss, function(df) {
   df <- df[df$key != df$value, ]
   df$key <- str_replace(df$key, "Number of ", "")
   df$key[df$key %in% c("hospitalizations at the designated COVID-19 centre (including intensive care patients)",
-                       "Hospitalizations at the designated COVID-19 center (including intensive care patients)")] <- "Hospitalizations"
+                       "Hospitalizations at the designated COVID-19 center (including intensive care patients)",
+                       "Hospitalisations at the designated COVID-19 unit (including patients at intensive care)")] <- "Hospitalizations"
   df$key[df$key %in% c("People in intensive care at the designated COVID-19 centre",
+                       "patients at the COVID-19 intensive care",
                        "Hospitalizations in the intensive care unit of the designated COVID-19 center")] <- "Hospitalizations, ICU"
   df$key[df$key %in% c("employees with COVID-19 since the beginning of the pandemic",
                        "employees affected by COVID-19 since beginning of pandemic",
