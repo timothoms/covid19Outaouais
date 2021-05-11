@@ -67,7 +67,6 @@ navbar:
         href: https://health-infobase.canada.ca/covid-19/vaccination-coverage/
     - text: "opencovid.ca"
       href: https://opencovid.ca/
-    - text: "-----------------------------"
     - text: "Ottawa COVID-19 (613covid.ca)"
       href: https://613covid.ca/
     - text: "Open Ottawa"
