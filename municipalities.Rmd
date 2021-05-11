@@ -14,8 +14,8 @@ load("_data/municipalities.RData")
 
 ## {.tabset .tabset-fade .tabset-pills}
 
-### Total & Gatineau
-```{r areas_gatineau}
+<!-- ### Total & Gatineau -->
+```{r areas_gatineau, eval = FALSE}
 LocalFig(c("Gatineau", "Total cases (municipalities)"))
 ```
 
