@@ -32,6 +32,7 @@ navbar:
       href: glossary.html
   - text: "Covid-19 data"
     menu:
+    - text: "Quebec"
     - text: "CISSS Outaouais"
       href: https://cisss-outaouais.gouv.qc.ca/covid-19/
     - text: "Institut national de santé publique"
@@ -59,6 +60,7 @@ navbar:
       - text: "- schools"
         href: https://www.quebec.ca/sante/problemes-de-sante/a-z/coronavirus-2019/faits-saillants-covid-ecoles/) / [school list](https://www.quebec.ca/sante/problemes-de-sante/a-z/coronavirus-2019/liste-des-cas-de-covid-19-dans-les-ecoles/) / [zones](https://www.quebec.ca/sante/problemes-de-sante/a-z/coronavirus-2019/systeme-alertes-regionales-et-intervention-graduelle/cartes-paliers-alerte-covid-19-par-region
     - text: "--------------------"
+    - text: "Canada"
     - text: "Government of Canada"
       menu:
       - text: "- cases"
@@ -76,6 +78,7 @@ navbar:
     - text: "Ontario Data Catalogue"
       href: https://data.ontario.ca/dataset?keywords_en=COVID-19
     - text: "-----------------------------"
+    - text: "Global"
     - text: "WHO"
       href: https://covid19.who.int/
     - text: "JHU CSSE"
