@@ -87,10 +87,9 @@ RegionFig(df = inspq[inspq$key %in% c("Total hospitalizations, non-ICU", "Total 
 
 ### Vaccination
 ```{r vaccination}
-### RegionFig(df = vaccination,
-###         caption = "Data source: www.quebec.ca/en/health/health-issues/a-z/2019-coronavirus/situation-coronavirus-in-quebec/covid-19-vaccination-data/")
+### RegionFig(df = vaccination, caption = "Data source: www.quebec.ca/en/health/health-issues/a-z/2019-coronavirus/situation-coronavirus-in-quebec/covid-19-vaccination-data/")
 RegionFig(df = inspq[inspq$key %in% c("Vaccine doses administered", "Total vaccine doses administered"), ], 
-          pop = "percent", 
+          # pop = "percent", 
           dlabels = "%d %b %Y",
           caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
 ```
