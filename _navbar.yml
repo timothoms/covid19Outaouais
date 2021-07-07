@@ -1,0 +1,93 @@
+title: "covid19Outaouais"
+type: default
+left:
+- text: "Trends"
+  menu:
+  - text: "Situation in Outaouais"
+    href: index.html
+  - text: "Average increase by RLS"
+    href: rls_new.html
+  - text: "Active cases by RLS"
+    href: rls_active.html
+  - text: "Cumulative cases by municipalities"
+    href: municipalities.html
+- text: "School Listings"
+  href: schools.html
+- text: "Information on this site"
+  menu:
+  - text: "Introduction"
+    href: intro.html
+  - text: "Data notes"
+    href: notes_data.html
+  - text: "School listings"
+    href: notes_schools.html
+  - text: "Caveats"
+    href: caveats.html
+  - text: "Glossary"
+    href: glossary.html
+- text: "Covid-19 data"
+  menu:
+  - text: "Quebec"
+  - text: "CISSS Outaouais"
+    href: https://cisss-outaouais.gouv.qc.ca/covid-19/
+  - text: "Institut national de santé publique"
+    menu:
+    - text: "- cases"
+      href: https://www.inspq.qc.ca/covid-19/donnees/
+    - text: "- vaccination"
+      href: https://www.inspq.qc.ca/covid-19/donnees/vaccination/
+    - text: "- variants"
+      href: https://www.inspq.qc.ca/covid-19/donnees/variants/
+    - text: "- timeline"
+      href: https://www.inspq.qc.ca/covid-19/donnees/ligne-du-temps/
+  - text: "Ministère de la Santé et des Services Sociaux"
+    menu:
+    - text: "- cases"
+      href: https://www.donneesquebec.ca/recherche/dataset/covid-19-portrait-quotidien-des-cas-confirmes/
+    - text: "- hospitalizations"
+      href: https://www.donneesquebec.ca/recherche/dataset/covid-19-portrait-quotidien-des-hospitalisations/
+  - text: "Gouvernement du Québec"
+    menu:
+    - text: "- situation"
+      href: https://www.quebec.ca/sante/problemes-de-sante/a-z/coronavirus-2019/situation-coronavirus-quebec/
+    - text: "- vaccination"
+      href: https://www.quebec.ca/sante/problemes-de-sante/a-z/coronavirus-2019/situation-coronavirus-quebec/donnees-sur-la-vaccination-covid-19/
+    - text: "- schools"
+      href: https://www.quebec.ca/sante/problemes-de-sante/a-z/coronavirus-2019/faits-saillants-covid-ecoles/) / [school list](https://www.quebec.ca/sante/problemes-de-sante/a-z/coronavirus-2019/liste-des-cas-de-covid-19-dans-les-ecoles/) / [zones](https://www.quebec.ca/sante/problemes-de-sante/a-z/coronavirus-2019/systeme-alertes-regionales-et-intervention-graduelle/cartes-paliers-alerte-covid-19-par-region
+  - text: "--------------------"
+  - text: "Canada"
+  - text: "Government of Canada"
+    menu:
+    - text: "- cases"
+      href: https://health-infobase.canada.ca/covid-19/epidemiological-summary-covid-19-cases.html
+    - text: "- vaccination"
+      href: https://health-infobase.canada.ca/covid-19/vaccination-coverage/
+  - text: "opencovid.ca"
+    href: https://opencovid.ca/
+  - text: "Ottawa COVID-19 (613covid.ca)"
+    href: https://613covid.ca/
+  - text: "Open Ottawa"
+    href: https://open.ottawa.ca/search?q=covid
+  - text: "Ottawa Public Health COVID-19 Dashboard"
+    href: https://www.ottawapublichealth.ca/en/reports-research-and-statistics/daily-covid19-dashboard.aspx
+  - text: "Ontario Data Catalogue"
+    href: https://data.ontario.ca/dataset?keywords_en=COVID-19
+  - text: "-----------------------------"
+  - text: "Global"
+  - text: "WHO"
+    href: https://covid19.who.int/
+  - text: "JHU CSSE"
+    href: https://github.com/CSSEGISandData/COVID-19
+  - text: "ECDC"
+    href: https://www.ecdc.europa.eu/en/geographical-distribution-2019-ncov-cases
+  - text: "EpiForecasts"
+    href: https://epiforecasts.io/covid/
+  - text: "The Covid Tracking Project (US)"
+    href: https://covidtracking.com/
+right:
+- icon: fa-github fa-lg
+  href: https://github.com/timothoms/covid19Outaouais
+- text: "Disclaimer"
+  href: disclaimer.html
+- text: "Contact"
+  href: contact.html
