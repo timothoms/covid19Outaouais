@@ -103,6 +103,7 @@ cisss <- lapply(cisss, function(df) {
   df$key[df$key %in% c("Pontiac", "MRC du Pontiac") & df$table == "areas"] <- "MRC du Pontiac"
   df$key[df$key %in% c("Val-des-Bois", "Val-des-bois") & df$table == "areas"] <- "Val-des-Bois"
   df$key[df$key %in% c("L'Isle-aux-Allumettes", "L'Îsles-aux-Allumettes") & df$table == "areas"] <- "L'Isle-aux-Allumettes"
+  df$key[df$key %in% c("Denholm", "Denholm6") & df$table == "areas"] <- "Denholm"
   df <- df[df$key != df$value, ]
   df$key <- str_replace(df$key, "Number of ", "")
   df$key[df$key %in% c("hospitalizations at the designated COVID-19 centre (including intensive care patients)",
@@ -128,6 +129,7 @@ cisss <- lapply(cisss, function(df) {
 })
 lapply(cisss, function(set) sort(unique(set$key)))
 cisss <- unique(do.call(rbind, cisss))
+# cisss[cisss$key == "", ]
 
 ### active cases column
 table(cisss$key[!is.na(cisss$active)])
