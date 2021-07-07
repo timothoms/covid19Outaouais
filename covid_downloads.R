@@ -1,4 +1,5 @@
 library(here)
+library(lubridate)
 Sys.setlocale(category = "LC_ALL", locale = "en_CA.UTF-8")
 
 links <- list(
@@ -12,10 +13,10 @@ links <- list(
 )
 lapply(names(links), function(x) {
   xml2::download_html(links[[x]],
-    file = here("_websites", x, paste(format(lubridate::now(), "%Y%m%d%H%M%S"), ".html", sep = "")))
+    file = here("_websites", x, paste(format(now(), "%Y%m%d%H%M%S"), ".html", sep = "")))
 })
 file_connection <- file(here("_websites", "last_download_time.txt"))
-writeLines(as.character(lubridate::now()), file_connection)
+writeLines(as.character(now()), file_connection)
 close(file_connection)
 
 source("covid_datasets.R")
@@ -31,7 +32,7 @@ lapply(csvs, function(item) {
     download.file(paste(item$url, "?randNum=", unique_number, sep = ""),
                   cacheOK = FALSE,
                   destfile = here::here("_csv", item$path,
-                                        paste(item$file_name, "_", format(lubridate::now(), "%Y-%m-%d-%H-%M-%S"), ".csv", sep = "")))
+                                        paste(item$file_name, "_", format(now(), "%Y-%m-%d-%H-%M-%S"), ".csv", sep = "")))
   }
 })
 
