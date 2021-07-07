@@ -20,14 +20,16 @@ close(file_connection)
 
 source("covid_datasets.R")
 csvs <- datasets[unlist(lapply(datasets, function(item) item$download_daily ))]
-
+unique_number <- round(as.numeric(as.period(interval(as_datetime("1970-01-02 4:00:00", tz = "EST"), now())), "minutes"))
 lapply(csvs, function(item) {
   if(item$overwrite) {
-    download.file(item$url,
+    download.file(paste(item$url, "?randNum=", unique_number, sep = ""),
+                  cacheOK = FALSE,
                   destfile = here::here("_csv", item$path,
                                         paste(item$file_name, ".csv", sep = "")))
   } else {
-    download.file(item$url,
+    download.file(paste(item$url, "?randNum=", unique_number, sep = ""),
+                  cacheOK = FALSE,
                   destfile = here::here("_csv", item$path,
                                         paste(item$file_name, "_", format(lubridate::now(), "%Y-%m-%d-%H-%M-%S"), ".csv", sep = "")))
   }
