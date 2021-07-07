@@ -3,8 +3,8 @@ cd ~/Documents/GitHub/covid19Outaouais/
 
 /usr/local/bin/Rscript covid_downloads.R >> _ignore/downloads.log 2>&1
 sleep 10
-/usr/local/bin/Rscript covid_processing.R
-/usr/local/bin/Rscript covid_processing_csvs.R >> _ignore/processing.log 2>&1
+/usr/local/bin/Rscript covid_processing.R >> _ignore/processing.log 2>&1
+/usr/local/bin/Rscript covid_processing_csvs.R >> _ignore/csvs.log 2>&1
 sleep 10
 /usr/local/bin/Rscript -e 'Sys.setenv(RSTUDIO_PANDOC="/Applications/RStudio.app/Contents/MacOS/pandoc", PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"); rmarkdown::render_site(encoding = "UTF-8")' >> _ignore/render.log 2>&1
 sleep 10
