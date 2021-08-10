@@ -197,7 +197,7 @@ cisss$value[cisss$time > "2020-05-09" & cisss$time < "2020-05-11" & cisss$key %i
 # VisualCheck(keys = tapply(cisss$key, cisss$table, unique)[["areas"]], tab = "areas", exclude = c("Total cases", "Gatineau", "To be determined"))
 # VisualCheck(keys = c("Hospitalizations", "Hospitalizations, ICU"), tab = "cases")
 
-opencovid_update<- jsonlite::fromJSON("https://api.opencovid.ca/version")[[1]]
+# opencovid_update<- jsonlite::fromJSON("https://api.opencovid.ca/version")[[1]]
 GetOpenCovid <- function(stat, loc) {
   names(stat) <- stat
   df <- lapply(stat, function (stat_code) {
@@ -291,7 +291,4 @@ save(daily, file = "_data/cisss_daily.RData")
 # save(opencovid, file = "_data/opencovid.RData")
 file_connection <- file("_data/data_update_time.txt")
 writeLines(as.character(lubridate::now()), file_connection)
-close(file_connection)
-file_connection <- file("_data/opencovid_update_time.txt")
-writeLines(as.character(opencovid_update), file_connection)
 close(file_connection)
