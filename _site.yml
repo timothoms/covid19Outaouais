@@ -12,6 +12,6 @@ output:
     theme: darkly
     highlight: pygments
     includes:
-      after_body: "_html/translate.html"
+      after_body: "_html/footer.html"
 editor_options:
   chunk_output_type: console

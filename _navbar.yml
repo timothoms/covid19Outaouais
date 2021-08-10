@@ -1,7 +1,7 @@
 title: "covid19Outaouais"
 type: default
 left:
-- text: "Trends"
+- text: "Trend Figures"
   menu:
   - text: "Situation in Outaouais"
     href: index.html
@@ -11,11 +11,11 @@ left:
     href: rls_active.html
   - text: "Cumulative cases by municipalities"
     href: municipalities.html
-- text: "School Listings"
-  href: schools.html
+  - text: "School Listings"
+    href: schools.html
 - text: "Information on this site"
   menu:
-  - text: "Introduction"
+  - text: "Why this site?"
     href: intro.html
   - text: "Data notes"
     href: notes_data.html
