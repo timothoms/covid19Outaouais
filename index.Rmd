@@ -21,7 +21,6 @@ pop_outaouais_2020 <- 401388
 
 ### New cases
 ```{r cases_avg}
-### DailyFig(c("Average increase per day (Outaouais)"), tab = "cases", per_pop = TRUE)
 RegionFig(df = inspq[inspq$key == "Average increase per day", ], 
           bars = inspq[inspq$key == "New cases", ], 
           pop = "per100k",
@@ -30,7 +29,6 @@ RegionFig(df = inspq[inspq$key == "Average increase per day", ],
 
 ### Active cases
 ```{r cases_active}
-### LayeredFig(c("Active cases"))
 RegionFig(df = inspq[inspq$key %in% c("Active cases"), ], 
           pop = "per100k", 
           caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
@@ -38,14 +36,12 @@ RegionFig(df = inspq[inspq$key %in% c("Active cases"), ],
 
 ### Cumulative cases
 ```{r cases_cumulative}
-### LayeredFig(c("Healed/resolved cases", "Total cases (Outaouais)")) # "Total cases (RLS)"
 RegionFig(df = inspq[inspq$key %in% c("Total cases", "Total recovered cases"), ], 
           caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
 ```
 
 ### Daily Tests
 ```{r testing}
-### LayeredFig(c("Average screening tests per day"))
 RegionFig(df = inspq[inspq$key %in% c("Average testing per day"), ],
           bars = inspq[inspq$key %in% c("Persons tested"), ],
           caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
@@ -67,7 +63,6 @@ RegionFig(df = inspq[inspq$key %in% c("Average test positivity (%)"), ],
 
 ### Deaths
 ```{r cases_deaths}
-### LayeredFig(c("Total deaths"))
 RegionFig(df = inspq[inspq$key %in% c("Total deaths", "Total deaths (CHSLD)", "Total deaths (RPA)", "Total deaths (home & unknown)", "Total deaths (other)"), ], 
           caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
 ```
@@ -102,11 +97,9 @@ RegionFig(df = inspq[inspq$key %in% c("Total vaccine doses administered"), ],
 ```
 
 ### Outaouais & Ottawa (opencovid.ca)
-```{r opencovid_avg}
-DailyFig(c("Average increase per day (Outaouais)", "Average increase per day (Ottawa)"), 
-         tab = "opencovid.ca", 
-         rug = FALSE, 
-         caption = "Data source: opencovid.ca/api/")
+```{r opencovid}
+RegionFig(df = daily[daily$key %in% c("Average increase per day (Outaouais)", "Average increase per day (Ottawa)") & daily$table == "opencovid.ca", ],
+          caption = "Data source: opencovid.ca/api/")
 ```
 
 ##

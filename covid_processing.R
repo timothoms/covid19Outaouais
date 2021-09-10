@@ -271,13 +271,12 @@ daily <- daily %>% arrange(table, key, date) %>% group_by(table, key) %>% mutate
 daily <- daily %>% mutate(change_from_prev = value - previous_value)
 daily$previous_date <- daily$previous_value <- NULL
 daily <- daily %>% mutate(daily_change = round(change_from_prev / days_from_prev, 3))
-daily <- daily %>% arrange(table, key, date) %>% group_by(table, key) %>% mutate(daily_change_avg = runner::mean_run(x = daily_change, k = 7, lag = 0, idx = date)) %>% ungroup()
+daily <- daily %>% arrange(table, key, date) %>% group_by(table, key) %>% mutate(value = runner::mean_run(x = daily_change, k = 7, lag = 0, idx = date)) %>% ungroup()
 # tapply(daily$key, daily$table, unique)
 sort(unique(unlist(tapply(daily$key, daily$table, unique))))
-daily$change_key <- daily$key
-daily$change_key <- str_replace(daily$change_key, "Total cases", "Average increase per day")
-daily$change_key <- str_replace(daily$change_key, "Active cases", "Average increase in active cases per day")
-sort(unique(unlist(tapply(daily$change_key, daily$table, unique))))
+daily$key <- str_replace(daily$key, "Total cases", "Average increase per day")
+daily$key <- str_replace(daily$key, "Active cases", "Average increase in active cases per day")
+sort(unique(unlist(tapply(daily$key, daily$table, unique))))
 
 ### time since previous
 cisss <- cisss %>% arrange(table, key, time) %>% group_by(table, key) %>% mutate(previous_time = dplyr::lag(time))

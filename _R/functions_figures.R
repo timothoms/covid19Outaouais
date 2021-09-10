@@ -11,58 +11,6 @@ common_theme <- theme_classic() +
         # plot.margin = unit(c(5, 5, 5, 5), "pt"),
         plot.caption = element_text(size = rel(0.67)))
 
-DailyFig <- function(keys,
-                     tab = "rls",
-                     rug = TRUE,
-                     per_pop = FALSE,
-                     caption = "Data source: cisss-outaouais.gouv.qc.ca/language/en/covid19-en/"
-){
-  df <- daily[daily$change_key %in% keys & daily$table == tab, ]
-  caption <- paste("Last day in dataset: ", format(max(df$date), "%b %d"), ". ", caption, sep = "")
-  ggplot(data = df) +
-    geom_line(mapping = aes(x = date, y = daily_change_avg, group = change_key, color = change_key)) +
-    { if(per_pop)
-      scale_y_continuous(sec.axis = sec_axis(trans = ~ . / pop_outaouais_2020 * 100000,
-                                             name = "per 100,000 population (2020)"),
-                         limits = c(0, NA)) else lims(y = c(0, NA))
-    } +
-    { if(rug)
-      geom_rug(mapping = aes(x = date), sides = "b", length = unit(0.02, "npc"))
-    } +
-    scale_x_date(date_breaks="1 month", date_minor_breaks = "2 weeks", date_labels = "%b %Y", expand = c(0, 5)) +
-    common_theme +
-    theme(panel.grid.major.y = element_line(colour="lightgray", size = 0.25)) +
-    guides(colour = guide_legend(ncol = 3)) +
-    labs(x = "", y = "", caption = caption)
-}
-
-LayeredFig <- function(keys,
-                       rug = TRUE,
-                       per_pop = FALSE,
-                       caption = "Data source: cisss-outaouais.gouv.qc.ca/language/en/covid19-en/"
-){
-  caption <- paste("Last day in dataset: ", format(max(cisss$time), "%b %d"), ". ", caption, sep = "")
-  ggplot(mapping = aes(x = time, y = value, group = key, color = key)) +
-    geom_line(data = cisss[cisss$key %in% keys & cisss$table == "cases", ]) +
-    geom_line(data = cisss[cisss$key %in% keys & cisss$table == "areas", ]) +
-    # geom_line(data = cisss[cisss$key %in% keys & cisss$table == "rls", ]) +
-    { if(per_pop)
-      scale_y_continuous(sec.axis = sec_axis(trans = ~ . / pop_outaouais_2020 * 100000,
-                                             name = "per 100,000 population (2020)"),
-                         limits = c(0, NA))
-      else
-        lims(y = c(0, NA))
-    } +
-    { if(rug)
-      geom_rug(data = cisss[cisss$key %in% keys & cisss$table %in% c("cases", "areas", "rls"), ],
-               mapping = aes(x = time), sides = "b", colour = "black", length = unit(0.02, "npc"))
-    } +
-    scale_x_datetime(date_breaks="1 month", date_minor_breaks = "2 weeks", date_labels = "%b %Y", expand = c(0, 259200)) +
-    common_theme +
-    theme(panel.grid.major.y = element_line(colour="lightgray", size = 0.25)) +
-    labs(x = "", y = "", caption = caption)
-}
-
 LocalFig <- function(keys,
                      tab = c("areas", "rls"),
                      df = cisss[cisss$key %in% keys & cisss$table %in% tab, ],
