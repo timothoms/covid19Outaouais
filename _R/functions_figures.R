@@ -6,7 +6,6 @@ common_theme <- theme_classic() +
         legend.title = element_blank(),
         # legend.text = element_text(size = rel(0.67)),
         legend.margin = margin(0, 0, 0, 0),
-        # legend.box.margin = margin(-10, -10, -10, -10),
         panel.grid.minor.x = element_line(colour="lightgray", size = 0.25),
         # plot.margin = unit(c(5, 5, 5, 5), "pt"),
         plot.caption = element_text(size = rel(0.67)))
@@ -78,7 +77,6 @@ SchoolsFig <- function(admin) {
   ggplot(data = schools[schools$admin %in% admin, ],
          aes(x = date, y = school)) +
     geom_point(mapping = aes(x = date, y = school, group = note, colour = note), size = 0.75) +
-    # geom_segment(mapping = aes(x = date, xend = lead(date), y = school, yend = school, group = note, colour = note)) +
     scale_color_manual(values = c("newly listed" = "darkgreen",
                                   "previously listed" = "darkgray",
                                   "reaffected previously listed" = "red",
