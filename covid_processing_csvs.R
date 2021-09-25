@@ -2,7 +2,7 @@ library("tidyverse")
 library("parallel")
 Sys.setlocale(category = "LC_ALL", locale = "en_CA.UTF-8")
 
-source("covid_datasets.R")
+# source("_R/covid_datasets.R")
 # unlist(lapply(datasets, function(item) paste("_csv/", item$path, item$file_name, sep = "")))
 
 ### hospitalization

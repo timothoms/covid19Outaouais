@@ -6,7 +6,8 @@ params:
 
 ```{r setup, include=FALSE}
 source("_R/setup.R")
-source("_R/functions_figures.R")
+source("_R/figures_theme.R")
+source("_R/LocalFig.R")
 load("_data/rls.RData")
 ```
 

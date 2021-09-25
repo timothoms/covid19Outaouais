@@ -17,7 +17,8 @@ links <- list(
   can_data           = "https://www.canada.ca/en/public-health/services/diseases/coronavirus-disease-covid-19/epidemiological-economic-research-data.html",
   can_vaccination    = "https://health-infobase.canada.ca/covid-19/vaccination-coverage/",
   qc_hospitalization = "https://www.donneesquebec.ca/recherche/dataset/covid-19-portrait-quotidien-des-hospitalisations/",
-  qc_cases_hist      = "https://www.donneesquebec.ca/recherche/dataset/covid-19-portrait-quotidien-des-cas-confirmes"
+  qc_cases_hist      = "https://www.donneesquebec.ca/recherche/dataset/covid-19-portrait-quotidien-des-cas-confirmes",
+  timeline           = "https://www.inspq.qc.ca/covid-19/donnees/ligne-du-temps"
 )
 # lapply(links, robotstxt::paths_allowed)
 # robottexts <- lapply(links, robotstxt::get_robotstxt)
@@ -37,8 +38,6 @@ datasets <- list(
        url = "https://www.inspq.qc.ca/sites/default/files/covid/donnees/vaccination.csv",
        where = "QC"
   ),
-
-
   list(descr = "vaccine doses by RSS",
        where = "QC",
        download_daily = TRUE,
