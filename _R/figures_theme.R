@@ -6,6 +6,6 @@ common_theme <- theme_classic() +
         legend.title = element_blank(),
         # legend.text = element_text(size = rel(0.67)),
         legend.margin = margin(0, 0, 0, 0),
-        panel.grid.minor.x = element_line(colour="lightgray", size = 0.25),
+        panel.grid.minor.x = element_line(colour = "lightgray", size = 0.25),
         # plot.margin = unit(c(5, 5, 5, 5), "pt"),
         plot.caption = element_text(size = rel(0.67)))

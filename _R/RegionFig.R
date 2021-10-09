@@ -29,8 +29,7 @@ RegionFig <- function(df,
       }
       scale_y_continuous(limits = c(0, NA),
                          sec.axis = sec_axis(trans = ~ . /pop_outaouais_2020*p$denom, name = p$label))
-
-    } else lims(y = c(0, NA))
+      } else lims(y = c(0, NA))
     } +
     common_theme +
     theme(panel.grid.major.y = element_line(colour="lightgray", size = 0.25)) +
