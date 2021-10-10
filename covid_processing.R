@@ -1,24 +1,11 @@
 library("tidyverse")
 Sys.setlocale(category = "LC_ALL", locale = "en_CA.UTF-8")
+source("_R/ParseHTMLtables.R")
+source("_R/FormatTable.R")
+source("_R/GetOpenCovid.R")
+source("_R/VisualCheck.R")
 
-### reading HTML source files
-ParseHTMLtables <- function(path) {
-  ids <- files <- dir(path)
-  ids <- str_replace(ids, ".snapshot", "")
-  ids <- str_replace(ids, ".html", "")
-  files <- paste(path, files, sep = "")
-  names(files) <- ids
-  tables <- parallel::mclapply(files, function(page) {
-    webpage <- rvest::read_html(page, encoding = "UTF-8")
-    tab <- tryCatch(webpage %>%
-      rvest::html_nodes(css = "table") %>%
-      rvest::html_table(fill = TRUE), error = function(x) return(NULL) )
-      return(tab)
-  })
-  return(tables)
-}
 tables <- ParseHTMLtables(path = "_websites/local_sit_en/")
-
 ## make sure to catch all tables, count them
 # sum(unlist(lapply(tables, length)))
 # unique(unlist(lapply(tables, function(set) lapply(set, names)), recursive = FALSE))
@@ -52,16 +39,6 @@ lapply(cisss, function(set) {
 lapply(cisss[c("cases", "areas", "rls")], function(toplevel) unique(lapply(toplevel, names)))
 
 ### standardizing tables
-FormatTable <- function(table_id, tables) {
-  tab <- tables[[table_id]]
-  names(tab) <- str_to_lower(names(tab))
-  names(tab)[1] <- "key"
-  names(tab)[names(tab) %in% c("x2", "number", "nombre", "total")] <- "value"
-  names(tab)[names(tab) %in% c("actifs", "actives")] <- "active"
-  tab$time <- table_id
-  if(!"active" %in% names(tab)) tab$active <- NA
-  return(tab[, c("time", "key", "value", "active")])
-}
 cisss <- lapply(cisss[c("cases", "areas", "rls")], function(set) lapply(names(set), FormatTable, tables = set))
 lapply(cisss, function(set) unique(lapply(set, names)))
 ## missing labels
@@ -161,14 +138,6 @@ cisss <- cisss %>% arrange(time, key, table)
 
 ### error checking: checks & fix extreme values that are likely due to input error
 ### (still need a simple and consistent approach to error detection, perhaps from the time series methodological literature)
-VisualCheck <- function(keys, tab, exclude = NULL) {
-  keys <- keys[!keys %in% exclude]
-  ggplot(data = cisss[cisss$key %in% keys & cisss$table == tab, ]) +
-    geom_line(mapping = aes(x = time, y = value, group = key, color = key)) +
-    geom_point(data = cisss[cisss$key == "" & cisss$table == tab, ], mapping = aes(x = time, y = value, group = key, color = key)) +
-    theme_classic() + labs(x = "", y = "") +
-    theme(legend.position = "bottom")
-}
 # check <- unique(cisss$key)[unique(cisss$key) %in% municipalities$municipality[municipalities$mrc == "Papineau"]]
 # cisss[cisss$key == "" & cisss$time > "2020-09-28" & cisss$time < "2020-10-02", ]
 # VisualCheck(keys = c("Montpellier"), tab = "areas")
@@ -197,25 +166,6 @@ cisss$value[cisss$time > "2020-05-09" & cisss$time < "2020-05-11" & cisss$key %i
 # VisualCheck(keys = tapply(cisss$key, cisss$table, unique)[["areas"]], tab = "areas", exclude = c("Total cases", "Gatineau", "To be determined"))
 # VisualCheck(keys = c("Hospitalizations", "Hospitalizations, ICU"), tab = "cases")
 
-# opencovid_update<- jsonlite::fromJSON("https://api.opencovid.ca/version")[[1]]
-GetOpenCovid <- function(stat, loc) {
-  names(stat) <- stat
-  df <- lapply(stat, function (stat_code) {
-    tab <- lapply(loc, function(location_code) {
-      link <- paste("https://api.opencovid.ca/timeseries?stat=", stat_code, "&loc=", location_code, sep = "")
-      jsonlite::fromJSON(link)[[stat_code]]
-    })
-    tab <- do.call(rbind, tab)
-    names(tab)[stringr::str_detect(names(tab), "date")] <- "time"
-    key <- names(tab)[stringr::str_detect(names(tab), "cumulative_")]
-    key <- stringr::str_replace(key, "cumulative_", "")
-    names(tab)[stringr::str_detect(names(tab), "cumulative_")] <- "cumulative"
-    tab$key <- key
-    names(tab)[!names(tab) %in% c("province", "health_region", "key", "time", "cumulative")] <- "value"
-    return(tab[, c("province", "health_region", "key", "time", "value", "cumulative")])
-  })
-  do.call(rbind, df)
-}
 opencovid <- GetOpenCovid(stat = c("cases", "mortality"), loc = c(2407, 3551, 3595))
 opencovid$time <- lubridate::as_datetime(opencovid$time, tz = "America/Montreal", format = "%d-%m-%Y")
 new <- opencovid[, c("health_region", "time", "key", "value")]
@@ -244,8 +194,7 @@ exclude <- c(municipalities$municipality,
              "Hospital employees currently positive",
              "Hospital employees in isolation",
              "Hospital employees recovered",
-             "Facilities with active outbreaks",
-             "Facilities with outbreaks",
+             "Facilities with active outbreaks", "Facilities with outbreaks",
              "Active outbreaks", "Ended outbreaks")
 daily <- cisss[!cisss$key %in% exclude, ]
 daily <- daily %>% arrange(key, time)
@@ -287,7 +236,6 @@ cisss <- cisss[, c("table", "time", "prev",  "key", "value")]
 ### saving data
 save(cisss, file = "_data/cisss.RData")
 save(daily, file = "_data/cisss_daily.RData")
-# save(opencovid, file = "_data/opencovid.RData")
 file_connection <- file("_data/data_update_time.txt")
 writeLines(as.character(lubridate::now()), file_connection)
 close(file_connection)
