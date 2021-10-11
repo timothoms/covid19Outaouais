@@ -1,4 +1,3 @@
-library(here)
 library("tidyverse")
 Sys.setlocale(category = "LC_ALL", locale = "en_CA.UTF-8")
 source("_R/ParseHTMLtables.R")

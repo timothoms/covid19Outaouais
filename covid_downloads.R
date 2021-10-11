@@ -1,7 +1,6 @@
 library(here)
 library(lubridate)
 Sys.setlocale(category = "LC_ALL", locale = "en_CA.UTF-8")
-
 source("_R/covid_datasets.R")
 links <- links[c("local_sit_en", "local_sit_fr", "qc_sit_en",  "qc_sit_fr", "schools_sit_en", "schools_sit_fr", "timeline")]
 lapply(names(links), function(x) {
@@ -17,12 +16,10 @@ lapply(csvs, function(item) {
   if(item$overwrite) {
     download.file(paste(item$url, "?randNum=", unique_number, sep = ""),
                   cacheOK = FALSE,
-                  destfile = here::here("_csv", item$path,
-                                        paste(item$file_name, ".csv", sep = "")))
+                  destfile = here("_csv", item$path, paste(item$file_name, ".csv", sep = "")))
   } else {
     download.file(paste(item$url, "?randNum=", unique_number, sep = ""),
                   cacheOK = FALSE,
-                  destfile = here::here("_csv", item$path,
-                                        paste(item$file_name, "_", format(now(), "%Y-%m-%d-%H-%M-%S"), ".csv", sep = "")))
+                  destfile = here("_csv", item$path, paste(item$file_name, "_", format(now(), "%Y-%m-%d-%H-%M-%S"), ".csv", sep = "")))
   }
 })
