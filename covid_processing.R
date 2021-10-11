@@ -38,6 +38,7 @@ cisss[-1] <- lapply(cisss[-1], function(set) unlist(set, recursive = FALSE))
 
 ### duplicate tables
 lapply(cisss, function(set) { paste(length(unique(set)), "/", length(set)) })
+
 ### checking
 lapply(cisss[c("cases", "areas", "rls")], function(toplevel) unique(lapply(toplevel, names)))
 
@@ -134,10 +135,10 @@ cisss <- lapply(cisss, function(df) {
 })
 lapply(cisss, function(set) sort(unique(set$key)))
 cisss <- unique(do.call(rbind, cisss))
-# cisss[cisss$key == "", ]
+# print(cisss[cisss$key == "", ], n = Inf)
 
 ### active cases column
-table(cisss$key[!is.na(cisss$active)])
+# table(cisss$key[!is.na(cisss$active)])
 to_add <- cisss %>%
   filter(!is.na(active)) %>%
   mutate(value = active,
@@ -172,49 +173,61 @@ cisss$value <- as.integer(cisss$value)
 cisss <- cisss %>%
   arrange(time, key, table)
 
-### error checking & corrections
-### checks & fix extreme values that are likely due to input error
-# check <- unique(cisss$key)[unique(cisss$key) %in% municipalities$municipality[municipalities$mrc == "Papineau"]]
-# cisss[cisss$key == "" & cisss$time > "2020-09-28" & cisss$time < "2020-10-02", ]
-# as.data.frame(cisss[cisss$key %in% c("", "Montpellier") & cisss$time >= "2021-03-10" & cisss$time <= "2021-03-19", ])
-cisss$key[cisss$key == "" & cisss$time >= "2021-03-10" & cisss$time <= "2021-03-19" & cisss$table == "areas"] <- "Montpellier"
-# VisualCheck(keys = c("Montpellier"), tab = "areas")
-# vars <- tapply(cisss$key, cisss$table, unique)[["cases"]]
-# vars <- vars[vars != "Healed/resolved cases"]
-cisss <- cisss[!(cisss$key == "Healed/resolved cases" & cisss$time > "2020-10-31" & cisss$time < "2020-11-03" & cisss$value == 281), ]
-# VisualCheck(keys = "Healed/resolved cases", tab = "cases")
-# as.data.frame(cisss[cisss$key == "Total cases (Outaouais)" & cisss$time >= "2021-08-06" & cisss$time <= "2021-08-10", ])
-cisss$value[cisss$time > "2021-08-06" & cisss$time < "2021-08-10" & cisss$key == "Total cases (Outaouais)" & cisss$value == 1262] <- 12620
-# VisualCheck(keys = "Total cases (Outaouais)", tab = "cases")
-# vars <- vars[vars != "Total cases (Outaouais)"]
-# VisualCheck(keys = tapply(cisss$key, cisss$table, unique)[["cases"]], tab = "cases", exclude = c("Healed/resolved cases", "Cumulative cases"))
-cisss$value[cisss$time > "2020-05-23" & cisss$time < "2020-05-25" & cisss$key == "Total cases (RLS)" & cisss$value == 4729] <- 479
-cisss$value[cisss$time > "2020-06-24" & cisss$time < "2020-06-25" & cisss$key == "RLS de Gatineau" & cisss$value == 47] <- 497
-cisss <- cisss[!(cisss$time > "2020-12-15" & cisss$time < "2020-12-16" & cisss$key == "RLS de Gatineau" & cisss$value == 32172), ]
-# VisualCheck(keys = tapply(cisss$key, cisss$table, unique)[["rls"]], tab = "rls")
-# VisualCheck(keys = c("Total cases", "Total cases (RLS)", "Total", "RLS de Gatineau"), tab = "rls")
-# VisualCheck(keys = c("Total deaths", "To be determined", "To be determined (active)"), tab = "rls")
-# VisualCheck(keys = c("Active cases", "Total cases (active)", "Healed/resolved cases"), tab = "rls")
-# as.data.frame(cisss[cisss$key == "RLS de Gatineau" & cisss$table == "rls" & cisss$time >= "2021-09-25" & cisss$value == 1004, ])
-cisss <- cisss[!(cisss$key == "RLS de Gatineau" & cisss$table == "rls" & cisss$time >= "2021-09-25" & cisss$value == 1004), ]
-# VisualCheck(keys = c("RLS de Gatineau", "RLS de Gatineau (active)"), tab = "rls")
-# as.data.frame(cisss[cisss$key == "RLS de Gatineau" & cisss$table == "rls_active" & cisss$time >= "2021-04-10" & cisss$time <= "2021-04-14", ])
-cisss$value[cisss$time > "2021-04-10" & cisss$time < "2021-04-14" & cisss$key == "RLS de Gatineau" & cisss$value == 63] <- 637
-# VisualCheck(keys = c("RLS de Gatineau", "RLS de Gatineau (active)"), tab = "rls_active")
-# VisualCheck(keys = c("RLS de Papineau", "RLS de Papineau (active)"), tab = "rls")
-cisss <- cisss[!(cisss$time > "2021-01-06" & cisss$time < "2021-01-07" & cisss$key == "RLS du Pontiac" & cisss$value == 0), ]
-# VisualCheck(keys = c("RLS du Pontiac", "RLS du Pontiac (active)"), tab = "rls")
-# VisualCheck(keys = c("RLS des Collines-de-l'Outaouais", "RLS des Collines-de-l'Outaouais (active)"), tab = "rls")
-# VisualCheck(keys = c("RLS de la Vallée-de-la-Gatineau", "RLS de la Vallée-de-la-Gatineau (active)"), tab = "rls")
-# VisualCheck(keys = c("Hospitalizations", "Hospitalizations, ICU"), tab = "cases")
-# VisualCheck(keys = c("Total cases", "Total", "Gatineau", "Total cases (municipalities)"), tab = "areas")
-cisss$value[cisss$time > "2020-05-09" & cisss$time < "2020-05-11" & cisss$key %in% c("Total", "Total cases", "Total cases (municipalities)") & cisss$value == 3334] <- 334
-# as.data.frame(cisss[cisss$key == "Gatineau" & cisss$table == "areas" & cisss$time >= "2021-05-01" & cisss$time <= "2021-06-01", ])
-cisss$value[cisss$time > "2021-05-10" & cisss$time < "2021-05-14" & cisss$key == "Gatineau" & cisss$value == 936] <- 9360
-# VisualCheck(keys = "Gatineau", tab = "areas")
-# VisualCheck(keys = tapply(cisss$key, cisss$table, unique)[["areas"]], tab = "areas")
-# VisualCheck(keys = tapply(cisss$key, cisss$table, unique)[["areas"]], tab = "areas", exclude = c("Total", "Total cases", "Gatineau", "To be determined", "Total cases (municipalities)"))
+### fix extreme values that are likely due to input error
+condition <- cisss$key %in% c("Total", "Total cases", "Total cases (municipalities)") & cisss$time > "2020-05-09" & cisss$time < "2020-05-11" & cisss$value == 3334
+cisss$value[condition] <- 334
+condition <- cisss$key == "Total cases (RLS)" & cisss$time > "2020-05-23" & cisss$time < "2020-05-25" & cisss$value == 4729
+cisss$value[condition] <- 479
+condition <- cisss$key == "RLS de Gatineau" & cisss$time > "2020-06-24" & cisss$time < "2020-06-25" & cisss$value == 47
+cisss$value[condition] <- 497
+condition <- cisss$key == "" & cisss$time > "2020-09-28" & cisss$time < "2020-10-02"
+cisss[condition, ]
+condition <- !(cisss$key == "Healed/resolved cases" & cisss$time > "2020-10-31" & cisss$time < "2020-11-03" & cisss$value == 281)
+cisss <- cisss[condition, ]
+condition <- !(cisss$key == "RLS de Gatineau" & cisss$time > "2020-12-15" & cisss$time < "2020-12-16" & cisss$value == 32172)
+cisss <- cisss[condition, ]
+condition <- !(cisss$key == "RLS du Pontiac" & cisss$time > "2021-01-06" & cisss$time < "2021-01-07" & cisss$value == 0)
+cisss <- cisss[condition, ]
+condition <- cisss$key %in% c("", "Montpellier") & cisss$time >= "2021-03-10" & cisss$time <= "2021-03-19"
+print(cisss[condition, ], n = Inf)
+condition <- cisss$key == "" & cisss$time >= "2021-03-10" & cisss$time <= "2021-03-19" & cisss$table == "areas" & cisss$value == 10
+cisss$key[condition] <- "Montpellier"
+condition <- !(cisss$key == "RLS de Gatineau" & cisss$table == "rls_active" & cisss$time > "2021-04-10" & cisss$time < "2021-04-14" & cisss$value == 63)
+cisss <- cisss[condition, ]
+condition <- !(cisss$key == "Gatineau" & cisss$table == "areas" & cisss$time > "2021-05-10" & cisss$time < "2021-05-14" & cisss$value == 936)
+cisss <- cisss[condition, ]
+condition <- !(cisss$key == "Total cases (Outaouais)" & cisss$time > "2021-08-06" & cisss$time < "2021-08-09" & cisss$value == 1262)
+cisss <- cisss[condition, ]
+condition <- !(cisss$key == "RLS de Gatineau" & cisss$table == "rls" & cisss$time >= "2021-09-25" & cisss$time <= "2021-09-28" & cisss$value == 1004)
+cisss <- cisss[condition, ]
 
+### error checking
+# unique(cisss$key)[unique(cisss$key) %in% municipalities$municipality[municipalities$mrc == "Papineau"]]
+# tapply(cisss$key, cisss$table, unique)
+# VisualCheck(keys = tapply(cisss$key, cisss$table, unique)[["cases"]], tab = "cases",
+#             exclude = c("Total cases (Outaouais)", "Healed/resolved cases"))
+# VisualCheck(keys = "Total cases (Outaouais)", tab = "cases")
+# VisualCheck(keys = "Healed/resolved cases", tab = "cases")
+# VisualCheck(keys = tapply(cisss$key, cisss$table, unique)[["rls"]], tab = "rls",
+#             exclude = c("Total cases (RLS)", "RLS de Gatineau", "RLS du Pontiac"))
+# VisualCheck(keys = "Total cases (RLS)", tab = "rls")
+# VisualCheck(keys = "RLS de Gatineau", tab = "rls")
+# VisualCheck(keys = "RLS du Pontiac", tab = "rls")
+# VisualCheck(keys = tapply(cisss$key, cisss$table, unique)[["rls_active"]], tab = "rls_active",
+#             exclude = "RLS de Gatineau")
+# VisualCheck(keys = "RLS de Gatineau", tab = "rls_active")
+# VisualCheck(keys = tapply(cisss$key, cisss$table, unique)[["areas"]], tab = "areas",
+#             exclude = c("Total cases (municipalities)", "Healed/resolved cases", "Gatineau",
+#                         "Active cases", "To be determined", "MRC de la Vallée-de-la-Gatineau",
+#                         "MRC de Papineau", "MRC des Collines-de-l'Outaouais", "MRC du Pontiac"))
+# VisualCheck(keys = "Total cases (municipalities)", tab = "areas")
+# VisualCheck(keys = "Healed/resolved cases", tab = "areas")
+# VisualCheck(keys = "Gatineau", tab = "areas")
+# VisualCheck(keys = "Active cases", tab = "areas")
+# VisualCheck(keys = "To be determined", tab = "areas")
+# VisualCheck(keys = c("MRC de la Vallée-de-la-Gatineau", "MRC de Papineau", "MRC des Collines-de-l'Outaouais", "MRC du Pontiac"), tab = "areas")
+
+### opencovid
 opencovid <- GetOpenCovid(stat = c("cases", "mortality"), loc = c(2407, 3551, 3595))
 opencovid$time <- lubridate::as_datetime(opencovid$time, tz = "America/Montreal", format = "%d-%m-%Y")
 new <- opencovid %>%
@@ -248,14 +261,17 @@ daily <- cisss %>%
   mutate(date = lubridate::as_date(time)) %>%
   group_by(table, key, date) %>%
   filter(time == max(time))
-# daily[duplicated(daily[, c("table", "key", "date")]), ]
+daily[duplicated(daily[, c("table", "key", "date")]), ]
+
+### defunct: was checking sth in previous version
 # daily %>% filter(key %in% c("Total", "Total cases", "Cumulative cases")) %>% arrange(time) %>% print(n = Inf)
 ## these are closely related and often the same but different aggregation:
 ## cumulative for entire region, total aggregation across RLS or MRC
 ## "Total"/"Total cases (RLS)" sometimes different for RLS and municipalities
-daily$table[daily$key %in% c("Total deaths", "Healed/resolved cases", "Active cases") & daily$table %in% c("rls", "areas")] <- "cases"
+
+daily$table[daily$key %in% c("Active cases", "Healed/resolved cases", "Total deaths") & daily$table %in% c("rls", "areas")] <- "cases"
 daily <- daily %>%
-  select(table, key, date, value)
+  select(table, key, date, value) %>%
   arrange(table, key, date) %>%
   group_by(table, key) %>%
   mutate(previous_date = dplyr::lag(date),
@@ -263,8 +279,9 @@ daily <- daily %>%
          previous_value = dplyr::lag(value),
          change_from_prev = value - previous_value,
          daily_change = round(change_from_prev / days_from_prev, 3)) %>%
-  select(-previous_date, -previous_value) %>%
+  select(-previous_date, -previous_value, -days_from_prev, -change_from_prev) %>%
   mutate(value = runner::mean_run(x = daily_change, k = 7, lag = 0, idx = date)) %>%
+  select(-daily_change) %>%
   ungroup()
 # sort(unique(unlist(tapply(daily$key, daily$table, unique))))
 daily$key <- str_replace(daily$key, "Total cases", "Average increase per day")
@@ -286,6 +303,7 @@ file_connection <- file("_data/data_update_time.txt")
 writeLines(as.character(lubridate::now()), file_connection)
 close(file_connection)
 
+### other data sources
 source("_R/data_schools.R")
 source("_R/data_hospitalization.R")
 source("_R/data_vaccination.R")
