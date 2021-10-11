@@ -1,16 +1,17 @@
-rls <- mclapply(dir("_csv/inspq_rss_rls/"), function(file) {
+rls <- parallel:: mclapply(dir("_csv/inspq_rss_rls/"), function(file) {
   df <- readr::read_csv(paste("_csv/inspq_rss_rls/", file, sep = ""))
   if(!"Cas actifs" %in% names(df)) df$'Cas actifs' <- NA
-  time <- file
-  time <- stringr::str_replace(time, "tableau-rls-new_", "")
+  time <- stringr::str_replace(file, "tableau-rls-new_", "")
   time <- stringr::str_replace(time, "tableau-rls_", "")
   time <- stringr::str_replace(time, ".csv", "")
   if(nchar(time) == 16) df$time <- lubridate::as_datetime(time, tz = "America/Montreal", format = "%Y-%m-%d_%H-%M")
   if(nchar(time) == 19) df$time <- lubridate::as_datetime(time, tz = "America/Montreal", format = "%Y-%m-%d-%H-%M-%S")
-  return(df[, c("time", "No", "RSS", "NoRLS", "RLS", "Cas", "Cas actifs", "Population")])
+  df <- df %>% select("time", "No", "RSS", "NoRLS", "RLS", "Cas", "Cas actifs", "Population")
+  return(df)
 })
 rls <- do.call(rbind, rls)
-rls[, c("Cas", "Cas actifs", "Population")] <- lapply(rls[, c("Cas", "Cas actifs", "Population")], function(col) {
+vars <- c("Cas", "Cas actifs", "Population")
+rls[, vars] <- lapply(rls[, vars], function(col) {
   col[col == "n.d."] <- NA
   col <- str_trim(col)
   col <- str_replace(col, " ", "")
@@ -32,7 +33,9 @@ rls$rls <- do.call(rbind, lapply(unique(rls$rls_no), function(no) {
 rls$rss <- stringr::str_sub(rls$rss, 6, nchar(rls$rss))
 rls$rls[rls$rls != "Total"] <- unlist(lapply(stringr::str_split(rls$rls[rls$rls != "Total"], fixed(" - ")), function(set) paste(set[-1], collapse = " - ")))
 # print(unique(rls[order(rls$rls_no), c("rss_no", "rss", "rls_no", "rls")]), n = Inf)
-rls <- rls[rls$rss == "Outaouais", c("time", "rls", "cases", "active", "pop")]
+rls <- rls %>%
+  filter(rss == "Outaouais") %>%
+  select(time, rls, cases, active, pop)
 rls$rls <- str_replace(rls$rls, "Total", "Total cases (Outaouais)")
 rls <- lapply(c("cases", "active", "pop"), function(var) {
   df <- rls[, c("time", "rls", var)]
@@ -44,17 +47,22 @@ rls <- lapply(c("cases", "active", "pop"), function(var) {
 })
 rls <- do.call(rbind, rls)
 rls <- rls[!is.na(rls$value), ]
-avg <- rls[rls$table == "cases", ]
-avg <- avg %>% arrange(key, time)
-avg$date <- lubridate::as_date(avg$time)
-avg <- avg %>% group_by(key, date) %>% filter(time == max(time))
-avg <- avg %>% arrange(key, date) %>% group_by(key) %>% mutate(previous_date = dplyr::lag(date))
-avg <- avg %>% mutate(days_from_prev = as.integer(date - previous_date))
-avg <- avg %>% arrange(key, date) %>% group_by(key) %>% mutate(previous_value = dplyr::lag(value))
-avg <- avg %>% mutate(new_cases = value - previous_value)
-avg <- avg %>% mutate(avg_change = round(new_cases / days_from_prev, 3))
-avg <- avg %>% arrange(key, date) %>% group_by(key) %>% mutate(avg_change_avg = runner::mean_run(x = avg_change, k = 7, lag = 0, idx = date)) %>% ungroup()
-avg <- avg[, c("time", "key", "value", "table", "new_cases", "avg_change_avg")]
+### 7-day average
+avg <- rls %>%
+  filter(table == "cases") %>%
+  arrange(key, time) %>%
+  mutate(date = lubridate::as_date(time)) %>%
+  group_by(key, date) %>%
+  filter(time == max(time)) %>%
+  group_by(key) %>%
+  mutate(previous_date = dplyr::lag(date),
+         days_from_prev = as.integer(date - previous_date)) %>%
+  mutate(previous_value = dplyr::lag(value),
+         new_cases = value - previous_value,
+         avg_change = round(new_cases / days_from_prev, 3),
+         avg_change_avg = runner::mean_run(x = avg_change, k = 7, lag = 0, idx = date)) %>%
+  select(time, key, value, table, new_cases, avg_change_avg) %>%
+  ungroup()
 names(avg) <- c("time", "key", "value", "table", "new", "average")
 avg <- lapply(c("new", "average"), function(var) {
   df <- avg[, c("time", "key", var, "table")]

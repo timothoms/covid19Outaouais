@@ -1,6 +1,7 @@
 library(here)
 library(lubridate)
 Sys.setlocale(category = "LC_ALL", locale = "en_CA.UTF-8")
+
 source("_R/covid_datasets.R")
 links <- links[c("local_sit_en", "local_sit_fr", "qc_sit_en",  "qc_sit_fr", "schools_sit_en", "schools_sit_fr", "timeline")]
 lapply(names(links), function(x) {
