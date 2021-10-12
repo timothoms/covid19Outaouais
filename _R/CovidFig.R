@@ -1,10 +1,8 @@
-CovidFig <- function(keys,
-                     tab = c("areas", "rls"),
-                     df = cisss[cisss$key %in% keys & cisss$table %in% tab, ],
+CovidFig <- function(df,
                      second = NULL,
                      bars = NULL,
                      pop = NULL,
-                     rug = TRUE,
+                     rug = FALSE,
                      after = "2020-03-15",
                      dlabels = "%b %Y",
                      legend_cols = 3,
@@ -26,6 +24,12 @@ CovidFig <- function(keys,
                stat = "identity", color = "lightgray") +
         scale_fill_manual(labels = unique(bars$key), values = "lightgray")
     } +
+    { if(rug)
+      geom_rug(mapping = aes(x = time),
+               sides = "b",
+               length = unit(0.02, "npc"),
+               color = "black")
+    } +
     { if(!is.null(pop)) {
         if(pop == "percent") {
           p <- list(denom = 100, label = "% of 2020 population")
@@ -37,14 +41,10 @@ CovidFig <- function(keys,
                            sec.axis = sec_axis(trans = ~ . /pop_outaouais_2020*p$denom, name = p$label))
       } else lims(y = c(0, NA))
     } +
-    { if(rug)
-      geom_rug(mapping = aes(x = time), sides = "b", length = unit(0.02, "npc"))
-    } +
     scale_x_datetime(date_breaks = "1 month",
                      date_minor_breaks = "2 weeks",
                      date_labels = dlabels,
                      expand = c(0, 259200)) +
-    lims(y = c(0, NA)) +
     common_theme +
     theme(panel.grid.major.y = element_line(colour="lightgray", size = 0.25)) +
     guides(colour = guide_legend(ncol = legend_cols)) +

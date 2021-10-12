@@ -13,36 +13,36 @@ load("_data/rls.RData")
 
 ## {.tabset .tabset-fade .tabset-pills}
 
-### Gatineau & Outaouais
 ```{r rls_active_gatineau}
+knitr::asis_output("### Gatineau & Outaouais")
 LocalFig(df = rls[rls$key %in% c("Active cases (Outaouais)", "RLS de Grande-Rivière - Hull - Gatineau") & rls$table == "active", ], 
        rug = FALSE, 
        caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/tableau-rls-new.csv")
 ```
 
-### Collines
 ```{r rls_active_collines}
+knitr::asis_output("### Collines")
 LocalFig(df = rls[rls$key == "RLS des Collines-de-l'Outaouais" & rls$table == "active", ], 
        rug = FALSE, 
        caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/tableau-rls-new.csv")
 ```
 
-### Pontiac
 ```{r rls_pontiac}
+knitr::asis_output("### Pontiac")
 LocalFig(df = rls[rls$key == "RLS du Pontiac" & rls$table == "active", ], 
        rug = FALSE, 
        caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/tableau-rls-new.csv")
 ```
 
-### Papineau
 ```{r rls_active_papineau}
+knitr::asis_output("### Papineau")
 LocalFig(df = rls[rls$key == "RLS de la Vallée-de-la-Lièvre et de la Petite Nation" & rls$table == "active", ], 
        rug = FALSE, 
        caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/tableau-rls-new.csv")
 ```
 
-### Vallée
 ```{r rls_active_vallee}
+knitr::asis_output("### Vallée")
 LocalFig(df = rls[rls$key == "RLS de la Vallée-de-la-Gatineau" & rls$table == "active", ], 
        rug = FALSE, 
        caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/tableau-rls-new.csv")
