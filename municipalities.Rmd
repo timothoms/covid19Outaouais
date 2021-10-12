@@ -7,7 +7,7 @@ params:
 ```{r setup, include=FALSE}
 source("_R/setup.R")
 source("_R/figures_theme.R")
-source("_R/LocalFig.R")
+source("_R/CovidFig.R")
 load("_data/cisss.RData")
 load("_data/cisss_daily.RData")
 load("_data/municipalities.RData")
