@@ -24,7 +24,8 @@ stringr::str_sub(vaccination$key[!is.na(vaccination$region_code)], 1, 5) <-""
 # vaccination[, c("region_code", "key")] %>% arrange(region_code) %>% unique() %>% print(n = Inf)
 vaccination <- vaccination %>%
   arrange(key, time) %>%
-  select(time, key, value) %>%
-  filter(key == "Outaouais")
+  filter(key == "Outaouais") %>%
+  mutate(table = "vaccination") %>%
+  select(key, time, value, table)
 vaccination$key <- stringr::str_replace(vaccination$key, fixed("Outaouais"), "Total vaccine doses administered (Outaouais)")
 save(vaccination, file = "_data/vaccination.RData")

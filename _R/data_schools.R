@@ -42,7 +42,7 @@ schools <- schools %>%
 schools$admin <- str_replace(schools$admin,
                              "Centre de services scolaire au C\u009cur-des-Vallées",
                              "Centre de services scolaire au Cœur-des-Vallées")
-board <- "Centre de services scolaire des Hauts-Bois-de-l'Outaouais"
+# board <- "Centre de services scolaire des Hauts-Bois-de-l'Outaouais"
 # schools$school[schools$admin == board] <- str_replace(schools$school[schools$admin == board], fixed(", "), ",\n")
 schools$school <- str_replace(schools$school, "Sacré-C\u009cur", "Sacré-Cœur")
 schools$school <- str_replace(schools$school,

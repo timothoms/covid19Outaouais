@@ -147,6 +147,7 @@ to_add <- cisss %>%
 cisss <- cisss %>%
   select(-active)
 cisss <- rbind(cisss, to_add)
+rm(to_add)
 
 ### checks on labels
 # load("_data/municipalities.RData")
@@ -170,10 +171,9 @@ cisss$value <- str_replace(cisss$value, fixed(" "), "")
 cisss$value <- str_replace(cisss$value, fixed(","), "")
 # sum(is.na(as.integer(cisss$value)))
 cisss$value <- as.integer(cisss$value)
-cisss <- cisss %>%
-  arrange(time, key, table)
 
 ### fix extreme values that are likely due to input error
+cisss <- cisss %>% arrange(time, key, table)
 condition <- cisss$key %in% c("Total", "Total cases", "Total cases (municipalities)") & cisss$time > "2020-05-09" & cisss$time < "2020-05-11" & cisss$value == 3334
 cisss$value[condition] <- 334
 condition <- cisss$key == "Total cases (RLS)" & cisss$time > "2020-05-23" & cisss$time < "2020-05-25" & cisss$value == 4729
@@ -200,6 +200,7 @@ condition <- !(cisss$key == "Total cases (Outaouais)" & cisss$time > "2021-08-06
 cisss <- cisss[condition, ]
 condition <- !(cisss$key == "RLS de Gatineau" & cisss$table == "rls" & cisss$time >= "2021-09-25" & cisss$time <= "2021-09-28" & cisss$value == 1004)
 cisss <- cisss[condition, ]
+rm(condition)
 
 ### error checking
 # unique(cisss$key)[unique(cisss$key) %in% municipalities$municipality[municipalities$mrc == "Papineau"]]
@@ -238,11 +239,15 @@ opencovid <- opencovid %>%
   mutate(key = paste("Total", key)) %>%
   rename(value = cumulative)
 opencovid <- rbind(opencovid, new)
+rm(new)
 opencovid <- opencovid %>%
   mutate(table = "opencovid.ca",
          key = paste(key, " (", health_region, ")", sep = "")) %>%
   select(-health_region)
 cisss <- rbind(cisss, opencovid)
+cisss <- cisss %>%
+  select(key, time, value, table) %>%
+  arrange(table, key, time)
 
 ### de-duplication and calculating change variables
 exclude <- c(municipalities$municipality,
@@ -279,22 +284,19 @@ daily <- daily %>%
          previous_value = dplyr::lag(value),
          change_from_prev = value - previous_value,
          daily_change = round(change_from_prev / days_from_prev, 3)) %>%
-  select(-previous_date, -previous_value, -days_from_prev, -change_from_prev) %>%
   mutate(value = runner::mean_run(x = daily_change, k = 7, lag = 0, idx = date)) %>%
-  select(-daily_change) %>%
-  ungroup()
+  select(key, date, value, table) %>% ungroup()
 # sort(unique(unlist(tapply(daily$key, daily$table, unique))))
 daily$key <- str_replace(daily$key, "Total cases", "Average increase per day")
 daily$key <- str_replace(daily$key, "Active cases", "Average increase in active cases per day")
 
 ### time since previous
-cisss <- cisss %>%
-  arrange(table, key, time) %>%
-  group_by(table, key) %>%
-  mutate(previous_time = dplyr::lag(time),
-         prev = round(difftime(time, previous_time, units = "days"), 1)) %>%
-  select(table, time, prev, key, value)
-# tapply(cisss$key, cisss$table, unique)
+# cisss <- cisss %>%
+#   arrange(table, key, time) %>%
+#   group_by(table, key) %>%
+#   mutate(previous_time = dplyr::lag(time),
+#          prev = round(difftime(time, previous_time, units = "days"), 1)) %>%
+#   select(key, time, value, table, prev)
 
 ### saving data
 save(cisss, file = "_data/cisss.RData")
@@ -309,3 +311,16 @@ source("_R/data_hospitalization.R")
 source("_R/data_vaccination.R")
 source("_R/data_rls.R")
 source("_R/data_inspq.R")
+
+### combining datasets (keep schools in separate df)
+# covid <- list(
+#   inspq = inspq,
+#   rls = rls,
+#   hospitalization = hospitalization,
+#   vaccination = vaccination,
+#   cisss = cisss,
+#   daily = daily
+# )
+# lapply(covid, names)
+
+# as_datetime(date + 5/24, tz = "EST")

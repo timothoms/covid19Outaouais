@@ -15,7 +15,8 @@ inspq_vac <- lapply(names(inspq_vac)[-1], function(var) {
   return(df)
 })
 inspq_vac <- do.call(rbind, inspq_vac)
-save(inspq_vac, file = "_data/inspq_inspq_vac.RData")
+# save(inspq_vac, file = "_data/inspq_vac.RData")
+
 ### other inspq data
 inspq <- readr::read_csv("_csv/inspq_hist/covid19-hist.csv")
 inspq <- inspq[inspq$Nom == "07 - Outaouais", names(inspq) %in% dictionary$key[dictionary$use == 1]]
@@ -57,4 +58,5 @@ avg <- lapply(names(to_calc), function(var) {
 })
 avg <- do.call(rbind, avg)
 inspq <- rbind(inspq, avg)
+rm(inspq_vac, avg, to_calc)
 save(inspq, file = "_data/inspq.RData")

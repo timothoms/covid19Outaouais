@@ -74,5 +74,8 @@ avg <- lapply(c("new", "average"), function(var) {
 })
 avg <- do.call(rbind, avg)
 rls <- rbind(rls, avg)
-rls <- rls %>% arrange(key, time)
+rm(avg)
+rls <- rls %>%
+  select(key, time, value, table) %>%
+  arrange(key, time)
 save(rls, file = "_data/rls.RData")
