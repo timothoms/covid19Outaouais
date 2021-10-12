@@ -59,7 +59,7 @@ avg <- lapply(names(to_calc), function(var) {
 avg <- do.call(rbind, avg)
 inspq <- rbind(inspq, avg)
 inspq <- inspq %>%
-  mutate(time = as_datetime(date + 5/24, tz = "EST")) %>%
+  mutate(time = lubridate::as_datetime(date + 5/24, tz = "EST")) %>%
   select(key, date, time, value, table)
 rm(inspq_vac, avg, to_calc)
 save(inspq, file = "_data/inspq.RData")

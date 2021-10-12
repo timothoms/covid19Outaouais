@@ -34,7 +34,7 @@ schools$date <- lubridate::as_date(schools$time)
 schools <- schools %>%
   group_by(admin, school, date) %>%
   filter(time == min(time)) %>%
-  select(admin, school, date, note, color_code)
+  select(admin, school, date, time, note, color_code)
 # table(schools[, c("note", "color_code")])
 # tapply(schools$school, schools$admin, function(x) length(unique(x)))
 
@@ -92,5 +92,5 @@ schools$school[schools$school == "D'Arcy McGee High S."] <- "É. D'Arcy McGee Hi
 # unique(schools$school[nchar(schools$school) > quantile(nchar(schools$school), probs = seq(0, 1, 0.05)[19])])
 schools$school <- str_replace(schools$school, fixed(" ("), "\n(")
 schools$school <- str_trim(schools$school)
-schools <- schools %>% arrange(admin, school, date)
+schools <- schools %>% arrange(admin, school, date, time)
 save(schools, file = "_data/schools.RData")

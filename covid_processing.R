@@ -150,11 +150,11 @@ cisss <- rbind(cisss, to_add)
 rm(to_add)
 
 ### checks on labels
-# load("_data/municipalities.RData")
-# unique(municipalities$municipality)[!unique(municipalities$municipality) %in% unique(cisss$key)]
-# unique(cisss$key)[!unique(cisss$key) %in% unique(municipalities$municipality)]
-# unique(cisss$key)[str_detect(unique(cisss$key), "MRC")]
-# unique(municipalities$mrc)[!unique(municipalities$mrc) %in% unique(cisss$key)]
+load("_data/municipalities.RData")
+unique(municipalities$municipality)[!unique(municipalities$municipality) %in% unique(cisss$key)]
+unique(cisss$key)[!unique(cisss$key) %in% unique(municipalities$municipality)]
+unique(cisss$key)[str_detect(unique(cisss$key), "MRC")]
+unique(municipalities$mrc)[!unique(municipalities$mrc) %in% unique(cisss$key)]
 
 ### cleaning data points
 cisss$time <- lubridate::as_datetime(cisss$time, tz = "America/Montreal")
