@@ -274,10 +274,11 @@ daily[duplicated(daily[, c("table", "key", "date")]), ]
 ## cumulative for entire region, total aggregation across RLS or MRC
 ## "Total"/"Total cases (RLS)" sometimes different for RLS and municipalities
 
+### FROM HERE >
+
 daily$table[daily$key %in% c("Active cases", "Healed/resolved cases", "Total deaths") & daily$table %in% c("rls", "areas")] <- "cases"
 daily <- daily %>%
-  select(table, key, date, value) %>%
-  arrange(table, key, date) %>%
+  arrange(table, key, date, time) %>%
   group_by(table, key) %>%
   mutate(previous_date = dplyr::lag(date),
          days_from_prev = as.integer(date - previous_date),
@@ -285,7 +286,7 @@ daily <- daily %>%
          change_from_prev = value - previous_value,
          daily_change = round(change_from_prev / days_from_prev, 3)) %>%
   mutate(value = runner::mean_run(x = daily_change, k = 7, lag = 0, idx = date)) %>%
-  select(key, date, value, table) %>% ungroup()
+  select(key, date, time, value, table) %>% ungroup()
 # sort(unique(unlist(tapply(daily$key, daily$table, unique))))
 daily$key <- str_replace(daily$key, "Total cases", "Average increase per day")
 daily$key <- str_replace(daily$key, "Active cases", "Average increase in active cases per day")
@@ -322,5 +323,3 @@ source("_R/data_inspq.R")
 #   daily = daily
 # )
 # lapply(covid, names)
-
-# as_datetime(date + 5/24, tz = "EST")
