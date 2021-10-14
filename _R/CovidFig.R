@@ -14,15 +14,17 @@ CovidFig <- function(df,
   }
   ggplot(data = df[df$time > after, ],
          mapping = aes(x = time, y = value, group = key, color = key)) +
+    { if(!is.null(bars))
+      geom_bar(data = bars[bars$time > after, ],
+               mapping = aes(fill = unique(bars$key)),
+               stat = "identity", color = "lightgray")
+    } +
+    { if(!is.null(bars))
+      scale_fill_manual(labels = unique(bars$key), values = "lightgray")
+    } +
     geom_line() +
     { if(!is.null(second))
         geom_line(data = second[second$time > after, ])
-    } +
-    { if(!is.null(bars))
-        geom_bar(data = bars[bars$time > after, ],
-               mapping = aes(fill = unique(bars$key)),
-               stat = "identity", color = "lightgray") +
-        scale_fill_manual(labels = unique(bars$key), values = "lightgray")
     } +
     { if(rug)
       geom_rug(mapping = aes(x = time),

@@ -14,7 +14,8 @@ load("_data/inspq.RData")
 load("_data/vaccination.RData")
 vaccination <- vaccination %>% 
   mutate(date = lubridate::as_date(vaccination$time)) %>% 
-  group_by(key, date) %>% filter(time == max(time)) 
+  group_by(key, date) %>% 
+  filter(time == max(time)) 
 pop_outaouais_2020 <- 401388
 ```
 
@@ -22,84 +23,92 @@ pop_outaouais_2020 <- 401388
 
 ### New cases
 ```{r cases_avg}
-RegionFig(df = inspq[inspq$key == "Average increase per day", ], 
-          bars = inspq[inspq$key == "New cases", ], 
-          pop = "per100k",
-          caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
+inspq %>% 
+  filter(key == "Average increase per day") %>%
+  CovidFig(bars = inspq %>% filter(key == "New cases"),
+         pop = "per100k",
+         caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
 ```
 
 ### Active cases
 ```{r cases_active}
-RegionFig(df = inspq[inspq$key %in% c("Active cases"), ], 
-          pop = "per100k", 
-          caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
+inspq %>% 
+  filter(key == "Active cases") %>%
+  CovidFig(pop = "per100k",
+         caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
 ```
 
 ### Cumulative cases
 ```{r cases_cumulative}
-RegionFig(df = inspq[inspq$key %in% c("Total cases", "Total recovered cases"), ], 
-          caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
+inspq %>% 
+  filter(key %in% c("Total cases", "Total recovered cases")) %>%
+  CovidFig(caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
 ```
 
 ### Daily tests
 ```{r testing}
-RegionFig(df = inspq[inspq$key %in% c("Average testing per day"), ],
-          bars = inspq[inspq$key %in% c("Persons tested"), ],
-          caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
-```
-
-### Positive tests
-```{r positive, eval = FALSE}
-RegionFig(df = inspq[inspq$key %in% c("Average positive tests per day"), ], 
-          bars = inspq[inspq$key %in% c("Persons tested positive"), ],
-          caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
+inspq %>% 
+  filter(key == "Average testing per day") %>%
+  CovidFig(bars = inspq %>% filter(key == "Persons tested"),
+           caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
 ```
 
 ### Test positivity
 ```{r positivity}
-RegionFig(df = inspq[inspq$key %in% c("Average test positivity (%)"), ], 
-          bars = inspq[inspq$key %in% c("Test positivity (%)"), ], 
-          caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
+inspq %>% 
+  filter(key == "Average test positivity (%)") %>%
+  CovidFig(bars = inspq %>% filter(key == "Test positivity (%)"),
+           caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
 ```
 
 ### Deaths
 ```{r cases_deaths}
-RegionFig(df = inspq[inspq$key %in% c("Total deaths", "Total deaths (CHSLD)", "Total deaths (RPA)", "Total deaths (home & unknown)", "Total deaths (other)"), ], 
-          caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
+inspq %>% 
+  filter(key %in% c("Total deaths", "Total deaths (CHSLD)", "Total deaths (RPA)", 
+                    "Total deaths (home & unknown)", "Total deaths (other)")) %>%
+  CovidFig(caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
 ```
 
 ### Hospitalizations
 ```{r hospitalization}
-RegionFig(second = hospitalization[hospitalization$key %in% c("Active hospitalizations, non-ICU", "Active hospitalizations, ICU"), ],
-          df = inspq[inspq$key %in% c("New hospitalizations"), ], 
-          caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv &\n www.donneesquebec.ca/recherche/dataset/covid-19-portrait-quotidien-des-hospitalisations")
+inspq %>% 
+  filter(key == "New hospitalizations") %>%
+  CovidFig(second = hospitalization %>% filter(key %in% c("Active hospitalizations, non-ICU", 
+                                                          "Active hospitalizations, ICU")), 
+           caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv &\n www.donneesquebec.ca/recherche/dataset/covid-19-portrait-quotidien-des-hospitalisations")
 ```
 
 ### Total hospitalizations
 ```{r hospitalizations}
-RegionFig(df = inspq[inspq$key %in% c("Total hospitalizations, non-ICU", "Total hospitalizations, ICU", "Total hospitalizations"), ], 
-          caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
+inspq %>% 
+  filter(key %in% c("Total hospitalizations, non-ICU", 
+                    "Total hospitalizations, ICU", "Total hospitalizations")) %>%
+  CovidFig(caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
 ```
 
 ### Vaccinations
 ```{r vaccinations}
 ### RegionFig(df = vaccination, caption = "Data source: www.quebec.ca/en/health/health-issues/a-z/2019-coronavirus/situation-coronavirus-in-quebec/covid-19-vaccination-data/")
-RegionFig(df = inspq[inspq$key %in% c("Vaccine doses administered"), ],
-          dlabels = "%d %b %Y",
-          caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
+inspq %>% 
+  filter(key == "Vaccine doses administered") %>%
+  CovidFig(dlabels = "%d %b %Y",
+           caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
 ```
 
 ### Total vaccinations
 ```{r vaccinations_total}
-RegionFig(df = inspq[inspq$key %in% c("Total vaccine doses administered"), ], 
-          dlabels = "%d %b %Y",
-          caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
+inspq %>% 
+  filter(key == "Total vaccine doses administered") %>%
+  CovidFig(dlabels = "%d %b %Y",
+           caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
 ```
 
 ### Outaouais & Ottawa (opencovid.ca)
 ```{r opencovid}
-RegionFig(df = daily[daily$key %in% c("Average increase per day (Outaouais)", "Average increase per day (Ottawa)") & daily$table == "opencovid.ca", ],
-          caption = "Data source: opencovid.ca/api/")
+inspq %>% 
+  filter(table == "opencovid.ca" & key %in% c("Average increase per day (Outaouais)", 
+                                              "Average increase per day (Ottawa)")) %>%
+  CovidFig(caption = "Data source:  opencovid.ca/api/")
 ```
 
 ##
