@@ -20,86 +20,84 @@ pop_outaouais_2020 <- 401388
 
 ## {.tabset .tabset-fade .tabset-pills}
 
+### New cases
 ```{r cases_avg}
-knitr::asis_output("### New cases")
 RegionFig(df = inspq[inspq$key == "Average increase per day", ], 
           bars = inspq[inspq$key == "New cases", ], 
           pop = "per100k",
           caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
 ```
 
+### Active cases
 ```{r cases_active}
-knitr::asis_output("### Active cases")
 RegionFig(df = inspq[inspq$key %in% c("Active cases"), ], 
           pop = "per100k", 
           caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
 ```
 
-
+### Cumulative cases
 ```{r cases_cumulative}
-knitr::asis_output("### Cumulative cases")
 RegionFig(df = inspq[inspq$key %in% c("Total cases", "Total recovered cases"), ], 
           caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
 ```
 
+### Daily tests
 ```{r testing}
-knitr::asis_output("### Daily tests")
 RegionFig(df = inspq[inspq$key %in% c("Average testing per day"), ],
           bars = inspq[inspq$key %in% c("Persons tested"), ],
           caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
 ```
 
+### Positive tests
 ```{r positive, eval = FALSE}
-knitr::asis_output("### Positive tests")
 RegionFig(df = inspq[inspq$key %in% c("Average positive tests per day"), ], 
           bars = inspq[inspq$key %in% c("Persons tested positive"), ],
           caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
 ```
 
+### Test positivity
 ```{r positivity}
-knitr::asis_output("### Test positivity")
 RegionFig(df = inspq[inspq$key %in% c("Average test positivity (%)"), ], 
           bars = inspq[inspq$key %in% c("Test positivity (%)"), ], 
           caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
 ```
 
+### Deaths
 ```{r cases_deaths}
-knitr::asis_output("### Deaths")
 RegionFig(df = inspq[inspq$key %in% c("Total deaths", "Total deaths (CHSLD)", "Total deaths (RPA)", "Total deaths (home & unknown)", "Total deaths (other)"), ], 
           caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
 ```
 
+### Hospitalizations
 ```{r hospitalization}
-knitr::asis_output("### Hospitalizations")
 RegionFig(second = hospitalization[hospitalization$key %in% c("Active hospitalizations, non-ICU", "Active hospitalizations, ICU"), ],
           df = inspq[inspq$key %in% c("New hospitalizations"), ], 
           caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv &\n www.donneesquebec.ca/recherche/dataset/covid-19-portrait-quotidien-des-hospitalisations")
 ```
 
+### Total hospitalizations
 ```{r hospitalizations}
-knitr::asis_output("### Total hospitalizations")
 RegionFig(df = inspq[inspq$key %in% c("Total hospitalizations, non-ICU", "Total hospitalizations, ICU", "Total hospitalizations"), ], 
           caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
 ```
 
+### Vaccinations
 ```{r vaccinations}
-knitr::asis_output("### Vaccinations")
 ### RegionFig(df = vaccination, caption = "Data source: www.quebec.ca/en/health/health-issues/a-z/2019-coronavirus/situation-coronavirus-in-quebec/covid-19-vaccination-data/")
-RegionFig(df = inspq[inspq$key %in% c("Vaccine doses administered"), ], 
-          # pop = "percent", 
+RegionFig(df = inspq[inspq$key %in% c("Vaccine doses administered"), ],
           dlabels = "%d %b %Y",
           caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
 ```
 
+### Total vaccinations
 ```{r vaccinations_total}
-knitr::asis_output("### Total vaccinations")
 RegionFig(df = inspq[inspq$key %in% c("Total vaccine doses administered"), ], 
           dlabels = "%d %b %Y",
           caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
 ```
 
+### Outaouais & Ottawa (opencovid.ca)
 ```{r opencovid}
-knitr::asis_output("### Outaouais & Ottawa (opencovid.ca)")
 RegionFig(df = daily[daily$key %in% c("Average increase per day (Outaouais)", "Average increase per day (Ottawa)") & daily$table == "opencovid.ca", ],
           caption = "Data source: opencovid.ca/api/")
 ```

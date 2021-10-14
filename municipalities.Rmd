@@ -15,48 +15,67 @@ load("_data/municipalities.RData")
 
 ## {.tabset .tabset-fade .tabset-pills}
 
+### Collines
 ```{r areas_collines}
-knitr::asis_output("### Collines")
-LocalFig(municipalities$municipality[municipalities$mrc == "Les Collines-de-l'Outaouais"])
-```
-
-```{r areas_papineau}
-knitr::asis_output("### Papineau")
-exclude_papineau <- c("Thurso", "Papineauville", "Saint-André-Avellin", "Chénéville","Ripon", "Montebello")
-LocalFig(keys = exclude_papineau)
-```
-
-```{r areas_papineau_cont}
-knitr::asis_output("### Papineau (<20)")
-LocalFig(municipalities$municipality[municipalities$mrc == "Papineau" & 
-                                     !municipalities$municipality %in% exclude_papineau])
-```
-
-```{r areas_vallee}
-knitr::asis_output("### Vallée")
-exclude_vallee <- c("Messines", "Déléage", "Bouchette")
-LocalFig(c(municipalities$municipality[municipalities$mrc == "La Vallée-de-la-Gatineau" & 
-                                       municipalities$designation == "Ville"], exclude_vallee))
-```
-
-```{r areas_vallee_cont}
-knitr::asis_output("### Vallée (<20)")
-LocalFig(municipalities$municipality[municipalities$mrc == "La Vallée-de-la-Gatineau" & 
-                                     municipalities$designation != "Ville" & 
-                                     !municipalities$municipality %in% exclude_vallee])
-```
-
-```{r areas_pontiac}
-knitr::asis_output("### Pontiac")
-LocalFig(municipalities$municipality[municipalities$mrc == "Pontiac"])
-```
-
-```{r areas_gatineau}
-knitr::asis_output("### Total & Gatineau")
-to_plot <- cisss %>% 
+condition <- municipalities$mrc == "Les Collines-de-l'Outaouais"
+towns <- municipalities$municipality[condition]
+cisss %>% 
   filter(table %in% c("areas", "rls")) %>% 
-  filter(key %in% c("Gatineau", "Total cases (municipalities)")) 
-CovidFig(df = to_plot, rug = TRUE)
+  filter(key %in% towns) %>% 
+  CovidFig(rug = TRUE)
+```
+
+### Papineau
+```{r areas_papineau}
+towns <- c("Thurso", "Papineauville", "Saint-André-Avellin", "Chénéville","Ripon", "Montebello")
+cisss %>% 
+  filter(table %in% c("areas", "rls")) %>% 
+  filter(key %in% towns) %>% 
+  CovidFig(rug = TRUE)
+```
+### Papineau (<25)
+```{r areas_papineau_cont}
+condition <- municipalities$mrc == "Papineau" & !municipalities$municipality %in% towns
+towns <- municipalities$municipality[condition]
+cisss %>% 
+  filter(table %in% c("areas", "rls")) %>% 
+  filter(key %in% towns) %>% 
+  CovidFig(rug = TRUE)
+```
+
+### Vallée
+```{r areas_vallee}
+exclude <- c("Messines", "Déléage", "Bouchette")
+condition <- municipalities$mrc == "La Vallée-de-la-Gatineau" & municipalities$designation == "Ville"
+towns <- c(municipalities$municipality[condition], exclude)
+cisss %>% filter(table %in% c("areas", "rls")) %>% 
+  filter(key %in% towns) %>% 
+  CovidFig(rug = TRUE)
+```
+
+### Vallée (<25)
+```{r areas_vallee_cont}
+condition <- municipalities$mrc == "La Vallée-de-la-Gatineau" & municipalities$designation != "Ville" & !municipalities$municipality %in% exclude
+towns <- municipalities$municipality[condition]
+cisss %>% filter(table %in% c("areas", "rls")) %>% 
+  filter(key %in% towns) %>% 
+  CovidFig(rug = TRUE)
+```
+
+### Pontiac
+```{r areas_pontiac}
+towns <- municipalities$municipality[municipalities$mrc == "Pontiac"]
+cisss %>% filter(table %in% c("areas", "rls")) %>% 
+  filter(key %in% towns)  %>% 
+  CovidFig(rug = TRUE)
+```
+
+### Total & Gatineau
+```{r areas_gatineau}
+towns <- c("Gatineau", "Total cases (municipalities)")
+cisss %>% filter(table %in% c("areas", "rls")) %>% 
+  filter(key %in% towns) %>% 
+  CovidFig(rug = TRUE)
 ```
 
 ##
