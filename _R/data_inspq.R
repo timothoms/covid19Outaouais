@@ -15,7 +15,6 @@ inspq_vac <- lapply(names(inspq_vac)[-1], function(var) {
   return(df)
 })
 inspq_vac <- do.call(rbind, inspq_vac)
-# save(inspq_vac, file = "_data/inspq_vac.RData")
 
 ### other inspq data
 inspq <- readr::read_csv("_csv/inspq_hist/covid19-hist.csv")
@@ -35,7 +34,7 @@ inspq <- lapply(names(inspq)[-1], function(var) {
 })
 inspq <- do.call(rbind, inspq)
 inspq <- rbind(inspq, inspq_vac)
-# save(inspq, file = "_data/inspq.RData")
+
 ### averages per day
 to_calc <- c("New cases"                     = "Average increase per day",
              "New hospitalizations"          = "Average hospitalizations per day",
@@ -62,4 +61,7 @@ inspq <- inspq %>%
   mutate(time = lubridate::as_datetime(date + 5/24, tz = "EST")) %>%
   select(key, date, time, value, table)
 rm(inspq_vac, avg, to_calc)
+
+table(inspq$key)
+
 save(inspq, file = "_data/inspq.RData")

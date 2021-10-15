@@ -56,8 +56,8 @@ avg <- rls %>%
   filter(time == max(time)) %>%
   group_by(key) %>%
   mutate(previous_date = dplyr::lag(date),
-         days_from_prev = as.integer(date - previous_date)) %>%
-  mutate(previous_value = dplyr::lag(value),
+         days_from_prev = as.integer(date - previous_date),
+         previous_value = dplyr::lag(value),
          new_cases = value - previous_value,
          avg_change = round(new_cases / days_from_prev, 3),
          avg_change_avg = runner::mean_run(x = avg_change, k = 7, lag = 0, idx = date)) %>%

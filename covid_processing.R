@@ -250,23 +250,20 @@ cisss <- cisss %>%
   arrange(table, key, time)
 
 ### de-duplication and calculating change variables
-exclude <- c(municipalities$municipality,
-             "", "Average screening tests per day", "To be determined", "To be determined",
-             "Daily increase", "Healed/resolved cases",
-             "New cases (Ottawa)", "New cases (Outaouais)", "New cases (Toronto)",
-             "New deaths (Ottawa)", "New deaths (Outaouais)", "New deaths (Toronto)",
-             "Total deaths", "Total deaths (Ottawa)", "Total deaths (Outaouais)", "Total deaths (Toronto)",
-             "Hospital employees affected", "Hospital employees currently positive",
-             "Hospital employees in isolation", "Hospital employees recovered",
-             "Facilities with active outbreaks", "Facilities with outbreaks",
-             "Active outbreaks", "Ended outbreaks")
+include <- c("Active cases", "MRC de la Vallée-de-la-Gatineau", "MRC de Papineau",
+             "MRC des Collines-de-l'Outaouais", "MRC du Pontiac", "RLS de Gatineau",
+             "RLS de la Vallée-de-la-Gatineau", "RLS de Papineau",
+             "RLS des Collines-de-l'Outaouais", "RLS du Pontiac",
+             "Total cases (municipalities)", "Total cases (Ottawa)",
+             "Total cases (Outaouais)", "Total cases (RLS)")
 daily <- cisss %>%
-  filter(!key %in% exclude) %>%
+  filter(key %in% include) %>%
   arrange(key, time) %>%
   mutate(date = lubridate::as_date(time)) %>%
   group_by(table, key, date) %>%
   filter(time == max(time))
 daily[duplicated(daily[, c("table", "key", "date")]), ]
+daily$table[daily$key %in% c("Active cases", "Healed/resolved cases", "Total deaths") & daily$table %in% c("rls", "areas")] <- "cases"
 
 ### defunct: was checking sth in previous version
 # daily %>% filter(key %in% c("Total", "Total cases", "Cumulative cases")) %>% arrange(time) %>% print(n = Inf)
@@ -274,9 +271,6 @@ daily[duplicated(daily[, c("table", "key", "date")]), ]
 ## cumulative for entire region, total aggregation across RLS or MRC
 ## "Total"/"Total cases (RLS)" sometimes different for RLS and municipalities
 
-### FROM HERE >
-
-daily$table[daily$key %in% c("Active cases", "Healed/resolved cases", "Total deaths") & daily$table %in% c("rls", "areas")] <- "cases"
 daily <- daily %>%
   arrange(table, key, date, time) %>%
   group_by(table, key) %>%
@@ -288,6 +282,10 @@ daily <- daily %>%
   mutate(value = runner::mean_run(x = daily_change, k = 7, lag = 0, idx = date)) %>%
   select(key, date, time, value, table) %>% ungroup()
 # sort(unique(unlist(tapply(daily$key, daily$table, unique))))
+
+### FROM HERE >
+# table(daily$key)
+
 daily$key <- str_replace(daily$key, "Total cases", "Average increase per day")
 daily$key <- str_replace(daily$key, "Active cases", "Average increase in active cases per day")
 
@@ -314,12 +312,21 @@ source("_R/data_rls.R")
 source("_R/data_inspq.R")
 
 ### combining datasets (keep schools in separate df)
-# covid <- list(
-#   inspq = inspq,
-#   rls = rls,
-#   hospitalization = hospitalization,
-#   vaccination = vaccination,
-#   cisss = cisss,
-#   daily = daily
-# )
-# lapply(covid, names)
+covid <- list(
+  inspq = inspq,
+  rls = rls,
+  hospitalization = hospitalization,
+  vaccination = vaccination,
+  cisss = cisss,
+  daily = daily
+)
+covid <- lapply(covid, function(df) {df[, c("key", "time", "value", "table")]})
+covid <- lapply(names(covid), function(source) {
+  # covid[[source]]$table <- paste(source, covid[[source]]$table, sep = "_")
+  covid[[source]]$source <- source
+  return(covid[[source]])
+})
+covid <- do.call(rbind, covid)
+save(covid, file = "_data/covid.RData")
+
+covid %>% select(key, source, table) %>% unique() %>% arrange(key, source) %>% print(n= Inf)
