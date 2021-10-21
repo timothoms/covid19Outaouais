@@ -105,7 +105,7 @@ inspq %>%
 
 ### Outaouais & Ottawa (opencovid.ca)
 ```{r opencovid}
-inspq %>% 
+daily %>% 
   filter(table == "opencovid.ca" & key %in% c("Average increase per day (Outaouais)", 
                                               "Average increase per day (Ottawa)")) %>%
   CovidFig(caption = "Data source:  opencovid.ca/api/")
