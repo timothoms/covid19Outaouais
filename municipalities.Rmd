@@ -33,6 +33,7 @@ cisss %>%
   filter(table %in% c("areas", "rls") & key %in% towns) %>% 
   CovidFig(rug = TRUE)
 ```
+
 ### Papineau (<25)
 ```{r areas_papineau_cont}
 towns <- municipalities %>% 
