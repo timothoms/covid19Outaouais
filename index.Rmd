@@ -8,7 +8,7 @@ params:
 source("_R/setup.R")
 source("_R/figures_theme.R")
 source("_R/CovidFig.R")
-load("_data/cisss_daily.RData")
+load("_data/cisss.RData")
 load("_data/hospitalization.RData")
 load("_data/inspq.RData")
 load("_data/vaccination.RData")
@@ -105,10 +105,10 @@ inspq %>%
 
 ### Outaouais & Ottawa (opencovid.ca)
 ```{r opencovid}
-daily %>% 
-  filter(table == "opencovid.ca" & key %in% c("Average increase per day (Outaouais)", 
+cisss %>% 
+  filter(table == "opencovid.ca_avg7" & key %in% c("Average increase per day (Outaouais)", 
                                               "Average increase per day (Ottawa)")) %>%
-  CovidFig(caption = "Data source:  opencovid.ca/api/")
+  CovidFig(caption = "Data source: opencovid.ca/api/")
 ```
 
 ##

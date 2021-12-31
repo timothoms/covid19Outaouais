@@ -61,7 +61,4 @@ inspq <- inspq %>%
   mutate(time = lubridate::as_datetime(date + 5/24, tz = "EST")) %>%
   select(key, date, time, value, table)
 rm(inspq_vac, avg, to_calc)
-
-table(inspq$key)
-
 save(inspq, file = "_data/inspq.RData")

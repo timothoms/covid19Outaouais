@@ -282,10 +282,6 @@ daily <- daily %>%
   mutate(value = runner::mean_run(x = daily_change, k = 7, lag = 0, idx = date)) %>%
   select(key, date, time, value, table) %>% ungroup()
 # sort(unique(unlist(tapply(daily$key, daily$table, unique))))
-
-### FROM HERE >
-# table(daily$key)
-
 daily$key <- str_replace(daily$key, "Total cases", "Average increase per day")
 daily$key <- str_replace(daily$key, "Active cases", "Average increase in active cases per day")
 
@@ -297,9 +293,19 @@ daily$key <- str_replace(daily$key, "Active cases", "Average increase in active 
 #          prev = round(difftime(time, previous_time, units = "days"), 1)) %>%
 #   select(key, time, value, table, prev)
 
+daily <- daily %>%
+    select(key, time, value, table) %>%
+    filter(!is.na(value)) %>%
+    mutate(table = paste(table, "_avg7", sep = ""))
+cisss <- rbind(cisss, daily)
+cisss <- cisss %>%
+  filter(key != "") %>%
+  mutate(key = as.factor(key),
+         table = as.factor(table))
+
 ### saving data
 save(cisss, file = "_data/cisss.RData")
-save(daily, file = "_data/cisss_daily.RData")
+# save(daily, file = "_data/cisss_daily.RData")
 file_connection <- file("_data/data_update_time.txt")
 writeLines(as.character(lubridate::now()), file_connection)
 close(file_connection)
@@ -311,14 +317,15 @@ source("_R/data_vaccination.R")
 source("_R/data_rls.R")
 source("_R/data_inspq.R")
 
+### FROM HERE >
+
 ### combining datasets (keep schools in separate df)
 covid <- list(
   inspq = inspq,
   rls = rls,
   hospitalization = hospitalization,
   vaccination = vaccination,
-  cisss = cisss,
-  daily = daily
+  cisss = cisss
 )
 covid <- lapply(covid, function(df) {df[, c("key", "time", "value", "table")]})
 covid <- lapply(names(covid), function(source) {
