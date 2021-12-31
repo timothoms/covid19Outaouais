@@ -15,6 +15,7 @@ close(file_connection)
 csvs <- datasets[unlist(lapply(datasets, function(item) item$download_daily ))]
 unique_number <- round(as.numeric(as.period(interval(as_datetime("1970-01-02 4:00:00", tz = "EST"), now())), "minutes"))
 lapply(csvs, function(item) {
+  print(item$descr)
   if(item$overwrite) {
     download.file(paste(item$url, "?randNum=", unique_number, sep = ""),
                   cacheOK = FALSE,
