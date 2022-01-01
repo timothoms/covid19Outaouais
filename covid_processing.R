@@ -241,7 +241,7 @@ opencovid <- opencovid %>%
 opencovid <- rbind(opencovid, new)
 rm(new)
 opencovid <- opencovid %>%
-  mutate(table = "opencovid.ca",
+  mutate(table = "opencovid",
          key = paste(key, " (", health_region, ")", sep = "")) %>%
   select(-health_region)
 cisss <- rbind(cisss, opencovid)
@@ -271,6 +271,14 @@ daily$table[daily$key %in% c("Active cases", "Healed/resolved cases", "Total dea
 ## cumulative for entire region, total aggregation across RLS or MRC
 ## "Total"/"Total cases (RLS)" sometimes different for RLS and municipalities
 
+### time since previous
+# cisss <- cisss %>%
+#   arrange(table, key, time) %>%
+#   group_by(table, key) %>%
+#   mutate(previous_time = dplyr::lag(time),
+#          prev = round(difftime(time, previous_time, units = "days"), 1)) %>%
+#   select(key, time, value, table, prev)
+
 daily <- daily %>%
   arrange(table, key, date, time) %>%
   group_by(table, key) %>%
@@ -284,15 +292,6 @@ daily <- daily %>%
 # sort(unique(unlist(tapply(daily$key, daily$table, unique))))
 daily$key <- str_replace(daily$key, "Total cases", "Average increase per day")
 daily$key <- str_replace(daily$key, "Active cases", "Average increase in active cases per day")
-
-### time since previous
-# cisss <- cisss %>%
-#   arrange(table, key, time) %>%
-#   group_by(table, key) %>%
-#   mutate(previous_time = dplyr::lag(time),
-#          prev = round(difftime(time, previous_time, units = "days"), 1)) %>%
-#   select(key, time, value, table, prev)
-
 daily <- daily %>%
     select(key, time, value, table) %>%
     filter(!is.na(value)) %>%
@@ -302,6 +301,7 @@ cisss <- cisss %>%
   filter(key != "") %>%
   mutate(key = as.factor(key),
          table = as.factor(table))
+rm(daily, cisss_tables, include)
 
 ### saving data
 save(cisss, file = "_data/cisss.RData")
@@ -313,27 +313,24 @@ close(file_connection)
 ### other data sources
 source("_R/data_schools.R")
 source("_R/data_hospitalization.R")
-source("_R/data_vaccination.R")
 source("_R/data_rls.R")
 source("_R/data_inspq.R")
 
-### FROM HERE >
-
 ### combining datasets (keep schools in separate df)
-covid <- list(
+outaouais <- list(
   inspq = inspq,
   rls = rls,
   hospitalization = hospitalization,
-  vaccination = vaccination,
   cisss = cisss
 )
-covid <- lapply(covid, function(df) {df[, c("key", "time", "value", "table")]})
-covid <- lapply(names(covid), function(source) {
-  # covid[[source]]$table <- paste(source, covid[[source]]$table, sep = "_")
-  covid[[source]]$source <- source
-  return(covid[[source]])
+outaouais <- lapply(outaouais, function(df) {df[, c("key", "time", "value", "table")]})
+outaouais <- lapply(names(outaouais), function(source) {
+  # outaouais[[source]]$table <- paste(source, outaouais[[source]]$table, sep = "_")
+  outaouais[[source]]$source <- source
+  return(outaouais[[source]])
 })
-covid <- do.call(rbind, covid)
-save(covid, file = "_data/covid.RData")
+outaouais <- do.call(rbind, outaouais)
+outaouais[, c("key", "table", "source")] <- lapply(outaouais[, c("key", "table", "source")], as.factor)
+save(outaouais, file = "_data/covid19Outaouais.RData")
 
-covid %>% select(key, source, table) %>% unique() %>% arrange(key, source) %>% print(n= Inf)
+outaouais %>% arrange(source, table, key) %>% select(key, table, source) %>% unique() %>% print(n= Inf)

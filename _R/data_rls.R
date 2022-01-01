@@ -79,3 +79,4 @@ rls <- rls %>%
   select(key, time, value, table) %>%
   arrange(key, time)
 save(rls, file = "_data/rls.RData")
+rm(vars)

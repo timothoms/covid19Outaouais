@@ -11,11 +11,11 @@ source("_R/CovidFig.R")
 load("_data/cisss.RData")
 load("_data/hospitalization.RData")
 load("_data/inspq.RData")
-load("_data/vaccination.RData")
-vaccination <- vaccination %>% 
-  mutate(date = lubridate::as_date(vaccination$time)) %>% 
-  group_by(key, date) %>% 
-  filter(time == max(time)) 
+# load("_data/vaccination.RData")
+# vaccination <- vaccination %>% 
+#   mutate(date = lubridate::as_date(time)) %>% 
+#   group_by(key, date) %>% 
+#   filter(time == max(time)) 
 pop_outaouais_2020 <- 401388
 ```
 
@@ -106,7 +106,7 @@ inspq %>%
 ### Outaouais & Ottawa (opencovid.ca)
 ```{r opencovid}
 cisss %>% 
-  filter(table == "opencovid.ca_avg7" & key %in% c("Average increase per day (Outaouais)", 
+  filter(table == "opencovid_avg7" & key %in% c("Average increase per day (Outaouais)", 
                                               "Average increase per day (Ottawa)")) %>%
   CovidFig(caption = "Data source: opencovid.ca/api/")
 ```
