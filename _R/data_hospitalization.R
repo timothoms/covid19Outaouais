@@ -14,7 +14,7 @@ hospitalization <- lapply(names(indicators), function(var) {
 hospitalization <- do.call(rbind, hospitalization)
 hospitalization <- hospitalization %>%
   arrange(key, time) %>%
-  mutate(table = "hospitalization") %>%
-  select(key, date, time, value, table)
+  select(key, date, time, value) %>%
+  mutate(key = as.factor(key))
 save(hospitalization, file = "_data/hospitalization.RData")
 rm(indicators)

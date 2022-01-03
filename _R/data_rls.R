@@ -75,8 +75,11 @@ avg <- lapply(c("new", "average"), function(var) {
 avg <- do.call(rbind, avg)
 rls <- rbind(rls, avg)
 rm(avg)
+# tapply(rls$key, rls$table, unique)
 rls <- rls %>%
   select(key, time, value, table) %>%
+  mutate(key = as.factor(key),
+         table = as.factor(table)) %>%
   arrange(key, time)
 save(rls, file = "_data/rls.RData")
 rm(vars)

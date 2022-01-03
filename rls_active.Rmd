@@ -16,35 +16,35 @@ load("_data/rls.RData")
 ### Gatineau & Outaouais
 ```{r rls_active_gatineau}
 rls %>% 
-  filter(table == "active" & key %in% c("Active cases (Outaouais)", "RLS de Grande-Rivière - Hull - Gatineau")) %>% 
+  filter(table == "INSPQ RLS active" & key %in% c("Active cases (Outaouais)", "RLS de Grande-Rivière - Hull - Gatineau")) %>% 
   CovidFig(caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/tableau-rls-new.csv")
 ```
 
 ### Collines
 ```{r rls_active_collines}
 rls %>% 
-  filter(table == "active" & key == "RLS des Collines-de-l'Outaouais") %>% 
+  filter(table == "INSPQ RLS active" & key == "RLS des Collines-de-l'Outaouais") %>% 
   CovidFig(caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/tableau-rls-new.csv")
 ```
 
 ### Pontiac
 ```{r rls_pontiac}
 rls %>% 
-  filter(table == "active" & key == "RLS du Pontiac") %>% 
+  filter(table == "INSPQ RLS active" & key == "RLS du Pontiac") %>% 
   CovidFig(caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/tableau-rls-new.csv")
 ```
 
 ### Papineau
 ```{r rls_active_papineau}
 rls %>% 
-  filter(table == "active" & key == "RLS de la Vallée-de-la-Lièvre et de la Petite Nation") %>% 
+  filter(table == "INSPQ RLS active" & key == "RLS de la Vallée-de-la-Lièvre et de la Petite Nation") %>% 
   CovidFig(caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/tableau-rls-new.csv")
 ```
 
 ### Vallée
 ```{r rls_active_vallee}
 rls %>% 
-  filter(table == "active" & key == "RLS de la Vallée-de-la-Gatineau") %>% 
+  filter(table == "INSPQ RLS active" & key == "RLS de la Vallée-de-la-Gatineau") %>% 
   CovidFig(caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/tableau-rls-new.csv")
 ```
 

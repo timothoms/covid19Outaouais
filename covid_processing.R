@@ -46,7 +46,7 @@ lapply(cisss[c("cases", "areas", "rls")], function(toplevel) unique(lapply(tople
 cisss <- lapply(cisss[c("cases", "areas", "rls")], function(set) lapply(names(set), FormatTable, tables = set))
 lapply(cisss, function(set) unique(lapply(set, names)))
 
-### missing labels
+### missing labels: figure out here
 # cisss$areas[unlist(lapply(cisss$areas, function(df) sum(df$key == "")) > 0)]
 
 ### combining tables
@@ -70,6 +70,7 @@ cisss <- lapply(cisss, function(df) {
   df$key[df$key %in% vars & df$table == "areas"] <- "Total cases (municipalities)"
   vars <- c("To be determined", "To be determined0", "À déterminer")
   df$key[df$key %in% vars] <- "To be determined"
+  df$key[df$key == "To be determined" & df$table %in% c("rls", "active")] <- "To be determined (RLS)"
   vars <- c("Average screening test per day (last 6 days)", "Average screening test per day (last 7 days)",
             "Average screening test per day534", "Average screening test per day")
   df$key[df$key %in% vars] <- "Average screening tests per day"
@@ -142,7 +143,7 @@ cisss <- unique(do.call(rbind, cisss))
 to_add <- cisss %>%
   filter(!is.na(active)) %>%
   mutate(value = active,
-         table = paste(table, "active", sep = "_")) %>%
+         table = "active") %>%
   select(-active)
 cisss <- cisss %>%
   select(-active)
@@ -228,6 +229,9 @@ rm(condition)
 # VisualCheck(keys = "To be determined", tab = "areas")
 # VisualCheck(keys = c("MRC de la Vallée-de-la-Gatineau", "MRC de Papineau", "MRC des Collines-de-l'Outaouais", "MRC du Pontiac"), tab = "areas")
 
+cisss$table[cisss$key %in% c("Active cases", "Healed/resolved cases", "Total deaths") & cisss$table %in% c("rls", "areas")] <- "cases"
+cisss$table[cisss$table %in% c("areas", "rls")] <- "cases"
+
 ### opencovid
 opencovid <- GetOpenCovid(stat = c("cases", "mortality"), loc = c(2407, 3551, 3595))
 opencovid$time <- lubridate::as_datetime(opencovid$time, tz = "America/Montreal", format = "%d-%m-%Y")
@@ -249,6 +253,14 @@ cisss <- cisss %>%
   select(key, time, value, table) %>%
   arrange(table, key, time)
 
+### time since previous
+# cisss <- cisss %>%
+#   arrange(table, key, time) %>%
+#   group_by(table, key) %>%
+#   mutate(previous_time = dplyr::lag(time),
+#          prev = round(difftime(time, previous_time, units = "days"), 1)) %>%
+#   select(key, time, value, table, prev)
+
 ### de-duplication and calculating change variables
 include <- c("Active cases", "MRC de la Vallée-de-la-Gatineau", "MRC de Papineau",
              "MRC des Collines-de-l'Outaouais", "MRC du Pontiac", "RLS de Gatineau",
@@ -263,21 +275,12 @@ daily <- cisss %>%
   group_by(table, key, date) %>%
   filter(time == max(time))
 daily[duplicated(daily[, c("table", "key", "date")]), ]
-daily$table[daily$key %in% c("Active cases", "Healed/resolved cases", "Total deaths") & daily$table %in% c("rls", "areas")] <- "cases"
 
 ### defunct: was checking sth in previous version
 # daily %>% filter(key %in% c("Total", "Total cases", "Cumulative cases")) %>% arrange(time) %>% print(n = Inf)
 ## these are closely related and often the same but different aggregation:
 ## cumulative for entire region, total aggregation across RLS or MRC
 ## "Total"/"Total cases (RLS)" sometimes different for RLS and municipalities
-
-### time since previous
-# cisss <- cisss %>%
-#   arrange(table, key, time) %>%
-#   group_by(table, key) %>%
-#   mutate(previous_time = dplyr::lag(time),
-#          prev = round(difftime(time, previous_time, units = "days"), 1)) %>%
-#   select(key, time, value, table, prev)
 
 daily <- daily %>%
   arrange(table, key, date, time) %>%
@@ -295,17 +298,17 @@ daily$key <- str_replace(daily$key, "Active cases", "Average increase in active 
 daily <- daily %>%
     select(key, time, value, table) %>%
     filter(!is.na(value)) %>%
-    mutate(table = paste(table, "_avg7", sep = ""))
+    mutate(table = paste(table, "average"))
 cisss <- rbind(cisss, daily)
 cisss <- cisss %>%
   filter(key != "") %>%
+  arrange(table, key) %>%
   mutate(key = as.factor(key),
          table = as.factor(table))
 rm(daily, cisss_tables, include)
 
 ### saving data
 save(cisss, file = "_data/cisss.RData")
-# save(daily, file = "_data/cisss_daily.RData")
 file_connection <- file("_data/data_update_time.txt")
 writeLines(as.character(lubridate::now()), file_connection)
 close(file_connection)
@@ -313,8 +316,23 @@ close(file_connection)
 ### other data sources
 source("_R/data_schools.R")
 source("_R/data_hospitalization.R")
-source("_R/data_rls.R")
+hospitalization <- hospitalization %>%
+  mutate(key = as.character(key),
+         table = "MSSS")
 source("_R/data_inspq.R")
+inspq <- inspq %>%
+  mutate(key = as.character(key),
+         table = "INSPQ")
+source("_R/data_rls.R")
+rls <- rls %>%
+  mutate(key = as.character(key),
+         table = as.character(table),
+         table = paste("INSPQ RLS", table))
+cisss <- cisss %>%
+  mutate(key = as.character(key),
+         table = as.character(table),
+         table = paste("CISSS", table),
+         table = str_replace(table, "CISSS opencovid", "OpenCovid"))
 
 ### combining datasets (keep schools in separate df)
 outaouais <- list(
@@ -324,13 +342,10 @@ outaouais <- list(
   cisss = cisss
 )
 outaouais <- lapply(outaouais, function(df) {df[, c("key", "time", "value", "table")]})
-outaouais <- lapply(names(outaouais), function(source) {
-  # outaouais[[source]]$table <- paste(source, outaouais[[source]]$table, sep = "_")
-  outaouais[[source]]$source <- source
-  return(outaouais[[source]])
-})
 outaouais <- do.call(rbind, outaouais)
-outaouais[, c("key", "table", "source")] <- lapply(outaouais[, c("key", "table", "source")], as.factor)
+# outaouais %>% select(key, table) %>% unique() %>% arrange(key) %>% print(n= Inf)
+outaouais <- outaouais %>%
+  mutate(key = as.factor(key),
+         table = as.factor(table))
+# object.size(outaouais)
 save(outaouais, file = "_data/covid19Outaouais.RData")
-
-outaouais %>% arrange(source, table, key) %>% select(key, table, source) %>% unique() %>% print(n= Inf)

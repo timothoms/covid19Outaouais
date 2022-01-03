@@ -92,5 +92,10 @@ schools$school[schools$school == "D'Arcy McGee High S."] <- "É. D'Arcy McGee Hi
 # unique(schools$school[nchar(schools$school) > quantile(nchar(schools$school), probs = seq(0, 1, 0.05)[19])])
 schools$school <- str_replace(schools$school, fixed(" ("), "\n(")
 schools$school <- str_trim(schools$school)
-schools <- schools %>% arrange(admin, school, date, time)
+schools <- schools %>%
+  arrange(admin, school, date, time) %>%
+  mutate(admin = as.factor(admin),
+         school = as.factor(school),
+         note = as.factor(note),
+         color_code = as.factor(color_code))
 save(schools, file = "_data/schools.RData")

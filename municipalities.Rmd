@@ -21,7 +21,7 @@ towns <- municipalities %>%
   select(municipality) %>% 
   unlist(use.names = FALSE)
 cisss %>% 
-  filter(table %in% c("areas", "rls") & key %in% towns) %>% 
+  filter(table == "CISSS cases" & key %in% towns) %>% 
   CovidFig(rug = TRUE)
 ```
 
@@ -29,7 +29,7 @@ cisss %>%
 ```{r areas_papineau}
 towns <- c("Thurso", "Papineauville", "Saint-André-Avellin", "Chénéville","Ripon", "Montebello")
 cisss %>% 
-  filter(table %in% c("areas", "rls") & key %in% towns) %>% 
+  filter(table == "CISSS cases" & key %in% towns) %>% 
   CovidFig(rug = TRUE)
 ```
 
@@ -40,7 +40,7 @@ towns <- municipalities %>%
   select(municipality) %>% 
   unlist(use.names = FALSE)
 cisss %>% 
-  filter(table %in% c("areas", "rls") & key %in% towns) %>% 
+  filter(table == "CISSS cases" & key %in% towns) %>% 
   CovidFig(rug = TRUE)
 ```
 
@@ -53,7 +53,7 @@ towns <- municipalities %>%
   unlist(use.names = FALSE)
 towns <- c(towns, exclude)
 cisss %>% 
-  filter(table %in% c("areas", "rls") & key %in% towns) %>% 
+  filter(table == "CISSS cases" & key %in% towns) %>% 
   CovidFig(rug = TRUE)
 ```
 
@@ -64,7 +64,7 @@ towns <- municipalities %>%
   select(municipality) %>% 
   unlist(use.names = FALSE)
 cisss %>% 
-  filter(table %in% c("areas", "rls") & key %in% towns) %>% 
+  filter(table == "CISSS cases" & key %in% towns) %>% 
   CovidFig(rug = TRUE)
 ```
 
@@ -75,14 +75,14 @@ towns <- municipalities %>%
   select(municipality) %>% 
   unlist(use.names = FALSE)
 cisss %>% 
-  filter(table %in% c("areas", "rls") & key %in% towns) %>% 
+  filter(table == "CISSS cases" & key %in% towns) %>% 
   CovidFig(rug = TRUE)
 ```
 
 ### Total & Gatineau
 ```{r areas_gatineau}
 towns <- c("Gatineau", "Total cases (municipalities)")
-cisss %>% filter(table %in% c("areas", "rls") & key %in% towns) %>%
+cisss %>% filter(table == "CISSS cases" & key %in% towns) %>%
   CovidFig(rug = TRUE)
 ```
 
