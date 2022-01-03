@@ -8,9 +8,10 @@ params:
 source("_R/setup.R")
 source("_R/figures_theme.R")
 source("_R/CovidFig.R")
-load("_data/cisss.RData")
+# load("_data/cisss.RData")
 load("_data/hospitalization.RData")
 load("_data/inspq.RData")
+load("_data/covid19Outaouais.RData")
 # load("_data/vaccination.RData")
 # vaccination <- vaccination %>% 
 #   mutate(date = lubridate::as_date(time)) %>% 
@@ -105,7 +106,7 @@ inspq %>%
 
 ### Outaouais & Ottawa (opencovid.ca)
 ```{r opencovid}
-cisss %>% 
+outaouais %>% 
   filter(table == "OpenCovid average" & key %in% c("Average increase per day (Outaouais)", 
                                               "Average increase per day (Ottawa)")) %>%
   CovidFig(caption = "Data source: opencovid.ca/api/")

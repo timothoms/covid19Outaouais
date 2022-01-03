@@ -8,8 +8,9 @@ params:
 source("_R/setup.R")
 source("_R/figures_theme.R")
 source("_R/CovidFig.R")
-load("_data/cisss.RData")
+# load("_data/cisss.RData")
 load("_data/municipalities.RData")
+load("_data/covid19Outaouais.RData")
 ```
 
 ## {.tabset .tabset-fade .tabset-pills}
@@ -20,7 +21,7 @@ towns <- municipalities %>%
   filter(mrc == "Les Collines-de-l'Outaouais") %>% 
   select(municipality) %>% 
   unlist(use.names = FALSE)
-cisss %>% 
+outaouais %>% 
   filter(table == "CISSS cases" & key %in% towns) %>% 
   CovidFig(rug = TRUE)
 ```
@@ -28,18 +29,18 @@ cisss %>%
 ### Papineau
 ```{r areas_papineau}
 towns <- c("Thurso", "Papineauville", "Saint-André-Avellin", "Chénéville","Ripon", "Montebello")
-cisss %>% 
+outaouais %>% 
   filter(table == "CISSS cases" & key %in% towns) %>% 
   CovidFig(rug = TRUE)
 ```
 
-### Papineau (<25)
+### Papineau (<40)
 ```{r areas_papineau_cont}
 towns <- municipalities %>% 
   filter(mrc == "Papineau" & !municipality %in% towns) %>% 
   select(municipality) %>% 
   unlist(use.names = FALSE)
-cisss %>% 
+outaouais %>% 
   filter(table == "CISSS cases" & key %in% towns) %>% 
   CovidFig(rug = TRUE)
 ```
@@ -52,18 +53,18 @@ towns <- municipalities %>%
   select(municipality) %>% 
   unlist(use.names = FALSE)
 towns <- c(towns, exclude)
-cisss %>% 
+outaouais %>% 
   filter(table == "CISSS cases" & key %in% towns) %>% 
   CovidFig(rug = TRUE)
 ```
 
-### Vallée (<25)
+### Vallée (<40)
 ```{r areas_vallee_cont}
 towns <- municipalities %>% 
   filter(mrc == "La Vallée-de-la-Gatineau" & designation != "Ville" & !municipality %in% exclude) %>% 
   select(municipality) %>% 
   unlist(use.names = FALSE)
-cisss %>% 
+outaouais %>% 
   filter(table == "CISSS cases" & key %in% towns) %>% 
   CovidFig(rug = TRUE)
 ```
@@ -74,7 +75,7 @@ towns <- municipalities %>%
   filter(mrc == "Pontiac") %>% 
   select(municipality) %>% 
   unlist(use.names = FALSE)
-cisss %>% 
+outaouais %>% 
   filter(table == "CISSS cases" & key %in% towns) %>% 
   CovidFig(rug = TRUE)
 ```
@@ -82,7 +83,7 @@ cisss %>%
 ### Total & Gatineau
 ```{r areas_gatineau}
 towns <- c("Gatineau", "Total cases (municipalities)")
-cisss %>% filter(table == "CISSS cases" & key %in% towns) %>%
+outaouais %>% filter(table == "CISSS cases" & key %in% towns) %>%
   CovidFig(rug = TRUE)
 ```
 
