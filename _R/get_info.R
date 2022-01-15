@@ -1,0 +1,5 @@
+library(googlesheets4)
+library(feather)
+gs4_deauth()
+info <- read_sheet("https://docs.google.com/spreadsheets/d/17irqkJeyxL_obymY0Frukz2-RaGfN2tjRJiB_j6I-s8/edit?usp=sharing", sheet = "info")
+write_feather(info, path = "_data/info.feather")
