@@ -1,4 +1,5 @@
 library("tidyverse")
+library("feather")
 Sys.setlocale(category = "LC_ALL", locale = "en_CA.UTF-8")
 source("_R/ParseHTMLtables.R")
 source("_R/FormatTable.R")
@@ -343,9 +344,13 @@ outaouais <- list(
 )
 outaouais <- lapply(outaouais, function(df) {df[, c("key", "time", "value", "table")]})
 outaouais <- do.call(rbind, outaouais)
-# outaouais %>% select(key, table) %>% unique() %>% arrange(key) %>% print(n= Inf)
+# outaouais %>% select(key, table) %>% unique() %>% arrange(table) %>% print(n= Inf)
+# table(outaouais$table, useNA = "always")
 outaouais <- outaouais %>%
+  # filter(!(str_detect(key, "RLS") & table %in% c("CISSS active", "CISSS active average", "CISSS cases", "CISSS cases average"))) %>%
   mutate(key = as.factor(key),
          table = as.factor(table))
-# object.size(outaouais)
+object.size(outaouais)
+dim(outaouais)
 save(outaouais, file = "_data/covid19Outaouais.RData")
+write_feather(outaouais, path = "_data/covid19Outaouais.feather")
