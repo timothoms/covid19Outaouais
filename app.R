@@ -14,6 +14,7 @@ lookup <- full_join(outaouais %>%
                       unique() %>%
                       arrange(key),
                     info %>%
+                      filter(source != "OpenCovid") %>%
                       select(outaouais_table, source) %>%
                       rename(table = outaouais_table) %>%
                       unique() ) %>%

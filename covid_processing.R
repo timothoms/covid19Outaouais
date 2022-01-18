@@ -66,7 +66,7 @@ cisss <- lapply(cisss, function(df) {
   df$key <- str_replace(df$key, fixed("**"), "")
   df$key <- str_replace(df$key, fixed("*"), "")
   vars <- c("Cumulative cases", "Total number of cases in Outaouais", "Total")
-  df$key[df$key %in% vars & df$table == "cases"] <- "Total cases (Outaouais)"
+  df$key[df$key %in% vars & df$table == "cases"] <- "Total cases"
   df$key[df$key %in% vars & df$table == "rls"] <- "Total cases (RLS)"
   df$key[df$key %in% vars & df$table == "areas"] <- "Total cases (municipalities)"
   vars <- c("To be determined", "To be determined0", "À déterminer")
@@ -198,18 +198,20 @@ condition <- !(cisss$key == "RLS de Gatineau" & cisss$table == "rls_active" & ci
 cisss <- cisss[condition, ]
 condition <- !(cisss$key == "Gatineau" & cisss$table == "areas" & cisss$time > "2021-05-10" & cisss$time < "2021-05-14" & cisss$value == 936)
 cisss <- cisss[condition, ]
-condition <- !(cisss$key == "Total cases (Outaouais)" & cisss$time > "2021-08-06" & cisss$time < "2021-08-09" & cisss$value == 1262)
+condition <- !(cisss$key == "Total cases" & cisss$time > "2021-08-06" & cisss$time < "2021-08-09" & cisss$value == 1262)
 cisss <- cisss[condition, ]
 condition <- !(cisss$key == "RLS de Gatineau" & cisss$table == "rls" & cisss$time >= "2021-09-25" & cisss$time <= "2021-09-28" & cisss$value == 1004)
 cisss <- cisss[condition, ]
+condition <- cisss$key == "Cantley" & cisss$time > "2022-01-10" & cisss$time < "2022-01-15" & cisss$value == 7775
+cisss$value[condition] <- 775
 rm(condition)
 
 ### error checking
 # unique(cisss$key)[unique(cisss$key) %in% municipalities$municipality[municipalities$mrc == "Papineau"]]
 # tapply(cisss$key, cisss$table, unique)
 # VisualCheck(keys = tapply(cisss$key, cisss$table, unique)[["cases"]], tab = "cases",
-#             exclude = c("Total cases (Outaouais)", "Healed/resolved cases"))
-# VisualCheck(keys = "Total cases (Outaouais)", tab = "cases")
+#             exclude = c("Total cases", "Healed/resolved cases"))
+### VisualCheck(keys = "Total cases", tab = "cases")
 # VisualCheck(keys = "Healed/resolved cases", tab = "cases")
 # VisualCheck(keys = tapply(cisss$key, cisss$table, unique)[["rls"]], tab = "rls",
 #             exclude = c("Total cases (RLS)", "RLS de Gatineau", "RLS du Pontiac"))
@@ -234,7 +236,7 @@ cisss$table[cisss$key %in% c("Active cases", "Healed/resolved cases", "Total dea
 cisss$table[cisss$table %in% c("areas", "rls")] <- "cases"
 
 ### opencovid
-opencovid <- GetOpenCovid(stat = c("cases", "mortality"), loc = c(2407, 3551, 3595))
+opencovid <- GetOpenCovid(stat = c("cases", "mortality"), loc = c(2407, 3551)) # 3595
 opencovid$time <- lubridate::as_datetime(opencovid$time, tz = "America/Montreal", format = "%d-%m-%Y")
 new <- opencovid %>%
   select(health_region, time, key, value) %>%
@@ -263,19 +265,17 @@ cisss <- cisss %>%
 #   select(key, time, value, table, prev)
 
 ### de-duplication and calculating change variables
-include <- c("Active cases", "MRC de la Vallée-de-la-Gatineau", "MRC de Papineau",
-             "MRC des Collines-de-l'Outaouais", "MRC du Pontiac", "RLS de Gatineau",
-             "RLS de la Vallée-de-la-Gatineau", "RLS de Papineau",
-             "RLS des Collines-de-l'Outaouais", "RLS du Pontiac",
-             "Total cases (municipalities)", "Total cases (Ottawa)",
-             "Total cases (Outaouais)", "Total cases (RLS)")
-daily <- cisss %>%
-  filter(key %in% include) %>%
-  arrange(key, time) %>%
-  mutate(date = lubridate::as_date(time)) %>%
-  group_by(table, key, date) %>%
-  filter(time == max(time))
-daily[duplicated(daily[, c("table", "key", "date")]), ]
+# include <- c("Active cases", "RLS de Gatineau", "RLS de la Vallée-de-la-Gatineau",
+#              "RLS de Papineau", "RLS des Collines-de-l'Outaouais", "RLS du Pontiac",
+#              "Total cases (municipalities)", "Total cases (Ottawa)",
+#              "Total cases", "Total cases (RLS)")
+# daily <- cisss %>%
+#   filter(key %in% include) %>%
+#   arrange(key, time) %>%
+#   mutate(date = lubridate::as_date(time)) %>%
+#   group_by(table, key, date) %>%
+#   filter(time == max(time))
+# daily[duplicated(daily[, c("table", "key", "date")]), ]
 
 ### defunct: was checking sth in previous version
 # daily %>% filter(key %in% c("Total", "Total cases", "Cumulative cases")) %>% arrange(time) %>% print(n = Inf)
@@ -283,30 +283,30 @@ daily[duplicated(daily[, c("table", "key", "date")]), ]
 ## cumulative for entire region, total aggregation across RLS or MRC
 ## "Total"/"Total cases (RLS)" sometimes different for RLS and municipalities
 
-daily <- daily %>%
-  arrange(table, key, date, time) %>%
-  group_by(table, key) %>%
-  mutate(previous_date = dplyr::lag(date),
-         days_from_prev = as.integer(date - previous_date),
-         previous_value = dplyr::lag(value),
-         change_from_prev = value - previous_value,
-         daily_change = round(change_from_prev / days_from_prev, 3)) %>%
-  mutate(value = runner::mean_run(x = daily_change, k = 7, lag = 0, idx = date)) %>%
-  select(key, date, time, value, table) %>% ungroup()
-# sort(unique(unlist(tapply(daily$key, daily$table, unique))))
-daily$key <- str_replace(daily$key, "Total cases", "Average increase per day")
-daily$key <- str_replace(daily$key, "Active cases", "Average increase in active cases per day")
-daily <- daily %>%
-    select(key, time, value, table) %>%
-    filter(!is.na(value)) %>%
-    mutate(table = paste(table, "average"))
-cisss <- rbind(cisss, daily)
-cisss <- cisss %>%
-  filter(key != "") %>%
-  arrange(table, key) %>%
-  mutate(key = as.factor(key),
-         table = as.factor(table))
-rm(daily, cisss_tables, include)
+# daily <- daily %>%
+#   arrange(table, key, date, time) %>%
+#   group_by(table, key) %>%
+#   mutate(previous_date = dplyr::lag(date),
+#          days_from_prev = as.integer(date - previous_date),
+#          previous_value = dplyr::lag(value),
+#          change_from_prev = value - previous_value,
+#          daily_change = round(change_from_prev / days_from_prev, 3)) %>%
+#   mutate(value = runner::mean_run(x = daily_change, k = 7, lag = 0, idx = date)) %>%
+#   select(key, date, time, value, table) %>% ungroup()
+# # sort(unique(unlist(tapply(daily$key, daily$table, unique))))
+# daily$key <- str_replace(daily$key, "Total cases", "Average increase in cases per day")
+# daily$key <- str_replace(daily$key, "Active cases", "Average increase in active cases per day")
+# daily <- daily %>%
+#     select(key, time, value, table) %>%
+#     filter(!is.na(value)) %>%
+#     mutate(table = paste(table, "average"))
+# cisss <- rbind(cisss, daily)
+# cisss <- cisss %>%
+#   filter(key != "") %>%
+#   arrange(table, key) %>%
+#   mutate(key = as.factor(key),
+#          table = as.factor(table))
+# rm(daily, cisss_tables, include)
 
 ### saving data
 save(cisss, file = "_data/cisss.RData")
@@ -315,7 +315,7 @@ writeLines(as.character(lubridate::now()), file_connection)
 close(file_connection)
 
 ### other data sources
-source("_R/data_schools.R")
+# source("_R/data_schools.R")
 source("_R/data_hospitalization.R")
 hospitalization <- hospitalization %>%
   mutate(key = as.character(key),
@@ -344,14 +344,16 @@ outaouais <- list(
 )
 outaouais <- lapply(outaouais, function(df) {df[, c("key", "time", "value", "table")]})
 outaouais <- do.call(rbind, outaouais)
-# outaouais %>% select(key, table) %>% unique() %>% arrange(table) %>% print(n= Inf)
-# table(outaouais$table, useNA = "always")
+# outaouais %>% select(key, table) %>% unique() %>% arrange(key) %>% print(n= Inf)
+# table(outaouais$table)
 outaouais <- outaouais %>%
-  arrange(key, date) %>%
-  # filter(!(str_detect(key, "RLS") & table %in% c("CISSS active", "CISSS active average", "CISSS cases", "CISSS cases average"))) %>%
+  arrange(key, time) %>%
+  filter(!(str_detect(table, "OpenCovid"))) %>%
+  filter(!(str_detect(key, "MRC"))) %>%
+  filter(!(str_detect(table, "CISSS") & key %in% c("Active outbreaks", "Ended outbreaks"))) %>%
   mutate(key = as.factor(key),
          table = as.factor(table))
 object.size(outaouais)
 dim(outaouais)
 save(outaouais, file = "_data/covid19Outaouais.RData")
-# write_feather(outaouais, path = "_data/covid19Outaouais.feather")
+write_feather(outaouais, path = "_data/covid19Outaouais.feather")
