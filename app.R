@@ -25,17 +25,19 @@ ui <- fluidPage(
                  choices = unique(info$source),
                  multiple = TRUE,
                  width = "400px",
-                 options = list(placeholder = "optionally choose data sources first to limit choices")),
+                 options = list(placeholder = "optional: choose data sources first to limit choices below")),
   selectizeInput("series", label = NULL, # "Data series to display (up to 6):"
                  choices = lookup %>%
                    select(series, key) %>%
                    deframe(),
                  multiple = TRUE,
                  width = "400px",
-                 options = list(placeholder = "select one or more series (up to 6)",
+                 options = list(placeholder = "select one or more data series to display (up to 6)",
                                 maxItems = 6)),
-  verbatimTextOutput("text"),
-  tableOutput("table"),
+  # selectizeInput("bars", label = NULL,
+  #                choices = NULL,
+  #                width = "400px",
+  #                options = list(placeholder = "optional: choose one data series to show as bars")),
   plotOutput("figure")
 )
 
@@ -52,11 +54,12 @@ server <- function(input, output, session) {
     updateSelectizeInput(session,
                          inputId = "series",
                          choices = choices)
-
   })
-  output$text <- renderText({input$series})
-  # output$table <- renderTable({
-  #   lookup %>% filter(key %in% input$series)
-  # })
+  output$figure <- renderPlot({
+    series <- req(input$series)
+    outaouais %>%
+      filter(.data$key %in% .env$series) %>%
+      CovidFig(caption = "")
+  })
 }
 shinyApp(ui, server)
