@@ -11,16 +11,16 @@ left:
     href: rls_active.html
   - text: "Cumulative cases by municipalities"
     href: municipalities.html
-  - text: "School Listings"
-    href: schools.html
+  # - text: "School Listings"
+  #   href: schools.html
 - text: "Information on this site"
   menu:
   - text: "Why this site?"
     href: intro.html
   - text: "Data notes"
     href: notes_data.html
-  - text: "School listings"
-    href: notes_schools.html
+  # - text: "School listings"
+  #   href: notes_schools.html
   - text: "Caveats"
     href: caveats.html
   - text: "Glossary"
