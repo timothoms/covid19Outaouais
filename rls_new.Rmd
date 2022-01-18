@@ -8,7 +8,6 @@ params:
 source("_R/setup.R")
 source("_R/figures_theme.R")
 source("_R/CovidFig.R")
-# load("_data/rls.RData")
 load("_data/covid19Outaouais.RData")
 ```
 
@@ -17,9 +16,7 @@ load("_data/covid19Outaouais.RData")
 ### Gatineau & Outaouais
 ```{r rls_avg_gatineau}
 outaouais %>% 
-  filter(table == "INSPQ RLS average" & key %in% c("Average increase per day (Outaouais)", 
-                                         # "Active cases (Outaouais)", 
-                                         "RLS de Grande-Rivière - Hull - Gatineau")) %>% 
+  filter(table == "INSPQ RLS average" & key %in% c("Average increase in cases per day", "RLS de Grande-Rivière - Hull - Gatineau")) %>% 
   CovidFig(caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/tableau-rls-new.csv")
 ```
 

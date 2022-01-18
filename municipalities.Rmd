@@ -8,7 +8,6 @@ params:
 source("_R/setup.R")
 source("_R/figures_theme.R")
 source("_R/CovidFig.R")
-# load("_data/cisss.RData")
 load("_data/municipalities.RData")
 load("_data/covid19Outaouais.RData")
 ```
@@ -34,7 +33,7 @@ outaouais %>%
   CovidFig(rug = TRUE)
 ```
 
-### Papineau (<40)
+### Papineau (other)
 ```{r areas_papineau_cont}
 towns <- municipalities %>% 
   filter(mrc == "Papineau" & !municipality %in% towns) %>% 
@@ -58,7 +57,7 @@ outaouais %>%
   CovidFig(rug = TRUE)
 ```
 
-### Vallée (<40)
+### Vallée (other)
 ```{r areas_vallee_cont}
 towns <- municipalities %>% 
   filter(mrc == "La Vallée-de-la-Gatineau" & designation != "Ville" & !municipality %in% exclude) %>% 

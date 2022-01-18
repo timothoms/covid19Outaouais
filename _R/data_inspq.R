@@ -36,9 +36,9 @@ inspq <- do.call(rbind, inspq)
 inspq <- rbind(inspq, inspq_vac)
 
 ### averages per day
-to_calc <- c("New cases"                     = "Average increase per day",
+to_calc <- c("New cases"                     = "Average increase in cases per day",
              "New hospitalizations"          = "Average hospitalizations per day",
-             "New hospitalizations, non-ICU" = "Average hospitalizations (non-ICU) per day",
+             "New hospitalizations, non-ICU" = "Average non-ICU hospitalizations per day",
              "New hospitalizations, ICU"     = "Average ICU hospitalizations per day",
              "Persons tested"                = "Average testing per day",
              "Persons tested positive"       = "Average positive tests per day",

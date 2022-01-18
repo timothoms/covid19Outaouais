@@ -8,15 +8,10 @@ params:
 source("_R/setup.R")
 source("_R/figures_theme.R")
 source("_R/CovidFig.R")
-# load("_data/cisss.RData")
+load("_data/cisss.RData")
 load("_data/hospitalization.RData")
 load("_data/inspq.RData")
 load("_data/covid19Outaouais.RData")
-# load("_data/vaccination.RData")
-# vaccination <- vaccination %>% 
-#   mutate(date = lubridate::as_date(time)) %>% 
-#   group_by(key, date) %>% 
-#   filter(time == max(time)) 
 pop_outaouais_2020 <- 401388
 ```
 
@@ -25,7 +20,7 @@ pop_outaouais_2020 <- 401388
 ### New cases
 ```{r cases_avg}
 inspq %>% 
-  filter(key == "Average increase per day") %>%
+  filter(key == "Average increase in cases per day") %>%
   CovidFig(bars = inspq %>% filter(key == "New cases"),
          pop = "per100k",
          caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
@@ -89,7 +84,6 @@ inspq %>%
 
 ### Vaccinations
 ```{r vaccinations}
-### RegionFig(df = vaccination, caption = "Data source: www.quebec.ca/en/health/health-issues/a-z/2019-coronavirus/situation-coronavirus-in-quebec/covid-19-vaccination-data/")
 inspq %>% 
   filter(key == "Vaccine doses administered") %>%
   CovidFig(dlabels = "%d %b %Y",
@@ -106,9 +100,8 @@ inspq %>%
 
 ### Outaouais & Ottawa (opencovid.ca)
 ```{r opencovid}
-outaouais %>% 
-  filter(table == "OpenCovid average" & key %in% c("Average increase per day (Outaouais)", 
-                                              "Average increase per day (Ottawa)")) %>%
+cisss %>% 
+  filter(table == "opencovid" & key %in% c("New cases (Outaouais)", "New cases (Ottawa)")) %>%
   CovidFig(caption = "Data source: opencovid.ca/api/")
 ```
 

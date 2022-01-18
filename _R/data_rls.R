@@ -36,13 +36,13 @@ rls$rls[rls$rls != "Total"] <- unlist(lapply(stringr::str_split(rls$rls[rls$rls 
 rls <- rls %>%
   filter(rss == "Outaouais") %>%
   select(time, rls, cases, active, pop)
-rls$rls <- str_replace(rls$rls, "Total", "Total cases (Outaouais)")
+rls$rls <- str_replace(rls$rls, "Total", "Total cases")
 rls <- lapply(c("cases", "active", "pop"), function(var) {
   df <- rls[, c("time", "rls", var)]
   names(df) <- c("time", "key", "value")
   df$table <- var
   if(var == "active") df$key <- str_replace(df$key, "Total", "Active")
-  if(var == "pop") df$key <- str_replace(df$key, "Total cases", "Population")
+  if(var == "pop") df$key <- str_replace(df$key, "Total cases", "Population size")
   return(df)
 })
 rls <- do.call(rbind, rls)
@@ -69,7 +69,7 @@ avg <- lapply(c("new", "average"), function(var) {
   names(df) <- c("time", "key", "value", "table")
   df$table <- var
   if(var == "new") df$key <- str_replace(df$key, "Total", "New")
-  if(var == "average") df$key <- str_replace(df$key, "Total cases", "Average increase per day")
+  if(var == "average") df$key <- str_replace(df$key, "Total cases", "Average increase in cases per day")
   return(df)
 })
 avg <- do.call(rbind, avg)
