@@ -42,7 +42,6 @@ to_calc <- c("New cases"                     = "Average increase in cases per da
              "New hospitalizations, ICU"     = "Average ICU hospitalizations per day",
              "Persons tested"                = "Average testing per day",
              "Persons tested positive"       = "Average positive tests per day",
-             "Persons tested negative"       = "Average negative tests per day",
              "Test positivity (%)"           = "Average test positivity (%)",
              "Vaccine doses administered"    = "Average vaccine doses administered")
 avg <- lapply(names(to_calc), function(var) {

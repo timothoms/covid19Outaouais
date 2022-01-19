@@ -330,6 +330,7 @@ rls <- rls %>%
          table = as.character(table),
          table = paste("INSPQ RLS", table))
 cisss <- cisss %>%
+  filter(key != "") %>%
   mutate(key = as.character(key),
          table = as.character(table),
          table = paste("CISSS", table),
