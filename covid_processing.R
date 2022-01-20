@@ -349,7 +349,8 @@ outaouais <- do.call(rbind, outaouais)
 # table(outaouais$table)
 outaouais <- outaouais %>%
   arrange(key, time) %>%
-  filter(!(str_detect(table, "OpenCovid"))) %>%
+  # filter(!(str_detect(table, "OpenCovid"))) %>%
+  # filter(!(str_detect(table, "INSPQ RLS pop"))) %>%
   filter(!(str_detect(key, "MRC"))) %>%
   filter(!(str_detect(table, "CISSS") & key %in% c("Active outbreaks", "Ended outbreaks"))) %>%
   mutate(key = as.factor(key),
