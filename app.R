@@ -12,6 +12,8 @@ reactlog::reactlog_enable()
 outaouais <- read_feather(path = "_data/covid19Outaouais.feather")
 info <- read_feather(path = "_data/info.feather")
 # outaouais %>% select(key, table) %>% arrange(key) %>% unique() %>% print(n = Inf)
+pop <- outaouais %>%
+  filter(table == "INSPQ RLS pop")
 lookup <- left_join(outaouais %>%
                       select(key, table) %>%
                       unique() %>%
@@ -22,7 +24,9 @@ lookup <- left_join(outaouais %>%
                       unique(),
                     by = "table") %>%
   mutate(series = paste(key, " [", table, "]", sep = ""))
-outaouais <- left_join(outaouais, lookup, by = c("key", "table")) %>%
+outaouais <- outaouais %>%
+  filter(table != "INSPQ RLS pop") %>%
+  left_join(lookup, by = c("key", "table")) %>%
   select(series, table, time, value) %>%
   rename(key = series)
 # lookup %>% select(key, table) %>% filter(key %in% names(table(lookup$key)[table(lookup$key) > 1])) %>% print(n = Inf)
