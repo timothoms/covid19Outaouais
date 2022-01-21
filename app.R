@@ -5,17 +5,18 @@ library(feather)
 source("_R/figures_theme.R")
 source("_R/CovidFig.R")
 
-# load(url("https://github.com/timothoms/covid19Outaouais/raw/main/_data/covid19Outaouais.RData"))
-# load(url("https://github.com/timothoms/covid19Outaouais/raw/main/_data/info.RData"))
+reactlog::reactlog_enable()
+
+# load(url("https://github.com/timothoms/covid19Outaouais/raw/main/_data/covid19Outaouais.RData"), verbose = TRUE)
+# load(url("https://github.com/timothoms/covid19Outaouais/raw/main/_data/info.RData"), verbose = TRUE)
 outaouais <- read_feather(path = "_data/covid19Outaouais.feather")
-# outaouais %>% select(key, table) %>% arrange(key) %>% unique() %>% print(n = Inf)
 info <- read_feather(path = "_data/info.feather")
+# outaouais %>% select(key, table) %>% arrange(key) %>% unique() %>% print(n = Inf)
 lookup <- left_join(outaouais %>%
                       select(key, table) %>%
                       unique() %>%
                       arrange(key),
                     info %>%
-                      # filter(source != "OpenCovid") %>%
                       select(outaouais_table, source) %>%
                       rename(table = outaouais_table) %>%
                       unique(),
@@ -24,87 +25,93 @@ lookup <- left_join(outaouais %>%
 outaouais <- left_join(outaouais, lookup, by = c("key", "table")) %>%
   select(series, table, time, value) %>%
   rename(key = series)
-
 # lookup %>% select(key, table) %>% filter(key %in% names(table(lookup$key)[table(lookup$key) > 1])) %>% print(n = Inf)
 
 ui <- fluidPage(
   h2("Covid19 Situation in Outaouais"),
-  # selectizeInput("source",
-  #                label = "", # "Data aggregation to display:"
-  #                choices = sort(unique(lookup$source)),
-  #                multiple = TRUE,
-  #                width = "400px",
-  #                options = list(placeholder = "optional: choose data sources first to limit choices below")),
-  checkboxGroupInput("source",
-                     label = NULL, # "Data sources included:",
+  checkboxGroupInput("source", label = NULL, inline = TRUE,
                      choices = sort(unique(lookup$source)),
-                     selected = sort(unique(lookup$source)),
-                     inline = TRUE),
-  selectizeInput("series",
-                 label = NULL,
-                 choices = NULL,
-                 multiple = TRUE,
-                 width = "400px",
-                 options = list(placeholder = "select one or more data series to display (up to 10)",
-                                maxItems = 10)),
-  selectizeInput("bars",
-                 label = NULL,
-                 choices = NULL,
-                 width = "400px",
-                 options = list(placeholder = "optional: choose one data series to show as bars")),
-  dateRangeInput("dates",
+                     selected = sort(unique(lookup$source))),
+  selectizeInput("series", label = NULL, multiple = TRUE, choices = NULL, width = "400px",
+                 options = list(maxItems = 10,
+                                placeholder = "select one or more data series to display (up to 10)")),
+  tags$head(
+    tags$style(
+      HTML("#div_id .selectize-control.single .selectize-input:after{content: none;}")
+    )
+  ),
+  tags$div(id = "div_id",
+           selectizeInput("bars", label = NULL, choices = NULL, width = "400px",
+                          options = list(placeholder = "optional: choose one data series to show as bars"))),
+  dateRangeInput("dates", label = NULL, width = "400px",
                  start = as_date(min(outaouais$time)),
-                 end = as_date(max(outaouais$time)),
-                 label = NULL,
-                 width = "400px"),
-  checkboxInput("perpop",
-                label = "show results per population size",
-                value = FALSE),
-  tableOutput("table"),
+                 end = as_date(max(outaouais$time))),
+  # checkboxInput("perpop", label = "show results per population size", value = FALSE),
   plotOutput("figure"),
-  downloadLink("download",
-               label = "Download displayed data series")
+  uiOutput("download_button"),
+  tableOutput("table")
 )
 
 server <- function(input, output, session) {
   lookup_new <- reactive({
-    if(is.null(input$source)) lookup
-      else lookup %>% filter(source %in% input$source)
+    if(is.null(input$source))
+      lookup
+    else
+      lookup %>% filter(source %in% input$source)
+  })
+  already <- reactiveValues(series = list(NULL))
+  observeEvent(input$series, {
+    last <- already$series[length(already$series)]
+    already$series <- c(last, input$series)
   })
   observeEvent(lookup_new(), {
     freezeReactiveValue(input, "series")
-    choices <- lookup_new() %>% pull(series)
-    updateSelectizeInput(session, inputId = "series", choices = choices)
+    choices <- lookup_new() %>%
+      pull(series)
+    already_selected <- sort(unlist(already$series))
+    updateSelectizeInput(session, inputId = "series",
+                         choices = choices,
+                         selected = already_selected)
+    choices <- lookup_new() %>%
+      filter(!str_detect(str_to_lower(series), "average")) %>%
+      pull(series)
     updateSelectizeInput(session, inputId = "bars",
                          choices = c("optional: choose one data series to show as bars" = "", choices))
   })
-  output$table <- renderTable({
-    # series <- req(input$series)
-    # lookup %>%
-    #   filter(.data$series %in% .env$series)
-    tibble(as_date(input$dates))
-  })
   df <- reactive({
-    series <- input$series
-    outaouais %>% filter(.data$key %in% .env$series)
+    series <- req(input$series)
+    outaouais %>%
+      filter(.data$key %in% .env$series &
+               as_date(.data$time) >= min(req(input$dates)) &
+               as_date(.data$time) <= max(req(input$dates)) )
+  })
+  bars <- reactive({
+    if(is.null(input$bars))
+      NULL
+    else
+      outaouais %>%
+        filter(key %in% input$bars &
+                as_date(time) >= min(req(input$dates)) &
+                as_date(time) <= max(req(input$dates)) )
   })
   rugs <- reactive({
     ifelse(sum(str_detect(req(input$series), "CISSS")) > 0, TRUE, FALSE)
   })
-  # bars <- reactive({
-  #   series <- req(input$bars)
-  #   if(is.null(input$bars)) NULL
-  #   else outaouais %>% filter(.data$key %in% .env$series)
-  # })
   output$figure <- renderPlot({
-    df() %>% CovidFig(caption = "", rug = rugs())
+    CovidFig(df = df(),
+             caption = "",
+             bars = bars(),
+             rug = rugs())
   })
-  output$download <- downloadHandler(
+  output$download_button <- renderUI({
+    if(!is.null(input$series)) {
+      downloadButton("download_file", label = "Download displayed data series")
+    }
+  })
+  output$download_file <- downloadHandler(
     filename = "covid19Outaouais_app_data.csv",
     content = function(file) {
-      write_csv(df() %>%
-                  select(key, time, value),
-                file)
+      write_csv(rbind(df(), bars()) %>% select(key, time, value), file)
     }
   )
 }
