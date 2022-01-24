@@ -1,5 +1,6 @@
 ---
 title: "Active cases by RLS"
+pagetitle: "covid19Outaouais"
 params: 
   optimize: true
 ---

@@ -4,7 +4,7 @@ left:
 - text: "Trend Figures"
   menu:
   - text: "Situation in Outaouais"
-    href: index.html
+    href: situation.html
   - text: "Average increase by RLS"
     href: rls_new.html
   - text: "Active cases by RLS"

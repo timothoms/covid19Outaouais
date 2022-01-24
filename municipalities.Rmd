@@ -1,5 +1,6 @@
 ---
 title: "Cumulative cases by municipalities"
+pagetitle: "covid19Outaouais"
 params: 
   optimize: true
 ---

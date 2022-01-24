@@ -1,5 +1,6 @@
 ---
 title: "Average increase by RLS "
+pagetitle: "covid19Outaouais"
 params: 
   optimize: true
 ---

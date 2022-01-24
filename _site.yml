@@ -1,7 +1,7 @@
 name: "covid19Outaouais"
 output_dir: "docs"
 author: "Oskar Timo Thoms"
-exclude: ["README.md", "*.sh", "schools.Rmd", "notes_schools.md"]
+exclude: ["README.md", "*.sh", "covid19OutaouaisApp"]
 output:
   html_document:
     toc: true
@@ -13,5 +13,6 @@ output:
     highlight: pygments
     includes:
       after_body: "_html/footer.html"
+    css: "styles.css"
 editor_options:
   chunk_output_type: console

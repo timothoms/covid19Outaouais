@@ -1,5 +1,6 @@
 ---
 title: "Covid19 Situation in Outaouais Schools"
+pagetitle: "covid19Outaouais"
 params: 
   optimize: true
 ---
