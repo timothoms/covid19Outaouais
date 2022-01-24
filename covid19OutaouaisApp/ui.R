@@ -1,5 +1,5 @@
-library(shiny)
-library(shinythemes)
+require(shiny)
+require(shinythemes)
 # reactlog::reactlog_enable()
 
 shinyUI(

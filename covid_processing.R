@@ -358,4 +358,4 @@ outaouais <- outaouais %>%
 object.size(outaouais)
 dim(outaouais)
 save(outaouais, file = "_data/covid19Outaouais.RData")
-write_feather(outaouais, path = "_data/covid19Outaouais.feather")
+# write_feather(outaouais, path = "_data/covid19Outaouais.feather")

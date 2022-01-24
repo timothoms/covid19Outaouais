@@ -1,5 +1,5 @@
-library(tidyverse)
-library(lubridate)
+require(tidyverse)
+require(lubridate)
 
 # library(feather)
 # info <- read_feather(path = "../_data/info.feather")

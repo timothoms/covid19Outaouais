@@ -1,4 +1,6 @@
-library(shiny)
+require(shiny)
+require(shinythemes)
+
 shinyServer(function(input, output, session) {
 
   lookup_new <- reactive({
