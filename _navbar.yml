@@ -43,9 +43,9 @@ left:
   - text: "Ministère de la Santé et des Services Sociaux"
     menu:
     - text: "- cases"
-      href: https://www.donneesquebec.ca/recherche/dataset/covid-19-portrait-quotidien-des-cas-confirmes/
+      href: https://www.donneesquebec.ca/recherche/dataset/covid-19-portrait-quotidien-des-cas-confirmes
     - text: "- hospitalizations"
-      href: https://www.donneesquebec.ca/recherche/dataset/covid-19-portrait-quotidien-des-hospitalisations/
+      href: https://www.donneesquebec.ca/recherche/dataset/covid-19-portrait-quotidien-des-hospitalisations
   - text: "Gouvernement du Québec"
     menu:
     - text: "- situation"
@@ -53,7 +53,7 @@ left:
     - text: "- vaccination"
       href: https://www.quebec.ca/sante/problemes-de-sante/a-z/coronavirus-2019/situation-coronavirus-quebec/donnees-sur-la-vaccination-covid-19/
     - text: "- schools"
-      href: https://www.quebec.ca/sante/problemes-de-sante/a-z/coronavirus-2019/faits-saillants-covid-ecoles/) / [school list](https://www.quebec.ca/sante/problemes-de-sante/a-z/coronavirus-2019/liste-des-cas-de-covid-19-dans-les-ecoles/) / [zones](https://www.quebec.ca/sante/problemes-de-sante/a-z/coronavirus-2019/systeme-alertes-regionales-et-intervention-graduelle/cartes-paliers-alerte-covid-19-par-region
+      href: https://www.quebec.ca/sante/problemes-de-sante/a-z/coronavirus-2019/liste-des-cas-de-covid-19-dans-les-ecoles
   - text: "--------------------"
   - text: "Canada"
   - text: "Government of Canada"
