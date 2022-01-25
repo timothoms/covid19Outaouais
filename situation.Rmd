@@ -9,7 +9,6 @@ params:
 source("_R/setup.R")
 source("_R/figures_theme.R")
 source("_R/CovidFig.R")
-load("_data/cisss.RData")
 load("_data/hospitalization.RData")
 load("_data/inspq.RData")
 load("_data/covid19Outaouais.RData")
@@ -75,8 +74,8 @@ inspq %>%
            caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv &\n www.donneesquebec.ca/recherche/dataset/covid-19-portrait-quotidien-des-hospitalisations")
 ```
 
-### Total hospitalizations
-```{r hospitalizations}
+<!-- ### Total hospitalizations -->
+```{r hospitalizations, eval = FALSE}
 inspq %>% 
   filter(key %in% c("Total hospitalizations, non-ICU", 
                     "Total hospitalizations, ICU", "Total hospitalizations")) %>%
@@ -97,13 +96,6 @@ inspq %>%
   filter(key == "Total vaccine doses administered") %>%
   CovidFig(dlabels = "%d %b %Y",
            caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
-```
-
-### Outaouais & Ottawa (opencovid.ca)
-```{r opencovid}
-cisss %>% 
-  filter(table == "opencovid" & key %in% c("New cases (Outaouais)", "New cases (Ottawa)")) %>%
-  CovidFig(caption = "Data source: opencovid.ca/api/")
 ```
 
 ##

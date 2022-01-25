@@ -3,6 +3,8 @@ type: default
 left:
 - text: "Trend Figures"
   menu:
+  - text: "Interactive App"
+    href: index.html
   - text: "Situation in Outaouais"
     href: situation.html
   - text: "Average increase by RLS"
