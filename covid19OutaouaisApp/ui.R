@@ -3,7 +3,8 @@ require(shinythemes)
 # reactlog::reactlog_enable()
 
 shinyUI(
-  fluidPage(theme = shinytheme("darkly"),
+  fluidPage(theme = bslib::bs_theme(version = 5, bootswatch = "darkly"),
+            # theme = shinytheme("darkly"),
             titlePanel("Covid19 Situation in the Outaouais region of Quebec"),
 
             checkboxGroupInput("source",
