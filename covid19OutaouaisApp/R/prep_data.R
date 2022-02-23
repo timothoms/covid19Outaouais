@@ -20,10 +20,11 @@ lookup <- outaouais %>%
   unique() %>%
   arrange(key) %>%
   left_join(info %>%
-              select(outaouais_table, source, source_link) %>%
-              rename(table = outaouais_table) %>%
-              unique(),
-            by = "table") %>%
+    select(outaouais_table, source, source_link) %>%
+    rename(table = outaouais_table) %>%
+    unique(),
+  by = "table"
+  ) %>%
   mutate(series = paste(key, " [", table, "]", sep = ""))
 # lookup %>% select(key, table) %>% filter(key %in% names(table(lookup$key)[table(lookup$key) > 1])) %>% print(n = Inf)
 
