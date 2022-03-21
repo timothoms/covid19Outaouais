@@ -26,16 +26,16 @@ inspq %>%
          caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
 ```
 
-### Active cases
-```{r cases_active}
+<!-- ### Active cases -->
+```{r cases_active, eval = FALSE}
 inspq %>% 
   filter(key == "Active cases") %>%
   CovidFig(pop = "per100k",
          caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
 ```
 
-### Cumulative cases
-```{r cases_cumulative}
+<!-- ### Cumulative cases -->
+```{r cases_cumulative, eval = FALSE}
 inspq %>% 
   filter(key %in% c("Total cases", "Total recovered cases")) %>%
   CovidFig(caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
