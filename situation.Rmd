@@ -17,8 +17,17 @@ pop_outaouais_2020 <- 401388
 
 ## {.tabset .tabset-fade .tabset-pills}
 
-### New cases
-```{r cases_avg}
+### Hospitalizations
+```{r hospitalization}
+inspq %>% 
+  filter(key == "New hospitalizations") %>%
+  CovidFig(second = hospitalization %>% filter(key %in% c("Active hospitalizations, non-ICU", 
+                                                          "Active hospitalizations, ICU")), 
+           caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv &\n www.donneesquebec.ca/recherche/dataset/covid-19-portrait-quotidien-des-hospitalisations")
+```
+
+<!-- ### New cases -->
+```{r cases_avg, eval = FALSE}
 inspq %>% 
   filter(key == "Average increase in cases per day") %>%
   CovidFig(bars = inspq %>% filter(key == "New cases"),
@@ -41,14 +50,6 @@ inspq %>%
   CovidFig(caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
 ```
 
-### Daily tests
-```{r testing}
-inspq %>% 
-  filter(key == "Average testing per day") %>%
-  CovidFig(bars = inspq %>% filter(key == "Persons tested"),
-           caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
-```
-
 ### Test positivity
 ```{r positivity}
 inspq %>% 
@@ -57,21 +58,20 @@ inspq %>%
            caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
 ```
 
-### Deaths
-```{r cases_deaths}
+### Daily tests
+```{r testing}
+inspq %>% 
+  filter(key == "Average testing per day") %>%
+  CovidFig(bars = inspq %>% filter(key == "Persons tested"),
+           caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
+```
+
+<!-- ### Deaths -->
+```{r cases_deaths, eval = FALSE}
 inspq %>% 
   filter(key %in% c("Total deaths", "Total deaths (CHSLD)", "Total deaths (RPA)", 
                     "Total deaths (home & unknown)", "Total deaths (other)")) %>%
   CovidFig(caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
-```
-
-### Hospitalizations
-```{r hospitalization}
-inspq %>% 
-  filter(key == "New hospitalizations") %>%
-  CovidFig(second = hospitalization %>% filter(key %in% c("Active hospitalizations, non-ICU", 
-                                                          "Active hospitalizations, ICU")), 
-           caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv &\n www.donneesquebec.ca/recherche/dataset/covid-19-portrait-quotidien-des-hospitalisations")
 ```
 
 <!-- ### Total hospitalizations -->
@@ -90,8 +90,8 @@ inspq %>%
            caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
 ```
 
-### Total vaccinations
-```{r vaccinations_total}
+<!-- ### Total vaccinations -->
+```{r vaccinations_total, eval = FALSE}
 inspq %>% 
   filter(key == "Total vaccine doses administered") %>%
   CovidFig(dlabels = "%d %b %Y",
