@@ -9,7 +9,7 @@ params:
 source("_R/setup.R")
 source("_R/figures_theme.R")
 source("_R/CovidFig.R")
-load("_data/hospitalization.RData")
+# load("_data/hospitalization.RData")
 load("_data/inspq.RData")
 load("_data/covid19Outaouais.RData")
 pop_outaouais_2020 <- 401388
@@ -19,81 +19,48 @@ pop_outaouais_2020 <- 401388
 
 ### Hospitalizations
 ```{r hospitalization}
-inspq %>% 
-  filter(key == "New hospitalizations") %>%
-  CovidFig(second = hospitalization %>% filter(key %in% c("Active hospitalizations, non-ICU", 
-                                                          "Active hospitalizations, ICU")), 
-           caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv &\n www.donneesquebec.ca/recherche/dataset/covid-19-portrait-quotidien-des-hospitalisations")
+outaouais %>% 
+  filter(key %in% c("New hospitalizations", "Active hospitalizations, non-ICU", "Active hospitalizations, ICU")) %>%
+  CovidFig(caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv &\n www.donneesquebec.ca/recherche/dataset/covid-19-portrait-quotidien-des-hospitalisations")
 ```
 
 <!-- ### New cases -->
 ```{r cases_avg, eval = FALSE}
-inspq %>% 
+outaouais %>% 
   filter(key == "Average increase in cases per day") %>%
-  CovidFig(bars = inspq %>% filter(key == "New cases"),
+  CovidFig(bars = outaouais %>% filter(key == "New cases"),
          pop = "per100k",
          caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
 ```
 
-<!-- ### Active cases -->
-```{r cases_active, eval = FALSE}
-inspq %>% 
-  filter(key == "Active cases") %>%
-  CovidFig(pop = "per100k",
-         caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
-```
-
-<!-- ### Cumulative cases -->
-```{r cases_cumulative, eval = FALSE}
-inspq %>% 
-  filter(key %in% c("Total cases", "Total recovered cases")) %>%
-  CovidFig(caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
-```
-
 ### Test positivity
 ```{r positivity}
-inspq %>% 
+outaouais %>% 
   filter(key == "Average test positivity (%)") %>%
-  CovidFig(bars = inspq %>% filter(key == "Test positivity (%)"),
+  CovidFig(bars = outaouais %>% filter(key == "Test positivity (%)"),
            caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
 ```
 
 ### Daily tests
 ```{r testing}
-inspq %>% 
+outaouais %>% 
   filter(key == "Average testing per day") %>%
-  CovidFig(bars = inspq %>% filter(key == "Persons tested"),
+  CovidFig(bars = outaouais %>% filter(key == "Persons tested"),
            caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
 ```
 
-<!-- ### Deaths -->
-```{r cases_deaths, eval = FALSE}
+### Deaths
+```{r cases_deaths}
 inspq %>% 
   filter(key %in% c("Total deaths", "Total deaths (CHSLD)", "Total deaths (RPA)", 
                     "Total deaths (home & unknown)", "Total deaths (other)")) %>%
   CovidFig(caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
 ```
 
-<!-- ### Total hospitalizations -->
-```{r hospitalizations, eval = FALSE}
-inspq %>% 
-  filter(key %in% c("Total hospitalizations, non-ICU", 
-                    "Total hospitalizations, ICU", "Total hospitalizations")) %>%
-  CovidFig(caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
-```
-
 ### Vaccinations
 ```{r vaccinations}
-inspq %>% 
+outaouais %>% 
   filter(key == "Vaccine doses administered") %>%
-  CovidFig(dlabels = "%d %b %Y",
-           caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
-```
-
-<!-- ### Total vaccinations -->
-```{r vaccinations_total, eval = FALSE}
-inspq %>% 
-  filter(key == "Total vaccine doses administered") %>%
   CovidFig(dlabels = "%d %b %Y",
            caption = "Data source: www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv")
 ```

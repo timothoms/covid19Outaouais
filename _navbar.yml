@@ -1,18 +1,18 @@
 title: "covid19Outaouais"
 type: default
 left:
-- text: "Trend Figures"
-  menu:
-  - text: "Interactive App"
-    href: index.html
-  - text: "Situation in Outaouais"
-    href: situation.html
-  - text: "Average increase by RLS"
-    href: rls_new.html
-  - text: "Active cases by RLS"
-    href: rls_active.html
-  - text: "Cumulative cases by municipalities"
-    href: municipalities.html
+# - text: "Trend Figures"
+#   menu:
+- text: "Interactive Data App"
+  href: index.html
+  # - text: "Situation in Outaouais"
+  #   href: situation.html
+  # - text: "Average increase by RLS"
+  #   href: rls_new.html
+  # - text: "Active cases by RLS"
+  #   href: rls_active.html
+  # - text: "Cumulative cases by municipalities"
+  #   href: municipalities.html
   # - text: "School Listings"
   #   href: schools.html
 - text: "Information on this site"
@@ -34,38 +34,30 @@ left:
     href: https://cisss-outaouais.gouv.qc.ca/covid-19/
   - text: "Institut national de santé publique"
     menu:
-    - text: "- cases"
+    - text: "cases"
       href: https://www.inspq.qc.ca/covid-19/donnees/
-    - text: "- vaccination"
+    - text: "vaccination"
       href: https://www.inspq.qc.ca/covid-19/donnees/vaccination/
-    - text: "- variants"
+    - text: "variants"
       href: https://www.inspq.qc.ca/covid-19/donnees/variants/
-    - text: "- timeline"
+    - text: "timeline"
       href: https://www.inspq.qc.ca/covid-19/donnees/ligne-du-temps/
   - text: "Ministère de la Santé et des Services Sociaux"
     menu:
-    - text: "- cases"
+    - text: "cases"
       href: https://www.donneesquebec.ca/recherche/dataset/covid-19-portrait-quotidien-des-cas-confirmes
-    - text: "- hospitalizations"
+    - text: "hospitalizations"
       href: https://www.donneesquebec.ca/recherche/dataset/covid-19-portrait-quotidien-des-hospitalisations
   - text: "Gouvernement du Québec"
     menu:
-    - text: "- situation"
+    - text: "situation"
       href: https://www.quebec.ca/sante/problemes-de-sante/a-z/coronavirus-2019/situation-coronavirus-quebec/
-    - text: "- vaccination"
+    - text: "vaccination"
       href: https://www.quebec.ca/sante/problemes-de-sante/a-z/coronavirus-2019/situation-coronavirus-quebec/donnees-sur-la-vaccination-covid-19/
-    - text: "- schools"
-      href: https://www.quebec.ca/sante/problemes-de-sante/a-z/coronavirus-2019/liste-des-cas-de-covid-19-dans-les-ecoles
+    # - text: "- schools"
+      # href: https://www.quebec.ca/sante/problemes-de-sante/a-z/coronavirus-2019/liste-des-cas-de-covid-19-dans-les-ecoles
   - text: "--------------------"
-  - text: "Canada"
-  - text: "Government of Canada"
-    menu:
-    - text: "- cases"
-      href: https://health-infobase.canada.ca/covid-19/epidemiological-summary-covid-19-cases.html
-    - text: "- vaccination"
-      href: https://health-infobase.canada.ca/covid-19/vaccination-coverage/
-  - text: "opencovid.ca"
-    href: https://opencovid.ca/
+  - text: "Ontario"
   - text: "Ottawa COVID-19 (613covid.ca)"
     href: https://613covid.ca/
   - text: "Open Ottawa"
@@ -74,6 +66,18 @@ left:
     href: https://www.ottawapublichealth.ca/en/reports-research-and-statistics/daily-covid19-dashboard.aspx
   - text: "Ontario Data Catalogue"
     href: https://data.ontario.ca/dataset?keywords_en=COVID-19
+  - text: "--------------------"
+  - text: "Canada"
+  - text: "Government of Canada"
+    menu:
+    - text: "cases"
+      href: https://health-infobase.canada.ca/covid-19/epidemiological-summary-covid-19-cases.html
+    - text: "vaccination"
+      href: https://health-infobase.canada.ca/covid-19/vaccination-coverage/
+  - text: "opencovid.ca"
+    href: https://opencovid.ca/
+  - text: "Covid-19 Provincial Policies"
+    href: https://centre.irpp.org/data/covid-19-provincial-policies/
   - text: "-----------------------------"
   - text: "Global"
   - text: "WHO"
@@ -84,8 +88,10 @@ left:
     href: https://www.ecdc.europa.eu/en/geographical-distribution-2019-ncov-cases
   - text: "EpiForecasts"
     href: https://epiforecasts.io/covid/
-  - text: "The Covid Tracking Project (US)"
+  - text: "Covid Tracking Project (US, no longer updated)"
     href: https://covidtracking.com/
+  - text: "Covid-19 Government Response Tracker"
+    href: https://www.bsg.ox.ac.uk/research/research-projects/covid-19-government-response-tracker
 right:
 - icon: fa-github fa-lg
   href: https://github.com/timothoms/covid19Outaouais

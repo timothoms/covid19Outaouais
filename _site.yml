@@ -4,6 +4,8 @@ author: "Oskar Timo Thoms"
 exclude: ["README.md", "*.sh", "covid19OutaouaisApp"]
 output:
   html_document:
+    includes:
+      after_body: "_html/footer.html"
     toc: true
     toc_depth: 1
     df_print: "paged"
@@ -11,8 +13,6 @@ output:
     fig_height: 8
     theme: darkly
     highlight: pygments
-    includes:
-      after_body: "_html/footer.html"
     css: "styles.css"
 editor_options:
   chunk_output_type: console
