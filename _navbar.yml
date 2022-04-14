@@ -3,8 +3,6 @@ type: default
 left:
 # - text: "Trend Figures"
 #   menu:
-- text: "Interactive Data App"
-  href: index.html
   # - text: "Situation in Outaouais"
   #   href: situation.html
   # - text: "Average increase by RLS"
@@ -19,15 +17,17 @@ left:
   menu:
   - text: "Why this site?"
     href: intro.html
-  - text: "Data notes"
-    href: notes_data.html
+  - text: "Disclaimer"
+    href: disclaimer.html
+  - text: "Notes"
+    href: notes.html
   # - text: "School listings"
   #   href: notes_schools.html
   - text: "Caveats"
     href: caveats.html
   - text: "Glossary"
     href: glossary.html
-- text: "Covid-19 data"
+- text: "Covid-19 Data"
   menu:
   - text: "Quebec"
   - text: "CISSS Outaouais"
@@ -95,7 +95,3 @@ left:
 right:
 - icon: fa-github fa-lg
   href: https://github.com/timothoms/covid19Outaouais
-- text: "Disclaimer"
-  href: disclaimer.html
-- text: "Contact"
-  href: contact.html
