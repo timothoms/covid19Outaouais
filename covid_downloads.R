@@ -4,7 +4,7 @@ Sys.setlocale(category = "LC_ALL", locale = "en_CA.UTF-8")
 source("_R/covid_datasets.R")
 
 # fix "timeline"
-links <- links[c("local_sit_en", "local_sit_fr", "qc_sit_en",  "qc_sit_fr", "schools_sit_en", "schools_sit_fr")]
+links <- links[c("local_sit_en", "local_sit_fr", "qc_sit_en",  "qc_sit_fr", "schools_sit_en", "schools_sit_fr")[1:4]]
 lapply(names(links), function(x) {
   print(x)
   xml2::download_html(links[[x]],

@@ -236,25 +236,25 @@ cisss$table[cisss$key %in% c("Active cases", "Healed/resolved cases", "Total dea
 cisss$table[cisss$table %in% c("areas", "rls")] <- "cases"
 
 ### opencovid
-opencovid <- GetOpenCovid(stat = c("cases", "mortality"), loc = c(2407, 3551)) # 3595
-opencovid$time <- lubridate::as_datetime(opencovid$time, tz = "America/Montreal", format = "%d-%m-%Y")
-new <- opencovid %>%
-  select(health_region, time, key, value) %>%
-  mutate(key = paste("New", key))
-opencovid <- opencovid %>%
-  select(health_region, time, key, cumulative) %>%
-  mutate(key = paste("Total", key)) %>%
-  rename(value = cumulative)
-opencovid <- rbind(opencovid, new)
-rm(new)
-opencovid <- opencovid %>%
-  mutate(table = "opencovid",
-         key = paste(key, " (", health_region, ")", sep = "")) %>%
-  select(-health_region)
-cisss <- rbind(cisss, opencovid)
-cisss <- cisss %>%
-  select(key, time, value, table) %>%
-  arrange(table, key, time)
+# opencovid <- GetOpenCovid(loc = c(2407, 3551)) # 3595
+# opencovid$time <- lubridate::as_datetime(opencovid$time, tz = "America/Montreal", format = "%d-%m-%Y")
+# new <- opencovid %>%
+#   select(health_region, time, key, value) %>%
+#   mutate(key = paste("New", key))
+# opencovid <- opencovid %>%
+#   select(health_region, time, key, cumulative) %>%
+#   mutate(key = paste("Total", key)) %>%
+#   rename(value = cumulative)
+# opencovid <- rbind(opencovid, new)
+# rm(new)
+# opencovid <- opencovid %>%
+#   mutate(table = "opencovid",
+#          key = paste(key, " (", health_region, ")", sep = "")) %>%
+#   select(-health_region)
+# cisss <- rbind(cisss, opencovid)
+# cisss <- cisss %>%
+#   select(key, time, value, table) %>%
+#   arrange(table, key, time)
 
 ### time since previous
 # cisss <- cisss %>%
