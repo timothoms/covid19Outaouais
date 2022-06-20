@@ -1,5 +1,5 @@
 # source("_R/covid_datasets.R")
-# jsonlite::write_json(datasets, "_data/data_sources.json", auto_unbox = TRUE, pretty = TRUE, force = TRUE)
+# jsonlite::write_json(datasets, "_data/data.json", auto_unbox = TRUE, pretty = TRUE, force = TRUE)
 datasets <- jsonlite::fromJSON("_data/data_sources.json", simplifyVector = FALSE)
 opencovid_datasets <- jsonlite::fromJSON("https://raw.githubusercontent.com/ccodwg/Covid19CanadaArchive/master/datasets.json", simplifyVector = FALSE)
 opencovid_datasets <- lapply(opencovid_datasets, function(toplevel) {
