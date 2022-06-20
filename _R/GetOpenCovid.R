@@ -3,7 +3,7 @@ GetOpenCovid <- function(stat, loc) {
   names(stat) <- stat
   df <- lapply(stat, function (stat_code) {
     tab <- lapply(loc, function(location_code) {
-      link <- paste("https://api.opencovid.ca/timeseries?stat=", stat_code, "&loc=", location_code, sep = "")
+      link <- paste("https://api.opencovid.ca/timeseries?stat=all&geo=hr&loc=", location_code, sep = "")
       jsonlite::fromJSON(link)[[stat_code]]
     })
     tab <- do.call(rbind, tab)
