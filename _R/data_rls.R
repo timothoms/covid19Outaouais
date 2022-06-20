@@ -1,4 +1,4 @@
-rls <- parallel:: mclapply(dir("_csv/inspq_rss_rls/"), function(file) {
+rls <- parallel::mclapply(dir("_csv/inspq_rss_rls/"), function(file) {
   df <- readr::read_csv(paste("_csv/inspq_rss_rls/", file, sep = ""))
   if(!"Cas actifs" %in% names(df)) df$'Cas actifs' <- NA
   time <- stringr::str_replace(file, "tableau-rls-new_", "")

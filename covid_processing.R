@@ -324,11 +324,12 @@ source("_R/data_inspq.R")
 inspq <- inspq %>%
   mutate(key = as.character(key),
          table = "INSPQ")
-source("_R/data_rls.R")
-rls <- rls %>%
-  mutate(key = as.character(key),
-         table = as.character(table),
-         table = paste("INSPQ RLS", table))
+### changes to the INSPQ RLS data have broken the automatization, but not sure whether these data are still even needed
+# source("_R/data_rls.R")
+# rls <- rls %>%
+#   mutate(key = as.character(key),
+#          table = as.character(table),
+#          table = paste("INSPQ RLS", table))
 cisss <- cisss %>%
   filter(key != "") %>%
   mutate(key = as.character(key),
@@ -339,7 +340,7 @@ cisss <- cisss %>%
 ### combining datasets (keep schools in separate df)
 outaouais <- list(
   inspq = inspq,
-  rls = rls,
+  # rls = rls,
   hospitalization = hospitalization,
   cisss = cisss
 )
