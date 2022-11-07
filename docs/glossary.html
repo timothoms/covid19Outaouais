@@ -13,7 +13,7 @@
 
 <title>Glossary</title>
 
-<script src="site_libs/header-attrs-2.13/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.17/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/darkly.min.css" rel="stylesheet" />
@@ -134,11 +134,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -167,8 +171,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -176,16 +180,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -269,101 +266,114 @@ $(document).ready(function () {
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
-    <li class="dropdown-header">Quebec</li>
-    <li>
-      <a href="https://cisss-outaouais.gouv.qc.ca/covid-19/">CISSS Outaouais</a>
-    </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Institut national de santé publique</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Quebec</a>
       <ul class="dropdown-menu" role="menu">
         <li>
-          <a href="https://www.inspq.qc.ca/covid-19/donnees/">cases</a>
+          <a href="https://cisss-outaouais.gouv.qc.ca/covid-19/">CISSS Outaouais</a>
         </li>
-        <li>
-          <a href="https://www.inspq.qc.ca/covid-19/donnees/vaccination/">vaccination</a>
+        <li class="dropdown-submenu">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Institut national de santé publique</a>
+          <ul class="dropdown-menu" role="menu">
+            <li>
+              <a href="https://www.inspq.qc.ca/covid-19/donnees/">cases</a>
+            </li>
+            <li>
+              <a href="https://www.inspq.qc.ca/covid-19/donnees/vaccination/">vaccination</a>
+            </li>
+            <li>
+              <a href="https://www.inspq.qc.ca/covid-19/donnees/variants/">variants</a>
+            </li>
+            <li>
+              <a href="https://www.inspq.qc.ca/covid-19/donnees/ligne-du-temps/">timeline</a>
+            </li>
+          </ul>
         </li>
-        <li>
-          <a href="https://www.inspq.qc.ca/covid-19/donnees/variants/">variants</a>
+        <li class="dropdown-submenu">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Ministère de la Santé et des Services Sociaux</a>
+          <ul class="dropdown-menu" role="menu">
+            <li>
+              <a href="https://www.donneesquebec.ca/recherche/dataset/covid-19-portrait-quotidien-des-cas-confirmes">cases</a>
+            </li>
+            <li>
+              <a href="https://www.donneesquebec.ca/recherche/dataset/covid-19-portrait-quotidien-des-hospitalisations">hospitalizations</a>
+            </li>
+          </ul>
         </li>
-        <li>
-          <a href="https://www.inspq.qc.ca/covid-19/donnees/ligne-du-temps/">timeline</a>
+        <li class="dropdown-submenu">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Gouvernement du Québec</a>
+          <ul class="dropdown-menu" role="menu">
+            <li>
+              <a href="https://www.quebec.ca/sante/problemes-de-sante/a-z/coronavirus-2019/situation-coronavirus-quebec/">situation</a>
+            </li>
+            <li>
+              <a href="https://www.quebec.ca/sante/problemes-de-sante/a-z/coronavirus-2019/situation-coronavirus-quebec/donnees-sur-la-vaccination-covid-19/">vaccination</a>
+            </li>
+          </ul>
         </li>
       </ul>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Ministère de la Santé et des Services Sociaux</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Ontario</a>
       <ul class="dropdown-menu" role="menu">
         <li>
-          <a href="https://www.donneesquebec.ca/recherche/dataset/covid-19-portrait-quotidien-des-cas-confirmes">cases</a>
+          <a href="https://613covid.ca/">Ottawa COVID-19 (613covid.ca)</a>
         </li>
         <li>
-          <a href="https://www.donneesquebec.ca/recherche/dataset/covid-19-portrait-quotidien-des-hospitalisations">hospitalizations</a>
+          <a href="https://open.ottawa.ca/search?q=covid">Open Ottawa</a>
+        </li>
+        <li>
+          <a href="https://www.ottawapublichealth.ca/en/reports-research-and-statistics/daily-covid19-dashboard.aspx">Ottawa Public Health COVID-19 Dashboard</a>
+        </li>
+        <li>
+          <a href="https://data.ontario.ca/dataset?keywords_en=COVID-19">Ontario Data Catalogue</a>
         </li>
       </ul>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Gouvernement du Québec</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Canada</a>
       <ul class="dropdown-menu" role="menu">
-        <li>
-          <a href="https://www.quebec.ca/sante/problemes-de-sante/a-z/coronavirus-2019/situation-coronavirus-quebec/">situation</a>
+        <li class="dropdown-submenu">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Government of Canada</a>
+          <ul class="dropdown-menu" role="menu">
+            <li>
+              <a href="https://health-infobase.canada.ca/covid-19/epidemiological-summary-covid-19-cases.html">cases</a>
+            </li>
+            <li>
+              <a href="https://health-infobase.canada.ca/covid-19/vaccination-coverage/">vaccination</a>
+            </li>
+          </ul>
         </li>
         <li>
-          <a href="https://www.quebec.ca/sante/problemes-de-sante/a-z/coronavirus-2019/situation-coronavirus-quebec/donnees-sur-la-vaccination-covid-19/">vaccination</a>
+          <a href="https://opencovid.ca/">opencovid.ca</a>
+        </li>
+        <li>
+          <a href="https://centre.irpp.org/data/covid-19-provincial-policies/">Covid-19 Provincial Policies</a>
         </li>
       </ul>
     </li>
-    <li class="divider"></li>
-    <li class="dropdown-header">Ontario</li>
-    <li>
-      <a href="https://613covid.ca/">Ottawa COVID-19 (613covid.ca)</a>
-    </li>
-    <li>
-      <a href="https://open.ottawa.ca/search?q=covid">Open Ottawa</a>
-    </li>
-    <li>
-      <a href="https://www.ottawapublichealth.ca/en/reports-research-and-statistics/daily-covid19-dashboard.aspx">Ottawa Public Health COVID-19 Dashboard</a>
-    </li>
-    <li>
-      <a href="https://data.ontario.ca/dataset?keywords_en=COVID-19">Ontario Data Catalogue</a>
-    </li>
-    <li class="divider"></li>
-    <li class="dropdown-header">Canada</li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Government of Canada</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Global</a>
       <ul class="dropdown-menu" role="menu">
         <li>
-          <a href="https://health-infobase.canada.ca/covid-19/epidemiological-summary-covid-19-cases.html">cases</a>
+          <a href="https://covid19.who.int/">WHO</a>
         </li>
         <li>
-          <a href="https://health-infobase.canada.ca/covid-19/vaccination-coverage/">vaccination</a>
+          <a href="https://github.com/CSSEGISandData/COVID-19">JHU CSSE</a>
+        </li>
+        <li>
+          <a href="https://www.ecdc.europa.eu/en/geographical-distribution-2019-ncov-cases">ECDC</a>
+        </li>
+        <li>
+          <a href="https://epiforecasts.io/covid/">EpiForecasts</a>
+        </li>
+        <li>
+          <a href="https://covidtracking.com/">Covid Tracking Project (US, no longer updated)</a>
+        </li>
+        <li>
+          <a href="https://www.bsg.ox.ac.uk/research/research-projects/covid-19-government-response-tracker">Covid-19 Government Response Tracker</a>
         </li>
       </ul>
-    </li>
-    <li>
-      <a href="https://opencovid.ca/">opencovid.ca</a>
-    </li>
-    <li>
-      <a href="https://centre.irpp.org/data/covid-19-provincial-policies/">Covid-19 Provincial Policies</a>
-    </li>
-    <li class="divider"></li>
-    <li class="dropdown-header">Global</li>
-    <li>
-      <a href="https://covid19.who.int/">WHO</a>
-    </li>
-    <li>
-      <a href="https://github.com/CSSEGISandData/COVID-19">JHU CSSE</a>
-    </li>
-    <li>
-      <a href="https://www.ecdc.europa.eu/en/geographical-distribution-2019-ncov-cases">ECDC</a>
-    </li>
-    <li>
-      <a href="https://epiforecasts.io/covid/">EpiForecasts</a>
-    </li>
-    <li>
-      <a href="https://covidtracking.com/">Covid Tracking Project (US, no longer updated)</a>
-    </li>
-    <li>
-      <a href="https://www.bsg.ox.ac.uk/research/research-projects/covid-19-government-response-tracker">Covid-19 Government Response Tracker</a>
     </li>
   </ul>
 </li>
